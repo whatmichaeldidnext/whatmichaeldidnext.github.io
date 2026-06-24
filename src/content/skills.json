@@ -1,0 +1,22 @@
+[
+  {
+    "id": "power-bi",
+    "name": "Power BI"
+  },
+  {
+    "id": "stakeholder-management",
+    "name": "Stakeholder Management"
+  },
+  {
+    "id": "data-modelling",
+    "name": "Data Modelling"
+  },
+  {
+    "id": "java",
+    "name": "Java"
+  },
+  {
+    "id": "cybersecurity",
+    "name": "Cybersecurity"
+  }
+]

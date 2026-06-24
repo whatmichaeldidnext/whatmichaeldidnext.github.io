@@ -1,0 +1,40 @@
+[
+  {
+    "id": "aso-datalake",
+    "title": "ASO Datalake Power BI Model",
+    "domains": [
+      "data-analytics",
+      "telecoms",
+      "project-delivery"
+    ],
+    "skills": [
+      "power-bi",
+      "data-modelling",
+      "stakeholder-management"
+    ]
+  },
+
+  {
+    "id": "msc-project",
+    "title": "MSc Cybersecurity Research Project",
+    "domains": [
+      "cybersecurity",
+      "software-development"
+    ],
+    "skills": [
+      "java",
+      "cybersecurity"
+    ]
+  },
+
+  {
+    "id": "online-portfolio",
+    "title": "Explorable Professional Profile",
+    "domains": [
+      "software-development"
+    ],
+    "skills": [
+      "java"
+    ]
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "id": "project-delivery",
+    "name": "Project Delivery",
+    "description": "Leading complex technical change."
+  },
+  {
+    "id": "telecoms",
+    "name": "Telecoms & Teams Calling",
+    "description": "Voice, PSTN replacement and Teams Calling."
+  },
+  {
+    "id": "data-analytics",
+    "name": "Data Analytics",
+    "description": "Power BI, data modelling and reporting."
+  },
+  {
+    "id": "cybersecurity",
+    "name": "Cybersecurity",
+    "description": "Security, OSINT and MSc research."
+  },
+  {
+    "id": "software-development",
+    "name": "Software Development",
+    "description": "Java, Python and web applications."
+  }
+]
