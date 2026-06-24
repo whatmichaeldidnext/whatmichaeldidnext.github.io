@@ -23,5 +23,11 @@
     "id": "software-development",
     "name": "Software Development",
     "description": "Java, Python and web applications."
+  },
+  {
+    "id": "artificial-intelligence",
+    "name": "Artificial Intelligence",
+    "description": "A developing area of interest connected to data, automation, and future software projects.",
+    "status": "developing"
   }
 ]

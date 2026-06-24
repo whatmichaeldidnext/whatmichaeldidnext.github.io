@@ -19,5 +19,11 @@
   {
     "id": "cybersecurity",
     "name": "Cybersecurity"
+  },
+  {
+    "id": "machine-learning",
+    "name": "Machine Learning",
+    "summary": "An active development area linked to academic study and future project work.",
+    "status": "developing"
   }
 ]

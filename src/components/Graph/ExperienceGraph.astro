@@ -137,86 +137,101 @@ const graphData = {
     const cy = cytoscape({
       container: graphContainer,
       elements,
-      style: [
-        {
-          selector: "node",
-          style: {
-            label: "data(label)",
-            color: "#e5e7eb",
-            "background-color": "#334155",
-            "font-size": "10px",
-            width: "50px",
-            height: "50px",
-            "text-valign": "center",
-            "text-halign": "center",
-            cursor: "pointer",
-          },
-        },
-        {
-          selector: 'node[type = "project"]',
-          style: {
-            "background-color": "#2563eb",
-            width: "100px",
-            height: "100px",
-            "font-size": "12px",
-          },
-        },
-        {
-          selector: 'node[type = "domain"]',
-          style: {
-            "background-color": "#7c3aed",
-            width: "80px",
-            height: "80px",
-            "font-size": "11px",
-          },
-        },
-        {
-          selector: 'node[type = "skill"]',
-          style: {
-            "background-color": "#059669",
-            width: "60px",
-            height: "60px",
-            "font-size": "10px",
-          },
-        },
-        {
-          selector: 'node[type = "tool"]',
-          style: {
-            "background-color": "#b45309",
-            width: "45px",
-            height: "45px",
-            "font-size": "8px",
-          },
-        },
-        {
-          selector: "edge",
-          style: {
-            width: 2,
-            "line-color": "#64748b",
-          },
-        },
-        {
-          selector: ".faded",
-          style: {
-            opacity: 0.15,
-          },
-        },
-        {
-          selector: ".highlighted",
-          style: {
-            opacity: 1,
-            "border-width": 4,
-            "border-color": "#ffffff",
-          },
-        },
-        {
-          selector: ".search-match",
-          style: {
-            "border-width": 6,
-            "border-color": "#facc15",
-          },
-        },
-      ],
+style: [
+  {
+    selector: "node",
+    style: {
+      label: "data(label)",
+      color: "#e5e7eb",
+      "background-color": "#0f172a",
+      "border-width": 2,
+      "border-color": "#475569",
+      "font-size": "9px",
+      width: "50px",
+      height: "50px",
+      "text-valign": "center",
+      "text-halign": "center",
+      cursor: "pointer",
+    },
+  },
+  {
+    selector: 'node[type = "project"]',
+    style: {
+      shape: "round-rectangle",
+      "background-color": "#0f172a",
+      "border-color": "#60a5fa",
+      width: "110px",
+      height: "70px",
+      "font-size": "12px",
+    },
+  },
+  {
+    selector: 'node[type = "domain"]',
+    style: {
+      shape: "hexagon",
+      "background-color": "#0f172a",
+      "border-color": "#a78bfa",
+      width: "90px",
+      height: "90px",
+      "font-size": "11px",
+    },
+  },
+  {
+    selector: 'node[type = "skill"]',
+    style: {
+      shape: "ellipse",
+      "background-color": "#0f172a",
+      "border-color": "#34d399",
+      width: "65px",
+      height: "65px",
+      "font-size": "10px",
+    },
+  },
+  {
+    selector: 'node[type = "tool"]',
+    style: {
+      shape: "diamond",
+      "background-color": "#0f172a",
+      "border-color": "#fbbf24",
+      width: "55px",
+      height: "55px",
+      "font-size": "8px",
+    },
+  },
+  {
+    selector: "edge",
+    style: {
+      width: 2,
+      "line-color": "#334155",
+    },
+  },
+  {
+    selector: ".faded",
+    style: {
+      opacity: 0.15,
+    },
+  },
+  {
+    selector: ".highlighted",
+    style: {
+      opacity: 1,
+      "border-width": 4,
+      "shadow-blur": 20,
+      "shadow-opacity": 0.4,
+      "shadow-color": "#ffffff",
+    },
+  },
+  {
+    selector: ".search-match",
+    style: {
+      "border-width": 5,
+      "border-color": "#38bdf8",
+      "shadow-blur": 25,
+      "shadow-opacity": 0.6,
+      "shadow-color": "#38bdf8",
+    },
+  },
+],
       layout: {
         name: "fcose",
         animate: true,
@@ -228,6 +243,30 @@ const graphData = {
         randomize: true,
       },
     });
+
+    const updateLabelSizes = () => {
+      const zoom = cy.zoom();
+
+      cy.nodes().forEach((node) => {
+        const type = node.data("type");
+
+        let baseSize = 9;
+
+        if (type === "project") baseSize = 12;
+        if (type === "domain") baseSize = 11;
+        if (type === "skill") baseSize = 10;
+        if (type === "tool") baseSize = 8;
+
+        const adjustedSize = Math.max(7, Math.min(18, baseSize / zoom));
+
+        node.style("font-size", adjustedSize);
+      });
+    };
+
+    cy.on("zoom", updateLabelSizes);
+    cy.on("layoutstop", updateLabelSizes);
+
+    updateLabelSizes();
 
     const findProject = (id) =>
       graphData.projects.find((item) => item.id === id);

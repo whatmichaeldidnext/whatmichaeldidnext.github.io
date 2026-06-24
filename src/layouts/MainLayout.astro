@@ -1,4 +1,10 @@
 ---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+}
+
 const { title = "Michael Charles Portfolio" } = Astro.props;
 ---
 
@@ -6,69 +12,350 @@ const { title = "Michael Charles Portfolio" } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>{title}</title>
+
+    <meta
+      name="description"
+      content="Explorable Professional Profile of Michael Charles"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    <header>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/graph">Explore</a>
-        <a href="/projects">Projects</a>
-        <a href="/domains">Domains</a>
-        <a href="/skills">Skills</a>
-        <a href="/contact">Contact</a>
-      </nav>
-    </header>
+    <div class="site-shell" id="site-shell">
+      <button
+        id="sidebar-toggle"
+        class="sidebar-toggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-expanded="true"
+      >
+        ☰
+      </button>
 
-    <main>
-      <slot />
-    </main>
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-inner">
+          <div class="brand">
+            <a href="/" class="site-title">Michael Charles</a>
 
-    <footer>
-      <p>© {new Date().getFullYear()} Michael Charles</p>
-    </footer>
+            <p class="site-subtitle">Explorable Professional Profile</p>
+
+            <p class="site-tagline">
+              PROJECT DELIVERY<br />
+              TELECOMS<br />
+              DATA ANALYTICS<br />
+              CYBERSECURITY<br />
+              SOFTWARE DEVELOPMENT
+            </p>
+          </div>
+
+          <nav>
+            <a href="/">Home</a>
+            <a href="/projects">Projects</a>
+            <a href="/domains">Domains</a>
+            <a href="/skills">Skills</a>
+            <a href="/graph">Graph</a>
+            <a href="/contact">Contact</a>
+          </nav>
+
+          <div class="sidebar-footer">
+            <p>Built with Astro</p>
+            <p>© {new Date().getFullYear()}</p>
+          </div>
+        </div>
+      </aside>
+
+      <div class="page-column">
+        <main>
+          <slot />
+        </main>
+
+        <footer>
+          <p>Built using Astro as an explorable professional profile.</p>
+
+          <p>© {new Date().getFullYear()} Michael Charles</p>
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      const toggleButton = document.getElementById("sidebar-toggle");
+      const siteShell = document.getElementById("site-shell");
+
+      const storageKey = "portfolio-sidebar-collapsed";
+
+      const applySidebarState = (collapsed) => {
+        if (!siteShell || !toggleButton) return;
+
+        siteShell.classList.toggle("sidebar-collapsed", collapsed);
+        toggleButton.setAttribute("aria-expanded", String(!collapsed));
+      };
+
+      const savedState = localStorage.getItem(storageKey);
+
+      if (savedState === "true") {
+        applySidebarState(true);
+      }
+
+      toggleButton?.addEventListener("click", () => {
+        if (!siteShell) return;
+
+        const collapsed = !siteShell.classList.contains("sidebar-collapsed");
+
+        applySidebarState(collapsed);
+        localStorage.setItem(storageKey, String(collapsed));
+      });
+    </script>
   </body>
 </html>
 
 <style>
-  body {
-    margin: 0;
-    font-family: system-ui, sans-serif;
-    background: #0f172a;
-    color: #e5e7eb;
+  .site-shell {
+    --sidebar-width: 280px;
+    --toggle-size: 2.5rem;
+
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+
+    transition: grid-template-columns 0.25s ease;
   }
 
-  header {
-    border-bottom: 1px solid #334155;
-    padding: 1rem 2rem;
+  .site-shell.sidebar-collapsed {
+    grid-template-columns: 0 minmax(0, 1fr);
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+
+    border-right: 1px solid var(--border);
+    background: rgba(2, 6, 23, 0.94);
+    backdrop-filter: blur(12px);
+
+    transition:
+      opacity 0.2s ease,
+      transform 0.25s ease;
+  }
+
+  .site-shell.sidebar-collapsed .sidebar {
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+  }
+
+  .sidebar-inner {
+    height: 100%;
+    padding: 2rem 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .brand {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .site-title {
+    display: inline-block;
+
+    color: var(--text);
+    font-size: 1.45rem;
+    font-weight: 800;
+    line-height: 1.1;
+
+    text-decoration: none;
+  }
+
+  .site-title:hover {
+    text-decoration: none;
+    color: var(--accent);
+  }
+
+  .site-subtitle {
+    margin: 0.75rem 0 1.25rem;
+
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .site-tagline {
+    margin: 0;
+
+    font-family: var(--font-mono);
+    color: var(--muted);
+    font-size: 0.7rem;
+    line-height: 1.7;
+    letter-spacing: 0.08em;
   }
 
   nav {
     display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 0.85rem;
+
+    margin-top: 2rem;
+
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
   }
 
-  a {
-    color: #93c5fd;
+  nav a {
+    color: var(--muted);
     text-decoration: none;
   }
 
-  a:hover {
-    text-decoration: underline;
+  nav a:hover {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .sidebar-footer {
+    margin-top: auto;
+    padding-top: 2rem;
+
+    border-top: 1px solid var(--border);
+  }
+
+  .sidebar-footer p {
+    margin: 0.25rem 0;
+
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+
+  .page-column {
+    min-width: 0;
   }
 
   main {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 3rem 2rem;
+    padding: 3rem 2rem 5rem;
   }
 
   footer {
-    border-top: 1px solid #334155;
-    padding: 1rem 2rem;
-    color: #94a3b8;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 2rem;
+  }
+
+  footer p {
+    margin: 0;
+
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .sidebar-toggle {
+    position: fixed;
+    top: 1rem;
+    left: calc(var(--sidebar-width) - (var(--toggle-size) / 2));
+    z-index: 200;
+
+    width: var(--toggle-size);
+    height: var(--toggle-size);
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--border);
+    border-radius: 999px;
+
+    background: rgba(15, 23, 42, 0.94);
+    color: var(--text);
+
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+
+    backdrop-filter: blur(12px);
+
+    transition:
+      left 0.25s ease,
+      color 0.2s ease,
+      border-color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .site-shell.sidebar-collapsed .sidebar-toggle {
+    left: 1rem;
+  }
+
+  .sidebar-toggle:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .sidebar-toggle:active {
+    transform: scale(0.96);
+  }
+
+  @media (max-width: 900px) {
+    .site-shell {
+      --sidebar-width: min(280px, 85vw);
+
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .sidebar {
+      position: fixed;
+      z-index: 150;
+      width: var(--sidebar-width);
+      left: 0;
+      top: 0;
+    }
+
+    .site-shell.sidebar-collapsed .sidebar {
+      transform: translateX(-100%);
+    }
+
+    .site-shell:not(.sidebar-collapsed) .sidebar {
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .sidebar-toggle {
+      left: calc(var(--sidebar-width) - (var(--toggle-size) / 2));
+    }
+
+    .site-shell.sidebar-collapsed .sidebar-toggle {
+      left: 1rem;
+    }
+
+    main {
+      padding: 5rem 1rem 4rem;
+    }
+
+    footer {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
   }
 </style>
