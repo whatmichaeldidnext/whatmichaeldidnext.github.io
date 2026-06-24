@@ -24,7 +24,7 @@ const getSkillName = (id) => {
   <section class="project-grid">
     {projects.map((project) => (
       <article class="project-card">
-        <h2>{project.title}</h2>
+        <h2><a href={`/projects/${project.id}`}>{project.title}</a></h2>
 
         <h3>Domains</h3>
         <ul>

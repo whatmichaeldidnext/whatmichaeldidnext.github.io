@@ -1,0 +1,71 @@
+---
+import domains from "../../content/domains.json";
+---
+
+<section class="section">
+  <div class="section-header">
+    <h2>Core Domains</h2>
+    <a href="/domains">View all domains →</a>
+  </div>
+
+  <div class="grid">
+    {domains.map((domain) => (
+      <a class="card" href={`/domains/${domain.id}`}>
+        <h3>{domain.name}</h3>
+        <p>{domain.description}</p>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .section {
+    padding: 3rem 0;
+    border-top: 1px solid #334155;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    color: #bfdbfe;
+    font-size: 2rem;
+  }
+
+  .section-header a {
+    color: #93c5fd;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .card {
+    display: block;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 1.25rem;
+    background: #111827;
+    text-decoration: none;
+  }
+
+  .card:hover {
+    border-color: #60a5fa;
+  }
+
+  h3 {
+    color: #e5e7eb;
+    margin-top: 0;
+  }
+
+  p {
+    color: #cbd5e1;
+  }
+</style>

@@ -19,7 +19,7 @@ const getProjectsForSkill = (skillId) => {
   <section class="card-grid">
     {skills.map((skill) => (
       <article class="card">
-        <h2>{skill.name}</h2>
+        <h2><a href={`/skills/${skill.id}`}>{skill.name}</a></h2>
 
         <h3>Evidence Projects</h3>
         <ul>

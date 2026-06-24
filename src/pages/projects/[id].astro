@@ -1,0 +1,105 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import projects from "../../content/projects.json";
+import domains from "../../content/domains.json";
+import skills from "../../content/skills.json";
+import tools from "../../content/tools.json";
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+
+const getDomainName = (id) =>
+  domains.find((domain) => domain.id === id)?.name ?? id;
+
+const getSkillName = (id) =>
+  skills.find((skill) => skill.id === id)?.name ?? id;
+
+const getToolName = (id) =>
+  tools.find((tool) => tool.id === id)?.name ?? id;
+---
+
+<MainLayout title={`${project.title} | Michael Charles Portfolio`}>
+  <a href="/projects" class="back-link">← Back to Projects</a>
+
+  <article class="project-detail">
+    <h1>{project.title}</h1>
+
+    <p class="summary">{project.summary}</p>
+
+    <section>
+      <h2>Context</h2>
+      <p>{project.context}</p>
+    </section>
+
+    <section>
+      <h2>My Role</h2>
+      <p>{project.role}</p>
+    </section>
+
+    <section>
+      <h2>Outcome</h2>
+      <p>{project.outcome}</p>
+    </section>
+
+    <section>
+      <h2>Domains</h2>
+      <ul>
+        {project.domains.map((domainId) => (
+          <li>{getDomainName(domainId)}</li>
+        ))}
+      </ul>
+    </section>
+
+    <section>
+      <h2>Skills Evidenced</h2>
+      <ul>
+        {project.skills.map((skillId) => (
+          <li>{getSkillName(skillId)}</li>
+        ))}
+      </ul>
+    </section>
+
+    <section>
+      <h2>Tools Used</h2>
+      <ul>
+        {project.tools?.map((toolId) => (
+          <li>{getToolName(toolId)}</li>
+        ))}
+      </ul>
+    </section>
+  </article>
+</MainLayout>
+
+<style>
+  .back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+  }
+
+  .project-detail {
+    max-width: 800px;
+  }
+
+  .summary {
+    font-size: 1.2rem;
+    color: #cbd5e1;
+  }
+
+  section {
+    margin-top: 2rem;
+  }
+
+  h1 {
+    color: #bfdbfe;
+  }
+
+  h2 {
+    color: #e5e7eb;
+  }
+</style>

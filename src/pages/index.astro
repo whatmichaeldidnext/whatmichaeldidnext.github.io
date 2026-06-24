@@ -1,18 +1,19 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+
+import HeroSection from "../components/Home/HeroSection.astro";
+import SummarySection from "../components/Home/SummarySection.astro";
+import DomainGrid from "../components/Home/DomainGrid.astro";
+import FeaturedProjects from "../components/Home/FeaturedProjects.astro";
+import CurrentFocus from "../components/Home/CurrentFocus.astro";
+import GraphPreview from "../components/Home/GraphPreview.astro";
 ---
 
-<MainLayout title="Home | Michael Charles Portfolio">
-  <h1>Explorable Professional Profile</h1>
-
-  <p>
-    A portfolio-first view of my experience across project delivery, telecoms,
-    data analytics, cybersecurity, software development, product ownership,
-    architecture, and academic research.
-  </p>
-
-  <p>
-    Rather than starting with a traditional CV, this site lets visitors explore
-    the connections between my projects, skills, tools, and evidence.
-  </p>
+<MainLayout title="Michael Charles">
+  <HeroSection />
+  <SummarySection />
+  <DomainGrid />
+  <FeaturedProjects />
+  <CurrentFocus />
+  <GraphPreview />
 </MainLayout>

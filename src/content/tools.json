@@ -1,0 +1,10 @@
+[
+  { "id": "power-bi", "name": "Power BI" },
+  { "id": "power-query", "name": "Power Query" },
+  { "id": "excel", "name": "Excel" },
+  { "id": "sharepoint", "name": "SharePoint" },
+  { "id": "astro", "name": "Astro" },
+  { "id": "cytoscape", "name": "Cytoscape.js" },
+  { "id": "java", "name": "Java" },
+  { "id": "python", "name": "Python" }
+]

@@ -1,0 +1,85 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import skills from "../../content/skills.json";
+import projects from "../../content/projects.json";
+import domains from "../../content/domains.json";
+
+export function getStaticPaths() {
+  return skills.map((skill) => ({
+    params: { id: skill.id },
+    props: { skill },
+  }));
+}
+
+const { skill } = Astro.props;
+
+const relatedProjects = projects.filter((project) =>
+  project.skills.includes(skill.id)
+);
+
+const relatedDomainIds = [
+  ...new Set(relatedProjects.flatMap((project) => project.domains)),
+];
+
+const relatedDomains = domains.filter((domain) =>
+  relatedDomainIds.includes(domain.id)
+);
+---
+
+<MainLayout title={`${skill.name} | Michael Charles Portfolio`}>
+  <a href="/skills" class="back-link">← Back to Skills</a>
+
+  <article class="detail-page">
+    <h1>{skill.name}</h1>
+
+    <p class="summary">
+      This skill is evidenced through the projects and domains below.
+    </p>
+
+    <section>
+      <h2>Evidence Projects</h2>
+      <ul>
+        {relatedProjects.map((project) => (
+          <li>
+            <a href={`/projects/${project.id}`}>{project.title}</a>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section>
+      <h2>Related Domains</h2>
+      <ul>
+        {relatedDomains.map((domain) => (
+          <li>
+            <a href={`/domains/${domain.id}`}>{domain.name}</a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </article>
+</MainLayout>
+
+<style>
+  .back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+  }
+
+  .detail-page {
+    max-width: 800px;
+  }
+
+  .summary {
+    font-size: 1.2rem;
+    color: #cbd5e1;
+  }
+
+  section {
+    margin-top: 2rem;
+  }
+
+  h1 {
+    color: #bfdbfe;
+  }
+</style>

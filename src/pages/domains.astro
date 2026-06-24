@@ -19,7 +19,7 @@ const getProjectsForDomain = (domainId) => {
   <section class="card-grid">
     {domains.map((domain) => (
       <article class="card">
-        <h2>{domain.name}</h2>
+        <h2><a href={`/domains/${domain.id}`}>{domain.name}</a></h2>
         <p>{domain.description}</p>
 
         <h3>Related Projects</h3>

@@ -1,0 +1,679 @@
+---
+import projects from "../../content/projects.json";
+import domains from "../../content/domains.json";
+import skills from "../../content/skills.json";
+import tools from "../../content/tools.json";
+
+const graphData = {
+  projects,
+  domains,
+  skills,
+  tools,
+};
+---
+
+<div class="graph-controls">
+  <label for="graph-search">Search the graph</label>
+  <input
+    id="graph-search"
+    type="search"
+    placeholder="Search projects, domains, skills or tools..."
+  />
+  <p class="graph-hint">
+    Type to highlight. Press Enter to centre the result. Double-click a node to
+    open its page.
+  </p>
+</div>
+
+<div class="graph-wrapper">
+  <div id="experience-graph"></div>
+
+  <aside id="graph-popup" class="graph-popup hidden" aria-live="polite">
+    <button id="graph-popup-close" class="graph-popup-close" type="button">
+      ×
+    </button>
+
+    <div id="graph-popup-content">
+      <p class="panel-eyebrow">Selected item</p>
+      <h2>Nothing selected</h2>
+      <p>Click a node in the graph to see more detail.</p>
+    </div>
+  </aside>
+</div>
+
+<script id="graph-data" type="application/json" set:html={JSON.stringify(graphData)}></script>
+
+<script>
+  import cytoscape from "cytoscape";
+  import fcose from "cytoscape-fcose";
+
+  cytoscape.use(fcose);
+
+  const graphDataElement = document.getElementById("graph-data");
+  const graphContainer = document.getElementById("experience-graph");
+  const searchInput = document.getElementById("graph-search");
+  const popup = document.getElementById("graph-popup");
+  const popupContent = document.getElementById("graph-popup-content");
+  const popupClose = document.getElementById("graph-popup-close");
+
+  if (
+    graphDataElement &&
+    graphContainer &&
+    searchInput &&
+    popup &&
+    popupContent &&
+    popupClose
+  ) {
+    const graphData = JSON.parse(graphDataElement.textContent);
+    const elements = [];
+
+    graphData.domains.forEach((domain) => {
+      elements.push({
+        data: {
+          id: `domain-${domain.id}`,
+          label: domain.name,
+          type: "domain",
+        },
+      });
+    });
+
+    graphData.skills.forEach((skill) => {
+      elements.push({
+        data: {
+          id: `skill-${skill.id}`,
+          label: skill.name,
+          type: "skill",
+        },
+      });
+    });
+
+    graphData.tools.forEach((tool) => {
+      elements.push({
+        data: {
+          id: `tool-${tool.id}`,
+          label: tool.name,
+          type: "tool",
+        },
+      });
+    });
+
+    graphData.projects.forEach((project) => {
+      elements.push({
+        data: {
+          id: `project-${project.id}`,
+          label: project.title,
+          type: "project",
+        },
+      });
+
+      project.domains.forEach((domainId) => {
+        elements.push({
+          data: {
+            source: `project-${project.id}`,
+            target: `domain-${domainId}`,
+          },
+        });
+      });
+
+      project.skills.forEach((skillId) => {
+        elements.push({
+          data: {
+            source: `project-${project.id}`,
+            target: `skill-${skillId}`,
+          },
+        });
+      });
+
+      project.tools?.forEach((toolId) => {
+        elements.push({
+          data: {
+            source: `project-${project.id}`,
+            target: `tool-${toolId}`,
+          },
+        });
+      });
+    });
+
+    const cy = cytoscape({
+      container: graphContainer,
+      elements,
+      style: [
+        {
+          selector: "node",
+          style: {
+            label: "data(label)",
+            color: "#e5e7eb",
+            "background-color": "#334155",
+            "font-size": "10px",
+            width: "50px",
+            height: "50px",
+            "text-valign": "center",
+            "text-halign": "center",
+            cursor: "pointer",
+          },
+        },
+        {
+          selector: 'node[type = "project"]',
+          style: {
+            "background-color": "#2563eb",
+            width: "100px",
+            height: "100px",
+            "font-size": "12px",
+          },
+        },
+        {
+          selector: 'node[type = "domain"]',
+          style: {
+            "background-color": "#7c3aed",
+            width: "80px",
+            height: "80px",
+            "font-size": "11px",
+          },
+        },
+        {
+          selector: 'node[type = "skill"]',
+          style: {
+            "background-color": "#059669",
+            width: "60px",
+            height: "60px",
+            "font-size": "10px",
+          },
+        },
+        {
+          selector: 'node[type = "tool"]',
+          style: {
+            "background-color": "#b45309",
+            width: "45px",
+            height: "45px",
+            "font-size": "8px",
+          },
+        },
+        {
+          selector: "edge",
+          style: {
+            width: 2,
+            "line-color": "#64748b",
+          },
+        },
+        {
+          selector: ".faded",
+          style: {
+            opacity: 0.15,
+          },
+        },
+        {
+          selector: ".highlighted",
+          style: {
+            opacity: 1,
+            "border-width": 4,
+            "border-color": "#ffffff",
+          },
+        },
+        {
+          selector: ".search-match",
+          style: {
+            "border-width": 6,
+            "border-color": "#facc15",
+          },
+        },
+      ],
+      layout: {
+        name: "fcose",
+        animate: true,
+        nodeRepulsion: 12000,
+        idealEdgeLength: 250,
+        fit: true,
+        gravity: 0.05,
+        padding: 80,
+        randomize: true,
+      },
+    });
+
+    const findProject = (id) =>
+      graphData.projects.find((item) => item.id === id);
+
+    const findDomain = (id) =>
+      graphData.domains.find((item) => item.id === id);
+
+    const findSkill = (id) =>
+      graphData.skills.find((item) => item.id === id);
+
+    const findTool = (id) =>
+      graphData.tools.find((item) => item.id === id);
+
+    const listHtml = (items, getUrl = null) => {
+      if (!items || items.length === 0) {
+        return "<p class='empty-list'>None yet.</p>";
+      }
+
+      return `
+        <ul>
+          ${items
+            .map((item) => {
+              const label = item.name ?? item.title;
+
+              if (getUrl) {
+                return `<li><a href="${getUrl(item)}">${label}</a></li>`;
+              }
+
+              return `<li>${label}</li>`;
+            })
+            .join("")}
+        </ul>
+      `;
+    };
+
+    const openPopup = () => {
+      popup.classList.remove("hidden");
+    };
+
+    const closePopup = () => {
+      popup.classList.add("hidden");
+    };
+
+    const updatePopup = (node) => {
+      const type = node.data("type");
+      const rawId = node.id();
+
+      if (type === "project") {
+        const projectId = rawId.replace("project-", "");
+        const project = findProject(projectId);
+
+        const relatedDomains = project.domains.map(findDomain).filter(Boolean);
+        const relatedSkills = project.skills.map(findSkill).filter(Boolean);
+        const relatedTools = project.tools?.map(findTool).filter(Boolean) ?? [];
+
+        popupContent.innerHTML = `
+          <p class="panel-eyebrow">Project</p>
+          <h2>${project.title}</h2>
+          <p>${project.summary ?? "No summary added yet."}</p>
+
+          <h3>Domains</h3>
+          ${listHtml(relatedDomains, (item) => `/domains/${item.id}`)}
+
+          <h3>Skills</h3>
+          ${listHtml(relatedSkills, (item) => `/skills/${item.id}`)}
+
+          <h3>Tools</h3>
+          ${listHtml(relatedTools)}
+
+          <a class="panel-link" href="/projects/${project.id}">Open project page →</a>
+        `;
+
+        openPopup();
+      }
+
+      if (type === "domain") {
+        const domainId = rawId.replace("domain-", "");
+        const domain = findDomain(domainId);
+
+        const relatedProjects = graphData.projects.filter((project) =>
+          project.domains.includes(domain.id)
+        );
+
+        const relatedSkillIds = [
+          ...new Set(relatedProjects.flatMap((project) => project.skills)),
+        ];
+
+        const relatedSkills = relatedSkillIds.map(findSkill).filter(Boolean);
+
+        popupContent.innerHTML = `
+          <p class="panel-eyebrow">Domain</p>
+          <h2>${domain.name}</h2>
+          <p>${domain.description ?? "No description added yet."}</p>
+
+          <h3>Related Projects</h3>
+          ${listHtml(relatedProjects, (item) => `/projects/${item.id}`)}
+
+          <h3>Related Skills</h3>
+          ${listHtml(relatedSkills, (item) => `/skills/${item.id}`)}
+
+          <a class="panel-link" href="/domains/${domain.id}">Open domain page →</a>
+        `;
+
+        openPopup();
+      }
+
+      if (type === "skill") {
+        const skillId = rawId.replace("skill-", "");
+        const skill = findSkill(skillId);
+
+        const relatedProjects = graphData.projects.filter((project) =>
+          project.skills.includes(skill.id)
+        );
+
+        const relatedDomainIds = [
+          ...new Set(relatedProjects.flatMap((project) => project.domains)),
+        ];
+
+        const relatedDomains = relatedDomainIds.map(findDomain).filter(Boolean);
+
+        popupContent.innerHTML = `
+          <p class="panel-eyebrow">Skill</p>
+          <h2>${skill.name}</h2>
+          <p>${skill.summary ?? "This skill is evidenced through the related projects and domains below."}</p>
+
+          <h3>Evidence Projects</h3>
+          ${listHtml(relatedProjects, (item) => `/projects/${item.id}`)}
+
+          <h3>Related Domains</h3>
+          ${listHtml(relatedDomains, (item) => `/domains/${item.id}`)}
+
+          <a class="panel-link" href="/skills/${skill.id}">Open skill page →</a>
+        `;
+
+        openPopup();
+      }
+
+      if (type === "tool") {
+        const toolId = rawId.replace("tool-", "");
+        const tool = findTool(toolId);
+
+        const relatedProjects = graphData.projects.filter((project) =>
+          project.tools?.includes(tool.id)
+        );
+
+        popupContent.innerHTML = `
+          <p class="panel-eyebrow">Tool</p>
+          <h2>${tool.name}</h2>
+          <p>${tool.summary ?? "This tool appears in the related project work below."}</p>
+
+          <h3>Related Projects</h3>
+          ${listHtml(relatedProjects, (item) => `/projects/${item.id}`)}
+        `;
+
+        openPopup();
+      }
+    };
+
+    const resetGraph = () => {
+      cy.elements().removeClass("faded");
+      cy.elements().removeClass("highlighted");
+      cy.elements().removeClass("search-match");
+      closePopup();
+    };
+
+    const getMatchingNode = (query) => {
+      return cy.nodes().filter((node) => {
+        const label = node.data("label")?.toLowerCase() ?? "";
+        return label.includes(query);
+      })[0];
+    };
+
+    const highlightNode = (node, isSearch = false) => {
+      cy.elements().removeClass("highlighted");
+      cy.elements().removeClass("search-match");
+      cy.elements().addClass("faded");
+
+      const neighborhood = node.closedNeighborhood();
+
+      neighborhood.removeClass("faded");
+      neighborhood.addClass("highlighted");
+
+      node.removeClass("faded");
+      node.addClass("highlighted");
+
+      if (isSearch) {
+        node.addClass("search-match");
+      }
+
+      updatePopup(node);
+    };
+
+    const centreNode = (node) => {
+      cy.animate({
+        center: {
+          eles: node,
+        },
+        zoom: 1.2,
+        duration: 300,
+      });
+    };
+
+    let lastTappedNode = null;
+    let lastTapTime = 0;
+
+    cy.on("tap", "node", function (event) {
+      const node = event.target;
+      const currentTime = Date.now();
+
+      const isDoubleClick =
+        lastTappedNode === node.id() &&
+        currentTime - lastTapTime < 500;
+
+      lastTappedNode = node.id();
+      lastTapTime = currentTime;
+
+      if (isDoubleClick) {
+        const type = node.data("type");
+        const rawId = node.id();
+
+        if (type === "project") {
+          window.location.href = `/projects/${rawId.replace("project-", "")}`;
+        }
+
+        if (type === "domain") {
+          window.location.href = `/domains/${rawId.replace("domain-", "")}`;
+        }
+
+        if (type === "skill") {
+          window.location.href = `/skills/${rawId.replace("skill-", "")}`;
+        }
+
+        return;
+      }
+
+      searchInput.value = "";
+      highlightNode(node);
+    });
+
+    cy.on("tap", function (event) {
+      if (event.target === cy) {
+        searchInput.value = "";
+        resetGraph();
+      }
+    });
+
+    searchInput.addEventListener("input", function () {
+      const query = searchInput.value.trim().toLowerCase();
+
+      if (!query) {
+        resetGraph();
+        return;
+      }
+
+      const matchingNode = getMatchingNode(query);
+
+      if (!matchingNode) {
+        cy.elements().removeClass("highlighted");
+        cy.elements().removeClass("search-match");
+        cy.elements().addClass("faded");
+
+        popupContent.innerHTML = `
+          <p class="panel-eyebrow">Search</p>
+          <h2>No match found</h2>
+          <p>Try searching for a project, domain, skill, or tool.</p>
+        `;
+
+        openPopup();
+        return;
+      }
+
+      highlightNode(matchingNode, true);
+    });
+
+    searchInput.addEventListener("keydown", function (event) {
+      if (event.key !== "Enter") return;
+
+      const query = searchInput.value.trim().toLowerCase();
+
+      if (!query) return;
+
+      const matchingNode = getMatchingNode(query);
+
+      if (!matchingNode) return;
+
+      highlightNode(matchingNode, true);
+      centreNode(matchingNode);
+    });
+
+    popupClose.addEventListener("click", function () {
+      closePopup();
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        closePopup();
+      }
+    });
+  }
+</script>
+
+<style>
+  .graph-controls {
+    margin: 2rem 0 1rem;
+  }
+
+  .graph-controls label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #cbd5e1;
+    font-weight: 600;
+  }
+
+  #graph-search {
+    width: 100%;
+    max-width: 520px;
+    padding: 0.75rem 1rem;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    background: #020617;
+    color: #e5e7eb;
+  }
+
+  #graph-search::placeholder {
+    color: #64748b;
+  }
+
+  .graph-hint {
+    margin-top: 0.5rem;
+    color: #94a3b8;
+    font-size: 0.9rem;
+  }
+
+  .graph-wrapper {
+    position: relative;
+  }
+
+  #experience-graph {
+    width: 100%;
+    height: 700px;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    background: #020617;
+  }
+
+  .graph-popup {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 10;
+    width: min(360px, calc(100% - 2rem));
+    max-height: 560px;
+    overflow-y: auto;
+    border: 1px solid #334155;
+    border-radius: 14px;
+    background: #111827;
+    padding: 1.25rem;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+  }
+
+  .graph-popup.hidden {
+    display: none;
+  }
+
+  .graph-popup-close {
+    position: absolute;
+    top: 0.65rem;
+    right: 0.75rem;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid #334155;
+    border-radius: 999px;
+    background: #020617;
+    color: #e5e7eb;
+    cursor: pointer;
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+
+  .graph-popup-close:hover {
+    background: #1e293b;
+  }
+
+  #graph-popup-content {
+    padding-right: 1.75rem;
+  }
+
+  .graph-popup h2 {
+    margin-top: 0.25rem;
+    color: #bfdbfe;
+  }
+
+  .graph-popup h3 {
+    margin-top: 1.25rem;
+    margin-bottom: 0.4rem;
+    color: #e5e7eb;
+    font-size: 1rem;
+  }
+
+  .graph-popup p {
+    color: #cbd5e1;
+  }
+
+  .graph-popup ul {
+    padding-left: 1.25rem;
+  }
+
+  .graph-popup li {
+    margin-bottom: 0.35rem;
+  }
+
+  .graph-popup a {
+    color: #93c5fd;
+  }
+
+  .panel-eyebrow {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .panel-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-weight: 600;
+  }
+
+  .empty-list {
+    color: #94a3b8;
+    font-style: italic;
+  }
+
+  @media (max-width: 700px) {
+    #experience-graph {
+      height: 600px;
+    }
+
+    .graph-popup {
+      position: fixed;
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      width: auto;
+      max-height: 70vh;
+    }
+  }
+</style>

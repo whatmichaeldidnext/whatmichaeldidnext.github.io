@@ -2,16 +2,13 @@
   {
     "id": "aso-datalake",
     "title": "ASO Datalake Power BI Model",
-    "domains": [
-      "data-analytics",
-      "telecoms",
-      "project-delivery"
-    ],
-    "skills": [
-      "power-bi",
-      "data-modelling",
-      "stakeholder-management"
-    ]
+    "summary": "A structured Power BI model supporting PSTN inventory cleansing, site matching, and transition planning.",
+    "context": "Legacy telecoms data needed to be cleaned, matched, and made usable for ASO planning.",
+    "role": "Led the data modelling approach and shaped the reporting structure.",
+    "outcome": "Created a reusable model connecting sites, users, devices, numbers, functions, and property reference data.",
+    "domains": ["data-analytics", "telecoms", "project-delivery"],
+    "skills": ["power-bi", "data-modelling", "stakeholder-management"],
+    "tools": ["power-bi", "power-query", "excel", "sharepoint"]
   },
 
   {

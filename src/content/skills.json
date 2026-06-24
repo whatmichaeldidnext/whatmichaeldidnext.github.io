@@ -1,7 +1,8 @@
 [
   {
     "id": "power-bi",
-    "name": "Power BI"
+    "name": "Power BI",
+    "summary": "Data modelling, reporting and dashboard development."
   },
   {
     "id": "stakeholder-management",
