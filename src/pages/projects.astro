@@ -1,8 +1,74 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import projects from "../content/projects.json";
+import domains from "../content/domains.json";
+import skills from "../content/skills.json";
+
+const getDomainName = (id) => {
+  return domains.find((domain) => domain.id === id)?.name ?? id;
+};
+
+const getSkillName = (id) => {
+  return skills.find((skill) => skill.id === id)?.name ?? id;
+};
 ---
 
 <MainLayout title="Projects | Michael Charles Portfolio">
   <h1>Projects</h1>
-  <p>Case studies and evidence-led project summaries will appear here.</p>
+
+  <p>
+    Evidence-led project summaries showing how different parts of my experience
+    connect.
+  </p>
+
+  <section class="project-grid">
+    {projects.map((project) => (
+      <article class="project-card">
+        <h2>{project.title}</h2>
+
+        <h3>Domains</h3>
+        <ul>
+          {project.domains.map((domainId) => (
+            <li>{getDomainName(domainId)}</li>
+          ))}
+        </ul>
+
+        <h3>Skills</h3>
+        <ul>
+          {project.skills.map((skillId) => (
+            <li>{getSkillName(skillId)}</li>
+          ))}
+        </ul>
+      </article>
+    ))}
+  </section>
 </MainLayout>
+
+<style>
+  .project-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .project-card {
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 1.5rem;
+    background: #111827;
+  }
+
+  .project-card h2 {
+    margin-top: 0;
+    color: #bfdbfe;
+  }
+
+  .project-card h3 {
+    margin-bottom: 0.25rem;
+    color: #cbd5e1;
+  }
+
+  .project-card ul {
+    margin-top: 0.25rem;
+  }
+</style>

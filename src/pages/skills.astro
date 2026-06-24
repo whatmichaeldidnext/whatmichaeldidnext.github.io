@@ -1,8 +1,57 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import skills from "../content/skills.json";
+import projects from "../content/projects.json";
+
+const getProjectsForSkill = (skillId) => {
+  return projects.filter((project) => project.skills.includes(skillId));
+};
 ---
 
 <MainLayout title="Skills | Michael Charles Portfolio">
   <h1>Skills</h1>
-  <p>... to pay the bills.</p>
+
+  <p>
+    Skills are shown with the projects that evidence them, rather than as a flat
+    keyword list.
+  </p>
+
+  <section class="card-grid">
+    {skills.map((skill) => (
+      <article class="card">
+        <h2>{skill.name}</h2>
+
+        <h3>Evidence Projects</h3>
+        <ul>
+          {getProjectsForSkill(skill.id).map((project) => (
+            <li>{project.title}</li>
+          ))}
+        </ul>
+      </article>
+    ))}
+  </section>
 </MainLayout>
+
+<style>
+  .card-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .card {
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 1.5rem;
+    background: #111827;
+  }
+
+  .card h2 {
+    margin-top: 0;
+    color: #bfdbfe;
+  }
+
+  .card h3 {
+    color: #cbd5e1;
+  }
+</style>

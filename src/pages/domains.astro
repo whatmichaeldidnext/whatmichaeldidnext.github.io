@@ -1,8 +1,58 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import domains from "../content/domains.json";
+import projects from "../content/projects.json";
+
+const getProjectsForDomain = (domainId) => {
+  return projects.filter((project) => project.domains.includes(domainId));
+};
 ---
 
 <MainLayout title="Domains | Michael Charles Portfolio">
   <h1>Domains</h1>
-  <p>Relevant 'Domains' of personal and professional interest.</p>
+
+  <p>
+    The main professional areas that connect my project delivery, technical,
+    data, and cybersecurity experience.
+  </p>
+
+  <section class="card-grid">
+    {domains.map((domain) => (
+      <article class="card">
+        <h2>{domain.name}</h2>
+        <p>{domain.description}</p>
+
+        <h3>Related Projects</h3>
+        <ul>
+          {getProjectsForDomain(domain.id).map((project) => (
+            <li>{project.title}</li>
+          ))}
+        </ul>
+      </article>
+    ))}
+  </section>
 </MainLayout>
+
+<style>
+  .card-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .card {
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 1.5rem;
+    background: #111827;
+  }
+
+  .card h2 {
+    margin-top: 0;
+    color: #bfdbfe;
+  }
+
+  .card h3 {
+    color: #cbd5e1;
+  }
+</style>
