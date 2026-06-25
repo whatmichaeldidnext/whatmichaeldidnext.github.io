@@ -1,7 +1,7 @@
-/* TODO:
-- Change out content within featuredProjectIDs
-*/
 ---
+import SectionHeader from "../Common/SectionHeader.astro";
+import Card from "../Common/Card.astro";
+
 import projects from "../../content/projects.json";
 
 const featuredProjectIds = [
@@ -15,70 +15,71 @@ const featuredProjects = projects.filter((project) =>
 );
 ---
 
-<section class="section">
-  <div class="section-header">
-    <h2>Featured Projects</h2>
+<section class="featured-projects-section">
+  <div class="projects-heading">
+    <SectionHeader
+      eyebrow="Selected Evidence"
+      title="Featured Projects"
+      intro="A small selection of projects that show how my experience connects across delivery, data, software, cybersecurity, and systems thinking."
+    />
+
     <a href="/projects">View all projects →</a>
   </div>
 
-  <div class="grid">
+  <div class="project-grid">
     {featuredProjects.map((project) => (
-      <a class="card" href={`/projects/${project.id}`}>
+      <Card href={`/projects/${project.id}`}>
         <h3>{project.title}</h3>
         <p>{project.summary ?? "Project summary coming soon."}</p>
-      </a>
+      </Card>
     ))}
   </div>
 </section>
 
 <style>
-  .section {
+  .featured-projects-section {
     padding: 3rem 0;
     border-top: 1px solid #334155;
   }
 
-  .section-header {
+  .projects-heading {
     display: flex;
     justify-content: space-between;
-    gap: 1rem;
-    align-items: baseline;
-    margin-bottom: 1.5rem;
+    gap: 2rem;
+    align-items: flex-start;
   }
 
-  h2 {
-    color: #bfdbfe;
-    font-size: 2rem;
-  }
-
-  .section-header a {
+  .projects-heading a {
     color: #93c5fd;
+    text-decoration: none;
+    white-space: nowrap;
+    margin-top: 0.4rem;
   }
 
-  .grid {
+  .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1rem;
   }
 
-  .card {
-    display: block;
-    border: 1px solid #334155;
-    border-radius: 12px;
-    padding: 1.25rem;
-    background: #111827;
-    text-decoration: none;
-  }
-
-  .card:hover {
-    border-color: #60a5fa;
-  }
-
-  h3 {
+  .project-grid h3 {
     color: #e5e7eb;
     margin-top: 0;
   }
 
-  p {
+  .project-grid p {
     color: #cbd5e1;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 700px) {
+    .projects-heading {
+      display: block;
+    }
+
+    .projects-heading a {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+    }
   }
 </style>

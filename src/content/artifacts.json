@@ -1,173 +1,533 @@
 [
-  {
-    "id": "msc-project-proposal",
-    "name": "MSc Project Proposal",
-    "type": "proposal",
-    "summary": "Initial academic proposal outlining the research question, implementation approach and intended proof of concept.",
-    "status": "complete",
-    "visibility": "private",
-    "url": null
-  },
-  {
-    "id": "msc-dissertation",
-    "name": "Final MSc Dissertation",
-    "type": "report",
-    "summary": "Final dissertation examining graph-based visualisation of username-linked data exposure.",
-    "status": "in-progress",
-    "visibility": "redacted",
-    "url": null
-  },
-  {
-    "id": "msc-literature-review",
-    "name": "Literature Review",
-    "type": "report",
-    "summary": "Academic review of literature relating to social media, Web 2.0, data brokerage, digital identity and privacy.",
-    "status": "in-progress",
-    "visibility": "private",
-    "url": null
-  },
-  {
-    "id": "msc-architecture",
-    "name": "MSc System Architecture",
-    "type": "architecture",
-    "summary": "High-level architecture for the proof-of-concept application and graph-based visualisation approach.",
-    "status": "planned",
-    "visibility": "redacted",
-    "url": null
-  },
-  {
-    "id": "msc-proof-of-concept",
-    "name": "Interactive Proof of Concept",
-    "type": "demo",
-    "summary": "Prototype application demonstrating constrained username-linked exposure visualisation.",
-    "status": "planned",
-    "visibility": "redacted",
-    "url": null
-  },
-  {
-    "id": "aso-delivery-framework",
-    "name": "ASO Delivery Framework",
-    "type": "process",
-    "summary": "Structured delivery approach developed for the Analogue Switch-Off programme.",
-    "status": "complete",
-    "visibility": "private",
-    "url": null
-  },
-  {
-    "id": "aso-power-bi-model",
-    "name": "ASO Power BI Semantic Model",
-    "type": "architecture",
-    "summary": "Analytical model supporting PSTN inventory cleansing, site matching and migration planning.",
-    "status": "complete",
-    "visibility": "private",
-    "url": null
-  },
-  {
-    "id": "aso-report-suite",
-    "name": "ASO Programme Reporting Suite",
-    "type": "dashboard",
-    "summary": "Operational reporting suite supporting programme governance, risk visibility and delivery planning.",
-    "status": "complete",
-    "visibility": "private",
-    "url": null
-  },
-  {
-    "id": "aso-site-matching-framework",
-    "name": "ASO Site Matching Framework",
-    "type": "process",
-    "summary": "Data matching and manual review process used to associate telecoms inventory with site and property records.",
-    "status": "complete",
-    "visibility": "redacted",
-    "url": null
-  },
-  {
-    "id": "endpoint-deployment-framework",
-    "name": "Endpoint Deployment Framework",
-    "type": "process",
-    "summary": "Repeatable delivery framework for fixed and mobile IP communications endpoint deployment.",
-    "status": "complete",
-    "visibility": "private",
-    "url": null
-  },
-  {
-    "id": "device-standard-catalogue",
-    "name": "Device Standard Catalogue",
-    "type": "document",
-    "summary": "Standardised endpoint catalogue supporting device selection and deployment governance.",
-    "status": "complete",
-    "visibility": "private",
-    "url": null
-  },
-  {
-    "id": "zero-touch-process-map",
-    "name": "Zero-Touch Process Map",
-    "type": "diagram",
-    "summary": "Process map describing automated endpoint fulfilment from request through delivery.",
-    "status": "complete",
-    "visibility": "redacted",
-    "url": null
-  },
-  {
-    "id": "deployment-governance",
-    "name": "Deployment Governance Model",
-    "type": "process",
-    "summary": "Governance model supporting consistent endpoint approval, provisioning and deployment.",
-    "status": "complete",
-    "visibility": "private",
-    "url": null
-  },
-  {
-    "id": "teams-calling-migration-plan",
-    "name": "Teams Calling Migration Plan",
-    "type": "process",
-    "summary": "Migration plan supporting the transition from legacy telephony to Microsoft Teams Calling.",
-    "status": "complete",
-    "visibility": "private",
-    "url": null
-  },
-  {
-    "id": "deployment-playbook",
-    "name": "Teams Calling Deployment Playbook",
-    "type": "process",
-    "summary": "Repeatable deployment approach for user migration, readiness checks and operational handover.",
-    "status": "complete",
-    "visibility": "private",
-    "url": null
-  },
-  {
-    "id": "communications-strategy",
-    "name": "Communications Strategy",
-    "type": "document",
-    "summary": "Stakeholder and user communications approach supporting service adoption and transition.",
-    "status": "complete",
-    "visibility": "private",
-    "url": null
-  },
-  {
-    "id": "training-material",
-    "name": "User Training Material",
-    "type": "presentation",
-    "summary": "Training and guidance material supporting adoption of Microsoft Teams Calling.",
-    "status": "complete",
-    "visibility": "private",
-    "url": null
-  },
-  {
-    "id": "service-transition-plan",
-    "name": "Service Transition Plan",
-    "type": "process",
-    "summary": "Transition approach for moving the Teams Calling service into operational support.",
-    "status": "complete",
-    "visibility": "private",
-    "url": null
-  },
-  {
-    "id": "portfolio-source",
-    "name": "Portfolio Source Code",
-    "type": "repository",
-    "summary": "Source code for the Explorable Professional Profile portfolio.",
-    "status": "in-progress",
-    "visibility": "public",
-    "url": "https://github.com/your-username/your-repo"
-  }
+{
+"id": "msc-project-proposal",
+"name": "MSc Project Proposal",
+"type": "proposal",
+"summary": "Initial academic proposal outlining the research question, implementation approach and intended proof of concept.",
+"status": "complete",
+"visibility": "private",
+"url": null
+},
+{
+"id": "msc-dissertation",
+"name": "Final MSc Dissertation",
+"type": "report",
+"summary": "Final dissertation examining graph-based visualisation of username-linked data exposure.",
+"status": "in-progress",
+"visibility": "redacted",
+"url": null
+},
+{
+"id": "msc-literature-review",
+"name": "Literature Review",
+"type": "report",
+"summary": "Academic review of literature relating to social media, Web 2.0, data brokerage, digital identity and privacy.",
+"status": "in-progress",
+"visibility": "private",
+"url": null
+},
+{
+"id": "msc-architecture",
+"name": "MSc System Architecture",
+"type": "architecture",
+"summary": "High-level architecture for the proof-of-concept application and graph-based visualisation approach.",
+"status": "planned",
+"visibility": "redacted",
+"url": null
+},
+{
+"id": "msc-proof-of-concept",
+"name": "Interactive Proof of Concept",
+"type": "demo",
+"summary": "Prototype application demonstrating constrained username-linked exposure visualisation.",
+"status": "planned",
+"visibility": "redacted",
+"url": null
+},
+{
+"id": "aso-delivery-framework",
+"name": "ASO Delivery Framework",
+"type": "process",
+"summary": "Structured delivery approach developed for the Analogue Switch-Off programme.",
+"status": "complete",
+"visibility": "private",
+"url": null
+},
+{
+"id": "aso-power-bi-model",
+"name": "ASO Power BI Semantic Model",
+"type": "architecture",
+"summary": "Analytical model supporting PSTN inventory cleansing, site matching and migration planning.",
+"status": "complete",
+"visibility": "private",
+"url": null
+},
+{
+"id": "aso-report-suite",
+"name": "ASO Programme Reporting Suite",
+"type": "dashboard",
+"summary": "Operational reporting suite supporting programme governance, risk visibility and delivery planning.",
+"status": "complete",
+"visibility": "private",
+"url": null
+},
+{
+"id": "aso-site-matching-framework",
+"name": "ASO Site Matching Framework",
+"type": "process",
+"summary": "Data matching and manual review process used to associate telecoms inventory with site and property records.",
+"status": "complete",
+"visibility": "redacted",
+"url": null
+},
+{
+"id": "device-standard-catalogue",
+"name": "Device Standard Catalogue",
+"type": "document",
+"summary": "Standardised endpoint catalogue supporting device selection and deployment governance.",
+"status": "complete",
+"visibility": "private",
+"url": null
+},
+{
+"id": "zero-touch-process-map",
+"name": "Zero-Touch Process Map",
+"type": "diagram",
+"summary": "Process map describing automated endpoint fulfilment from request through delivery.",
+"status": "complete",
+"visibility": "redacted",
+"url": null
+},
+{
+"id": "deployment-governance",
+"name": "Deployment Governance Model",
+"type": "process",
+"summary": "Governance model supporting consistent endpoint approval, provisioning and deployment.",
+"status": "complete",
+"visibility": "private",
+"url": null
+},
+{
+"id": "teams-calling-migration-plan",
+"name": "Teams Calling Migration Plan",
+"type": "process",
+"summary": "Migration plan supporting the transition from legacy telephony to Microsoft Teams Calling.",
+"status": "complete",
+"visibility": "private",
+"url": null
+},
+{
+"id": "deployment-playbook",
+"name": "Teams Calling Deployment Playbook",
+"type": "process",
+"summary": "Repeatable deployment approach for user migration, readiness checks and operational handover.",
+"status": "complete",
+"visibility": "private",
+"url": null
+},
+{
+"id": "communications-strategy",
+"name": "Communications Strategy",
+"type": "document",
+"summary": "Stakeholder and user communications approach supporting service adoption and transition.",
+"status": "complete",
+"visibility": "private",
+"url": null
+},
+{
+"id": "training-material",
+"name": "User Training Material",
+"type": "presentation",
+"summary": "Training and guidance material supporting adoption of Microsoft Teams Calling.",
+"status": "complete",
+"visibility": "private",
+"url": null
+},
+{
+"id": "service-transition-plan",
+"name": "Service Transition Plan",
+"type": "process",
+"summary": "Transition approach for moving the Teams Calling service into operational support.",
+"status": "complete",
+"visibility": "private",
+"url": null
+},
+{
+"id": "portfolio-source",
+"name": "Portfolio Source Code",
+"type": "repository",
+"summary": "Source code for the Explorable Professional Profile portfolio.",
+"status": "in-progress",
+"visibility": "private",
+"url": null
+},
+{
+"id": "programme-delivery-framework",
+"name": "Programme Delivery Framework",
+"type": "framework",
+"summary": "A structured framework defining programme governance, delivery stages and repeatable project practices.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "programme-governance-model",
+"name": "Programme Governance Model",
+"type": "governance",
+"summary": "Defined governance structure describing decision-making, escalation and programme oversight.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "programme-dashboard-suite",
+"name": "Programme Dashboard Suite",
+"type": "dashboard",
+"summary": "Interactive dashboards providing programme intelligence, migration reporting and delivery metrics.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "migration-roadmap",
+"name": "Migration Roadmap",
+"type": "roadmap",
+"summary": "Sequenced migration plan showing priorities, dependencies and delivery milestones.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "risk-framework",
+"name": "Risk Framework",
+"type": "framework",
+"summary": "Structured methodology for identifying, assessing and managing programme risk.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "programme-data-model",
+"name": "Programme Data Model",
+"type": "model",
+"summary": "Dimensional data model supporting trusted reporting, planning and operational decision-making.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "data-quality-framework",
+"name": "Data Quality Framework",
+"type": "framework",
+"summary": "Repeatable validation and cleansing processes improving confidence in programme data.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "site-matching-engine",
+"name": "Site Matching Engine",
+"type": "model",
+"summary": "Confidence-based matching logic supporting automated and manual allocation of legacy records.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "review-workflow",
+"name": "Review Workflow",
+"type": "workflow",
+"summary": "Manual review process supporting validation of uncertain data matches and exceptions.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "data-dictionary",
+"name": "Data Dictionary",
+"type": "dictionary",
+"summary": "Reference describing datasets, field definitions and business meaning.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "endpoint-standards",
+"name": "Endpoint Standards",
+"type": "document",
+"summary": "Standardised endpoint configurations supporting consistent deployment across the organisation.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "deployment-framework",
+"name": "Deployment Framework",
+"type": "framework",
+"summary": "End-to-end deployment methodology covering provisioning, logistics and operational handover.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "zero-touch-fulfilment-process",
+"name": "Zero-Touch Fulfilment Process",
+"type": "process",
+"summary": "Automated fulfilment process minimising manual intervention during endpoint deployment.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "device-catalogue",
+"name": "Device Catalogue",
+"type": "catalogue",
+"summary": "Approved device catalogue supporting consistent endpoint selection.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "asset-lifecycle-model",
+"name": "Asset Lifecycle Model",
+"type": "model",
+"summary": "Lifecycle model describing procurement, provisioning, support and retirement of communication assets.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "migration-strategy",
+"name": "Migration Strategy",
+"type": "strategy",
+"summary": "Strategy defining phased migration from legacy telephony to Microsoft Teams Calling.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "communications-plan",
+"name": "Communications Plan",
+"type": "plan",
+"summary": "Stakeholder communications supporting awareness, adoption and organisational change.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "training-materials",
+"name": "Training Materials",
+"type": "guide",
+"summary": "Learning resources supporting successful user adoption of new communications technology.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "endpoint-standard",
+"name": "Endpoint Standard",
+"type": "document",
+"summary": "Standard endpoint specification supporting repeatable deployment and support.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "proof-of-concept-application",
+"name": "Proof-of-Concept Application",
+"type": "application",
+"summary": "Interactive software prototype demonstrating graph-based visualisation of online identity exposure.",
+"status": "completed",
+"visibility": "public",
+"url": ""
+},
+{
+"id": "software-architecture",
+"name": "Software Architecture",
+"type": "architecture",
+"summary": "Architecture describing application components, data flow and system interactions.",
+"status": "completed",
+"visibility": "public",
+"url": ""
+},
+{
+"id": "research-literature-review",
+"name": "Research Literature Review",
+"type": "review",
+"summary": "Academic review establishing the research context and supporting evidence base.",
+"status": "completed",
+"visibility": "public",
+"url": ""
+},
+{
+"id": "ethical-framework",
+"name": "Ethical Framework",
+"type": "framework",
+"summary": "Framework defining ethical constraints, responsible use and misuse prevention principles.",
+"status": "completed",
+"visibility": "public",
+"url": ""
+},
+{
+"id": "system-design",
+"name": "System Design",
+"type": "architecture",
+"summary": "Technical system design describing architecture, components and design rationale.",
+"status": "completed",
+"visibility": "public",
+"url": ""
+},
+{
+"id": "project-proposal",
+"name": "Project Proposal",
+"type": "proposal",
+"summary": "Formal proposal outlining project objectives, methodology, scope and expected outcomes.",
+"status": "completed",
+"visibility": "public",
+"url": ""
+},
+{
+"id": "project-plan",
+"name": "Project Plan",
+"type": "plan",
+"summary": "Structured plan describing delivery activities, milestones, resources and dependencies.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "requirements-specification",
+"name": "Requirements Specification",
+"type": "specification",
+"summary": "Document capturing business, functional and non-functional requirements.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "stakeholder-map",
+"name": "Stakeholder Map",
+"type": "document",
+"summary": "Analysis identifying stakeholders, interests, influence and communication requirements.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "risk-register",
+"name": "Risk Register",
+"type": "document",
+"summary": "Managed record of identified risks, mitigations, ownership and status.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "testing-plan",
+"name": "Testing Plan",
+"type": "plan",
+"summary": "Plan describing testing approach, scope, acceptance criteria and responsibilities.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "project-delivery-framework",
+"name": "Project Delivery Framework",
+"type": "framework",
+"summary": "Reusable project management framework capturing delivery standards, governance and best practice.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "project-lifecycle-model",
+"name": "Project Lifecycle Model",
+"type": "model",
+"summary": "Lifecycle model describing project phases from initiation through closure.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "governance-framework",
+"name": "Governance Framework",
+"type": "framework",
+"summary": "Framework defining governance responsibilities, approvals and decision processes.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "project-templates",
+"name": "Project Templates",
+"type": "template",
+"summary": "Reusable documentation templates supporting consistent project delivery.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "reporting-standards",
+"name": "Reporting Standards",
+"type": "document",
+"summary": "Standards describing consistent reporting formats, metrics and governance.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "best-practice-guide",
+"name": "Best Practice Guide",
+"type": "guide",
+"summary": "Practical guidance consolidating successful project delivery practices across the organisation.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "knowledge-library",
+"name": "Knowledge Library",
+"type": "library",
+"summary": "Central repository of reusable knowledge, documentation and delivery resources.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "delivery-plan",
+"name": "Delivery Plan",
+"type": "plan",
+"summary": "Detailed implementation plan coordinating technical activities, milestones and resources.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "implementation-plan",
+"name": "Implementation Plan",
+"type": "plan",
+"summary": "Plan governing the controlled deployment of new technology into the operational environment.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "stakeholder-reporting",
+"name": "Stakeholder Reporting",
+"type": "report",
+"summary": "Regular reporting communicating progress, risks, decisions and delivery status to stakeholders.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+},
+{
+"id": "security-deployment-governance",
+"name": "Security Deployment Governance",
+"type": "governance",
+"summary": "Governance model supporting controlled implementation of network security improvements.",
+"status": "completed",
+"visibility": "private",
+"url": ""
+}
 ]

@@ -1,54 +1,162 @@
-<section class="section graph-preview">
-  <div>
-    <p class="eyebrow">Interactive exploration</p>
-    <h2>Experience Graph</h2>
+---
+import Button from "../Common/Button.astro";
+---
 
-    <p>
-      Explore how my projects, domains, skills, and tools connect through an
-      interactive graph-driven view.
-    </p>
+<aside class="graph-preview-card">
+    <div class="mini-graph" aria-hidden="true">
+      <svg class="mini-graph-lines" viewBox="0 0 400 260">
+        <line x1="200" y1="120" x2="80" y2="70" />
+        <line x1="200" y1="120" x2="320" y2="70" />
+        <line x1="200" y1="120" x2="110" y2="200" />
+        <line x1="200" y1="120" x2="310" y2="200" />
+      </svg>
 
-    <a href="/graph" class="primary-button">Open Interactive Graph</a>
-  </div>
-</section>
+      <span class="preview-node preview-project">Project</span>
+      <span class="preview-node preview-domain">Domain</span>
+      <span class="preview-node preview-skill">Skill</span>
+      <span class="preview-node preview-tool">
+        <span>Tool</span>
+      </span>
+    </div>
+
+  <p>
+    Explore how projects, domains, skills and tools connect through an
+    interactive graph-driven view.
+
+  </p>
+
+</aside>
 
 <style>
-  .section {
-    padding: 3rem 0;
-    border-top: 1px solid #334155;
+  .graph-preview-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #334155;
+    border-radius: 18px;
+    background: #020617;
+    padding: 1.5rem;
   }
 
-  .graph-preview {
-    margin-bottom: 2rem;
+  .mini-graph {
+    position: relative;
+    height: 260px;
+    margin-bottom: 1.5rem;
   }
 
+  .mini-graph svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .mini-graph line {
+    stroke: #334155;
+    stroke-width: 2;
+  }
+
+.mini-graph {
+  position: relative;
+  height: 260px;
+  margin-bottom: 1.5rem;
+}
+
+.mini-graph-lines {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.mini-graph-lines line {
+  stroke: #334155;
+  stroke-width: 2;
+}
+
+.preview-node {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background: #0f172a;
+  color: #e5e7eb;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 2px solid;
+}
+
+.preview-project {
+  left: 50%;
+  top: 45%;
+  width: 100px;
+  height: 64px;
+  transform: translate(-50%, -50%);
+  border-color: #60a5fa;
+  border-radius: 14px;
+}
+
+.preview-domain {
+  left: 8%;
+  top: 16%;
+  width: 76px;
+  height: 76px;
+  border-color: #a78bfa;
+  border-radius: 999px;
+}
+
+.preview-skill {
+  right: 8%;
+  top: 16%;
+  width: 76px;
+  height: 76px;
+  border-color: #34d399;
+  border-radius: 999px;
+}
+
+.preview-tool {
+  left: 14%;
+  bottom: 8%;
+  width: 74px;
+  height: 74px;
+  border: none;
+  background: transparent;
+}
+
+.preview-tool::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  z-index: 1;
+  border: 2px solid #fbbf24;
+  background: #0f172a;
+  transform: rotate(45deg);
+}
+
+.preview-tool span {
+  position: relative;
+  z-index: 2;
+  display: block;
+  line-height: 1;
+}
   .eyebrow {
     color: #93c5fd;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 700;
   }
 
   h2 {
-    color: #bfdbfe;
-    font-size: 2rem;
+    color: #f8fafc;
+    margin: 0.4rem 0;
   }
 
   p {
-    max-width: 720px;
     color: #cbd5e1;
-    line-height: 1.7;
-  }
-
-  .primary-button {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.8rem 1rem;
-    border-radius: 8px;
-    background: #2563eb;
-    color: white;
-    font-weight: 700;
-    text-decoration: none;
+    line-height: 1.6;
   }
 </style>

@@ -128,5 +128,95 @@
 "id": "project-reporting",
 "name": "Project Reporting",
 "summary": "Creating structured project reports, dashboards and governance updates that communicate progress, risk, issues and delivery confidence."
+},
+{
+"id": "technical-leadership",
+"name": "Technical Leadership",
+"summary": "Providing technical direction, facilitating decision-making and aligning technology with organisational objectives."
+},
+{
+"id": "governance",
+"name": "Governance",
+"summary": "Establishing decision-making structures, controls and accountability to support successful project and programme delivery."
+},
+{
+"id": "strategic-planning",
+"name": "Strategic Planning",
+"summary": "Defining long-term objectives, delivery approaches and priorities that support organisational goals."
+},
+{
+"id": "data-architecture",
+"name": "Data Architecture",
+"summary": "Designing structured data models, relationships and governance that support trusted reporting and decision-making."
+},
+{
+"id": "information-governance",
+"name": "Information Governance",
+"summary": "Managing information quality, ownership and controls to ensure data remains accurate, secure and fit for purpose."
+},
+{
+"id": "communications-planning",
+"name": "Communications Planning",
+"summary": "Planning stakeholder communications that support engagement, understanding and successful organisational change."
+},
+{
+"id": "web-development",
+"name": "Web Development",
+"summary": "Designing and building browser-based applications and interactive web experiences."
+},
+{
+"id": "user-experience-design",
+"name": "User Experience Design",
+"summary": "Creating intuitive, accessible and user-focused digital experiences that improve usability and engagement."
+},
+{
+"id": "ethical-risk-analysis",
+"name": "Ethical Risk Analysis",
+"summary": "Evaluating technical solutions to identify ethical considerations, misuse potential and opportunities for responsible design."
+},
+{
+"id": "test-driven-development",
+"name": "Test-Driven Development",
+"summary": "Applying test-first development practices to improve software quality and maintainability."
+},
+{
+"id": "agile-ceremonies",
+"name": "Agile Ceremonies",
+"summary": "Facilitating agile planning, reviews, retrospectives and stand-ups to support collaborative delivery."
+},
+{
+"id": "testing-coordination",
+"name": "Testing Coordination",
+"summary": "Planning and coordinating testing activities to validate solutions before operational deployment."
+},
+{
+"id": "facilitation",
+"name": "Facilitation",
+"summary": "Leading workshops and collaborative discussions to achieve shared understanding and informed decision-making."
+},
+{
+"id": "knowledge-management",
+"name": "Knowledge Management",
+"summary": "Capturing, organising and sharing organisational knowledge to improve consistency and continuous learning."
+},
+{
+"id": "incident-response-coordination",
+"name": "Incident Response Coordination",
+"summary": "Coordinating people, suppliers and technical teams during operational or cybersecurity incidents."
+},
+{
+"id": "technical-coordination",
+"name": "Technical Coordination",
+"summary": "Managing technical dependencies, delivery teams and implementation activities across complex projects."
+},
+{
+"id": "service-continuity-planning",
+"name": "Service Continuity Planning",
+"summary": "Planning and coordinating activities that maintain or rapidly restore critical business services during disruption."
+},
+{
+"id": "delivery-leadership",
+"name": "Delivery Leadership",
+"summary": "Leading multidisciplinary teams to deliver complex programmes, projects and organisational change successfully."
 }
 ]

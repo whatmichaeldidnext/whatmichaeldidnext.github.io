@@ -1,89 +1,137 @@
 [
   {
     "id": "aso-telecoms",
-    "title": "The Analogue Switch-Off Programme (ASO)",
-    "summary": "Led a large-scale technology transformation programme to migrate legacy analogue telecommunications infrastructure to modern IP-based services ahead of the UK PSTN switch-off.",
-    "context": "The programme encompassed more than 1,000 geographically distributed sites requiring assessment, planning, infrastructure upgrades and migration to ensure continuity of business-critical telephony before the national PSTN withdrawal.",
-    "challenge": "Develop a repeatable and scalable delivery approach capable of assessing legacy telecoms assets, prioritising migrations, improving data quality, and coordinating multiple technical workstreams while operating against fixed national deadlines.",
-    "approach": "Designed a data-driven delivery methodology supported by Power BI, Power Query and SharePoint. Built reporting dashboards, data models and quality assurance processes to identify migration priorities, infrastructure dependencies and programme risks. Worked across technical and business stakeholders to coordinate infrastructure, networking and telephony activities.",
+    "title": "Analogue Switch-Off Programme",
+    "parentProject": null,
+    "dependsOn": [
+      "aso-datalake",
+      "aso-devices",
+      "ms-teams-calling"
+    ],
+    "summary": "Led the technical delivery of a large-scale communications transformation programme preparing a geographically dispersed estate for the UK's withdrawal of analogue PSTN services through modern IP communications, improved programme intelligence and scalable operational delivery.",
+    "context": "The national withdrawal of analogue PSTN services required organisations to modernise legacy telecommunications infrastructure before fixed regulatory deadlines. Across a diverse estate of more than 1,000 locations, existing telephony services, network readiness, endpoint strategy and operational processes all required assessment, redesign and coordinated delivery while maintaining continuity of business-critical communications.",
+    "challenge": "Develop a scalable transformation programme capable of coordinating multiple technical workstreams, improving programme visibility, reducing uncertainty created by fragmented legacy data and delivering communications modernisation within nationally imposed timescales.",
+    "approach": "Established a data-driven programme delivery model combining programme governance, analytical reporting, infrastructure planning, communications transformation and operational process design. Rather than treating each migration independently, developed reusable frameworks for planning, reporting, endpoint deployment, migration governance and decision support that could be applied consistently across the programme.",
     "role": [
       "Senior Technical Project Manager",
       "Programme Lead",
       "Business Analyst",
-      "Data Analyst",
+      "Data Architect",
       "Technical Architect"
     ],
-    "outcome": "Delivered a structured programme framework that improved visibility of telecoms assets, increased confidence in migration planning, and established repeatable delivery processes for infrastructure upgrades across the estate.",
-    "lessons": "Large transformation programmes depend as much on high-quality data and stakeholder engagement as they do on technical implementation. Establishing trusted data models early significantly improved planning, reporting and delivery confidence.",
-    "status": "in progress",
+    "outcome": "Established a repeatable programme delivery capability supporting communications modernisation across a complex national estate. Improved programme visibility, strengthened migration planning, increased confidence in delivery decisions and created scalable operational processes supporting future infrastructure transformation.",
+    "impact": {
+      "whyItMattered": "The programme enabled the organisation to respond proactively to a nationally mandated technology change while reducing operational risk, improving programme governance and establishing sustainable communications services for the future.",
+      "publicValue": [
+        "Protected continuity of critical organisational communications",
+        "Supported long-term resilience of communications infrastructure",
+        "Improved readiness for the national withdrawal of analogue telephony",
+        "Reduced risk of service disruption across operational locations"
+      ],
+      "organisationalValue": [
+        "Created a repeatable transformation framework applicable across multiple sites",
+        "Improved programme governance through trusted reporting and planning",
+        "Reduced uncertainty through improved data quality and programme intelligence",
+        "Standardised delivery processes supporting future infrastructure programmes",
+        "Integrated technology, operations and business change into a single delivery model"
+      ],
+      "stakeholders": [
+        "Executive leadership",
+        "Programme Board",
+        "Operational teams",
+        "ICT",
+        "Infrastructure engineers",
+        "Property teams",
+        "Procurement",
+        "External suppliers",
+        "End users"
+      ]
+    },
+    "lessons": "Large-scale transformation programmes succeed by creating organisational capability rather than simply delivering technology. Trusted information, repeatable delivery processes and strong stakeholder engagement provide the foundations upon which successful technical implementation depends.",
+    "status": "in-progress",
     "featured": true,
     "year": 2026,
+    "employer": {
+      "id": "the-salvation-army-uk-ireland",
+      "relationship": "ftc employee",
+      "roleTitle": "Senior Technical Project Manager"
+    },
     "domains": [
-      "telecoms",
-      "ip-comms",
+      "digital-transformation",
+      "telecommunications",
+      "programme-management",
+      "data-architecture",
+      "service-design",
+      "infrastructure-modernisation",
       "network-infrastructure",
-      "project-management",
-      "data-analytics",
-      "agile",
+      "entra",
       "intune",
-      "entra"
+      "vendor-relations"
     ],
     "skills": [
       "programme-management",
       "project-management",
       "stakeholder-management",
-      "project-reporting",
-      "project-leadership",
-      "requirements-analysis",
       "business-analysis",
-      "power-bi",
-      "power-query",
-      "data-analysis",
-      "data-modelling",
+      "requirements-analysis",
       "risk-management",
-      "technical-documentation"
+      "data-modelling",
+      "technical-leadership",
+      "governance",
+      "service-transition",
+      "strategic-planning"
     ],
     "technologies": [
       "power-bi",
       "power-query",
-      "powershell",
-      "sharepoint",
       "microsoft-teams",
       "intune",
-      "excel"
+      "sharepoint",
+      "powershell"
     ],
     "tools": [
       "power-bi",
-      "excel",
+      "power-query",
       "sharepoint",
-      "ms-project",
-      "powershell",
-      "intune",
-      "entra"
+      "excel",
+      "ms-project"
     ],
     "thinking": [
       "systems-thinking",
-      "data-driven-decision-making",
+      "infrastructure-modernisation",
       "technical-leadership",
+      "enterprise-architecture",
+      "service-design",
+      "data-driven-decision-making",
       "continuous-improvement",
-      "infrastructure-modernisation"
+      "operational-resilience"
     ],
     "artifacts": [
-      "aso-report-suite",
-      "aso-power-bi-model",
-      "aso-delivery-framework"
+      "programme-delivery-framework",
+      "programme-governance-model",
+      "programme-dashboard-suite",
+      "aso-delivery-framework",
+      "migration-roadmap",
+      "risk-framework",
+      "communications-strategy"
     ],
     "qualifications": [],
+    "relatedProjects": [
+      "aso-datalake",
+      "aso-devices",
+      "ms-teams-calling"
+    ],
     "links": []
   },
 
   {
     "id": "aso-datalake",
-    "title": "ASO Datalake Power BI Model",
-    "summary": "Designed and developed a structured analytical data model to support the UK's Analogue Switch-Off programme, transforming fragmented telecoms data into a reusable planning and reporting platform.",
-    "context": "Legacy PSTN inventory data existed across multiple inconsistent sources, making migration planning difficult. Site records, phone numbers, users, devices and property information required cleansing, matching and integration before meaningful reporting could be produced.",
-    "challenge": "Create a maintainable analytical model capable of resolving inconsistent legacy data, supporting manual review workflows where necessary, and providing a trusted single source of truth for programme reporting and migration planning.",
-    "approach": "Designed a star-schema Power BI model using shared Power Query transformation functions, reusable data quality checks and relationship mapping between telecoms assets, users, devices, sites and property reference data. Introduced structured matching logic, review workflows and manual override capability to improve confidence in automated site allocation.",
+    "title": "Programme Intelligence & Data Platform",
+    "parentProject": "aso-telecoms",
+    "summary": "Designed and developed a programme-wide analytical data platform that transformed fragmented telecoms information into a trusted decision-support capability, enabling improved migration planning, reporting and operational governance throughout the Analogue Switch-Off programme.",
+    "context": "Critical programme information existed across multiple disconnected spreadsheets, inventories and operational datasets with varying levels of quality and completeness. Without a trusted view of sites, users, devices, telephone numbers and property information, migration planning and programme reporting remained difficult and time-consuming.",
+    "challenge": "Create a maintainable analytical platform capable of consolidating disparate telecoms data sources, improving data quality, supporting manual review where appropriate and establishing a trusted foundation for programme-wide reporting and operational decision making.",
+    "approach": "Designed a dimensional analytical model supported by reusable Power Query transformation functions, standardised data quality rules and structured relationship mapping across telecoms assets, sites, users, devices and property reference data. Developed confidence-based matching logic, review workflows and manual override capability to balance automation with operational assurance while producing reusable reporting across the programme.",
     "role": [
       "Senior Technical Project Manager",
       "Data Architect",
@@ -91,34 +139,72 @@
       "Power BI Developer",
       "Business Analyst"
     ],
-    "outcome": "Delivered a reusable analytical platform that significantly improved data quality, reporting capability and migration planning. The resulting model became the foundation for programme dashboards, site analysis and transition planning across the ASO programme.",
-    "lessons": "Successful analytics projects rely on establishing trusted data models before visualisation. Investing time in data quality, repeatable transformations and clear relationships produced far greater long-term value than focusing on dashboards alone.",
+    "outcome": "Delivered a trusted analytical platform that significantly improved data quality, reporting capability and migration planning. The resulting data model became the foundation for programme dashboards, operational reporting, migration forecasting and evidence-based decision making.",
+    "impact": {
+      "whyItMattered": "The platform transformed disconnected operational data into a trusted programme intelligence capability, enabling better decisions, reducing uncertainty and improving confidence in migration planning across a complex national transformation programme.",
+      "publicValue": [
+        "Supported better planning for the transition away from legacy telephony services",
+        "Improved confidence in programme reporting supporting service continuity",
+        "Reduced operational risk through improved visibility of migration readiness",
+        "Enabled more informed planning for technology modernisation"
+      ],
+      "organisationalValue": [
+        "Established a single trusted source of programme information",
+        "Improved data quality through repeatable validation and cleansing processes",
+        "Reduced manual analysis and duplicated reporting effort",
+        "Created reusable analytical foundations supporting future reporting requirements",
+        "Improved governance through traceable data lineage and review workflows"
+      ],
+      "stakeholders": [
+        "Programme Management",
+        "Operational teams",
+        "ICT",
+        "Data owners",
+        "Business analysts",
+        "Senior leadership"
+      ]
+    },
+    "lessons": "Successful analytics programmes begin with trusted information architecture rather than visualisation. Establishing robust data models, transparent transformation logic and governed review processes created significantly greater long-term value than dashboards alone.",
     "status": "completed",
     "featured": true,
     "year": 2026,
+    "employer": {
+      "id": "the-salvation-army-uk-ireland",
+      "relationship": "ftc employee",
+      "roleTitle": "Senior Technical Project Manager"
+    },
     "domains": [
       "data-analytics",
+      "data-architecture",
       "telecoms",
-      "project-delivery"
+      "project-management",
+      "digital-transformation",
+      "network-infrastructure",
+      "entra",
+      "intune",
+      "software-dev",
+      "agile",
+      "web-2.0"
     ],
     "skills": [
-      "data-analysis",
       "data-modelling",
+      "data-architecture",
+      "data-analysis",
       "data-cleansing",
-      "power-bi",
-      "power-query",
       "business-analysis",
       "requirements-analysis",
+      "power-bi",
+      "power-query",
       "stakeholder-management",
-      "technical-documentation",
-      "reporting"
+      "reporting",
+      "information-governance"
     ],
     "technologies": [
       "power-bi",
       "power-query",
       "dax",
-      "sharepoint",
-      "excel"
+      "excel",
+      "sharepoint"
     ],
     "tools": [
       "power-bi",
@@ -128,26 +214,42 @@
     ],
     "thinking": [
       "systems-thinking",
+      "infrastructure-modernisation",
+      "technical-leadership",
+      "information-architecture",
       "data-driven-decision-making",
       "continuous-improvement",
-      "information-architecture"
+      "operational-assurance"
     ],
     "artifacts": [
-      "aso-power-bi-model",
+      "programme-data-model",
+      "data-quality-framework",
+      "site-matching-engine",
+      "review-workflow",
+      "programme-dashboard-suite",
+      "data-dictionary",
       "aso-report-suite",
-      "aso-site-matching-framework"
+      "aso-site-matching-framework",
+      "aso-power-bi-model"
     ],
     "qualifications": [],
+    "relatedProjects": [
+      "legacy-pstn",
+      "aso-devices",
+      "ms-teams-calling",
+      "network-readiness"
+    ],
     "links": []
   },
 
   {
     "id": "aso-devices",
-    "title": "ASO Endpoints, Fixed & Mobile",
-    "summary": "Led the design and delivery of a scalable endpoint deployment programme for IP communications, introducing a zero-touch fulfilment process for fixed and mobile devices.",
-    "context": "The Analogue Switch-Off programme required the deployment of appropriate IP communications endpoints across a diverse national estate. Different operational teams required different combinations of desk phones, mobile devices and Microsoft Teams clients while maintaining a consistent user experience and support model.",
-    "challenge": "Develop a repeatable delivery process capable of selecting, provisioning and distributing communication endpoints at scale while reducing manual intervention, maintaining governance and supporting multiple service requirements.",
-    "approach": "Designed an end-to-end operational workflow covering device selection, approval, procurement, provisioning, asset management and deployment. Worked with technical teams, suppliers and business stakeholders to standardise endpoint configurations and establish a largely zero-touch fulfilment process from request through to delivery.",
+    "title": "Enterprise Endpoint Deployment & Fulfilment",
+    "parentProject": "aso-telecoms",
+    "summary": "Designed and delivered a scalable endpoint fulfilment capability supporting the organisation's transition to IP communications, introducing standardised device selection, zero-touch provisioning and operational processes for fixed and mobile endpoints.",
+    "context": "The Analogue Switch-Off programme required communications endpoints to be deployed across a geographically diverse estate with differing operational requirements. Success depended not simply on selecting devices, but on designing an operational model capable of provisioning, deploying and supporting endpoints consistently at enterprise scale.",
+    "challenge": "Develop a repeatable fulfilment capability capable of selecting, procuring, provisioning and deploying communication endpoints while reducing manual effort, maintaining governance and supporting multiple user personas and service requirements.",
+    "approach": "Designed an end-to-end operational framework covering device standards, approval workflows, procurement, asset management, provisioning, logistics and deployment. Worked with suppliers, infrastructure teams and business stakeholders to standardise endpoint configurations and establish a largely zero-touch fulfilment process supporting both fixed and mobile communications.",
     "role": [
       "Senior Technical Project Manager",
       "Project Manager",
@@ -155,29 +257,62 @@
       "Technical Coordinator",
       "Vendor Manager"
     ],
-    "outcome": "Established a repeatable deployment framework capable of delivering IP communications endpoints with minimal manual intervention, improving delivery consistency, reducing administration and creating a scalable process for future deployments.",
-    "lessons": "Successful technology deployment depends on operational design as much as technical capability. Standardisation, automation and clearly defined business processes significantly improve delivery quality and user experience.",
-    "status": "completed",
+    "outcome": "Established a repeatable enterprise deployment capability that standardised endpoint delivery, reduced manual intervention, improved governance and created a scalable foundation for future communications deployments.",
+    "impact": {
+      "whyItMattered": "The endpoint strategy transformed device deployment from individual hardware requests into a repeatable operational capability that supported large-scale communications modernisation while improving user experience and operational efficiency.",
+      "publicValue": [
+        "Supported reliable access to modern communications services",
+        "Improved consistency of user experience across geographically dispersed locations",
+        "Enabled more resilient and sustainable communications infrastructure",
+        "Reduced deployment delays for operational teams"
+      ],
+      "organisationalValue": [
+        "Standardised endpoint selection and lifecycle management",
+        "Reduced administrative overhead through zero-touch provisioning",
+        "Improved governance across procurement and asset management",
+        "Created a scalable fulfilment model supporting future technology programmes"
+      ],
+      "stakeholders": [
+        "Operational teams",
+        "End users",
+        "ICT",
+        "Infrastructure engineers",
+        "Procurement",
+        "Asset Management",
+        "External suppliers"
+      ]
+    },
+    "lessons": "Large-scale endpoint deployment is primarily an operational design challenge rather than a technical one. Standardisation, automation and clearly defined fulfilment processes are essential to delivering consistent user experiences and sustainable service operations.",
+    "status": "in-progress",
     "featured": true,
     "year": 2026,
+    "employer": {
+      "id": "the-salvation-army-uk-ireland",
+      "relationship": "ftc employee",
+      "roleTitle": "Senior Technical Project Manager"
+    },
     "domains": [
       "telecoms",
       "ip-comms",
+      "digital-transformation",
       "project-management",
-      "vendor-relations",
+      "service-design",
+      "service-transition",
+      "network-infrastructure",
+      "entra",
       "intune",
-      "agile"
+      "vendor-relations"
     ],
     "skills": [
-      "project-management",
       "programme-management",
+      "project-management",
       "stakeholder-management",
       "vendor-management",
       "business-analysis",
       "requirements-analysis",
-      "technical-documentation",
       "process-design",
       "service-transition",
+      "technical-documentation",
       "project-leadership"
     ],
     "technologies": [
@@ -188,8 +323,8 @@
     ],
     "tools": [
       "power-bi",
-      "excel",
       "sharepoint",
+      "excel",
       "ms-project",
       "powershell",
       "intune",
@@ -197,28 +332,42 @@
     ],
     "thinking": [
       "systems-thinking",
+      "infrastructure-modernisation",
+      "technical-leadership",
       "service-design",
-      "continuous-improvement",
       "automation-first",
-      "operational-excellence"
+      "operational-excellence",
+      "continuous-improvement"
     ],
     "artifacts": [
-      "endpoint-deployment-framework",
+      "endpoint-standards",
+      "deployment-framework",
+      "zero-touch-fulfilment-process",
+      "device-catalogue",
+      "deployment-governance",
+      "asset-lifecycle-model",
       "device-standard-catalogue",
       "zero-touch-process-map",
-      "deployment-governance"
+      "training-material"
     ],
     "qualifications": [],
+    "relatedProjects": [
+      "ms-teams-calling",
+      "legacy-pstn",
+      "network-readiness",
+      "aso-datalake"
+    ],
     "links": []
   },
 
   {
     "id": "ms-teams-calling",
-    "title": "Microsoft Teams Calling – A New Way to Telephone",
-    "summary": "Led the transition from traditional desk-based telephony to Microsoft Teams Calling, enabling an IP-first communications platform and reducing long-term dependence on physical telephony infrastructure.",
-    "context": "As part of the wider communications modernisation programme, legacy telephony services were replaced with Microsoft Teams Calling. The project required technical implementation alongside organisational change, ensuring users adopted new ways of communicating whilst maintaining business continuity.",
-    "challenge": "Plan and deliver a large-scale migration to cloud-based telephony, balancing user adoption, technical readiness, endpoint strategy and service continuity across multiple business functions.",
-    "approach": "Developed the migration strategy, coordinated technical implementation, engaged stakeholders across the organisation and worked with suppliers to deliver Teams Calling capability. Standardised deployment processes, supported user transition and ensured dependencies on legacy hardware were systematically removed.",
+    "title": "Microsoft Teams Calling – Enterprise Communications Transformation",
+    "parentProject": "aso-telecoms",
+    "summary": "Led the transition from traditional telephony to Microsoft Teams Calling, enabling a cloud-first communications platform that modernised enterprise voice services, simplified endpoint strategy and supported new ways of working.",
+    "context": "As part of the wider Analogue Switch-Off programme, legacy telephony infrastructure required replacement with a sustainable IP-based communications platform. The project extended beyond technology implementation, requiring organisational change, new operational processes and user adoption across multiple business functions.",
+    "challenge": "Deliver a large-scale migration from legacy telephony to Microsoft Teams Calling while maintaining business continuity, supporting diverse user requirements and coordinating technical, operational and organisational dependencies.",
+    "approach": "Developed the migration strategy, coordinated technical delivery and worked closely with business stakeholders, infrastructure teams and external suppliers throughout the programme. Standardised deployment processes, aligned endpoint strategy with business requirements, supported user adoption through structured communications and training, and ensured legacy telephony dependencies were progressively removed in a controlled manner.",
     "role": [
       "Senior Technical Project Manager",
       "Project Manager",
@@ -226,148 +375,593 @@
       "Change Manager",
       "Vendor Manager"
     ],
-    "outcome": "Successfully migrated more than 500 users to Microsoft Teams Calling, reducing reliance on traditional telephony infrastructure, simplifying endpoint management and lowering ongoing hardware and maintenance requirements.",
-    "lessons": "Successful digital transformation requires equal attention to technology, business processes and user adoption. Delivering organisational change alongside technical implementation was essential to long-term success.",
+    "outcome": "Successfully migrated more than 500 users to Microsoft Teams Calling, establishing a modern cloud-based communications platform, reducing dependence on traditional telephony infrastructure and creating a scalable foundation for future communications services.",
+    "impact": {
+      "whyItMattered": "The project transformed enterprise communications by replacing ageing telephony services with an integrated collaboration platform, improving organisational flexibility while supporting long-term infrastructure modernisation.",
+      "publicValue": [
+        "Improved resilience of business-critical communications",
+        "Enabled more flexible and accessible ways of working",
+        "Supported continuity of services through modern communications technology",
+        "Reduced dependence on ageing telephony infrastructure"
+      ],
+      "organisationalValue": [
+        "Reduced operational complexity through platform consolidation",
+        "Simplified endpoint provisioning and lifecycle management",
+        "Reduced long-term infrastructure and maintenance overhead",
+        "Established a scalable communications platform supporting future digital transformation"
+      ],
+      "stakeholders": [
+        "Operational teams",
+        "End users",
+        "ICT",
+        "Infrastructure engineers",
+        "Service Desk",
+        "Senior leadership",
+        "External suppliers"
+      ]
+    },
+    "lessons": "Enterprise communications projects are organisational change programmes rather than technology deployments. Sustainable adoption depends on aligning technology, operational processes, governance and user experience throughout the transformation journey.",
     "status": "completed",
     "featured": true,
     "year": 2026,
     "domains": [
       "telecoms",
       "ip-comms",
+      "digital-transformation",
       "project-management",
-      "vendor-relations",
-      "intune",
+      "change-management",
+      "service-transition",
+      "network-infrastructure",
       "entra",
-      "agile"
+      "intune",
+      "software-dev",
+      "agile",
+      "web-2.0",
+      "vendor-relations"
     ],
+
     "skills": [
-      "project-management",
       "programme-management",
+      "project-management",
       "stakeholder-management",
-      "vendor-management",
       "change-management",
       "business-analysis",
       "requirements-analysis",
+      "vendor-management",
       "service-transition",
       "technical-documentation",
-      "project-leadership"
+      "project-leadership",
+      "communications-planning"
     ],
+
     "technologies": [
       "microsoft-teams",
       "teams-calling",
-      "sip",
       "voip",
+      "sip",
       "intune",
       "entra",
       "powershell"
     ],
+
     "tools": [
-      "excel",
       "sharepoint",
+      "excel",
       "ms-project",
       "powershell",
       "intune",
       "entra"
     ],
+
     "thinking": [
-      "systems-thinking",
-      "service-design",
       "digital-transformation",
+      "systems-thinking",
+      "evidence-based-engineering",
+      "service-design",
+      "operational-resilience",
       "change-management",
       "continuous-improvement"
     ],
+
     "artifacts": [
-      "teams-calling-migration-plan",
+      "migration-strategy",
       "deployment-playbook",
-      "communications-strategy",
-      "training-material",
-      "service-transition-plan"
+      "communications-plan",
+      "training-materials",
+      "service-transition-plan",
+      "endpoint-standard",
+      "teams-calling-migration-plan"
     ],
+
     "qualifications": [],
+
+    "relatedProjects": [
+      "aso-devices",
+      "aso-telecoms",
+      "legacy-pstn",
+      "network-readiness"
+    ],
+
     "links": []
   },
 
   {
     "id": "msc-data-exposure",
     "title": "Graph-Based Visualisation of Username-Linked Data Exposure",
-    "summary": "An MSc research project investigating how publicly available usernames can be used to infer relationships between social media platforms, data brokers and wider online identity.",
-    "context": "The project examines the relationship between Web 2.0 platforms, data brokerage and digital identity. It explores how seemingly disconnected public information can be aggregated to visualise potential data exposure and interconnected online presence.",
-    "challenge": "Design an ethically constrained proof-of-concept capable of exploring username-linked data exposure without providing deterministic confirmation of account ownership or encouraging misuse.",
-    "approach": "Designed and developed a modular Java application with a lightweight web interface. Implemented confidence-based inference rather than explicit confirmation, separated platform definitions from application logic, and represented discovered relationships through an interactive graph visualisation.",
+    "summary": "Designed and developed an ethically constrained proof-of-concept that explores how publicly available usernames can be used to infer relationships between social media platforms, data brokers and wider online identity through interactive graph visualisation.",
+
+    "context": "Modern digital identities are distributed across hundreds of online services, many of which expose fragments of publicly accessible information. This research investigates how those fragments can be aggregated to better understand digital exposure while deliberately avoiding deterministic identification or encouraging misuse.",
+
+    "challenge": "Design a research platform capable of visualising username-linked relationships across online services while balancing technical capability with ethical responsibility, privacy-by-design principles and misuse prevention.",
+
+    "approach": "Designed a modular Java application with a lightweight web interface, separating platform definitions from application logic to support extensibility. Implemented confidence-based inference rather than deterministic confirmation, applied constrained output techniques to reduce misuse potential and represented inferred relationships using an interactive knowledge graph.",
+
     "role": [
       "Researcher",
       "Software Engineer",
+      "Solution Architect",
       "Data Analyst",
-      "Project Manager",
-      "Technical Author"
+      "Technical Author",
+      "Project Manager"
     ],
-    "outcome": "Produced a complete MSc dissertation supported by an interactive proof-of-concept application, literature review, system architecture and evaluation of ethical considerations surrounding large-scale username aggregation.",
-    "lessons": "Developing technical capability is only part of engineering. Designing systems which remain ethically responsible, transparent and resistant to misuse is equally important.",
-    "status": "completed",
+
+    "outcome": "Produced a complete MSc dissertation supported by a functional proof-of-concept application, literature review, software architecture, ethical framework and evaluation of graph-based approaches to digital identity visualisation.",
+
+    "impact": {
+      "whyItMattered": "The project explores how publicly available information can be aggregated to reveal broader patterns of digital exposure, encouraging greater awareness of online privacy while demonstrating how technical solutions can be designed to minimise misuse.",
+
+      "publicValue": [
+        "Promotes greater understanding of digital identity exposure",
+        "Encourages responsible awareness of online privacy risks",
+        "Demonstrates ethical approaches to OSINT research",
+        "Supports discussion around responsible software engineering and privacy-by-design"
+      ],
+
+      "organisationalValue": [
+        "Demonstrates the application of secure software engineering principles",
+        "Balances technical capability with governance and ethical considerations",
+        "Illustrates modular software architecture for future extensibility",
+        "Provides a reusable framework for visualising interconnected data relationships"
+      ],
+
+      "stakeholders": [
+        "Researchers",
+        "Cybersecurity professionals",
+        "Software engineers",
+        "Privacy practitioners",
+        "Students",
+        "Members of the public"
+      ]
+    },
+
+    "lessons": "Engineering capability should always be accompanied by ethical responsibility. Designing systems that are transparent, privacy-conscious and resistant to misuse is as important as solving the technical problem itself.",
+
+    "status": "in-progress",
     "featured": true,
     "year": 2026,
+
     "domains": [
       "computer-science",
-      "software-dev",
       "cybersecurity",
+      "software-dev",
+      "research",
       "data-analytics",
-      "web-2.0",
-      "data-security"
+      "osint",
+      "knowledge-graphs"
     ],
+
     "skills": [
+      "software-architecture",
+      "system-design",
       "research",
       "academic-writing",
       "technical-writing",
-      "software-architecture",
-      "data-analysis",
       "requirements-analysis",
-      "system-design",
+      "data-analysis",
       "project-management",
-      "reporting",
+      "web-development",
+      "user-experience-design",
+      "ethical-risk-analysis",
       "web-ui",
       "web-ux"
     ],
+
     "technologies": [
       "java",
       "javascript",
-      "python",
       "html",
       "css",
       "json",
       "http",
-      "rest"
+      "rest",
+      "python",
+      "graph-data-models"
     ],
+
     "tools": [
       "intellij",
       "git",
       "gitlab",
-      "cytoscape"
+      "cytoscape",
+      "github"
     ],
+
     "thinking": [
       "ethical-software-engineering",
-      "knowledge-graphs",
+      "privacy-by-design",
+      "evidence-based-engineering",
       "osint",
       "data-visualisation",
-      "privacy-by-design",
-      "human-centred-security"
+      "knowledge-graphs",
+      "systems-thinking",
+      "human-centred-security",
+      "visual-analytics",
+      "responsible-ai"
     ],
+
     "artifacts": [
       "msc-dissertation",
-      "msc-architecture",
-      "msc-literature-review",
+      "proof-of-concept-application",
+      "software-architecture",
+      "research-literature-review",
+      "ethical-framework",
+      "system-design",
+      "project-proposal",
       "msc-project-proposal",
-      "msc-proof-of-concept"
+      "portfolio-source",
+      "msc-proof-of-concept",
+      "msc-architecture",
+      "msc-literature-review"
     ],
+
+    "qualifications": [
+      "msc-computer-science",
+      "ba-english"
+    ],
+
+    "relatedProjects": [
+      "home-lab",
+      "portfolio-platform",
+      "bug-bounty-learning"
+    ],
+
     "links": [
-      {
-        "title": "Git Repository",
-        "url": ""
-      },
       {
         "title": "Dissertation",
         "url": ""
+      },
+      {
+        "title": "Source Code",
+        "url": ""
       }
     ]
-  }
+  },
 
+  {
+    "id": "crm-implementation",
+    "title": "CRM Implementation",
+    "summary": "Managed the implementation of a new Customer Relationship Management platform, coordinating business stakeholders, technical teams and suppliers to replace legacy systems and processes within a unified solution.",
+    "context": "The organisation required a modern CRM platform capable of improving customer engagement, consolidating their fragmented processes and providing improved reporting functions across operational teams and the public.",
+    "challenge": "Deliver a CRM implementation balancing technical delivery with organisational and strategic change, ensuring business requirements were captured, data migration risks were managed and users were successfully transitioned onto the new platform.",
+    "approach": "Led project planning, requirements gathering, stakeholder engagement and supplier coordination throughout the project lifecycle. Ultimately shifted a failing inherited projects, into MVP focused delivery sprints by facilitating workshops, managing project governance, coordinating TDD while supported business readiness activities prior to deployment.",
+    "role": [
+      "Project Manager",
+      "Business Analyst",
+      "Stakeholder Manager",
+      "Vendor Manager",
+      "Scrum Leader"
+    ],
+    "outcome": "Successfully delivered multiple workstreams contributing into the wider CRM implementation, providing a modern customer management platform with improved business processes, reporting capability and user adoption.",
+    "impact": {
+      "whyItMattered": "The project supported the modernisation of local government services by reducing reliance on ageing systems and enabling more consistent, maintainable service processes.",
+      "publicValue": [
+        "Improved continuity and sustainability of public-facing services",
+        "Reduced operational risk associated with legacy systems",
+        "Supported more consistent handling of citizen and service-user information",
+        "Improved staff access to consolidated service processes and records"
+      ],
+      "organisationalValue": [
+        "Reduced duplication across legacy systems",
+        "Simplified support and maintenance responsibilities",
+        "Improved governance around system ownership and change control",
+        "Created a stronger foundation for future reporting and service improvement"
+      ],
+      "stakeholders": [
+        "Operational service teams",
+        "ICT",
+        "Information governance",
+        "Service managers",
+        "Suppliers",
+        "Citizens and service users"
+      ]
+    },
+    "lessons": "CRM projects are primarily organisational change initiatives rather than software deployments. Early stakeholder engagement, clear business ownership and structured change management were critical to successful adoption.",
+    "status": "completed",
+    "featured": true,
+    "year": 2022,
+    "employer": {
+      "id": "london-borough-tower-hamlets-local-authority",
+      "relationship": "employee",
+      "roleTitle": "Digital & Transformation Project Manager"
+    },
+    "domains": [
+      "project-management",
+      "agile-delivery",
+      "crm",
+      "business-analysis",
+      "digital-transformation",
+      "change-management",
+      "data-analytics",
+      "data-security",
+      "software-dev",
+      "agile",
+      "web-2.0",
+      "vendor-relations"
+    ],
+    "skills": [
+      "project-management",
+      "test-driven-development",
+      "agile-ceremonies",
+      "stakeholder-management",
+      "requirements-analysis",
+      "business-analysis",
+      "vendor-management",
+      "risk-management",
+      "change-management",
+      "testing-coordination",
+      "web-ui",
+      "web-ux"
+    ],
+    "technologies": [
+      "dynamics-365",
+      "powershell",
+      "sql-database",
+      "condecco",
+      "python"
+    ],
+    "tools": [
+      "ms-project",
+      "excel",
+      "sharepoint",
+      "monday",
+      "jira"
+    ],
+    "thinking": [
+      "customer-centric",
+      "infrastructure-modernisation",
+      "evidence-based-engineering",
+      "technical-leadership",
+      "service-design",
+      "continuous-improvement",
+      "systems-thinking"
+    ],
+    "artifacts": [
+      "project-plan",
+      "requirements-specification",
+      "stakeholder-map",
+      "risk-register",
+      "testing-plan",
+      "training-material"
+    ],
+    "qualifications": [
+      "apm-pmq"
+    ],
+    "links": []
+  },
+
+  {
+    "id": "pmo-framework",
+    "title": "Project Management Office (PMO) Capability Framework",
+    "parentProject": null,
+    "summary": "Led an internal transformation initiative to establish a Project Management Office (PMO) capability within a growing consultancy, developing a standardised project delivery framework that captured organisational knowledge and promoted consistent delivery practices across the business.",
+    "context": "As the consultancy expanded, project managers had developed individual approaches to project delivery based on extensive personal experience. While this provided flexibility, it also created inconsistencies in governance, documentation and customer delivery. The organisation recognised the need to consolidate best practice into a repeatable delivery framework without losing the practical expertise of experienced consultants.",
+    "challenge": "Design a practical PMO framework capable of standardising project delivery while remaining lightweight, adaptable and valuable to experienced project managers. The solution needed to encourage adoption through collaboration rather than enforcement.",
+    "approach": "Facilitated workshops with project managers across the consultancy to identify successful delivery practices, common challenges and reusable documentation. Consolidated collective knowledge into a structured project management framework incorporating governance guidance, project lifecycle stages, delivery templates, reporting standards and recommended working practices. The framework was designed to support consistency while remaining sufficiently flexible for a diverse consultancy environment.",
+    "role": [
+      "Project Manager",
+      "PMO Lead",
+      "Business Analyst",
+      "Facilitator",
+      "Process Designer"
+    ],
+    "outcome": "Delivered a standardised project delivery framework that established a foundation for the consultancy's emerging PMO capability, improving consistency, supporting knowledge sharing and providing new project managers with practical guidance for successful delivery.",
+    "impact": {
+      "whyItMattered": "Rather than improving a single project, the initiative improved the organisation's capability to deliver every future project more consistently, efficiently and professionally.",
+      "publicValue": [
+        "Indirectly improved customer outcomes through more consistent project delivery",
+        "Promoted repeatable governance and quality standards",
+        "Supported sustainable organisational growth"
+      ],
+      "organisationalValue": [
+        "Established the foundations of an internal Project Management Office",
+        "Captured organisational knowledge that had previously been distributed across individuals",
+        "Improved consistency of project governance and reporting",
+        "Reduced onboarding time for new project managers",
+        "Created reusable delivery templates and best practice guidance",
+        "Encouraged continuous improvement through shared learning"
+      ],
+      "stakeholders": [
+        "Project Managers",
+        "Consultants",
+        "Senior Leadership",
+        "C-Suite",
+        "PMO",
+        "Delivery Teams"
+      ]
+    },
+    "lessons": "Effective project management frameworks are built collaboratively rather than imposed. Capturing practical experience from delivery teams produced a framework that reflected how successful projects were actually delivered, encouraging adoption through ownership rather than compliance.",
+    "status": "completed",
+    "featured": true,
+    "year": 2023,
+    "employer": {
+      "id": "daintta",
+      "relationship": "employee",
+      "roleTitle": "Consulting Technical Project Manager"
+    },
+    "domains": [
+      "project-management",
+      "pmo",
+      "business-transformation",
+      "organisational-development",
+      "consultancy"
+    ],
+    "skills": [
+      "project-management",
+      "programme-management",
+      "business-analysis",
+      "stakeholder-management",
+      "process-design",
+      "governance",
+      "facilitation",
+      "requirements-analysis",
+      "knowledge-management",
+      "change-management",
+      "technical-documentation"
+    ],
+    "technologies": [],
+    "tools": [
+      "sharepoint",
+      "excel",
+      "ms-project",
+      "visio"
+    ],
+    "thinking": [
+      "continuous-improvement",
+      "systems-thinking",
+      "knowledge-management",
+      "service-design",
+      "collaborative-leadership",
+      "operational-excellence"
+    ],
+    "artifacts": [
+      "project-delivery-framework",
+      "project-lifecycle-model",
+      "governance-framework",
+      "project-templates",
+      "reporting-standards",
+      "best-practice-guide",
+      "knowledge-library",
+      "training-material"
+    ],
+    "qualifications": [],
+    "relatedProjects": [],
+    "links": []
+  },
+
+  {
+    "id": "gov-network-security-ddos",
+    "title": "Government Network Security & DDoS Resilience Programme",
+    "parentProject": null,
+    "summary": "Managed a high-priority consultancy project to support a government body affected by DDoS disruption, coordinating the implementation of new network security hardware and software to strengthen resilience, improve protection and support continuity of public services.",
+    "context": "A government body required urgent improvement to its network security posture following DDoS-related disruption. The project involved implementing new security assets within a sensitive public-sector environment where service availability, governance, supplier coordination and risk management were critical.",
+    "challenge": "Deliver security improvements at pace while maintaining operational stability, coordinating multiple technical and supplier teams, managing public-sector governance requirements and ensuring the organisation could better withstand future network-based attacks.",
+    "approach": "Led project planning, stakeholder coordination, supplier management and delivery governance across the implementation lifecycle. Worked with technical specialists to coordinate deployment of network security hardware and software, manage dependencies, track risks and ensure business stakeholders remained informed throughout a high-priority security response.",
+    "role": [
+      "Project Manager",
+      "Consultancy Project Manager",
+      "Stakeholder Manager",
+      "Vendor Manager",
+      "Delivery Lead"
+    ],
+    "outcome": "Supported the successful implementation of improved network security capability, helping the government body strengthen resilience against DDoS threats, improve operational confidence and reduce exposure to future service disruption.",
+    "impact": {
+      "whyItMattered": "The project supported the resilience of public-sector digital services following a disruptive cyber event, helping protect availability, continuity and trust in essential government operations.",
+      "publicValue": [
+        "Supported continuity of public-facing digital services",
+        "Reduced risk of disruption from future DDoS activity",
+        "Improved resilience of government network infrastructure",
+        "Helped maintain trust in critical public-sector services"
+      ],
+      "organisationalValue": [
+        "Strengthened network security posture",
+        "Improved resilience against denial-of-service threats",
+        "Enhanced operational confidence following a cyber disruption",
+        "Supported structured governance during a high-priority security response",
+        "Improved coordination between internal teams, suppliers and technical specialists"
+      ],
+      "stakeholders": [
+        "Government body",
+        "ICT leadership",
+        "Network security teams",
+        "Infrastructure engineers",
+        "External suppliers",
+        "Service owners",
+        "Public service users"
+      ]
+    },
+    "lessons": "High-priority security projects require disciplined delivery under pressure. Successful outcomes depend on clear governance, rapid coordination, trusted technical expertise and an understanding that cyber resilience is ultimately about protecting service continuity, not simply deploying security tools.",
+    "status": "completed",
+    "featured": true,
+    "year": 2020,
+    "employer": {
+      "id": "bt-group",
+      "relationship": "ftc employee",
+      "roleTitle": "Client Services Project Manager"
+    },
+    "domains": [
+      "cybersecurity",
+      "network-security",
+      "public-sector",
+      "government",
+      "project-management",
+      "digital-resilience",
+      "infrastructure-modernisation",
+      "vendor-relations"
+    ],
+    "skills": [
+      "project-management",
+      "stakeholder-management",
+      "vendor-management",
+      "risk-management",
+      "incident-response-coordination",
+      "technical-coordination",
+      "governance",
+      "service-continuity-planning",
+      "requirements-analysis",
+      "project-reporting",
+      "delivery-leadership"
+    ],
+    "technologies": [
+      "network-security-appliances",
+      "ddos-protection",
+      "firewall",
+      "intrusion-prevention",
+      "network-monitoring"
+    ],
+    "tools": [
+      "ms-project",
+      "excel",
+      "sharepoint",
+      "visio"
+    ],
+    "thinking": [
+      "risk-based-delivery",
+      "operational-resilience",
+      "evidence-based-engineering",
+      "technical-leadership",
+      "security-by-design",
+      "systems-thinking",
+      "public-value",
+      "crisis-delivery",
+      "continuous-improvement"
+    ],
+    "artifacts": [
+      "delivery-plan",
+      "risk-register",
+      "implementation-plan",
+      "stakeholder-reporting",
+      "security-deployment-governance",
+      "service-transition-plan"
+    ],
+    "qualifications": [
+      "prince2-practitioner",
+      "prince2-foundation"
+    ],
+    "relatedProjects": [
+      "msc-data-exposure",
+      "home-lab",
+      "pmo-framework"
+    ],
+    "links": []
+  }
 ]

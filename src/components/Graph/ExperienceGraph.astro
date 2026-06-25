@@ -25,9 +25,9 @@ const graphData = {
     <div class="graph-controls">
       <label for="graph-search">Search the graph</label>
       <input
-          id="graph-search"
-          type="search"
-          placeholder="Search projects, domains, skills or tools..."
+        id="graph-search"
+        type="search"
+        placeholder="Search projects, domains, skills or tools..."
       />
     </div>
 
@@ -58,7 +58,11 @@ const graphData = {
   </aside>
 </div>
 
-<script id="graph-data" type="application/json" set:html={JSON.stringify(graphData)}></script>
+<script
+  id="graph-data"
+  type="application/json"
+  set:html={JSON.stringify(graphData)}
+></script>
 
 <script>
   import cytoscape from "cytoscape";
@@ -84,308 +88,490 @@ const graphData = {
     const graphData = JSON.parse(graphDataElement.textContent);
     const elements = [];
 
-    graphData.domains.forEach((domain) => {
+    const addNode = (type, item, labelKey = "name") => {
       elements.push({
         data: {
-          id: `domain-${domain.id}`,
-          label: domain.name,
-          type: "domain",
+          id: `${type}-${item.id}`,
+          label: item[labelKey],
+          type,
         },
       });
-    });
+    };
 
-    graphData.skills.forEach((skill) => {
+    const addEdge = (source, target, relationship = "related-to") => {
       elements.push({
         data: {
-          id: `skill-${skill.id}`,
-          label: skill.name,
-          type: "skill",
+          source,
+          target,
+          relationship,
         },
       });
-    });
+    };
 
-    graphData.tools.forEach((tool) => {
-      elements.push({
-        data: {
-          id: `tool-${tool.id}`,
-          label: tool.name,
-          type: "tool",
-        },
-      });
-    });
+    graphData.domains.forEach((domain) => addNode("domain", domain));
+    graphData.skills.forEach((skill) => addNode("skill", skill));
+    graphData.tools.forEach((tool) => addNode("tool", tool));
+    graphData.technologies.forEach((technology) =>
+      addNode("technology", technology)
+    );
+    graphData.thinking.forEach((theme) => addNode("thinking", theme));
+    graphData.artifacts.forEach((artifact) => addNode("artifact", artifact));
+    graphData.qualifications.forEach((qualification) =>
+      addNode("qualification", qualification)
+    );
+
+    const projectExists = (projectId) =>
+      graphData.projects.some((project) => project.id === projectId);
+
+    const normaliseProjectId = (projectId) =>
+      projectId?.replace(/^project-/, "");
 
     graphData.projects.forEach((project) => {
-      elements.push({
-        data: {
-          id: `project-${project.id}`,
-          label: project.title,
-          type: "project",
-        },
-      });
+      addNode("project", project, "title");
 
-      graphData.technologies.forEach((technology) => {
-        elements.push({
-          data: {
-            id: `technology-${technology.id}`,
-            label: technology.name,
-            type: "technology",
-          },
-        });
-      });
+      project.domains?.forEach((domainId) =>
+        addEdge(`project-${project.id}`, `domain-${domainId}`)
+      );
 
-      graphData.thinking.forEach((theme) => {
-        elements.push({
-          data: {
-            id: `thinking-${theme.id}`,
-            label: theme.name,
-            type: "thinking",
-          },
-        });
-      });
+      project.skills?.forEach((skillId) =>
+        addEdge(`project-${project.id}`, `skill-${skillId}`)
+      );
 
-      graphData.artifacts.forEach((artifact) => {
-        elements.push({
-          data: {
-            id: `artifact-${artifact.id}`,
-            label: artifact.name,
-            type: "artifact",
-          },
-        });
-      });
+      project.tools?.forEach((toolId) =>
+        addEdge(`project-${project.id}`, `tool-${toolId}`)
+      );
 
-      graphData.qualifications.forEach((qualification) => {
-        elements.push({
-          data: {
-            id: `qualification-${qualification.id}`,
-            label: qualification.name,
-            type: "qualification",
-          },
-        });
-      });
+      project.technologies?.forEach((technologyId) =>
+        addEdge(`project-${project.id}`, `technology-${technologyId}`)
+      );
 
-      project.domains.forEach((domainId) => {
-        elements.push({
-          data: {
-            source: `project-${project.id}`,
-            target: `domain-${domainId}`,
-          },
-        });
-      });
+      project.thinking?.forEach((thinkingId) =>
+        addEdge(`project-${project.id}`, `thinking-${thinkingId}`)
+      );
 
-      project.skills.forEach((skillId) => {
-        elements.push({
-          data: {
-            source: `project-${project.id}`,
-            target: `skill-${skillId}`,
-          },
-        });
-      });
+      project.artifacts?.forEach((artifactId) =>
+        addEdge(`project-${project.id}`, `artifact-${artifactId}`)
+      );
 
-      project.tools?.forEach((toolId) => {
-        elements.push({
-          data: {
-            source: `project-${project.id}`,
-            target: `tool-${toolId}`,
-          },
-        });
-      });
+      project.qualifications?.forEach((qualificationId) =>
+        addEdge(`project-${project.id}`, `qualification-${qualificationId}`)
+      );
 
-      project.technologies?.forEach((technologyId) => {
-        elements.push({
-          data: {
-            source: `project-${project.id}`,
-            target: `technology-${technologyId}`,
-          },
-        });
-      });
+      const parentProjectId = normaliseProjectId(project.parentProject);
 
-      project.thinking?.forEach((thinkingId) => {
-        elements.push({
-          data: {
-            source: `project-${project.id}`,
-            target: `thinking-${thinkingId}`,
-          },
-        });
-      });
+      if (parentProjectId && projectExists(parentProjectId)) {
+        addEdge(
+          `project-${project.id}`,
+          `project-${parentProjectId}`,
+          "part-of"
+        );
+      }
 
-      project.artifacts?.forEach((artifactId) => {
-        elements.push({
-          data: {
-            source: `project-${project.id}`,
-            target: `artifact-${artifactId}`,
-          },
-        });
-      });
+      const dependencies = Array.isArray(project.dependsOn)
+        ? project.dependsOn
+        : project.dependsOn
+          ? [project.dependsOn]
+          : [];
 
-      project.qualifications?.forEach((qualificationId) => {
-        elements.push({
-          data: {
-            source: `project-${project.id}`,
-            target: `qualification-${qualificationId}`,
-          },
-        });
+      dependencies.forEach((dependencyId) => {
+        const cleanDependencyId = normaliseProjectId(dependencyId);
+
+        if (!cleanDependencyId || !projectExists(cleanDependencyId)) return;
+
+        addEdge(
+          `project-${project.id}`,
+          `project-${cleanDependencyId}`,
+          "depends-on"
+        );
       });
     });
+
+    const graphStyle = [
+      {
+        selector: "node",
+        style: {
+          label: "data(label)",
+          color: "#e5e7eb",
+          "background-color": "#0f172a",
+          "border-width": 2,
+          "border-color": "#475569",
+          "font-size": "9px",
+          width: "56px",
+          height: "56px",
+          "text-valign": "center",
+          "text-halign": "center",
+          "text-wrap": "wrap",
+          "text-max-width": "72px",
+          "text-overflow-wrap": "anywhere",
+          "line-height": 1.15,
+          cursor: "pointer",
+        },
+      },
+      {
+        selector: 'node[type = "project"]',
+        style: {
+          shape: "round-rectangle",
+          "border-color": "#60a5fa",
+          width: "160px",
+          height: "92px",
+          "font-size": "12px",
+          "text-max-width": "112px",
+        },
+      },
+      {
+        selector: 'node[type = "domain"]',
+        style: {
+          shape: "hexagon",
+          "border-color": "#a78bfa",
+          width: "92px",
+          height: "92px",
+          "font-size": "11px",
+          "text-max-width": "82px",
+        },
+      },
+      {
+        selector: 'node[type = "skill"]',
+        style: {
+          shape: "ellipse",
+          "border-color": "#34d399",
+          width: "72px",
+          height: "72px",
+          "font-size": "10px",
+          "text-max-width": "64px",
+        },
+      },
+      {
+        selector: 'node[type = "tool"]',
+        style: {
+          shape: "diamond",
+          "border-color": "#fbbf24",
+          width: "64px",
+          height: "64px",
+          "font-size": "8px",
+          "text-max-width": "58px",
+        },
+      },
+      {
+        selector: 'node[type = "technology"]',
+        style: {
+          shape: "round-rectangle",
+          "border-color": "#22d3ee",
+          width: "84px",
+          height: "52px",
+          "font-size": "8px",
+          "text-max-width": "76px",
+        },
+      },
+      {
+        selector: 'node[type = "thinking"]',
+        style: {
+          shape: "ellipse",
+          "border-color": "#f472b6",
+          width: "82px",
+          height: "62px",
+          "font-size": "9px",
+          "text-max-width": "74px",
+        },
+      },
+      {
+        selector: 'node[type = "artifact"]',
+        style: {
+          shape: "round-tag",
+          "border-color": "#cbd5e1",
+          width: "88px",
+          height: "54px",
+          "font-size": "8px",
+          "text-max-width": "78px",
+        },
+      },
+      {
+        selector: 'node[type = "qualification"]',
+        style: {
+          shape: "octagon",
+          "border-color": "#fb7185",
+          width: "86px",
+          height: "86px",
+          "font-size": "10px",
+          "text-max-width": "76px",
+        },
+      },
+      {
+        selector: "edge",
+        style: {
+          width: 2,
+          "line-color": "#334155",
+          "curve-style": "bezier",
+          opacity: 0.7,
+        },
+      },
+      {
+        selector: 'edge[relationship = "depends-on"]',
+        style: {
+          "line-style": "dashed",
+          "line-color": "#64748b",
+          "target-arrow-shape": "triangle",
+          "target-arrow-color": "#64748b",
+          "curve-style": "bezier",
+          width: 2
+        }
+      },
+      {
+        selector: 'edge[relationship = "part-of"]',
+        style: {
+          "line-style": "dotted",
+          "line-color": "#94a3b8",
+          width: 2
+        }
+      },
+      {
+        selector: ".faded",
+        style: {
+          opacity: 0.15,
+        },
+      },
+      {
+        selector: ".highlighted",
+        style: {
+          opacity: 1,
+          "border-width": 4,
+          "shadow-blur": 20,
+          "shadow-opacity": 0.4,
+          "shadow-color": "#ffffff",
+        },
+      },
+      {
+        selector: ".search-match",
+        style: {
+          "border-width": 5,
+          "border-color": "#38bdf8",
+          "shadow-blur": 25,
+          "shadow-opacity": 0.6,
+          "shadow-color": "#38bdf8",
+        },
+      },
+    ];
+
+    const layoutOptions = {
+      name: "fcose",
+      animate: true,
+      randomize: false,
+      fit: true,
+      padding: 180,
+      quality: "proof",
+
+      nodeRepulsion: (node) => {
+        switch (node.data("type")) {
+          case "project":
+            return 600000;
+          case "domain":
+            return 300000;
+          case "skill":
+            return 240000;
+          case "thinking":
+            return 220000;
+          case "technology":
+            return 180000;
+          case "tool":
+            return 150000;
+          case "artifact":
+            return 120000;
+          case "qualification":
+            return 180000;
+          default:
+            return 150000;
+        }
+      },
+
+      idealEdgeLength: 360,
+      edgeElasticity: 0.08,
+      nodeSeparation: 220,
+      nestingFactor: 1.2,
+      gravity: 0.002,
+      gravityRangeCompound: 1.5,
+      avoidOverlap: true,
+      avoidOverlapPadding: 55,
+    };
 
     const cy = cytoscape({
       container: graphContainer,
       elements,
-style: [
-  {
-    selector: "node",
-    style: {
-      label: "data(label)",
-      color: "#e5e7eb",
-      "background-color": "#0f172a",
-      "border-width": 2,
-      "border-color": "#475569",
-      "font-size": "9px",
-      width: "50px",
-      height: "50px",
-      "text-valign": "center",
-      "text-halign": "center",
-      cursor: "pointer",
-    },
-  },
-  {
-    selector: 'node[type = "project"]',
-    style: {
-      shape: "round-rectangle",
-      "background-color": "#0f172a",
-      "border-color": "#60a5fa",
-      width: "110px",
-      height: "70px",
-      "font-size": "12px",
-    },
-  },
-  {
-    selector: 'node[type = "domain"]',
-    style: {
-      shape: "hexagon",
-      "background-color": "#0f172a",
-      "border-color": "#a78bfa",
-      width: "90px",
-      height: "90px",
-      "font-size": "11px",
-    },
-  },
-  {
-    selector: 'node[type = "skill"]',
-    style: {
-      shape: "ellipse",
-      "background-color": "#0f172a",
-      "border-color": "#34d399",
-      width: "65px",
-      height: "65px",
-      "font-size": "10px",
-    },
-  },
-  {
-    selector: 'node[type = "tool"]',
-    style: {
-      shape: "diamond",
-      "background-color": "#0f172a",
-      "border-color": "#fbbf24",
-      width: "55px",
-      height: "55px",
-      "font-size": "8px",
-    },
-  },
-  {
-    selector: 'node[type = "technology"]',
-    style: {
-      shape: "vee",
-      "background-color": "#0f172a",
-      "border-color": "#22d3ee",
-      width: "55px",
-      height: "55px",
-      "font-size": "8px",
-    },
-  },
-  {
-    selector: 'node[type = "thinking"]',
-    style: {
-      shape: "star",
-      "background-color": "#0f172a",
-      "border-color": "#f472b6",
-      width: "70px",
-      height: "70px",
-      "font-size": "9px",
-    },
-  },
-  {
-    selector: 'node[type = "artifact"]',
-    style: {
-      shape: "tag",
-      "background-color": "#0f172a",
-      "border-color": "#cbd5e1",
-      width: "70px",
-      height: "50px",
-      "font-size": "8px",
-    },
-  },
-  {
-    selector: 'node[type = "qualification"]',
-    style: {
-      shape: "octagon",
-      "background-color": "#0f172a",
-      "border-color": "#fb7185",
-      width: "85px",
-      height: "85px",
-      "font-size": "10px",
-    },
-  },
-  {
-    selector: "edge",
-    style: {
-      width: 2,
-      "line-color": "#334155",
-    },
-  },
-  {
-    selector: ".faded",
-    style: {
-      opacity: 0.15,
-    },
-  },
-  {
-    selector: ".highlighted",
-    style: {
-      opacity: 1,
-      "border-width": 4,
-      "shadow-blur": 20,
-      "shadow-opacity": 0.4,
-      "shadow-color": "#ffffff",
-    },
-  },
-  {
-    selector: ".search-match",
-    style: {
-      "border-width": 5,
-      "border-color": "#38bdf8",
-      "shadow-blur": 25,
-      "shadow-opacity": 0.6,
-      "shadow-color": "#38bdf8",
-    },
-  },
-],
-      layout: {
-        name: "fcose",
-        animate: true,
-        nodeRepulsion: 30000,
-        idealEdgeLength: 350,
-        fit: true,
-        gravity: 0.02,
-        padding: 120,
-        randomize: true,
-        edgeElasticity: 0.25
-      },
+      style: graphStyle,
+      layout: layoutOptions,
     });
 
+    const typeAnchors = {
+      project: { x: 0.5, y: 0.5 },
+      qualification: { x: 0.5, y: 0.16 },
+      domain: { x: 0.18, y: 0.32 },
+      skill: { x: 0.82, y: 0.32 },
+      artifact: { x: 0.16, y: 0.72 },
+      thinking: { x: 0.38, y: 0.78 },
+      technology: { x: 0.64, y: 0.78 },
+      tool: { x: 0.84, y: 0.7 },
+    };
+
+    const applyPreferredPositions = () => {
+      const width = graphContainer.clientWidth;
+      const height = graphContainer.clientHeight;
+
+      cy.nodes().forEach((node) => {
+        const type = node.data("type");
+        const anchor = typeAnchors[type];
+
+        if (!anchor) return;
+
+        const jitter = type === "project" ? 500 : 350;
+
+        node.position({
+          x: width * anchor.x + (Math.random() - 0.5) * jitter,
+          y: height * anchor.y + (Math.random() - 0.5) * jitter,
+        });
+      });
+    };
+
+    const positionProjectsOnCircle = () => {
+      const width = graphContainer.clientWidth;
+      const height = graphContainer.clientHeight;
+
+      const centreX = width / 2;
+      const centreY = height / 2;
+
+      const projects = cy.nodes('[type = "project"]');
+
+      const radius = Math.max(width, height) * 1.5;
+
+      projects.forEach((node, index) => {
+        const angle =
+          ((Math.PI * 2) / projects.length) * index - Math.PI / 2;
+
+        node.position({
+          x: centreX + Math.cos(angle) * radius,
+          y: centreY + Math.sin(angle) * radius,
+        });
+
+        node.lock();
+      });
+    };
+
+    const pullSharedNodesTowardProjects = () => {
+      const groups = new Map();
+
+      cy.nodes().forEach((node) => {
+        if (node.data("type") === "project") return;
+
+        const connectedProjects = node
+          .connectedEdges()
+          .connectedNodes()
+          .filter((connectedNode) => connectedNode.data("type") === "project");
+
+        if (connectedProjects.length === 0) return;
+
+        const projectIds = connectedProjects
+          .map((projectNode) => projectNode.id())
+          .sort();
+
+        const groupKey = projectIds.join("|");
+
+        if (!groups.has(groupKey)) {
+          groups.set(groupKey, {
+            projects: connectedProjects,
+            nodes: [],
+          });
+        }
+
+        groups.get(groupKey).nodes.push(node);
+      });
+
+      groups.forEach((group) => {
+        const average = group.projects.reduce(
+          (acc, projectNode) => {
+            const position = projectNode.position();
+
+            return {
+              x: acc.x + position.x,
+              y: acc.y + position.y,
+            };
+          },
+          { x: 0, y: 0 }
+        );
+
+        const centroid = {
+          x: average.x / group.projects.length,
+          y: average.y / group.projects.length,
+        };
+
+        const count = group.nodes.length;
+
+        group.nodes.forEach((node, index) => {
+          const angle = ((Math.PI * 2) / count) * index;
+
+          const baseRadius = 100;
+          const nodeSpacing = 85;
+
+          const radius =
+            count === 1
+              ? 0
+              : Math.min(750, baseRadius + Math.sqrt(count) * nodeSpacing);
+
+          node.animate({
+            position: {
+              x: centroid.x + Math.cos(angle) * radius,
+              y: centroid.y + Math.sin(angle) * radius,
+            },
+            duration: 500,
+          });
+        });
+      });
+    };
+
+    const runLayout = () => {
+      positionProjectsOnCircle();
+
+      const layout = cy.layout({
+        ...layoutOptions,
+
+        fixedNodeConstraint: cy
+          .nodes('[type = "project"]')
+          .map((n) => ({
+            nodeId: n.id(),
+            position: n.position(),
+          })),
+      });
+
+      layout.run();
+
+      layout.on("layoutstop", () => {
+        pullSharedNodesTowardProjects();
+      });
+    };
+
     cy.ready(() => {
-      cy.fit(undefined, 80);
-      cy.zoom(cy.zoom() * 1.25);
+      runLayout();
+      cy.fit(undefined, 250);
       cy.center();
+    });
+
+    const resizeGraph = () => {
+      cy.resize();
+      cy.fit(undefined, 250);
+    };
+
+    const fitGraph = () => {
+      cy.resize();
+      cy.fit(undefined, 250);
+      cy.center();
+    };
+
+    const graphResizeObserver = new ResizeObserver(() => {
+      resizeGraph();
+    });
+
+    graphResizeObserver.observe(graphContainer);
+
+    window.addEventListener("resize", resizeGraph);
+
+    document.addEventListener("sidebar-toggle", () => {
+      window.setTimeout(fitGraph, 300);
     });
 
     const updateLabelSizes = () => {
@@ -400,8 +586,12 @@ style: [
         if (type === "domain") baseSize = 11;
         if (type === "skill") baseSize = 10;
         if (type === "tool") baseSize = 8;
+        if (type === "technology") baseSize = 8;
+        if (type === "thinking") baseSize = 9;
+        if (type === "artifact") baseSize = 8;
+        if (type === "qualification") baseSize = 10;
 
-        const adjustedSize = Math.max(7, Math.min(18, baseSize / zoom));
+        const adjustedSize = Math.max(7, Math.min(16, baseSize / zoom));
 
         node.style("font-size", adjustedSize);
       });
@@ -425,16 +615,16 @@ style: [
       graphData.tools.find((item) => item.id === id);
 
     const findTechnology = (id) =>
-        graphData.technologies.find((item) => item.id === id);
+      graphData.technologies.find((item) => item.id === id);
 
     const findThinking = (id) =>
-        graphData.thinking.find((item) => item.id === id);
+      graphData.thinking.find((item) => item.id === id);
 
     const findArtifact = (id) =>
-        graphData.artifacts.find((item) => item.id === id);
+      graphData.artifacts.find((item) => item.id === id);
 
     const findQualification = (id) =>
-        graphData.qualifications.find((item) => item.id === id);
+      graphData.qualifications.find((item) => item.id === id);
 
     const listHtml = (items, getUrl = null) => {
       if (!items || items.length === 0) {
@@ -473,21 +663,24 @@ style: [
       if (type === "project") {
         const projectId = rawId.replace("project-", "");
         const project = findProject(projectId);
+        const parentProject = project.parentProject
+          ? findProject(project.parentProject)
+          : null;
 
-        const relatedDomains =
-            project.domains.map(findDomain).filter(Boolean);
-        const relatedSkills =
-            project.skills.map(findSkill).filter(Boolean);
-        const relatedTools =
-            project.tools?.map(findTool).filter(Boolean) ?? [];
+        const dependencyProjects =
+          project.dependsOn?.map(findProject).filter(Boolean) ?? [];
+
+        const relatedDomains = project.domains?.map(findDomain).filter(Boolean) ?? [];
+        const relatedSkills = project.skills?.map(findSkill).filter(Boolean) ?? [];
+        const relatedTools = project.tools?.map(findTool).filter(Boolean) ?? [];
         const relatedTechnologies =
-            project.technologies?.map(findTechnology).filter(Boolean) ?? [];
+          project.technologies?.map(findTechnology).filter(Boolean) ?? [];
         const relatedThinking =
-            project.thinking?.map(findThinking).filter(Boolean) ?? [];
+          project.thinking?.map(findThinking).filter(Boolean) ?? [];
         const relatedArtifacts =
-            project.artifacts?.map(findArtifact).filter(Boolean) ?? [];
+          project.artifacts?.map(findArtifact).filter(Boolean) ?? [];
         const relatedQualifications =
-            project.qualifications?.map(findQualification).filter(Boolean) ?? [];
+          project.qualifications?.map(findQualification).filter(Boolean) ?? [];
 
         popupContent.innerHTML = `
           <p class="panel-eyebrow">Project</p>
@@ -502,18 +695,28 @@ style: [
 
           <h3>Tools</h3>
           ${listHtml(relatedTools)}
-          
+
           <h3>Technologies</h3>
           ${listHtml(relatedTechnologies)}
 
-           <h3>Thinking Themes</h3>
-           ${listHtml(relatedThinking)}
+          <h3>Thinking Themes</h3>
+          ${listHtml(relatedThinking)}
 
-           <h3>Evidence</h3>
-           ${listHtml(relatedArtifacts)}
+          <h3>Evidence</h3>
+          ${listHtml(relatedArtifacts)}
 
-           <h3>Qualifications</h3>
-           ${listHtml(relatedQualifications)}
+          ${parentProject ? `
+            <h3>Part of</h3>
+            ${listHtml([parentProject], (item) => `/projects/${item.id}`)}
+          ` : ""}
+
+          ${dependencyProjects.length ? `
+            <h3>Depends on</h3>
+            ${listHtml(dependencyProjects, (item) => `/projects/${item.id}`)}
+          ` : ""}
+
+          <h3>Qualifications</h3>
+          ${listHtml(relatedQualifications)}
 
           <a class="panel-link" href="/projects/${project.id}">Open project page →</a>
         `;
@@ -526,11 +729,11 @@ style: [
         const domain = findDomain(domainId);
 
         const relatedProjects = graphData.projects.filter((project) =>
-          project.domains.includes(domain.id)
+          project.domains?.includes(domain.id)
         );
 
         const relatedSkillIds = [
-          ...new Set(relatedProjects.flatMap((project) => project.skills)),
+          ...new Set(relatedProjects.flatMap((project) => project.skills ?? [])),
         ];
 
         const relatedSkills = relatedSkillIds.map(findSkill).filter(Boolean);
@@ -557,11 +760,11 @@ style: [
         const skill = findSkill(skillId);
 
         const relatedProjects = graphData.projects.filter((project) =>
-          project.skills.includes(skill.id)
+          project.skills?.includes(skill.id)
         );
 
         const relatedDomainIds = [
-          ...new Set(relatedProjects.flatMap((project) => project.domains)),
+          ...new Set(relatedProjects.flatMap((project) => project.domains ?? [])),
         ];
 
         const relatedDomains = relatedDomainIds.map(findDomain).filter(Boolean);
@@ -602,22 +805,23 @@ style: [
 
         openPopup();
       }
+
       if (type === "technology") {
         const technologyId = rawId.replace("technology-", "");
         const technology = findTechnology(technologyId);
 
         const relatedProjects = graphData.projects.filter((project) =>
-            project.technologies?.includes(technology.id)
+          project.technologies?.includes(technology.id)
         );
 
         popupContent.innerHTML = `
-    <p class="panel-eyebrow">Technology</p>
-    <h2>${technology.name}</h2>
-    <p>${technology.summary ?? "This technology appears in the related project work below."}</p>
+          <p class="panel-eyebrow">Technology</p>
+          <h2>${technology.name}</h2>
+          <p>${technology.summary ?? "This technology appears in the related project work below."}</p>
 
-    <h3>Related Projects</h3>
-    ${listHtml(relatedProjects, (item) => `/projects/${item.id}`)}
-  `;
+          <h3>Related Projects</h3>
+          ${listHtml(relatedProjects, (item) => `/projects/${item.id}`)}
+        `;
 
         openPopup();
       }
@@ -627,17 +831,17 @@ style: [
         const theme = findThinking(thinkingId);
 
         const relatedProjects = graphData.projects.filter((project) =>
-            project.thinking?.includes(theme.id)
+          project.thinking?.includes(theme.id)
         );
 
         popupContent.innerHTML = `
-    <p class="panel-eyebrow">Thinking Theme</p>
-    <h2>${theme.name}</h2>
-    <p>${theme.summary ?? "This theme appears across the related project work below."}</p>
+          <p class="panel-eyebrow">Thinking Theme</p>
+          <h2>${theme.name}</h2>
+          <p>${theme.summary ?? "This theme appears across the related project work below."}</p>
 
-    <h3>Related Projects</h3>
-    ${listHtml(relatedProjects, (item) => `/projects/${item.id}`)}
-  `;
+          <h3>Related Projects</h3>
+          ${listHtml(relatedProjects, (item) => `/projects/${item.id}`)}
+        `;
 
         openPopup();
       }
@@ -647,36 +851,36 @@ style: [
         const artifact = findArtifact(artifactId);
 
         const relatedProjects = graphData.projects.filter((project) =>
-            project.artifacts?.includes(artifact.id)
+          project.artifacts?.includes(artifact.id)
         );
 
         const visibilityLabel =
-            artifact.visibility === "public"
-                ? "Public"
-                : artifact.visibility === "redacted"
-                    ? "Redacted"
-                    : "Private";
+          artifact.visibility === "public"
+            ? "Public"
+            : artifact.visibility === "redacted"
+              ? "Redacted"
+              : "Private";
 
         popupContent.innerHTML = `
-    <p class="panel-eyebrow">Evidence</p>
-    <h2>${artifact.name}</h2>
-    <p>${artifact.summary ?? "Evidence connected to related project work."}</p>
+          <p class="panel-eyebrow">Evidence</p>
+          <h2>${artifact.name}</h2>
+          <p>${artifact.summary ?? "Evidence connected to related project work."}</p>
 
-    <h3>Status</h3>
-    <p>${artifact.status ?? "Not specified"}</p>
+          <h3>Status</h3>
+          <p>${artifact.status ?? "Not specified"}</p>
 
-    <h3>Visibility</h3>
-    <p>${visibilityLabel}</p>
+          <h3>Visibility</h3>
+          <p>${visibilityLabel}</p>
 
-    <h3>Related Projects</h3>
-    ${listHtml(relatedProjects, (item) => `/projects/${item.id}`)}
+          <h3>Related Projects</h3>
+          ${listHtml(relatedProjects, (item) => `/projects/${item.id}`)}
 
-    ${
+          ${
             artifact.url
-                ? `<a class="panel-link" href="${artifact.url}">Open evidence →</a>`
-                : ""
-        }
-  `;
+              ? `<a class="panel-link" href="${artifact.url}">Open evidence →</a>`
+              : ""
+          }
+        `;
 
         openPopup();
       }
@@ -686,29 +890,29 @@ style: [
         const qualification = findQualification(qualificationId);
 
         const relatedProjects = graphData.projects.filter((project) =>
-            project.qualifications?.includes(qualification.id)
+          project.qualifications?.includes(qualification.id)
         );
 
         popupContent.innerHTML = `
-    <p class="panel-eyebrow">Qualification</p>
-    <h2>${qualification.name}</h2>
-    <p>${qualification.summary ?? "Qualification connected to related project work."}</p>
+          <p class="panel-eyebrow">Qualification</p>
+          <h2>${qualification.name}</h2>
+          <p>${qualification.summary ?? "Qualification connected to related project work."}</p>
 
-    ${
+          ${
             qualification.institution
-                ? `<h3>Institution</h3><p>${qualification.institution}</p>`
-                : ""
-        }
+              ? `<h3>Institution</h3><p>${qualification.institution}</p>`
+              : ""
+          }
 
-    ${
+          ${
             qualification.awarded
-                ? `<h3>Awarded</h3><p>${qualification.awarded}</p>`
-                : ""
-        }
+              ? `<h3>Awarded</h3><p>${qualification.awarded}</p>`
+              : ""
+          }
 
-    <h3>Related Projects</h3>
-    ${listHtml(relatedProjects, (item) => `/projects/${item.id}`)}
-  `;
+          <h3>Related Projects</h3>
+          ${listHtml(relatedProjects, (item) => `/projects/${item.id}`)}
+        `;
 
         openPopup();
       }
@@ -749,25 +953,36 @@ style: [
     };
 
     const centreNode = (node) => {
+      cy.stop();
+
       cy.animate({
         center: {
           eles: node,
         },
-        zoom: 1.2,
+        zoom: 1.15,
         duration: 300,
       });
     };
 
     let lastTappedNode = null;
     let lastTapTime = 0;
+    let draggedNode = false;
+
+    cy.on("drag", "node", function () {
+      draggedNode = true;
+    });
 
     cy.on("tap", "node", function (event) {
+      if (draggedNode) {
+        draggedNode = false;
+        return;
+      }
+
       const node = event.target;
       const currentTime = Date.now();
 
       const isDoubleClick =
-          lastTappedNode === node.id() &&
-          currentTime - lastTapTime < 500;
+        lastTappedNode === node.id() && currentTime - lastTapTime < 500;
 
       lastTappedNode = node.id();
       lastTapTime = currentTime;
@@ -868,11 +1083,10 @@ style: [
 </script>
 
 <style>
-
   .graph-wrapper {
     position: relative;
     overflow: hidden;
-
+    width: 100%;
     border: 1px solid #334155;
     border-radius: 12px;
     background: #020617;
@@ -881,80 +1095,11 @@ style: [
   .graph-panel-header {
     display: grid;
     gap: 0.85rem;
-
     padding: 1rem;
     border-bottom: 1px solid #334155;
-
     background: rgba(15, 23, 42, 0.72);
   }
 
-  .graph-controls {
-    margin: 0;
-  }
-
-  .graph-controls label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #cbd5e1;
-    font-weight: 600;
-  }
-
-  #graph-search {
-    width: 100%;
-    max-width: 560px;
-    padding: 0.75rem 1rem;
-    border: 1px solid #334155;
-    border-radius: 8px;
-    background: #020617;
-    color: #e5e7eb;
-  }
-
-  #graph-search::placeholder {
-    color: #64748b;
-  }
-
-  .graph-legend {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.65rem 1rem;
-
-    color: #94a3b8;
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-
-  .graph-legend span {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-
-  .legend-dot {
-    width: 0.7rem;
-    height: 0.7rem;
-    display: inline-block;
-    border-radius: 999px;
-    border: 1px solid currentColor;
-  }
-
-  .legend-project { color: #60a5fa; }
-  .legend-domain { color: #a78bfa; }
-  .legend-skill { color: #34d399; }
-  .legend-tool { color: #fbbf24; }
-  .legend-technology { color: #22d3ee; }
-  .legend-thinking { color: #f472b6; }
-  .legend-artifact { color: #cbd5e1; }
-  .legend-qualification { color: #fb7185; }
-
-  #experience-graph {
-    width: 100%;
-    height: 760px;
-    background: #020617;
-    border: 0;
-    border-radius: 0;
-  }
   .graph-controls label {
     display: block;
     margin-bottom: 0.5rem;
@@ -976,10 +1121,72 @@ style: [
     color: #64748b;
   }
 
-  .graph-hint {
-    margin-top: 0.5rem;
+  .graph-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem 1rem;
     color: #94a3b8;
-    font-size: 0.9rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .graph-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .legend-dot {
+    width: 0.7rem;
+    height: 0.7rem;
+    display: inline-block;
+    border-radius: 999px;
+    border: 1px solid currentColor;
+  }
+
+  .legend-project {
+    color: #60a5fa;
+  }
+
+  .legend-domain {
+    color: #a78bfa;
+  }
+
+  .legend-skill {
+    color: #34d399;
+  }
+
+  .legend-tool {
+    color: #fbbf24;
+  }
+
+  .legend-technology {
+    color: #22d3ee;
+  }
+
+  .legend-thinking {
+    color: #f472b6;
+  }
+
+  .legend-artifact {
+    color: #cbd5e1;
+  }
+
+  .legend-qualification {
+    color: #fb7185;
+  }
+
+  #experience-graph {
+    width: 100%;
+    height: calc(100vh - 260px);
+    min-height: 520px;
+    max-height: 760px;
+    background: #020617;
+    border: 0;
+    border-radius: 0;
+    pointer-events: auto;
   }
 
   .graph-popup {
@@ -1073,7 +1280,7 @@ style: [
 
   @media (max-width: 700px) {
     #experience-graph {
-      height: 600px;
+      height: 520px;
     }
 
     .graph-popup {

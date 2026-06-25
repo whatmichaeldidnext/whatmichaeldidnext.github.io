@@ -1,76 +1,115 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+
+import SectionHeader from "../components/Common/SectionHeader.astro";
+import Card from "../components/Common/Card.astro";
+import Badge from "../components/Common/Badge.astro";
+
 import projects from "../content/projects.json";
 import domains from "../content/domains.json";
 import skills from "../content/skills.json";
 
-const getDomainName = (id) => {
-  return domains.find((domain) => domain.id === id)?.name ?? id;
-};
+const getDomainName = (id) =>
+  domains.find((domain) => domain.id === id)?.name ?? id;
 
-const getSkillName = (id) => {
-  return skills.find((skill) => skill.id === id)?.name ?? id;
-};
+const getSkillName = (id) =>
+  skills.find((skill) => skill.id === id)?.name ?? id;
 ---
-<BaseLayout title="Projects | Michael Charles Portfolio">
-<MainLayout>
-  <h1>Projects</h1>
 
-  <p>
-    Evidence-led project summaries showing how different parts of my experience
-    connect.
-  </p>
+<BaseLayout
+  title="Projects | Michael Charles Portfolio"
+  description="Explore evidence-led project summaries showing how Michael Charles' experience connects across delivery, data, software, cybersecurity and architecture."
+>
+  <MainLayout>
+    <section class="projects-page">
+      <SectionHeader
+        eyebrow="Evidence Library"
+        title="Projects"
+        intro="Evidence-led project summaries showing how different parts of my experience connect through real delivery, technical decisions, outcomes and lessons learned."
+      />
 
-  <section class="project-grid">
-    {projects.map((project) => (
-      <article class="project-card">
-        <h2><a href={`/projects/${project.id}`}>{project.title}</a></h2>
+      <div class="project-grid">
+        {projects.map((project) => (
+          <Card href={`/projects/${project.id}`}>
+            <h2>{project.title}</h2>
 
-        <h3>Domains</h3>
-        <ul>
-          {project.domains.map((domainId) => (
-            <li>{getDomainName(domainId)}</li>
-          ))}
-        </ul>
+            <p>
+              {project.summary ?? "Project summary coming soon."}
+            </p>
 
-        <h3>Skills</h3>
-        <ul>
-          {project.skills.map((skillId) => (
-            <li>{getSkillName(skillId)}</li>
-          ))}
-        </ul>
-      </article>
-    ))}
-  </section>
-</MainLayout>
-  </BaseLayout>
+            <div class="meta-section">
+              <h3>Domains</h3>
+
+              <div class="badge-list">
+                {project.domains.map((domainId) => (
+                  <Badge tone="blue">
+                    {getDomainName(domainId)}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+
+            <div class="meta-section">
+              <h3>Skills</h3>
+
+              <div class="badge-list">
+                {project.skills.map((skillId) => (
+                  <Badge>
+                    {getSkillName(skillId)}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+
+            <span class="explore-link">Open project →</span>
+          </Card>
+        ))}
+      </div>
+    </section>
+  </MainLayout>
+</BaseLayout>
 
 <style>
+  .projects-page {
+    max-width: 1200px;
+  }
+
   .project-grid {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
   }
 
-  .project-card {
-    border: 1px solid #334155;
-    border-radius: 12px;
-    padding: 1.5rem;
-    background: #111827;
-  }
-
-  .project-card h2 {
+  .project-grid h2 {
     margin-top: 0;
-    color: #bfdbfe;
   }
 
-  .project-card h3 {
-    margin-bottom: 0.25rem;
+  .project-grid p {
+    margin-bottom: 1.25rem;
+  }
+
+  .meta-section {
+    margin-top: 1.25rem;
+  }
+
+  .meta-section h3 {
+    margin-bottom: 0.5rem;
     color: #cbd5e1;
+    font-size: 0.95rem;
   }
 
-  .project-card ul {
-    margin-top: 0.25rem;
+  .badge-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .explore-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: #93c5fd;
+    font-weight: 700;
   }
 </style>

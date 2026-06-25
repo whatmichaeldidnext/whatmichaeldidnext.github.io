@@ -6,12 +6,6 @@
 "status": "professional"
 },
 {
-"id": "project-delivery",
-"name": "Project Delivery",
-"description": "Delivering technology change through structured planning, execution, governance and operational transition.",
-"status": "professional"
-},
-{
 "id": "telecoms",
 "name": "Telecommunications",
 "description": "Designing, modernising and transitioning enterprise communications platforms including PSTN, VoIP and unified communications.",
@@ -88,5 +82,137 @@
 "name": "Cybersecurity",
 "description": "Security-focused analysis, research and system design across software, data and infrastructure contexts.",
 "status": "academic"
+},
+{
+"id": "digital-transformation",
+"name": "Digital Transformation",
+"description": "Modernising organisations through technology, process improvement and organisational change to deliver sustainable business capability.",
+"status": "active"
+},
+{
+"id": "telecommunications",
+"name": "Telecommunications",
+"description": "Design, delivery and modernisation of voice, communications and connectivity services across legacy and IP-based platforms.",
+"status": "active"
+},
+{
+"id": "programme-management",
+"name": "Programme Management",
+"description": "Coordinating multiple related projects, governance and stakeholders to achieve strategic organisational outcomes.",
+"status": "active"
+},
+{
+"id": "data-architecture",
+"name": "Data Architecture",
+"description": "Designing and governing data structures, relationships and information models that support reliable decision-making.",
+"status": "active"
+},
+{
+"id": "service-design",
+"name": "Service Design",
+"description": "Designing sustainable services by aligning technology, people and operational processes around user needs.",
+"status": "active"
+},
+{
+"id": "infrastructure-modernisation",
+"name": "Infrastructure Modernisation",
+"description": "Replacing and improving legacy infrastructure to increase resilience, maintainability and long-term operational capability.",
+"status": "active"
+},
+{
+"id": "service-transition",
+"name": "Service Transition",
+"description": "Managing the introduction of new or changed services into operational support while maintaining business continuity.",
+"status": "active"
+},
+{
+"id": "change-management",
+"name": "Change Management",
+"description": "Supporting organisations and people through technology, process and cultural change to achieve successful adoption.",
+"status": "active"
+},
+{
+"id": "research",
+"name": "Research",
+"description": "Applying structured investigation, critical analysis and evidence-based reasoning to explore complex technical and organisational challenges.",
+"status": "active"
+},
+{
+"id": "osint",
+"name": "Open-Source Intelligence (OSINT)",
+"description": "Investigating publicly available information to understand digital exposure, security risks and interconnected online identities.",
+"status": "active"
+},
+{
+"id": "knowledge-graphs",
+"name": "Knowledge Graphs",
+"description": "Representing information as interconnected entities and relationships to improve understanding, analysis and discovery.",
+"status": "active"
+},
+{
+"id": "agile-delivery",
+"name": "Agile Delivery",
+"description": "Delivering value iteratively through collaboration, continuous feedback and adaptive planning using agile principles.",
+"status": "active"
+},
+{
+"id": "crm",
+"name": "Customer Relationship Management (CRM)",
+"description": "Implementing and improving CRM platforms and business processes to enhance customer engagement and organisational effectiveness.",
+"status": "active"
+},
+{
+"id": "business-analysis",
+"name": "Business Analysis",
+"description": "Understanding business needs, defining requirements and translating them into practical technical and operational solutions.",
+"status": "active"
+},
+{
+"id": "pmo",
+"name": "Project Management Office (PMO)",
+"description": "Establishing governance, standards and best practices that improve organisational project delivery capability.",
+"status": "active"
+},
+{
+"id": "business-transformation",
+"name": "Business Transformation",
+"description": "Improving organisational capability through strategic change to processes, technology and operating models.",
+"status": "active"
+},
+{
+"id": "organisational-development",
+"name": "Organisational Development",
+"description": "Strengthening organisational capability through improved processes, knowledge sharing, leadership and continuous improvement.",
+"status": "active"
+},
+{
+"id": "consultancy",
+"name": "Consultancy",
+"description": "Providing professional advisory, project delivery and technical expertise to help organisations achieve strategic outcomes.",
+"status": "active"
+},
+{
+"id": "network-security",
+"name": "Network Security",
+"description": "Protecting network infrastructure, communications and services against cyber threats while maintaining operational resilience.",
+"status": "active"
+},
+{
+"id": "public-sector",
+"name": "Public Sector",
+"description": "Delivering technology and transformation initiatives that support government organisations and public services.",
+"status": "active"
+},
+{
+"id": "government",
+"name": "Government",
+"description": "Projects and programmes delivered within central or local government environments supporting public administration and service delivery.",
+"status": "active"
+},
+{
+"id": "digital-resilience",
+"name": "Digital Resilience",
+"description": "Designing technology, services and operations that remain secure, available and effective during disruption or cyber incidents.",
+"status": "active"
 }
 ]

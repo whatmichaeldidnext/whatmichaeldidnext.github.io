@@ -1,59 +1,146 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+
+import SectionHeader from "../components/Common/SectionHeader.astro";
+import Card from "../components/Common/Card.astro";
+import Badge from "../components/Common/Badge.astro";
+
 import skills from "../content/skills.json";
 import projects from "../content/projects.json";
-import BaseLayout from "../layouts/BaseLayout.astro";
 
-const getProjectsForSkill = (skillId) => {
-  return projects.filter((project) => project.skills.includes(skillId));
-};
+const getProjectsForSkill = (skillId) =>
+  projects.filter(project => project.skills.includes(skillId));
 ---
-<BaseLayout title="Skills | Michael Charles Portfolio">
+
+<BaseLayout
+  title="Skills | Michael Charles Portfolio"
+  description="Explore the technical and professional skills evidenced throughout Michael Charles' projects."
+>
+
 <MainLayout>
-  <h1>Skills</h1>
 
-  <p>
-    Skills are shown with the projects that evidence them, rather than as a flat
-    keyword list.
-  </p>
+<section class="skills-page">
 
-  <section class="card-grid">
-    {skills.map((skill) => (
-      <article class="card">
-        <h2><a href={`/skills/${skill.id}`}>{skill.name}</a></h2>
+  <SectionHeader
+    eyebrow="Evidence-Based Skills"
+    title="Skills"
+    intro="Rather than listing isolated keywords, each skill is supported by the projects that demonstrate it in practice."
+  />
 
-        <h3>Evidence Projects</h3>
-        <ul>
-          {getProjectsForSkill(skill.id).map((project) => (
-            <li>{project.title}</li>
-          ))}
-        </ul>
-      </article>
-    ))}
-  </section>
+  <div class="skills-grid">
+
+    {skills.map((skill) => {
+
+      const evidenceProjects = getProjectsForSkill(skill.id);
+
+      return (
+
+        <Card href={`/skills/${skill.id}`}>
+
+          <h2>{skill.name}</h2>
+
+          <p>
+            Demonstrated across real projects, technical decisions and delivery outcomes.
+          </p>
+
+          <div class="meta-section">
+
+            <h3>Evidence</h3>
+
+            <div class="badge-list">
+
+              {evidenceProjects.map(project => (
+
+                <Badge tone="green">
+                  {project.title}
+                </Badge>
+
+              ))}
+
+            </div>
+
+          </div>
+
+          <span class="explore-link">
+            Explore →
+          </span>
+
+        </Card>
+
+      );
+
+    })}
+
+  </div>
+
+</section>
+
 </MainLayout>
+
 </BaseLayout>
 
 <style>
-  .card-grid {
-    display: grid;
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
 
-  .card {
-    border: 1px solid #334155;
-    border-radius: 12px;
-    padding: 1.5rem;
-    background: #111827;
-  }
+.skills-page{
+    max-width:1200px;
+}
 
-  .card h2 {
-    margin-top: 0;
-    color: #bfdbfe;
-  }
+.skills-grid{
 
-  .card h3 {
-    color: #cbd5e1;
-  }
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(320px,1fr));
+
+    gap:1.5rem;
+
+    margin-top:2rem;
+
+}
+
+.skills-grid h2{
+
+    margin-top:0;
+
+}
+
+.meta-section{
+
+    margin-top:1.5rem;
+
+}
+
+.meta-section h3{
+
+    margin-bottom:.5rem;
+
+    color:#cbd5e1;
+
+    font-size:.95rem;
+
+}
+
+.badge-list{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:.5rem;
+
+}
+
+.explore-link{
+
+    display:inline-block;
+
+    margin-top:1.5rem;
+
+    color:#93c5fd;
+
+    font-weight:700;
+
+}
+
 </style>

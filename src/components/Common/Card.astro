@@ -1,0 +1,73 @@
+---
+interface Props {
+  href?: string;
+  hover?: boolean;
+}
+
+const {
+  href,
+  hover = true
+} = Astro.props;
+---
+
+{
+  href ? (
+    <a
+      href={href}
+      class:list={[
+        "card",
+        { hover }
+      ]}
+    >
+      <slot />
+    </a>
+  ) : (
+    <div
+      class:list={[
+        "card",
+        { hover }
+      ]}
+    >
+      <slot />
+    </div>
+  )
+}
+
+<style>
+.card {
+  display: block;
+
+  padding: 1.25rem;
+
+  border: 1px solid var(--border, #334155);
+  border-radius: 14px;
+
+  background: var(--surface, #111827);
+
+  text-decoration: none;
+
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card.hover:hover {
+  border-color: var(--color-primary, #60a5fa);
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.20);
+}
+
+.card :global(h3) {
+  margin-top: 0;
+  color: var(--text, #f8fafc);
+}
+
+.card :global(p) {
+  color: var(--text-secondary, #cbd5e1);
+  line-height: 1.6;
+}
+</style>

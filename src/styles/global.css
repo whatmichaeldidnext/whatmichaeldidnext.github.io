@@ -50,3 +50,84 @@ input,
 .graph-hint {
 	font-family: var(--font-mono);
 }
+.current-focus {
+	margin-top: 4rem;
+}
+
+.section-heading {
+	max-width: 760px;
+	margin-bottom: 2rem;
+}
+
+.eyebrow {
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	font-size: 0.8rem;
+	opacity: 0.7;
+}
+
+.focus-grid {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	gap: 1.5rem;
+}
+
+.focus-panel {
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	border-radius: 1.25rem;
+	padding: 1.5rem;
+	background: rgba(255, 255, 255, 0.04);
+}
+
+.build-list {
+	display: grid;
+	gap: 1rem;
+}
+
+.build-card {
+	padding: 1rem;
+	border-radius: 1rem;
+	background: rgba(255, 255, 255, 0.04);
+}
+
+.build-card-header {
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	align-items: start;
+}
+
+.build-card h4 {
+	margin: 0;
+}
+
+.build-card span {
+	font-size: 0.8rem;
+	opacity: 0.75;
+}
+
+.progress-track {
+	height: 0.5rem;
+	margin-top: 1rem;
+	border-radius: 999px;
+	overflow: hidden;
+	background: rgba(255, 255, 255, 0.12);
+}
+
+.progress-fill {
+	height: 100%;
+	border-radius: inherit;
+	background: currentColor;
+}
+
+.explore-list {
+	display: grid;
+	gap: 0.8rem;
+	padding-left: 1.2rem;
+}
+
+@media (max-width: 800px) {
+	.focus-grid {
+		grid-template-columns: 1fr;
+	}
+}

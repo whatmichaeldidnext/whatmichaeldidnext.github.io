@@ -75,18 +75,78 @@
 "summary": "Using research, measurement and objective analysis to support technical decisions rather than assumptions."
 },
 {
-  "id": "infrastructure-modernisation",
-  "name": "Infrastructure Modernisation",
-  "summary": "Replacing legacy infrastructure with maintainable, secure and scalable modern technology platforms."
+"id": "infrastructure-modernisation",
+"name": "Infrastructure Modernisation",
+"summary": "Replacing legacy infrastructure with maintainable, secure and scalable modern technology platforms."
 },
 {
-  "id": "osint",
-  "name": "OSINT",
-  "summary": "Using publicly available information sources responsibly to understand exposure, identity and security risks."
+"id": "osint",
+"name": "OSINT",
+"summary": "Using publicly available information sources responsibly to understand exposure, identity and security risks."
 },
 {
-  "id": "data-visualisation",
-  "name": "Data Visualisation",
-  "summary": "Presenting complex relationships and datasets through clear, interactive and meaningful visual structures."
+"id": "data-visualisation",
+"name": "Data Visualisation",
+"summary": "Presenting complex relationships and datasets through clear, interactive and meaningful visual structures."
+},
+{
+  "id": "enterprise-architecture",
+  "name": "Enterprise Architecture",
+  "summary": "Considering technology, business processes and organisational capability as an interconnected system."
+},
+{
+  "id": "operational-resilience",
+  "name": "Operational Resilience",
+  "summary": "Designing services and operations that remain effective during disruption and recover quickly from failure."
+},
+{
+  "id": "operational-assurance",
+  "name": "Operational Assurance",
+  "summary": "Ensuring services, processes and data are reliable, governed and suitable for operational use."
+},
+{
+  "id": "visual-analytics",
+  "name": "Visual Analytics",
+  "summary": "Using visual representations of data to improve understanding, exploration and decision-making."
+},
+{
+  "id": "responsible-ai",
+  "name": "Responsible AI",
+  "summary": "Applying artificial intelligence in ways that are transparent, ethical, accountable and minimise unintended harm."
+},
+{
+  "id": "customer-centric",
+  "name": "Customer-Centric Thinking",
+  "summary": "Designing solutions around the needs, experience and outcomes of the people using them."
+},
+{
+  "id": "knowledge-management",
+  "name": "Knowledge Management",
+  "summary": "Capturing, organising and sharing organisational knowledge to improve consistency, learning and delivery capability."
+},
+{
+  "id": "collaborative-leadership",
+  "name": "Collaborative Leadership",
+  "summary": "Building successful outcomes through shared ownership, open communication and collective expertise."
+},
+{
+  "id": "risk-based-delivery",
+  "name": "Risk-Based Delivery",
+  "summary": "Prioritising delivery decisions by balancing risk, value, urgency and organisational impact."
+},
+{
+  "id": "security-by-design",
+  "name": "Security by Design",
+  "summary": "Embedding security considerations into systems, architectures and processes from the outset."
+},
+{
+  "id": "public-value",
+  "name": "Public Value",
+  "summary": "Considering how technology and organisational change contribute to better outcomes for citizens and society."
+},
+{
+  "id": "crisis-delivery",
+  "name": "Crisis Delivery",
+  "summary": "Leading projects effectively in high-pressure, time-critical or rapidly changing operational environments."
 }
 ]

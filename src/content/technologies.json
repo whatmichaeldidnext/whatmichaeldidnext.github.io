@@ -98,5 +98,50 @@
 "id": "entra",
 "name": "Microsoft Entra",
 "summary": "Microsoft's cloud identity and access management platform providing authentication, authorisation and governance."
+},
+{
+"id": "graph-data-models",
+"name": "Graph Data Models",
+"summary": "Data structures that represent information as interconnected entities and relationships, supporting flexible querying and visualisation."
+},
+{
+"id": "dynamics-365",
+"name": "Microsoft Dynamics 365",
+"summary": "Microsoft business applications platform supporting CRM, customer engagement and business process automation."
+},
+{
+"id": "sql-database",
+"name": "SQL Database",
+"summary": "Relational database technology used for storing, querying and managing structured business data."
+},
+{
+"id": "condecco",
+"name": "Condeco",
+"summary": "Workspace and resource management platform supporting desk, meeting room and workplace scheduling."
+},
+{
+"id": "network-security-appliances",
+"name": "Network Security Appliances",
+"summary": "Dedicated hardware or virtual platforms providing network protection, traffic inspection and security policy enforcement."
+},
+{
+"id": "ddos-protection",
+"name": "DDoS Protection",
+"summary": "Technologies and services designed to detect, mitigate and reduce the impact of distributed denial-of-service attacks."
+},
+{
+"id": "firewall",
+"name": "Firewall",
+"summary": "Security technology that controls and filters network traffic according to defined security policies."
+},
+{
+"id": "intrusion-prevention",
+"name": "Intrusion Prevention System (IPS)",
+"summary": "Technology that identifies and blocks malicious network activity before it impacts services."
+},
+{
+"id": "network-monitoring",
+"name": "Network Monitoring",
+"summary": "Monitoring technologies that provide visibility into network performance, availability and operational health."
 }
 ]

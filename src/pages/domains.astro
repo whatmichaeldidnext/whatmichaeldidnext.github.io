@@ -1,64 +1,116 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+
+import SectionHeader from "../components/Common/SectionHeader.astro";
+import Card from "../components/Common/Card.astro";
+import Badge from "../components/Common/Badge.astro";
+
 import domains from "../content/domains.json";
 import projects from "../content/projects.json";
-import BaseLayout from "../layouts/BaseLayout.astro";
 
-const getProjectsForDomain = (domainId) => {
-  return projects.filter((project) => project.domains.includes(domainId));
-};
+const getProjectsForDomain = (domainId) =>
+  projects.filter(project => project.domains.includes(domainId));
 ---
 
 <BaseLayout
-    title="Domains | Michael Charles Portfolio"
-    description="Explore the professional domains that connect Michael Charles' project delivery, technical, data and cybersecurity experience."
+  title="Domains | Michael Charles Portfolio"
+  description="Explore the professional domains that connect Michael Charles' experience."
 >
+
 <MainLayout>
-  <h1>Domains</h1>
 
-  <p>
-    The main professional areas that connect my project delivery, technical,
-    data, and cybersecurity experience.
-  </p>
+<section class="domains-page">
 
-  <section class="card-grid">
-    {domains.map((domain) => (
-      <article class="card">
-        <h2><a href={`/domains/${domain.id}`}>{domain.name}</a></h2>
-        <p>{domain.description}</p>
+  <SectionHeader
+    eyebrow="Professional Domains"
+    title="How My Experience Connects"
+    intro="These domains represent the disciplines that have shaped my career. They aren't isolated skills—they overlap through projects, technologies and real-world outcomes."
+  />
 
-        <h3>Related Projects</h3>
-        <ul>
-          {getProjectsForDomain(domain.id).map((project) => (
-            <li>{project.title}</li>
-          ))}
-        </ul>
-      </article>
-    ))}
-  </section>
+  <div class="domain-grid">
+
+    {domains.map((domain) => {
+
+      const relatedProjects = getProjectsForDomain(domain.id);
+
+      return (
+
+        <Card href={`/domains/${domain.id}`}>
+
+          <h2>{domain.name}</h2>
+
+          <p>{domain.description}</p>
+
+          <div class="domain-footer">
+
+            <Badge tone="blue">
+              {relatedProjects.length} project{relatedProjects.length !== 1 && "s"}
+            </Badge>
+
+            <span class="explore-link">
+              Explore →
+            </span>
+
+          </div>
+
+        </Card>
+
+      );
+
+    })}
+
+  </div>
+
+</section>
+
 </MainLayout>
+
 </BaseLayout>
 
 <style>
-  .card-grid {
-    display: grid;
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
 
-  .card {
-    border: 1px solid #334155;
-    border-radius: 12px;
-    padding: 1.5rem;
-    background: #111827;
-  }
+.domains-page{
+    max-width:1200px;
+}
 
-  .card h2 {
-    margin-top: 0;
-    color: #bfdbfe;
-  }
+.domain-grid{
 
-  .card h3 {
-    color: #cbd5e1;
-  }
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(320px,1fr));
+
+    gap:1.5rem;
+
+    margin-top:2rem;
+
+}
+
+.domain-grid h2{
+
+    margin-top:0;
+
+}
+
+.domain-footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:1.5rem;
+
+}
+
+.explore-link{
+
+    color:#93c5fd;
+
+    font-weight:600;
+
+}
+
 </style>

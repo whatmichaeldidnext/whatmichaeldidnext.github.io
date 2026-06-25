@@ -1,0 +1,145 @@
+---
+import SectionHeader from "../Common/SectionHeader.astro";
+import Badge from "../Common/Badge.astro";
+import ProgressBar from "../Common/ProgressBar.astro";
+
+import {
+  buildingItems,
+  exploringItems,
+} from "../../data/currentFocus";
+---
+
+<section class="current-focus">
+
+  <SectionHeader
+    eyebrow="Current Focus"
+    title="Currently Building & Exploring"
+    intro="A snapshot of the projects I'm actively building, alongside the technologies and ideas I'm currently exploring."
+  />
+
+  <div class="focus-grid">
+
+    <!-- Building -->
+
+    <section class="focus-panel">
+      <h3>🚧 Building</h3>
+
+      <div class="build-list">
+
+        {buildingItems.map((item) => (
+
+          <article class="build-card">
+
+            <div class="build-header">
+
+              <div>
+                <h4>{item.title}</h4>
+
+                <p>{item.description}</p>
+              </div>
+
+              <Badge tone="blue">
+                {item.status}
+              </Badge>
+
+            </div>
+
+            <ProgressBar
+              value={item.progress}
+              label={`${item.title} progress`}
+            />
+
+          </article>
+
+        ))}
+
+      </div>
+    </section>
+
+    <!-- Exploring -->
+
+    <section class="focus-panel">
+
+      <h3>📚 Exploring</h3>
+
+      <ul class="explore-list">
+        {exploringItems.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+
+    </section>
+
+  </div>
+
+</section>
+
+<style>
+
+.current-focus{
+    padding:3rem 0;
+    border-top:1px solid #334155;
+}
+
+.focus-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:2rem;
+}
+
+.focus-panel{
+    padding:1.5rem;
+    border-radius:16px;
+    border:1px solid #334155;
+    background:rgba(255,255,255,.03);
+}
+
+.build-list{
+    display:grid;
+    gap:1rem;
+}
+
+.build-card{
+    padding:1rem;
+    border-radius:12px;
+    background:rgba(255,255,255,.03);
+}
+
+.build-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:1rem;
+}
+
+.build-header h4{
+    margin:0;
+    color:#f8fafc;
+}
+
+.build-header p{
+    margin:.5rem 0 0;
+    color:#cbd5e1;
+    line-height:1.6;
+}
+
+.explore-list{
+    margin:1rem 0 0;
+    padding-left:1.2rem;
+    display:grid;
+    gap:.75rem;
+}
+
+.explore-list li{
+    color:#cbd5e1;
+}
+
+@media (max-width: 900px){
+
+    .focus-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>

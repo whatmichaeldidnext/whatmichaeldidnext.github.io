@@ -1,71 +1,92 @@
 ---
+import SectionHeader from "../Common/SectionHeader.astro";
+import Card from "../Common/Card.astro";
+
 import domains from "../../content/domains.json";
+
+const featuredDomains = domains.slice(0, 6);
 ---
 
-<section class="section">
-  <div class="section-header">
-    <h2>Core Domains</h2>
-    <a href="/domains">View all domains →</a>
+<section class="domains-section">
+
+  <SectionHeader
+    eyebrow="Professional Domains"
+    title="Explore My Experience"
+    intro="These domains represent the disciplines that have shaped my career. Rather than existing in isolation, they connect through projects, technologies and outcomes."
+  />
+
+  <div class="domains-header">
+    <span></span>
+
+    <a href="/domains">
+      View all domains →
+    </a>
   </div>
 
-  <div class="grid">
-    {domains.map((domain) => (
-      <a class="card" href={`/domains/${domain.id}`}>
+  <div class="domain-grid">
+
+    {featuredDomains.map((domain) => (
+
+      <Card
+        href={`/domains/${domain.id}`}
+      >
+
         <h3>{domain.name}</h3>
+
         <p>{domain.description}</p>
-      </a>
+
+      </Card>
+
     ))}
+
   </div>
+
 </section>
 
 <style>
-  .section {
-    padding: 3rem 0;
-    border-top: 1px solid #334155;
-  }
 
-  .section-header {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    align-items: baseline;
-    margin-bottom: 1.5rem;
-  }
+.domains-section{
+    padding:3rem 0;
+    border-top:1px solid #334155;
+}
 
-  h2 {
-    color: #bfdbfe;
-    font-size: 2rem;
-  }
+.domains-header{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:1.5rem;
+}
 
-  .section-header a {
-    color: #93c5fd;
-  }
+.domains-header a{
+    color:#93c5fd;
+    text-decoration:none;
+}
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1rem;
-  }
+.domain-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
 
-  .card {
-    display: block;
-    border: 1px solid #334155;
-    border-radius: 12px;
-    padding: 1.25rem;
-    background: #111827;
-    text-decoration: none;
+@media (max-width: 1200px) {
+  .domain-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
+}
 
-  .card:hover {
-    border-color: #60a5fa;
+@media (max-width: 850px) {
+  .domain-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
+}
 
-  h3 {
-    color: #e5e7eb;
-    margin-top: 0;
+@media (max-width: 550px) {
+  .domain-grid {
+    grid-template-columns: 1fr;
   }
+}
+.domain-grid h3{
+    margin-top:0;
+}
 
-  p {
-    color: #cbd5e1;
-  }
 </style>

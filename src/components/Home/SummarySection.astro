@@ -1,38 +1,62 @@
-/* TODO:
-- Content update
-*/
+---
+import SectionHeader from "../Common/SectionHeader.astro";
+---
 
-<section class="section">
-  <h2>A portfolio-first view of professional experience</h2>
+<section class="summary-section">
 
-  <p>
-    I specialise in delivering technical change across telecommunications,
-    digital transformation, and data-driven decision making. My experience spans
-    project delivery, Microsoft Teams Calling, Power BI analytics, software
-    development, and cybersecurity research.
-  </p>
+  <SectionHeader
+    eyebrow="Portfolio First"
+    title="This is more than 'just a CV'"
+    intro="This portfolio is designed to show not only what I've done, but how my experience connects across projects, disciplines and technologies."
+  />
 
-  <p>
-    Rather than presenting these as isolated skills, this portfolio shows how
-    they connect through real projects, outcomes, tools, and evidence.
-  </p>
+  <div class="summary-content">
+
+    <p>
+      I specialise in delivering technical change across IP communications,
+      digital transformation and data-driven decision making. My experience
+      spans project delivery, product ownership and technical subject matter
+      expertise across IP communications, CRM, software development, data
+      analytics and cybersecurity.
+    </p>
+
+    <p>
+      I take pride in never backing down from a new challenge and in building
+      a solid technical understanding of every product, platform or project I
+      work on. I'm very much a <em>"Never Stop Never Stopping"</em> kind of
+      person; always curious, always learning and always looking for the next
+      opportunity to improve.
+    </p>
+
+    <p>
+      Rather than presenting isolated skills or job titles, this portfolio
+      explores how those experiences connect through real projects,
+      technologies, outcomes and the lessons learned along the way.
+    </p>
+
+  </div>
+
 </section>
 
 <style>
-  .section {
-    padding: 3rem 0;
-    border-top: 1px solid #334155;
-  }
 
-  h2 {
-    color: #bfdbfe;
-    font-size: 2rem;
-  }
+.summary-section{
+    padding:3rem 0;
+    border-top:1px solid #334155;
+}
 
-  p {
-    max-width: 820px;
-    color: #cbd5e1;
-    line-height: 1.7;
-    font-size: 1.05rem;
-  }
+.summary-content{
+    max-width:820px;
+}
+
+.summary-content p{
+    color:#cbd5e1;
+    line-height:1.8;
+    font-size:1.05rem;
+}
+
+.summary-content p + p{
+    margin-top:1.5rem;
+}
+
 </style>
