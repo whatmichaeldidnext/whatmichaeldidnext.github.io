@@ -49,7 +49,6 @@
       "powershell",
       "sharepoint",
       "microsoft-teams",
-      "azure-ad",
       "intune",
       "excel"
     ],
@@ -63,18 +62,16 @@
       "entra"
     ],
     "thinking": [
-      "Systems Thinking",
-      "Data-Driven Decision Making",
-      "Technical Leadership",
-      "Continuous Improvement",
-      "Infrastructure Modernisation"
+      "systems-thinking",
+      "data-driven-decision-making",
+      "technical-leadership",
+      "continuous-improvement",
+      "infrastructure-modernisation"
     ],
     "artifacts": [
-      "aso-programme-dashboard",
+      "aso-report-suite",
       "aso-power-bi-model",
-      "aso-delivery-framework",
-      "aso-risk-register",
-      "aso-technical-design"
+      "aso-delivery-framework"
     ],
     "qualifications": [],
     "links": []
@@ -120,7 +117,6 @@
       "power-bi",
       "power-query",
       "dax",
-      "m-language",
       "sharepoint",
       "excel"
     ],
@@ -137,8 +133,7 @@
       "information-architecture"
     ],
     "artifacts": [
-      "aso-data-model",
-      "aso-power-query-library",
+      "aso-power-bi-model",
       "aso-report-suite",
       "aso-site-matching-framework"
     ],
@@ -315,7 +310,7 @@
       "computer-science",
       "software-dev",
       "cybersecurity",
-      "data-analysis",
+      "data-analytics",
       "web-2.0",
       "data-security"
     ],
@@ -349,34 +344,19 @@
       "cytoscape"
     ],
     "thinking": [
-      "Ethical Software Engineering",
-      "Knowledge Graphs",
-      "OSINT",
-      "Data Visualisation",
-      "Privacy by Design",
-      "Human-Centred Security"
+      "ethical-software-engineering",
+      "knowledge-graphs",
+      "osint",
+      "data-visualisation",
+      "privacy-by-design",
+      "human-centred-security"
     ],
     "artifacts": [
-      {
-        "type": "dissertation",
-        "title": "Final MSc Dissertation"
-      },
-      {
-        "type": "architecture",
-        "title": "System Architecture Diagram"
-      },
-      {
-        "type": "research",
-        "title": "Literature Review"
-      },
-      {
-        "type": "proposal",
-        "title": "Project Proposal"
-      },
-      {
-        "type": "demo",
-        "title": "Interactive Proof of Concept"
-      }
+      "msc-dissertation",
+      "msc-architecture",
+      "msc-literature-review",
+      "msc-project-proposal",
+      "msc-proof-of-concept"
     ],
     "links": [
       {

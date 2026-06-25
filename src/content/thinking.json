@@ -73,5 +73,20 @@
 "id": "evidence-based-engineering",
 "name": "Evidence-Based Engineering",
 "summary": "Using research, measurement and objective analysis to support technical decisions rather than assumptions."
+},
+{
+  "id": "infrastructure-modernisation",
+  "name": "Infrastructure Modernisation",
+  "summary": "Replacing legacy infrastructure with maintainable, secure and scalable modern technology platforms."
+},
+{
+  "id": "osint",
+  "name": "OSINT",
+  "summary": "Using publicly available information sources responsibly to understand exposure, identity and security risks."
+},
+{
+  "id": "data-visualisation",
+  "name": "Data Visualisation",
+  "summary": "Presenting complex relationships and datasets through clear, interactive and meaningful visual structures."
 }
 ]
