@@ -4,6 +4,7 @@ import projects from "../../content/projects.json";
 import domains from "../../content/domains.json";
 import skills from "../../content/skills.json";
 import tools from "../../content/tools.json";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 export function getStaticPaths() {
   return projects.map((project) => ({
@@ -24,7 +25,8 @@ const getToolName = (id) =>
   tools.find((tool) => tool.id === id)?.name ?? id;
 ---
 
-<MainLayout title={`${project.title} | Michael Charles Portfolio`}>
+<BaseLayout title={`${project.title} | Michael Charles Portfolio`}>
+<MainLayout>
   <a href="/projects" class="back-link">← Back to Projects</a>
 
   <article class="project-detail">
@@ -75,6 +77,7 @@ const getToolName = (id) =>
     </section>
   </article>
 </MainLayout>
+</BaseLayout>
 
 <style>
   .back-link {

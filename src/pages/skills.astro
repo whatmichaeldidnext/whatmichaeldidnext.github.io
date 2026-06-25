@@ -2,13 +2,14 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import skills from "../content/skills.json";
 import projects from "../content/projects.json";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const getProjectsForSkill = (skillId) => {
   return projects.filter((project) => project.skills.includes(skillId));
 };
 ---
-
-<MainLayout title="Skills | Michael Charles Portfolio">
+<BaseLayout title="Skills | Michael Charles Portfolio">
+<MainLayout>
   <h1>Skills</h1>
 
   <p>
@@ -31,6 +32,7 @@ const getProjectsForSkill = (skillId) => {
     ))}
   </section>
 </MainLayout>
+</BaseLayout>
 
 <style>
   .card-grid {

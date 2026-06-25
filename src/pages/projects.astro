@@ -1,7 +1,5 @@
-/* TODO:
-- Content update
-*/
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import projects from "../content/projects.json";
 import domains from "../content/domains.json";
@@ -15,8 +13,8 @@ const getSkillName = (id) => {
   return skills.find((skill) => skill.id === id)?.name ?? id;
 };
 ---
-
-<MainLayout title="Projects | Michael Charles Portfolio">
+<BaseLayout title="Projects | Michael Charles Portfolio">
+<MainLayout>
   <h1>Projects</h1>
 
   <p>
@@ -46,6 +44,7 @@ const getSkillName = (id) => {
     ))}
   </section>
 </MainLayout>
+  </BaseLayout>
 
 <style>
   .project-grid {

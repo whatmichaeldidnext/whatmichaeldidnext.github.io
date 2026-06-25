@@ -2,13 +2,18 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import domains from "../content/domains.json";
 import projects from "../content/projects.json";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const getProjectsForDomain = (domainId) => {
   return projects.filter((project) => project.domains.includes(domainId));
 };
 ---
 
-<MainLayout title="Domains | Michael Charles Portfolio">
+<BaseLayout
+    title="Domains | Michael Charles Portfolio"
+    description="Explore the professional domains that connect Michael Charles' project delivery, technical, data and cybersecurity experience."
+>
+<MainLayout>
   <h1>Domains</h1>
 
   <p>
@@ -32,6 +37,7 @@ const getProjectsForDomain = (domainId) => {
     ))}
   </section>
 </MainLayout>
+</BaseLayout>
 
 <style>
   .card-grid {

@@ -1,12 +1,10 @@
-/* TODO:
-- Content update
-*/
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import ExperienceGraph from "../components/Graph/ExperienceGraph.astro";
 ---
-
-<MainLayout title="Experience Graph | Michael Charles Portfolio">
+<BaseLayout title="Experience Graph | Michael Charles Portfolio">
+<MainLayout>
   <h1>Experience Graph</h1>
 
   <p>
@@ -15,3 +13,4 @@ import ExperienceGraph from "../components/Graph/ExperienceGraph.astro";
 
   <ExperienceGraph />
 </MainLayout>
+</BaseLayout>

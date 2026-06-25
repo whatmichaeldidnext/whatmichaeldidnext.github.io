@@ -1,11 +1,10 @@
-/* TODO:
-- Content update
-*/
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<MainLayout title="Contact | Michael Charles Portfolio">
+<BaseLayout title="Contact | Michael Charles Portfolio">
+<MainLayout>
   <section class="contact-page">
     <p class="eyebrow">Contact</p>
 
@@ -42,6 +41,7 @@ import MainLayout from "../layouts/MainLayout.astro";
     </div>
   </section>
 </MainLayout>
+</BaseLayout>
 
 <style>
   .contact-page {

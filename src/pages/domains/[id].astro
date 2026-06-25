@@ -3,6 +3,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
 import domains from "../../content/domains.json";
 import projects from "../../content/projects.json";
 import skills from "../../content/skills.json";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 export function getStaticPaths() {
   return domains.map((domain) => ({
@@ -26,7 +27,8 @@ const relatedSkills = skills.filter((skill) =>
 );
 ---
 
-<MainLayout title={`${domain.name} | Michael Charles Portfolio`}>
+<BaseLayout title={`${domain.name} | Michael Charles Portfolio`}>
+<MainLayout>
   <a href="/domains" class="back-link">← Back to Domains</a>
 
   <article class="detail-page">
@@ -57,6 +59,7 @@ const relatedSkills = skills.filter((skill) =>
     </section>
   </article>
 </MainLayout>
+</BaseLayout>
 
 <style>
   .back-link {
