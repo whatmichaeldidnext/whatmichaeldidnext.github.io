@@ -1,0 +1,5 @@
+User-agent: *
+
+Allow: /
+
+Sitemap: https://what-michael-did-next.co.uk/sitemap-index.xml

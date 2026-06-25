@@ -1,4 +1,5 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 
 import HeroSection from "../components/Home/HeroSection.astro";
@@ -9,11 +10,16 @@ import CurrentFocus from "../components/Home/CurrentFocus.astro";
 import GraphPreview from "../components/Home/GraphPreview.astro";
 ---
 
-<MainLayout title="Michael Charles">
-  <HeroSection />
-  <SummarySection />
-  <DomainGrid />
-  <FeaturedProjects />
-  <CurrentFocus />
-  <GraphPreview />
-</MainLayout>
+<BaseLayout
+    title="What Michael Did Next | An Interactive Portfolio of Experience, Interests and Skills"
+    description="Explore Michael Charles' interactive professional portfolio across project delivery, telecoms, data analytics, cybersecurity, software development and architecture."
+>
+  <MainLayout>
+    <HeroSection />
+    <SummarySection />
+    <DomainGrid />
+    <FeaturedProjects />
+    <CurrentFocus />
+    <GraphPreview />
+  </MainLayout>
+</BaseLayout>

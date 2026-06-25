@@ -20,20 +20,29 @@ const graphData = {
 };
 ---
 
-<div class="graph-controls">
-  <label for="graph-search">Search the graph</label>
-  <input
-    id="graph-search"
-    type="search"
-    placeholder="Search projects, domains, skills or tools..."
-  />
-  <p class="graph-hint">
-    Type to highlight. Press Enter to centre the result. Double-click a node to
-    open its page.
-  </p>
-</div>
-
 <div class="graph-wrapper">
+  <div class="graph-panel-header">
+    <div class="graph-controls">
+      <label for="graph-search">Search the graph</label>
+      <input
+          id="graph-search"
+          type="search"
+          placeholder="Search projects, domains, skills or tools..."
+      />
+    </div>
+
+    <div class="graph-legend" aria-label="Graph legend">
+      <span><i class="legend-dot legend-project"></i>Project</span>
+      <span><i class="legend-dot legend-domain"></i>Domain</span>
+      <span><i class="legend-dot legend-skill"></i>Skill</span>
+      <span><i class="legend-dot legend-tool"></i>Tool</span>
+      <span><i class="legend-dot legend-technology"></i>Technology</span>
+      <span><i class="legend-dot legend-thinking"></i>Thinking</span>
+      <span><i class="legend-dot legend-artifact"></i>Evidence</span>
+      <span><i class="legend-dot legend-qualification"></i>Qualification</span>
+    </div>
+  </div>
+
   <div id="experience-graph"></div>
 
   <aside id="graph-popup" class="graph-popup hidden" aria-live="polite">
@@ -371,6 +380,12 @@ style: [
         randomize: true,
         edgeElasticity: 0.25
       },
+    });
+
+    cy.ready(() => {
+      cy.fit(undefined, 80);
+      cy.zoom(cy.zoom() * 1.25);
+      cy.center();
     });
 
     const updateLabelSizes = () => {
@@ -796,46 +811,6 @@ style: [
         resetGraph();
       }
     });
-    /*cy.on("tap", "node", function (event) {
-      const node = event.target;
-      const currentTime = Date.now();
-
-      const isDoubleClick =
-        lastTappedNode === node.id() &&
-        currentTime - lastTapTime < 500;
-
-      lastTappedNode = node.id();
-      lastTapTime = currentTime;
-
-      if (isDoubleClick) {
-        const type = node.data("type");
-        const rawId = node.id();
-
-        if (type === "project") {
-          window.location.href = `/projects/${rawId.replace("project-", "")}`;
-        }
-
-        if (type === "domain") {
-          window.location.href = `/domains/${rawId.replace("domain-", "")}`;
-        }
-
-        if (type === "skill") {
-          window.location.href = `/skills/${rawId.replace("skill-", "")}`;
-        }
-
-        return;
-      }
-
-      searchInput.value = "";
-      highlightNode(node);
-    });
-
-    cy.on("tap", function (event) {
-      if (event.target === cy) {
-        searchInput.value = "";
-        resetGraph();
-      }
-    });*/
 
     searchInput.addEventListener("input", function () {
       const query = searchInput.value.trim().toLowerCase();
@@ -893,10 +868,93 @@ style: [
 </script>
 
 <style>
-  .graph-controls {
-    margin: 2rem 0 1rem;
+
+  .graph-wrapper {
+    position: relative;
+    overflow: hidden;
+
+    border: 1px solid #334155;
+    border-radius: 12px;
+    background: #020617;
   }
 
+  .graph-panel-header {
+    display: grid;
+    gap: 0.85rem;
+
+    padding: 1rem;
+    border-bottom: 1px solid #334155;
+
+    background: rgba(15, 23, 42, 0.72);
+  }
+
+  .graph-controls {
+    margin: 0;
+  }
+
+  .graph-controls label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #cbd5e1;
+    font-weight: 600;
+  }
+
+  #graph-search {
+    width: 100%;
+    max-width: 560px;
+    padding: 0.75rem 1rem;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    background: #020617;
+    color: #e5e7eb;
+  }
+
+  #graph-search::placeholder {
+    color: #64748b;
+  }
+
+  .graph-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem 1rem;
+
+    color: #94a3b8;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .graph-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .legend-dot {
+    width: 0.7rem;
+    height: 0.7rem;
+    display: inline-block;
+    border-radius: 999px;
+    border: 1px solid currentColor;
+  }
+
+  .legend-project { color: #60a5fa; }
+  .legend-domain { color: #a78bfa; }
+  .legend-skill { color: #34d399; }
+  .legend-tool { color: #fbbf24; }
+  .legend-technology { color: #22d3ee; }
+  .legend-thinking { color: #f472b6; }
+  .legend-artifact { color: #cbd5e1; }
+  .legend-qualification { color: #fb7185; }
+
+  #experience-graph {
+    width: 100%;
+    height: 760px;
+    background: #020617;
+    border: 0;
+    border-radius: 0;
+  }
   .graph-controls label {
     display: block;
     margin-bottom: 0.5rem;
@@ -922,18 +980,6 @@ style: [
     margin-top: 0.5rem;
     color: #94a3b8;
     font-size: 0.9rem;
-  }
-
-  .graph-wrapper {
-    position: relative;
-  }
-
-  #experience-graph {
-    width: 100%;
-    height: 850px;
-    border: 1px solid #334155;
-    border-radius: 12px;
-    background: #020617;
   }
 
   .graph-popup {
