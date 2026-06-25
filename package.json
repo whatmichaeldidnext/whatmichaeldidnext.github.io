@@ -7,9 +7,8 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "build": "npm run validate-content && astro build",
+    "validate-content": "node scripts/validate-content.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.0",

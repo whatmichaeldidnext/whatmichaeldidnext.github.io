@@ -3,12 +3,20 @@ import projects from "../../content/projects.json";
 import domains from "../../content/domains.json";
 import skills from "../../content/skills.json";
 import tools from "../../content/tools.json";
+import technologies from "../../content/technologies.json";
+import thinking from "../../content/thinking.json";
+import artifacts from "../../content/artifacts.json";
+import qualifications from "../../content/qualifications.json";
 
 const graphData = {
   projects,
   domains,
   skills,
   tools,
+  technologies,
+  thinking,
+  artifacts,
+  qualifications,
 };
 ---
 
@@ -106,6 +114,46 @@ const graphData = {
         },
       });
 
+      graphData.technologies.forEach((technology) => {
+        elements.push({
+          data: {
+            id: `technology-${technology.id}`,
+            label: technology.name,
+            type: "technology",
+          },
+        });
+      });
+
+      graphData.thinking.forEach((theme) => {
+        elements.push({
+          data: {
+            id: `thinking-${theme.id}`,
+            label: theme.name,
+            type: "thinking",
+          },
+        });
+      });
+
+      graphData.artifacts.forEach((artifact) => {
+        elements.push({
+          data: {
+            id: `artifact-${artifact.id}`,
+            label: artifact.name,
+            type: "artifact",
+          },
+        });
+      });
+
+      graphData.qualifications.forEach((qualification) => {
+        elements.push({
+          data: {
+            id: `qualification-${qualification.id}`,
+            label: qualification.name,
+            type: "qualification",
+          },
+        });
+      });
+
       project.domains.forEach((domainId) => {
         elements.push({
           data: {
@@ -129,6 +177,42 @@ const graphData = {
           data: {
             source: `project-${project.id}`,
             target: `tool-${toolId}`,
+          },
+        });
+      });
+
+      project.technologies?.forEach((technologyId) => {
+        elements.push({
+          data: {
+            source: `project-${project.id}`,
+            target: `technology-${technologyId}`,
+          },
+        });
+      });
+
+      project.thinking?.forEach((thinkingId) => {
+        elements.push({
+          data: {
+            source: `project-${project.id}`,
+            target: `thinking-${thinkingId}`,
+          },
+        });
+      });
+
+      project.artifacts?.forEach((artifactId) => {
+        elements.push({
+          data: {
+            source: `project-${project.id}`,
+            target: `artifact-${artifactId}`,
+          },
+        });
+      });
+
+      project.qualifications?.forEach((qualificationId) => {
+        elements.push({
+          data: {
+            source: `project-${project.id}`,
+            target: `qualification-${qualificationId}`,
           },
         });
       });
@@ -196,6 +280,50 @@ style: [
       width: "55px",
       height: "55px",
       "font-size": "8px",
+    },
+  },
+  {
+    selector: 'node[type = "technology"]',
+    style: {
+      shape: "vee",
+      "background-color": "#0f172a",
+      "border-color": "#22d3ee",
+      width: "55px",
+      height: "55px",
+      "font-size": "8px",
+    },
+  },
+  {
+    selector: 'node[type = "thinking"]',
+    style: {
+      shape: "star",
+      "background-color": "#0f172a",
+      "border-color": "#f472b6",
+      width: "70px",
+      height: "70px",
+      "font-size": "9px",
+    },
+  },
+  {
+    selector: 'node[type = "artifact"]',
+    style: {
+      shape: "tag",
+      "background-color": "#0f172a",
+      "border-color": "#cbd5e1",
+      width: "70px",
+      height: "50px",
+      "font-size": "8px",
+    },
+  },
+  {
+    selector: 'node[type = "qualification"]',
+    style: {
+      shape: "octagon",
+      "background-color": "#0f172a",
+      "border-color": "#fb7185",
+      width: "85px",
+      height: "85px",
+      "font-size": "10px",
     },
   },
   {
@@ -280,6 +408,18 @@ style: [
     const findTool = (id) =>
       graphData.tools.find((item) => item.id === id);
 
+    const findTechnology = (id) =>
+        graphData.technologies.find((item) => item.id === id);
+
+    const findThinking = (id) =>
+        graphData.thinking.find((item) => item.id === id);
+
+    const findArtifact = (id) =>
+        graphData.artifacts.find((item) => item.id === id);
+
+    const findQualification = (id) =>
+        graphData.qualifications.find((item) => item.id === id);
+
     const listHtml = (items, getUrl = null) => {
       if (!items || items.length === 0) {
         return "<p class='empty-list'>None yet.</p>";
@@ -318,9 +458,20 @@ style: [
         const projectId = rawId.replace("project-", "");
         const project = findProject(projectId);
 
-        const relatedDomains = project.domains.map(findDomain).filter(Boolean);
-        const relatedSkills = project.skills.map(findSkill).filter(Boolean);
-        const relatedTools = project.tools?.map(findTool).filter(Boolean) ?? [];
+        const relatedDomains =
+            project.domains.map(findDomain).filter(Boolean);
+        const relatedSkills =
+            project.skills.map(findSkill).filter(Boolean);
+        const relatedTools =
+            project.tools?.map(findTool).filter(Boolean) ?? [];
+        const relatedTechnologies =
+            project.technologies?.map(findTechnology).filter(Boolean) ?? [];
+        const relatedThinking =
+            project.thinking?.map(findThinking).filter(Boolean) ?? [];
+        const relatedArtifacts =
+            project.artifacts?.map(findArtifact).filter(Boolean) ?? [];
+        const relatedQualifications =
+            project.qualifications?.map(findQualification).filter(Boolean) ?? [];
 
         popupContent.innerHTML = `
           <p class="panel-eyebrow">Project</p>
@@ -335,6 +486,18 @@ style: [
 
           <h3>Tools</h3>
           ${listHtml(relatedTools)}
+          
+          <h3>Technologies</h3>
+          ${listHtml(relatedTechnologies)}
+
+           <h3>Thinking Themes</h3>
+           ${listHtml(relatedThinking)}
+
+           <h3>Evidence</h3>
+           ${listHtml(relatedArtifacts)}
+
+           <h3>Qualifications</h3>
+           ${listHtml(relatedQualifications)}
 
           <a class="panel-link" href="/projects/${project.id}">Open project page →</a>
         `;
@@ -423,6 +586,116 @@ style: [
 
         openPopup();
       }
+      if (type === "technology") {
+        const technologyId = rawId.replace("technology-", "");
+        const technology = findTechnology(technologyId);
+
+        const relatedProjects = graphData.projects.filter((project) =>
+            project.technologies?.includes(technology.id)
+        );
+
+        popupContent.innerHTML = `
+    <p class="panel-eyebrow">Technology</p>
+    <h2>${technology.name}</h2>
+    <p>${technology.summary ?? "This technology appears in the related project work below."}</p>
+
+    <h3>Related Projects</h3>
+    ${listHtml(relatedProjects, (item) => `/projects/${item.id}`)}
+  `;
+
+        openPopup();
+      }
+
+      if (type === "thinking") {
+        const thinkingId = rawId.replace("thinking-", "");
+        const theme = findThinking(thinkingId);
+
+        const relatedProjects = graphData.projects.filter((project) =>
+            project.thinking?.includes(theme.id)
+        );
+
+        popupContent.innerHTML = `
+    <p class="panel-eyebrow">Thinking Theme</p>
+    <h2>${theme.name}</h2>
+    <p>${theme.summary ?? "This theme appears across the related project work below."}</p>
+
+    <h3>Related Projects</h3>
+    ${listHtml(relatedProjects, (item) => `/projects/${item.id}`)}
+  `;
+
+        openPopup();
+      }
+
+      if (type === "artifact") {
+        const artifactId = rawId.replace("artifact-", "");
+        const artifact = findArtifact(artifactId);
+
+        const relatedProjects = graphData.projects.filter((project) =>
+            project.artifacts?.includes(artifact.id)
+        );
+
+        const visibilityLabel =
+            artifact.visibility === "public"
+                ? "Public"
+                : artifact.visibility === "redacted"
+                    ? "Redacted"
+                    : "Private";
+
+        popupContent.innerHTML = `
+    <p class="panel-eyebrow">Evidence</p>
+    <h2>${artifact.name}</h2>
+    <p>${artifact.summary ?? "Evidence connected to related project work."}</p>
+
+    <h3>Status</h3>
+    <p>${artifact.status ?? "Not specified"}</p>
+
+    <h3>Visibility</h3>
+    <p>${visibilityLabel}</p>
+
+    <h3>Related Projects</h3>
+    ${listHtml(relatedProjects, (item) => `/projects/${item.id}`)}
+
+    ${
+            artifact.url
+                ? `<a class="panel-link" href="${artifact.url}">Open evidence →</a>`
+                : ""
+        }
+  `;
+
+        openPopup();
+      }
+
+      if (type === "qualification") {
+        const qualificationId = rawId.replace("qualification-", "");
+        const qualification = findQualification(qualificationId);
+
+        const relatedProjects = graphData.projects.filter((project) =>
+            project.qualifications?.includes(qualification.id)
+        );
+
+        popupContent.innerHTML = `
+    <p class="panel-eyebrow">Qualification</p>
+    <h2>${qualification.name}</h2>
+    <p>${qualification.summary ?? "Qualification connected to related project work."}</p>
+
+    ${
+            qualification.institution
+                ? `<h3>Institution</h3><p>${qualification.institution}</p>`
+                : ""
+        }
+
+    ${
+            qualification.awarded
+                ? `<h3>Awarded</h3><p>${qualification.awarded}</p>`
+                : ""
+        }
+
+    <h3>Related Projects</h3>
+    ${listHtml(relatedProjects, (item) => `/projects/${item.id}`)}
+  `;
+
+        openPopup();
+      }
     };
 
     const resetGraph = () => {
@@ -477,6 +750,56 @@ style: [
       const currentTime = Date.now();
 
       const isDoubleClick =
+          lastTappedNode === node.id() &&
+          currentTime - lastTapTime < 500;
+
+      lastTappedNode = node.id();
+      lastTapTime = currentTime;
+
+      if (isDoubleClick) {
+        const type = node.data("type");
+        const rawId = node.id();
+        const id = rawId.replace(`${type}-`, "");
+
+        const routes = {
+          project: "/projects/",
+          domain: "/domains/",
+          skill: "/skills/",
+        };
+
+        if (routes[type]) {
+          window.location.href = `${routes[type]}${id}`;
+          return;
+        }
+
+        if (type === "artifact") {
+          const artifact = findArtifact(id);
+
+          if (artifact?.visibility === "public" && artifact?.url) {
+            window.open(artifact.url, "_blank");
+          }
+
+          return;
+        }
+
+        return;
+      }
+
+      searchInput.value = "";
+      highlightNode(node);
+    });
+
+    cy.on("tap", function (event) {
+      if (event.target === cy) {
+        searchInput.value = "";
+        resetGraph();
+      }
+    });
+    /*cy.on("tap", "node", function (event) {
+      const node = event.target;
+      const currentTime = Date.now();
+
+      const isDoubleClick =
         lastTappedNode === node.id() &&
         currentTime - lastTapTime < 500;
 
@@ -511,7 +834,7 @@ style: [
         searchInput.value = "";
         resetGraph();
       }
-    });
+    });*/
 
     searchInput.addEventListener("input", function () {
       const query = searchInput.value.trim().toLowerCase();

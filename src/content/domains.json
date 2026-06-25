@@ -1,33 +1,87 @@
 [
-  {
-    "id": "project-delivery",
-    "name": "Project Delivery",
-    "description": "Leading complex technical change."
-  },
-  {
-    "id": "telecoms",
-    "name": "Telecoms & Teams Calling",
-    "description": "Voice, PSTN replacement and Teams Calling."
-  },
-  {
-    "id": "data-analytics",
-    "name": "Data Analytics",
-    "description": "Power BI, data modelling and reporting."
-  },
-  {
-    "id": "cybersecurity",
-    "name": "Cybersecurity",
-    "description": "Security, OSINT and MSc research."
-  },
-  {
-    "id": "software-development",
-    "name": "Software Development",
-    "description": "Java, Python and web applications."
-  },
-  {
-    "id": "artificial-intelligence",
-    "name": "Artificial Intelligence",
-    "description": "A developing area of interest connected to data, automation, and future software projects.",
-    "status": "developing"
-  }
+{
+"id": "project-management",
+"name": "Project Management",
+"description": "Leading complex technical programmes from initiation through delivery, balancing scope, risk, governance and stakeholder engagement.",
+"status": "professional"
+},
+{
+"id": "project-delivery",
+"name": "Project Delivery",
+"description": "Delivering technology change through structured planning, execution, governance and operational transition.",
+"status": "professional"
+},
+{
+"id": "telecoms",
+"name": "Telecommunications",
+"description": "Designing, modernising and transitioning enterprise communications platforms including PSTN, VoIP and unified communications.",
+"status": "professional"
+},
+{
+"id": "ip-comms",
+"name": "IP Communications",
+"description": "Migration from legacy telephony to cloud-first IP communications including Microsoft Teams Calling and endpoint strategy.",
+"status": "professional"
+},
+{
+"id": "network-infrastructure",
+"name": "Network Infrastructure",
+"description": "Infrastructure planning, endpoint connectivity, voice networking and technical readiness for large-scale deployments.",
+"status": "professional"
+},
+{
+"id": "data-analytics",
+"name": "Data Analytics",
+"description": "Using structured data modelling and analytical techniques to improve programme delivery, reporting and operational decision-making.",
+"status": "professional"
+},
+{
+"id": "data-security",
+"name": "Data Security",
+"description": "Understanding digital identity, privacy, data exposure and responsible approaches to information security.",
+"status": "academic"
+},
+{
+"id": "computer-science",
+"name": "Computer Science",
+"description": "Academic study of software engineering, algorithms, data structures, systems design and cybersecurity.",
+"status": "academic"
+},
+{
+"id": "software-dev",
+"name": "Software Development",
+"description": "Designing and building maintainable software with an emphasis on modular architecture, usability and long-term maintainability.",
+"status": "academic"
+},
+{
+"id": "web-2.0",
+"name": "Web 2.0",
+"description": "Research into social platforms, online identity, data brokerage and the interconnected nature of modern web services.",
+"status": "academic"
+},
+{
+"id": "agile",
+"name": "Agile Delivery",
+"description": "Applying iterative delivery principles, stakeholder collaboration and adaptive planning within technical projects.",
+"status": "professional"
+},
+{
+"id": "vendor-relations",
+"name": "Vendor Management",
+"description": "Working collaboratively with suppliers and technology partners to deliver complex technical solutions and managed services.",
+"status": "professional"
+},
+{
+"id": "intune",
+"name": "Microsoft Intune",
+"description": "Endpoint management, device provisioning and modern workplace administration using Microsoft Intune.",
+"status": "professional"
+},
+{
+"id": "entra",
+"name": "Microsoft Entra",
+"description": "Identity, authentication and access management using Microsoft Entra as part of enterprise cloud solutions.",
+"status": "professional"
+}
 ]
+```

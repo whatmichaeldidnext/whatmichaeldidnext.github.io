@@ -1,37 +1,393 @@
 [
   {
+    "id": "aso-telecoms",
+    "title": "The Analogue Switch-Off Programme (ASO)",
+    "summary": "Led a large-scale technology transformation programme to migrate legacy analogue telecommunications infrastructure to modern IP-based services ahead of the UK PSTN switch-off.",
+    "context": "The programme encompassed more than 1,000 geographically distributed sites requiring assessment, planning, infrastructure upgrades and migration to ensure continuity of business-critical telephony before the national PSTN withdrawal.",
+    "challenge": "Develop a repeatable and scalable delivery approach capable of assessing legacy telecoms assets, prioritising migrations, improving data quality, and coordinating multiple technical workstreams while operating against fixed national deadlines.",
+    "approach": "Designed a data-driven delivery methodology supported by Power BI, Power Query and SharePoint. Built reporting dashboards, data models and quality assurance processes to identify migration priorities, infrastructure dependencies and programme risks. Worked across technical and business stakeholders to coordinate infrastructure, networking and telephony activities.",
+    "role": [
+      "Senior Technical Project Manager",
+      "Programme Lead",
+      "Business Analyst",
+      "Data Analyst",
+      "Technical Architect"
+    ],
+    "outcome": "Delivered a structured programme framework that improved visibility of telecoms assets, increased confidence in migration planning, and established repeatable delivery processes for infrastructure upgrades across the estate.",
+    "lessons": "Large transformation programmes depend as much on high-quality data and stakeholder engagement as they do on technical implementation. Establishing trusted data models early significantly improved planning, reporting and delivery confidence.",
+    "status": "in progress",
+    "featured": true,
+    "year": 2026,
+    "domains": [
+      "telecoms",
+      "ip-comms",
+      "network-infrastructure",
+      "project-management",
+      "data-analytics",
+      "agile",
+      "intune",
+      "entra"
+    ],
+    "skills": [
+      "programme-management",
+      "project-management",
+      "stakeholder-management",
+      "project-reporting",
+      "project-leadership",
+      "requirements-analysis",
+      "business-analysis",
+      "power-bi",
+      "power-query",
+      "data-analysis",
+      "data-modelling",
+      "risk-management",
+      "technical-documentation"
+    ],
+    "technologies": [
+      "power-bi",
+      "power-query",
+      "powershell",
+      "sharepoint",
+      "microsoft-teams",
+      "azure-ad",
+      "intune",
+      "excel"
+    ],
+    "tools": [
+      "power-bi",
+      "excel",
+      "sharepoint",
+      "ms-project",
+      "powershell",
+      "intune",
+      "entra"
+    ],
+    "thinking": [
+      "Systems Thinking",
+      "Data-Driven Decision Making",
+      "Technical Leadership",
+      "Continuous Improvement",
+      "Infrastructure Modernisation"
+    ],
+    "artifacts": [
+      "aso-programme-dashboard",
+      "aso-power-bi-model",
+      "aso-delivery-framework",
+      "aso-risk-register",
+      "aso-technical-design"
+    ],
+    "qualifications": [],
+    "links": []
+  },
+
+  {
     "id": "aso-datalake",
     "title": "ASO Datalake Power BI Model",
-    "summary": "A structured Power BI model supporting PSTN inventory cleansing, site matching, and transition planning.",
-    "context": "Legacy telecoms data needed to be cleaned, matched, and made usable for ASO planning.",
-    "role": "Led the data modelling approach and shaped the reporting structure.",
-    "outcome": "Created a reusable model connecting sites, users, devices, numbers, functions, and property reference data.",
-    "domains": ["data-analytics", "telecoms", "project-delivery"],
-    "skills": ["power-bi", "data-modelling", "stakeholder-management"],
-    "tools": ["power-bi", "power-query", "excel", "sharepoint"]
+    "summary": "Designed and developed a structured analytical data model to support the UK's Analogue Switch-Off programme, transforming fragmented telecoms data into a reusable planning and reporting platform.",
+    "context": "Legacy PSTN inventory data existed across multiple inconsistent sources, making migration planning difficult. Site records, phone numbers, users, devices and property information required cleansing, matching and integration before meaningful reporting could be produced.",
+    "challenge": "Create a maintainable analytical model capable of resolving inconsistent legacy data, supporting manual review workflows where necessary, and providing a trusted single source of truth for programme reporting and migration planning.",
+    "approach": "Designed a star-schema Power BI model using shared Power Query transformation functions, reusable data quality checks and relationship mapping between telecoms assets, users, devices, sites and property reference data. Introduced structured matching logic, review workflows and manual override capability to improve confidence in automated site allocation.",
+    "role": [
+      "Senior Technical Project Manager",
+      "Data Architect",
+      "Data Analyst",
+      "Power BI Developer",
+      "Business Analyst"
+    ],
+    "outcome": "Delivered a reusable analytical platform that significantly improved data quality, reporting capability and migration planning. The resulting model became the foundation for programme dashboards, site analysis and transition planning across the ASO programme.",
+    "lessons": "Successful analytics projects rely on establishing trusted data models before visualisation. Investing time in data quality, repeatable transformations and clear relationships produced far greater long-term value than focusing on dashboards alone.",
+    "status": "completed",
+    "featured": true,
+    "year": 2026,
+    "domains": [
+      "data-analytics",
+      "telecoms",
+      "project-delivery"
+    ],
+    "skills": [
+      "data-analysis",
+      "data-modelling",
+      "data-cleansing",
+      "power-bi",
+      "power-query",
+      "business-analysis",
+      "requirements-analysis",
+      "stakeholder-management",
+      "technical-documentation",
+      "reporting"
+    ],
+    "technologies": [
+      "power-bi",
+      "power-query",
+      "dax",
+      "m-language",
+      "sharepoint",
+      "excel"
+    ],
+    "tools": [
+      "power-bi",
+      "power-query",
+      "excel",
+      "sharepoint"
+    ],
+    "thinking": [
+      "systems-thinking",
+      "data-driven-decision-making",
+      "continuous-improvement",
+      "information-architecture"
+    ],
+    "artifacts": [
+      "aso-data-model",
+      "aso-power-query-library",
+      "aso-report-suite",
+      "aso-site-matching-framework"
+    ],
+    "qualifications": [],
+    "links": []
   },
 
   {
-    "id": "msc-project",
-    "title": "MSc Cybersecurity Research Project",
+    "id": "aso-devices",
+    "title": "ASO Endpoints, Fixed & Mobile",
+    "summary": "Led the design and delivery of a scalable endpoint deployment programme for IP communications, introducing a zero-touch fulfilment process for fixed and mobile devices.",
+    "context": "The Analogue Switch-Off programme required the deployment of appropriate IP communications endpoints across a diverse national estate. Different operational teams required different combinations of desk phones, mobile devices and Microsoft Teams clients while maintaining a consistent user experience and support model.",
+    "challenge": "Develop a repeatable delivery process capable of selecting, provisioning and distributing communication endpoints at scale while reducing manual intervention, maintaining governance and supporting multiple service requirements.",
+    "approach": "Designed an end-to-end operational workflow covering device selection, approval, procurement, provisioning, asset management and deployment. Worked with technical teams, suppliers and business stakeholders to standardise endpoint configurations and establish a largely zero-touch fulfilment process from request through to delivery.",
+    "role": [
+      "Senior Technical Project Manager",
+      "Project Manager",
+      "Business Analyst",
+      "Technical Coordinator",
+      "Vendor Manager"
+    ],
+    "outcome": "Established a repeatable deployment framework capable of delivering IP communications endpoints with minimal manual intervention, improving delivery consistency, reducing administration and creating a scalable process for future deployments.",
+    "lessons": "Successful technology deployment depends on operational design as much as technical capability. Standardisation, automation and clearly defined business processes significantly improve delivery quality and user experience.",
+    "status": "completed",
+    "featured": true,
+    "year": 2026,
     "domains": [
+      "telecoms",
+      "ip-comms",
+      "project-management",
+      "vendor-relations",
+      "intune",
+      "agile"
+    ],
+    "skills": [
+      "project-management",
+      "programme-management",
+      "stakeholder-management",
+      "vendor-management",
+      "business-analysis",
+      "requirements-analysis",
+      "technical-documentation",
+      "process-design",
+      "service-transition",
+      "project-leadership"
+    ],
+    "technologies": [
+      "microsoft-teams",
+      "intune",
+      "entra",
+      "powershell"
+    ],
+    "tools": [
+      "power-bi",
+      "excel",
+      "sharepoint",
+      "ms-project",
+      "powershell",
+      "intune",
+      "entra"
+    ],
+    "thinking": [
+      "systems-thinking",
+      "service-design",
+      "continuous-improvement",
+      "automation-first",
+      "operational-excellence"
+    ],
+    "artifacts": [
+      "endpoint-deployment-framework",
+      "device-standard-catalogue",
+      "zero-touch-process-map",
+      "deployment-governance"
+    ],
+    "qualifications": [],
+    "links": []
+  },
+
+  {
+    "id": "ms-teams-calling",
+    "title": "Microsoft Teams Calling – A New Way to Telephone",
+    "summary": "Led the transition from traditional desk-based telephony to Microsoft Teams Calling, enabling an IP-first communications platform and reducing long-term dependence on physical telephony infrastructure.",
+    "context": "As part of the wider communications modernisation programme, legacy telephony services were replaced with Microsoft Teams Calling. The project required technical implementation alongside organisational change, ensuring users adopted new ways of communicating whilst maintaining business continuity.",
+    "challenge": "Plan and deliver a large-scale migration to cloud-based telephony, balancing user adoption, technical readiness, endpoint strategy and service continuity across multiple business functions.",
+    "approach": "Developed the migration strategy, coordinated technical implementation, engaged stakeholders across the organisation and worked with suppliers to deliver Teams Calling capability. Standardised deployment processes, supported user transition and ensured dependencies on legacy hardware were systematically removed.",
+    "role": [
+      "Senior Technical Project Manager",
+      "Project Manager",
+      "Business Analyst",
+      "Change Manager",
+      "Vendor Manager"
+    ],
+    "outcome": "Successfully migrated more than 500 users to Microsoft Teams Calling, reducing reliance on traditional telephony infrastructure, simplifying endpoint management and lowering ongoing hardware and maintenance requirements.",
+    "lessons": "Successful digital transformation requires equal attention to technology, business processes and user adoption. Delivering organisational change alongside technical implementation was essential to long-term success.",
+    "status": "completed",
+    "featured": true,
+    "year": 2026,
+    "domains": [
+      "telecoms",
+      "ip-comms",
+      "project-management",
+      "vendor-relations",
+      "intune",
+      "entra",
+      "agile"
+    ],
+    "skills": [
+      "project-management",
+      "programme-management",
+      "stakeholder-management",
+      "vendor-management",
+      "change-management",
+      "business-analysis",
+      "requirements-analysis",
+      "service-transition",
+      "technical-documentation",
+      "project-leadership"
+    ],
+    "technologies": [
+      "microsoft-teams",
+      "teams-calling",
+      "sip",
+      "voip",
+      "intune",
+      "entra",
+      "powershell"
+    ],
+    "tools": [
+      "excel",
+      "sharepoint",
+      "ms-project",
+      "powershell",
+      "intune",
+      "entra"
+    ],
+    "thinking": [
+      "systems-thinking",
+      "service-design",
+      "digital-transformation",
+      "change-management",
+      "continuous-improvement"
+    ],
+    "artifacts": [
+      "teams-calling-migration-plan",
+      "deployment-playbook",
+      "communications-strategy",
+      "training-material",
+      "service-transition-plan"
+    ],
+    "qualifications": [],
+    "links": []
+  },
+
+  {
+    "id": "msc-data-exposure",
+    "title": "Graph-Based Visualisation of Username-Linked Data Exposure",
+    "summary": "An MSc research project investigating how publicly available usernames can be used to infer relationships between social media platforms, data brokers and wider online identity.",
+    "context": "The project examines the relationship between Web 2.0 platforms, data brokerage and digital identity. It explores how seemingly disconnected public information can be aggregated to visualise potential data exposure and interconnected online presence.",
+    "challenge": "Design an ethically constrained proof-of-concept capable of exploring username-linked data exposure without providing deterministic confirmation of account ownership or encouraging misuse.",
+    "approach": "Designed and developed a modular Java application with a lightweight web interface. Implemented confidence-based inference rather than explicit confirmation, separated platform definitions from application logic, and represented discovered relationships through an interactive graph visualisation.",
+    "role": [
+      "Researcher",
+      "Software Engineer",
+      "Data Analyst",
+      "Project Manager",
+      "Technical Author"
+    ],
+    "outcome": "Produced a complete MSc dissertation supported by an interactive proof-of-concept application, literature review, system architecture and evaluation of ethical considerations surrounding large-scale username aggregation.",
+    "lessons": "Developing technical capability is only part of engineering. Designing systems which remain ethically responsible, transparent and resistant to misuse is equally important.",
+    "status": "completed",
+    "featured": true,
+    "year": 2026,
+    "domains": [
+      "computer-science",
+      "software-dev",
       "cybersecurity",
-      "software-development"
+      "data-analysis",
+      "web-2.0",
+      "data-security"
     ],
     "skills": [
+      "research",
+      "academic-writing",
+      "technical-writing",
+      "software-architecture",
+      "data-analysis",
+      "requirements-analysis",
+      "system-design",
+      "project-management",
+      "reporting",
+      "web-ui",
+      "web-ux"
+    ],
+    "technologies": [
       "java",
-      "cybersecurity"
-    ]
-  },
-
-  {
-    "id": "online-portfolio",
-    "title": "Explorable Professional Profile",
-    "domains": [
-      "software-development"
+      "javascript",
+      "python",
+      "html",
+      "css",
+      "json",
+      "http",
+      "rest"
     ],
-    "skills": [
-      "java"
+    "tools": [
+      "intellij",
+      "git",
+      "gitlab",
+      "cytoscape"
+    ],
+    "thinking": [
+      "Ethical Software Engineering",
+      "Knowledge Graphs",
+      "OSINT",
+      "Data Visualisation",
+      "Privacy by Design",
+      "Human-Centred Security"
+    ],
+    "artifacts": [
+      {
+        "type": "dissertation",
+        "title": "Final MSc Dissertation"
+      },
+      {
+        "type": "architecture",
+        "title": "System Architecture Diagram"
+      },
+      {
+        "type": "research",
+        "title": "Literature Review"
+      },
+      {
+        "type": "proposal",
+        "title": "Project Proposal"
+      },
+      {
+        "type": "demo",
+        "title": "Interactive Proof of Concept"
+      }
+    ],
+    "links": [
+      {
+        "title": "Git Repository",
+        "url": ""
+      },
+      {
+        "title": "Dissertation",
+        "url": ""
+      }
     ]
   }
+
 ]

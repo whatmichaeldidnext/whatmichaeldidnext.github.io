@@ -1,10 +1,82 @@
 [
-  { "id": "power-bi", "name": "Power BI" },
-  { "id": "power-query", "name": "Power Query" },
-  { "id": "excel", "name": "Excel" },
-  { "id": "sharepoint", "name": "SharePoint" },
-  { "id": "astro", "name": "Astro" },
-  { "id": "cytoscape", "name": "Cytoscape.js" },
-  { "id": "java", "name": "Java" },
-  { "id": "python", "name": "Python" }
+{
+"id": "power-bi",
+"name": "Microsoft Power BI",
+"summary": "Business intelligence platform for analytical modelling, reporting and interactive dashboards."
+},
+{
+"id": "power-query",
+"name": "Power Query",
+"summary": "ETL and data transformation environment used to prepare and standardise analytical datasets."
+},
+{
+"id": "excel",
+"name": "Microsoft Excel",
+"summary": "Spreadsheet platform used for analysis, modelling, validation and reporting."
+},
+{
+"id": "sharepoint",
+"name": "Microsoft SharePoint",
+"summary": "Document management and collaboration platform used for structured business information."
+},
+{
+"id": "ms-project",
+"name": "Microsoft Project",
+"summary": "Project planning and scheduling software used for delivery management."
+},
+{
+"id": "powershell",
+"name": "PowerShell",
+"summary": "Automation and administration shell for Microsoft infrastructure and cloud platforms."
+},
+{
+"id": "intune",
+"name": "Microsoft Intune",
+"summary": "Endpoint management platform used for provisioning, configuration and policy management."
+},
+{
+"id": "entra",
+"name": "Microsoft Entra",
+"summary": "Identity and access management platform for authentication, authorisation and governance."
+},
+{
+"id": "intellij",
+"name": "IntelliJ IDEA",
+"summary": "Integrated development environment used primarily for Java software development."
+},
+{
+"id": "git",
+"name": "Git",
+"summary": "Distributed version control system supporting collaborative software development."
+},
+{
+"id": "github",
+"name": "GitHub",
+"summary": "Hosted Git platform for source control, collaboration and portfolio publication."
+},
+{
+"id": "gitlab",
+"name": "GitLab",
+"summary": "DevOps platform providing source control, CI/CD and project management."
+},
+{
+"id": "cytoscape",
+"name": "Cytoscape.js",
+"summary": "JavaScript graph visualisation library used to create interactive knowledge graphs."
+},
+{
+"id": "astro",
+"name": "Astro",
+"summary": "Modern web framework used to build this portfolio and other content-driven websites."
+},
+{
+"id": "tailwind",
+"name": "Tailwind CSS",
+"summary": "Utility-first CSS framework used where rapid interface development is beneficial."
+},
+{
+"id": "visual-studio-code",
+"name": "Visual Studio Code",
+"summary": "Lightweight source code editor for web development, scripting and general programming."
+}
 ]

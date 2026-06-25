@@ -1,29 +1,127 @@
 [
-  {
-    "id": "power-bi",
-    "name": "Power BI",
-    "summary": "Data modelling, reporting and dashboard development."
-  },
-  {
-    "id": "stakeholder-management",
-    "name": "Stakeholder Management"
-  },
-  {
-    "id": "data-modelling",
-    "name": "Data Modelling"
-  },
-  {
-    "id": "java",
-    "name": "Java"
-  },
-  {
-    "id": "cybersecurity",
-    "name": "Cybersecurity"
-  },
-  {
-    "id": "machine-learning",
-    "name": "Machine Learning",
-    "summary": "An active development area linked to academic study and future project work.",
-    "status": "developing"
-  }
+{
+"id": "project-management",
+"name": "Project Management",
+"summary": "Planning, coordinating and delivering technical projects from initiation through to operational handover."
+},
+{
+"id": "programme-management",
+"name": "Programme Management",
+"summary": "Coordinating multiple related projects to achieve strategic business and technology outcomes."
+},
+{
+"id": "project-leadership",
+"name": "Project Leadership",
+"summary": "Providing technical leadership, governance and direction to multidisciplinary delivery teams."
+},
+{
+"id": "stakeholder-management",
+"name": "Stakeholder Management",
+"summary": "Building trusted relationships with business, technical and executive stakeholders to support successful delivery."
+},
+{
+"id": "vendor-management",
+"name": "Vendor Management",
+"summary": "Managing supplier relationships, contracts and collaborative delivery with external technology partners."
+},
+{
+"id": "business-analysis",
+"name": "Business Analysis",
+"summary": "Understanding business needs and translating them into practical technical solutions and delivery plans."
+},
+{
+"id": "requirements-analysis",
+"name": "Requirements Analysis",
+"summary": "Capturing, analysing and validating functional and non-functional requirements."
+},
+{
+"id": "service-transition",
+"name": "Service Transition",
+"summary": "Managing the movement of new technology into live operational environments while minimising disruption."
+},
+{
+"id": "process-design",
+"name": "Process Design",
+"summary": "Designing efficient, repeatable operational processes that improve delivery quality and reduce manual effort."
+},
+{
+"id": "change-management",
+"name": "Change Management",
+"summary": "Supporting organisations and end users through technology-driven business change."
+},
+{
+"id": "risk-management",
+"name": "Risk Management",
+"summary": "Identifying, assessing and mitigating delivery, technical and operational risks."
+},
+{
+"id": "technical-documentation",
+"name": "Technical Documentation",
+"summary": "Producing clear technical documentation, implementation guidance and operational procedures."
+},
+{
+"id": "academic-writing",
+"name": "Academic Writing",
+"summary": "Producing structured research, technical reports and evidence-based academic publications."
+},
+{
+"id": "technical-writing",
+"name": "Technical Writing",
+"summary": "Communicating complex technical concepts through clear, structured documentation."
+},
+{
+"id": "reporting",
+"name": "Reporting",
+"summary": "Developing meaningful reports and dashboards that support operational and strategic decision-making."
+},
+{
+"id": "data-analysis",
+"name": "Data Analysis",
+"summary": "Exploring, interpreting and communicating insights from complex datasets."
+},
+{
+"id": "data-modelling",
+"name": "Data Modelling",
+"summary": "Designing structured analytical models that support reporting, governance and long-term maintainability."
+},
+{
+"id": "data-cleansing",
+"name": "Data Cleansing",
+"summary": "Improving data quality through validation, transformation and reconciliation techniques."
+},
+{
+"id": "software-architecture",
+"name": "Software Architecture",
+"summary": "Designing maintainable software systems with clear separation of concerns and modular structure."
+},
+{
+"id": "system-design",
+"name": "System Design",
+"summary": "Planning the structure, components and interactions of complex technical systems."
+},
+{
+"id": "research",
+"name": "Research",
+"summary": "Investigating technical problems through structured enquiry, experimentation and critical evaluation."
+},
+{
+"id": "web-ui",
+"name": "Web UI Design",
+"summary": "Designing intuitive interfaces that present complex information clearly and effectively."
+},
+{
+"id": "web-ux",
+"name": "User Experience Design",
+"summary": "Creating user-centred digital experiences that balance usability, accessibility and functionality."
+},
+{
+"id": "power-bi",
+"name": "Power BI",
+"summary": "Developing analytical data models, interactive dashboards and operational reporting solutions using Microsoft Power BI."
+},
+{
+"id": "power-query",
+"name": "Power Query",
+"summary": "Building reusable ETL processes and transformation pipelines for structured data preparation."
+}
 ]

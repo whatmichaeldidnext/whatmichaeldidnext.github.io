@@ -1,0 +1,77 @@
+[
+{
+"id": "systems-thinking",
+"name": "Systems Thinking",
+"summary": "Understanding complex problems by examining relationships, dependencies and interactions rather than individual components."
+},
+{
+"id": "data-driven-decision-making",
+"name": "Data-Driven Decision Making",
+"summary": "Using trusted data, evidence and measurable outcomes to guide planning, prioritisation and delivery."
+},
+{
+"id": "continuous-improvement",
+"name": "Continuous Improvement",
+"summary": "Seeking opportunities to refine processes, reduce complexity and improve operational efficiency over time."
+},
+{
+"id": "operational-excellence",
+"name": "Operational Excellence",
+"summary": "Designing solutions that are maintainable, repeatable, scalable and straightforward to operate."
+},
+{
+"id": "service-design",
+"name": "Service Design",
+"summary": "Considering people, technology and business processes together to deliver complete services rather than isolated technical solutions."
+},
+{
+"id": "automation-first",
+"name": "Automation First",
+"summary": "Reducing manual effort through automation wherever practical to improve consistency, scalability and reliability."
+},
+{
+"id": "technical-leadership",
+"name": "Technical Leadership",
+"summary": "Providing technical direction, encouraging collaboration and enabling successful delivery across multidisciplinary teams."
+},
+{
+"id": "knowledge-graphs",
+"name": "Knowledge Graphs",
+"summary": "Representing information through connected entities and relationships to improve exploration, understanding and discovery."
+},
+{
+"id": "ethical-software-engineering",
+"name": "Ethical Software Engineering",
+"summary": "Designing software with careful consideration of privacy, misuse prevention, transparency and responsible implementation."
+},
+{
+"id": "privacy-by-design",
+"name": "Privacy by Design",
+"summary": "Embedding privacy, data minimisation and responsible information handling into system architecture from the outset."
+},
+{
+"id": "human-centred-security",
+"name": "Human-Centred Security",
+"summary": "Recognising that security solutions must be usable, understandable and aligned with human behaviour to be effective."
+},
+{
+"id": "information-architecture",
+"name": "Information Architecture",
+"summary": "Structuring information so that it remains understandable, maintainable and easy to navigate as systems evolve."
+},
+{
+"id": "digital-transformation",
+"name": "Digital Transformation",
+"summary": "Modernising technology, processes and ways of working to improve organisational capability and long-term resilience."
+},
+{
+"id": "change-management",
+"name": "Change Management",
+"summary": "Supporting people through organisational and technological change to encourage adoption and long-term success."
+},
+{
+"id": "evidence-based-engineering",
+"name": "Evidence-Based Engineering",
+"summary": "Using research, measurement and objective analysis to support technical decisions rather than assumptions."
+}
+]

@@ -1,0 +1,102 @@
+[
+{
+"id": "java",
+"name": "Java",
+"summary": "Primary object-oriented programming language used for desktop, web and enterprise application development."
+},
+{
+"id": "javascript",
+"name": "JavaScript",
+"summary": "Client-side scripting language used to create dynamic, interactive web experiences."
+},
+{
+"id": "python",
+"name": "Python",
+"summary": "General-purpose programming language used for automation, data analysis, research and rapid prototyping."
+},
+{
+"id": "html",
+"name": "HTML5",
+"summary": "Markup language used to structure accessible and standards-compliant web applications."
+},
+{
+"id": "css",
+"name": "CSS3",
+"summary": "Stylesheet language used to create responsive layouts, visual identity and user interfaces."
+},
+{
+"id": "json",
+"name": "JSON",
+"summary": "Lightweight data interchange format used throughout the portfolio and other software projects."
+},
+{
+"id": "http",
+"name": "HTTP",
+"summary": "Core web protocol underpinning modern web services and REST-based applications."
+},
+{
+"id": "rest",
+"name": "REST APIs",
+"summary": "Architectural style for building interoperable web services and distributed applications."
+},
+{
+"id": "power-bi",
+"name": "Microsoft Power BI",
+"summary": "Business intelligence platform used for semantic modelling, analytics and executive reporting."
+},
+{
+"id": "power-query",
+"name": "Power Query (M)",
+"summary": "ETL and transformation engine used to cleanse, standardise and prepare analytical datasets."
+},
+{
+"id": "dax",
+"name": "DAX",
+"summary": "Formula language used to create analytical measures, calculations and business logic within Power BI."
+},
+{
+"id": "excel",
+"name": "Microsoft Excel",
+"summary": "Spreadsheet platform used for modelling, analysis, data validation and reporting."
+},
+{
+"id": "sharepoint",
+"name": "Microsoft SharePoint",
+"summary": "Collaboration and document management platform used for structured business information."
+},
+{
+"id": "powershell",
+"name": "PowerShell",
+"summary": "Automation and administration language used to manage Microsoft infrastructure and cloud services."
+},
+{
+"id": "microsoft-teams",
+"name": "Microsoft Teams",
+"summary": "Unified communications and collaboration platform supporting meetings, messaging and enterprise telephony."
+},
+{
+"id": "teams-calling",
+"name": "Microsoft Teams Calling",
+"summary": "Cloud-based enterprise telephony platform replacing traditional PBX and PSTN services."
+},
+{
+"id": "voip",
+"name": "Voice over IP (VoIP)",
+"summary": "Technology for delivering voice communications across IP networks."
+},
+{
+"id": "sip",
+"name": "SIP",
+"summary": "Session Initiation Protocol used to establish and manage real-time voice communication sessions."
+},
+{
+"id": "intune",
+"name": "Microsoft Intune",
+"summary": "Cloud-based endpoint management platform for device configuration, security and application deployment."
+},
+{
+"id": "entra",
+"name": "Microsoft Entra",
+"summary": "Microsoft's cloud identity and access management platform providing authentication, authorisation and governance."
+}
+]

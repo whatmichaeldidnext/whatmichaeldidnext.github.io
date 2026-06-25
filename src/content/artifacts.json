@@ -1,0 +1,173 @@
+[
+  {
+    "id": "msc-project-proposal",
+    "name": "MSc Project Proposal",
+    "type": "proposal",
+    "summary": "Initial academic proposal outlining the research question, implementation approach and intended proof of concept.",
+    "status": "complete",
+    "visibility": "private",
+    "url": null
+  },
+  {
+    "id": "msc-dissertation",
+    "name": "Final MSc Dissertation",
+    "type": "report",
+    "summary": "Final dissertation examining graph-based visualisation of username-linked data exposure.",
+    "status": "in-progress",
+    "visibility": "redacted",
+    "url": null
+  },
+  {
+    "id": "msc-literature-review",
+    "name": "Literature Review",
+    "type": "report",
+    "summary": "Academic review of literature relating to social media, Web 2.0, data brokerage, digital identity and privacy.",
+    "status": "in-progress",
+    "visibility": "private",
+    "url": null
+  },
+  {
+    "id": "msc-architecture",
+    "name": "MSc System Architecture",
+    "type": "architecture",
+    "summary": "High-level architecture for the proof-of-concept application and graph-based visualisation approach.",
+    "status": "planned",
+    "visibility": "redacted",
+    "url": null
+  },
+  {
+    "id": "msc-proof-of-concept",
+    "name": "Interactive Proof of Concept",
+    "type": "demo",
+    "summary": "Prototype application demonstrating constrained username-linked exposure visualisation.",
+    "status": "planned",
+    "visibility": "redacted",
+    "url": null
+  },
+  {
+    "id": "aso-delivery-framework",
+    "name": "ASO Delivery Framework",
+    "type": "process",
+    "summary": "Structured delivery approach developed for the Analogue Switch-Off programme.",
+    "status": "complete",
+    "visibility": "private",
+    "url": null
+  },
+  {
+    "id": "aso-power-bi-model",
+    "name": "ASO Power BI Semantic Model",
+    "type": "architecture",
+    "summary": "Analytical model supporting PSTN inventory cleansing, site matching and migration planning.",
+    "status": "complete",
+    "visibility": "private",
+    "url": null
+  },
+  {
+    "id": "aso-report-suite",
+    "name": "ASO Programme Reporting Suite",
+    "type": "dashboard",
+    "summary": "Operational reporting suite supporting programme governance, risk visibility and delivery planning.",
+    "status": "complete",
+    "visibility": "private",
+    "url": null
+  },
+  {
+    "id": "aso-site-matching-framework",
+    "name": "ASO Site Matching Framework",
+    "type": "process",
+    "summary": "Data matching and manual review process used to associate telecoms inventory with site and property records.",
+    "status": "complete",
+    "visibility": "redacted",
+    "url": null
+  },
+  {
+    "id": "endpoint-deployment-framework",
+    "name": "Endpoint Deployment Framework",
+    "type": "process",
+    "summary": "Repeatable delivery framework for fixed and mobile IP communications endpoint deployment.",
+    "status": "complete",
+    "visibility": "private",
+    "url": null
+  },
+  {
+    "id": "device-standard-catalogue",
+    "name": "Device Standard Catalogue",
+    "type": "document",
+    "summary": "Standardised endpoint catalogue supporting device selection and deployment governance.",
+    "status": "complete",
+    "visibility": "private",
+    "url": null
+  },
+  {
+    "id": "zero-touch-process-map",
+    "name": "Zero-Touch Process Map",
+    "type": "diagram",
+    "summary": "Process map describing automated endpoint fulfilment from request through delivery.",
+    "status": "complete",
+    "visibility": "redacted",
+    "url": null
+  },
+  {
+    "id": "deployment-governance",
+    "name": "Deployment Governance Model",
+    "type": "process",
+    "summary": "Governance model supporting consistent endpoint approval, provisioning and deployment.",
+    "status": "complete",
+    "visibility": "private",
+    "url": null
+  },
+  {
+    "id": "teams-calling-migration-plan",
+    "name": "Teams Calling Migration Plan",
+    "type": "process",
+    "summary": "Migration plan supporting the transition from legacy telephony to Microsoft Teams Calling.",
+    "status": "complete",
+    "visibility": "private",
+    "url": null
+  },
+  {
+    "id": "deployment-playbook",
+    "name": "Teams Calling Deployment Playbook",
+    "type": "process",
+    "summary": "Repeatable deployment approach for user migration, readiness checks and operational handover.",
+    "status": "complete",
+    "visibility": "private",
+    "url": null
+  },
+  {
+    "id": "communications-strategy",
+    "name": "Communications Strategy",
+    "type": "document",
+    "summary": "Stakeholder and user communications approach supporting service adoption and transition.",
+    "status": "complete",
+    "visibility": "private",
+    "url": null
+  },
+  {
+    "id": "training-material",
+    "name": "User Training Material",
+    "type": "presentation",
+    "summary": "Training and guidance material supporting adoption of Microsoft Teams Calling.",
+    "status": "complete",
+    "visibility": "private",
+    "url": null
+  },
+  {
+    "id": "service-transition-plan",
+    "name": "Service Transition Plan",
+    "type": "process",
+    "summary": "Transition approach for moving the Teams Calling service into operational support.",
+    "status": "complete",
+    "visibility": "private",
+    "url": null
+  },
+  {
+    "id": "portfolio-source",
+    "name": "Portfolio Source Code",
+    "type": "repository",
+    "summary": "Source code for the Explorable Professional Profile portfolio.",
+    "status": "in-progress",
+    "visibility": "public",
+    "url": "https://github.com/your-username/your-repo"
+  }
+]
