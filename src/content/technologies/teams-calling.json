@@ -1,5 +1,6 @@
 {
   "id": "teams-calling",
   "name": "Microsoft Teams Calling",
-  "summary": "Cloud-based enterprise telephony platform replacing traditional PBX and PSTN services."
+  "summary": "Cloud-based enterprise telephony platform replacing traditional PBX and PSTN services.",
+  "slug": "teams-calling"
 }

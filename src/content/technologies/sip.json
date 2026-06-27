@@ -1,5 +1,6 @@
 {
   "id": "sip",
   "name": "SIP",
-  "summary": "Session Initiation Protocol used to establish and manage real-time voice communication sessions."
+  "summary": "Session Initiation Protocol used to establish and manage real-time voice communication sessions.",
+  "slug": "sip"
 }

@@ -1,5 +1,6 @@
 {
   "id": "data-modelling",
   "name": "Data Modelling",
-  "summary": "Designing structured analytical models that support reporting, governance and long-term maintainability."
+  "summary": "Designing structured analytical models that support reporting, governance and long-term maintainability.",
+  "slug": "data-modelling"
 }

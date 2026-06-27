@@ -1,5 +1,6 @@
 {
   "id": "power-query",
   "name": "Power Query (M)",
-  "summary": "ETL and transformation engine used to cleanse, standardise and prepare analytical datasets."
+  "summary": "ETL and transformation engine used to cleanse, standardise and prepare analytical datasets.",
+  "slug": "power-query"
 }

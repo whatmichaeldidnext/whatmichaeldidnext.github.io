@@ -2,5 +2,6 @@
   "id": "network-infrastructure",
   "name": "Network Infrastructure",
   "description": "Infrastructure planning, endpoint connectivity, voice networking and technical readiness for large-scale deployments.",
-  "status": "professional"
+  "status": "professional",
+  "slug": "network-infrastructure"
 }

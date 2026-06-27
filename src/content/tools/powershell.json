@@ -1,5 +1,6 @@
 {
   "id": "powershell",
   "name": "PowerShell",
-  "summary": "Automation and administration shell for Microsoft infrastructure and cloud platforms."
+  "summary": "Automation and administration shell for Microsoft infrastructure and cloud platforms.",
+  "slug": "powershell"
 }

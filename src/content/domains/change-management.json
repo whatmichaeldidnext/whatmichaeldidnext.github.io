@@ -2,5 +2,6 @@
   "id": "change-management",
   "name": "Change Management",
   "description": "Supporting organisations and people through technology, process and cultural change to achieve successful adoption.",
-  "status": "active"
+  "status": "active",
+  "slug": "change-management"
 }

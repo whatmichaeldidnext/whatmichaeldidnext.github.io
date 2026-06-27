@@ -2,5 +2,6 @@
   "id": "knowledge-graphs",
   "name": "Knowledge Graphs",
   "description": "Representing information as interconnected entities and relationships to improve understanding, analysis and discovery.",
-  "status": "active"
+  "status": "active",
+  "slug": "knowledge-graphs"
 }

@@ -1,5 +1,6 @@
 {
   "id": "ddos-protection",
   "name": "DDoS Protection",
-  "summary": "Technologies and services designed to detect, mitigate and reduce the impact of distributed denial-of-service attacks."
+  "summary": "Technologies and services designed to detect, mitigate and reduce the impact of distributed denial-of-service attacks.",
+  "slug": "ddos-protection"
 }

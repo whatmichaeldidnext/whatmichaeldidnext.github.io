@@ -1,5 +1,6 @@
 {
   "id": "risk-management",
   "name": "Risk Management",
-  "summary": "Identifying, assessing and mitigating delivery, technical and operational risks."
+  "summary": "Identifying, assessing and mitigating delivery, technical and operational risks.",
+  "slug": "risk-management"
 }

@@ -1,5 +1,6 @@
 {
   "id": "sharepoint",
   "name": "Microsoft SharePoint",
-  "summary": "Document management and collaboration platform used for structured business information."
+  "summary": "Document management and collaboration platform used for structured business information.",
+  "slug": "sharepoint"
 }

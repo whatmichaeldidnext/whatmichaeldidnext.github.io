@@ -1,0 +1,49 @@
+---
+import { getCollection } from "astro:content";
+
+const insights = (await getCollection("blog"))
+  .filter((post) => post.data.visibility !== "private")
+  .filter((post) => !post.data.published || post.data.published <= new Date())
+  .sort(
+    (a, b) =>
+      (b.data.published?.getTime() ?? 0) -
+      (a.data.published?.getTime() ?? 0)
+  )
+  .slice(0, 3);
+---
+
+<section class="insights-preview">
+  <div class="section-heading">
+    <p class="eyebrow">Insights</p>
+    <h2>Notes on delivery, data, systems and learning</h2>
+    <p>
+      Short reflections and technical notes that explain the thinking behind the projects.
+    </p>
+  </div>
+
+  <div class="insights-grid">
+    {insights.map((post) => (
+      <article class="insight-card">
+        <p class="insight-meta">
+          {post.data.published
+            ? post.data.published.toLocaleDateString("en-GB", {
+                day: "numeric",
+                month: "short",
+                year: "numeric",
+              })
+            : "Draft"}
+        </p>
+
+        <h3>
+          <a href={`/insights/${post.data.slug}/`}>{post.data.title}</a>
+        </h3>
+
+        {post.data.summary && <p>{post.data.summary}</p>}
+      </article>
+    ))}
+  </div>
+
+  <p class="view-all">
+    <a href="/insights/">View all insights →</a>
+  </p>
+</section>

@@ -1,5 +1,6 @@
 {
   "id": "software-architecture",
   "name": "Software Architecture",
-  "summary": "Designing maintainable software systems with clear separation of concerns and modular structure."
+  "summary": "Designing maintainable software systems with clear separation of concerns and modular structure.",
+  "slug": "software-architecture"
 }

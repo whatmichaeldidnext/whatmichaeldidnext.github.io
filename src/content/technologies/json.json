@@ -1,5 +1,6 @@
 {
   "id": "json",
   "name": "JSON",
-  "summary": "Lightweight data interchange format used throughout the portfolio and other software projects."
+  "summary": "Lightweight data interchange format used throughout the portfolio and other software projects.",
+  "slug": "json"
 }

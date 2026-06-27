@@ -1,0 +1,85 @@
+---
+import { getCollection } from "astro:content";
+import { BaseLayout, MainLayout } from "../../components";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+
+  return projects
+    .filter((project) => project.data.slug)
+    .map((project) => ({
+      params: { slug: project.data.slug },
+      props: { project },
+    }));
+}
+
+const { project } = Astro.props;
+---
+
+<BaseLayout
+  title={`${project.data.title} | What Michael Did Next`}
+  description={project.data.summary}
+>
+  <MainLayout>
+    <article class="project-page">
+      <p class="eyebrow">Project</p>
+
+      <h1>{project.data.title}</h1>
+
+      {project.data.from && (
+        <p class="meta">
+          {project.data.from.toLocaleDateString("en-GB", {
+            month: "short",
+            year: "numeric",
+          })}
+          {" — "}
+          {project.data.to
+            ? project.data.to.toLocaleDateString("en-GB", {
+                month: "short",
+                year: "numeric",
+              })
+            : "Present"}
+        </p>
+      )}
+
+      {project.data.summary && (
+        <p class="lead">{project.data.summary}</p>
+      )}
+
+      {project.data.context && (
+        <section>
+          <h2>Context</h2>
+          <p>{project.data.context}</p>
+        </section>
+      )}
+
+      {project.data.challenge && (
+        <section>
+          <h2>Challenge</h2>
+          <p>{project.data.challenge}</p>
+        </section>
+      )}
+
+      {project.data.approach && (
+        <section>
+          <h2>Approach</h2>
+          <p>{project.data.approach}</p>
+        </section>
+      )}
+
+      {project.data.outcome && (
+        <section>
+          <h2>Outcome</h2>
+          <p>{project.data.outcome}</p>
+        </section>
+      )}
+
+      {project.data.lessons && (
+        <section>
+          <h2>Lessons</h2>
+          <p>{project.data.lessons}</p>
+        </section>
+      )}
+    </article>
+  </MainLayout>
+</BaseLayout>

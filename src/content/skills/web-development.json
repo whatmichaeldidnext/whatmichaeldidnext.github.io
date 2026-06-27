@@ -1,5 +1,6 @@
 {
   "id": "web-development",
   "name": "Web Development",
-  "summary": "Designing and building browser-based applications and interactive web experiences."
+  "summary": "Designing and building browser-based applications and interactive web experiences.",
+  "slug": "web-development"
 }

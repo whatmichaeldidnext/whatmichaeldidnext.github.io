@@ -1,5 +1,6 @@
 {
   "id": "power-query",
   "name": "Power Query",
-  "summary": "Building reusable ETL processes and transformation pipelines for structured data preparation."
+  "summary": "Building reusable ETL processes and transformation pipelines for structured data preparation.",
+  "slug": "power-query"
 }

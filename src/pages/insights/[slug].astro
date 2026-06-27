@@ -1,0 +1,45 @@
+---
+import { getCollection, render } from "astro:content";
+import { BaseLayout, MainLayout } from "../../components";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+
+  return posts
+    .filter((post) => post.data.visibility !== "private")
+    .filter((post) => post.data.slug)
+    .map((post) => ({
+      params: { slug: post.data.slug },
+      props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout
+  title={`${post.data.title} | Insights | What Michael Did Next`}
+  description={post.data.summary}
+>
+  <MainLayout>
+    <article class="insight-article">
+      <p class="eyebrow">Insight</p>
+      <h1>{post.data.title}</h1>
+
+      {post.data.published && (
+        <p class="insight-meta">
+          Published {post.data.published.toLocaleDateString("en-GB", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          })}
+        </p>
+      )}
+
+      {post.data.summary && <p class="lead">{post.data.summary}</p>}
+
+      <Content />
+    </article>
+  </MainLayout>
+</BaseLayout>

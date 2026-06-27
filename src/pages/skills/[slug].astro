@@ -1,0 +1,60 @@
+---
+import { getCollection } from "astro:content";
+import { BaseLayout, MainLayout } from "../../components";
+
+export async function getStaticPaths() {
+  const skills = await getCollection("skills");
+
+  return skills
+    .filter((skill) => skill.data.slug)
+    .map((skill) => ({
+      params: { slug: skill.data.slug },
+      props: { skill },
+    }));
+}
+
+const { skill } = Astro.props;
+
+const projects = await getCollection("projects");
+
+const relatedProjects = projects.filter((project) =>
+  project.data.skills?.includes(skill.data.id)
+);
+---
+
+<BaseLayout
+  title={`${skill.data.name} | What Michael Did Next`}
+  description={skill.data.summary}
+>
+  <MainLayout>
+    <article class="skill-page">
+      <p class="eyebrow">Skill</p>
+
+      <h1>{skill.data.name}</h1>
+
+      {skill.data.summary && <p class="lead">{skill.data.summary}</p>}
+
+      {skill.data.category && (
+        <p class="meta">
+          <strong>Category:</strong> {skill.data.category}
+        </p>
+      )}
+
+      {relatedProjects.length > 0 && (
+        <section>
+          <h2>Projects demonstrating this skill</h2>
+
+          <ul>
+            {relatedProjects.map((project) => (
+              <li>
+                <a href={`/projects/${project.data.slug}/`}>
+                  {project.data.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </article>
+  </MainLayout>
+</BaseLayout>

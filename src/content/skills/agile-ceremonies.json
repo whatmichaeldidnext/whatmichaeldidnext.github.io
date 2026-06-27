@@ -1,5 +1,6 @@
 {
   "id": "agile-ceremonies",
   "name": "Agile Ceremonies",
-  "summary": "Facilitating agile planning, reviews, retrospectives and stand-ups to support collaborative delivery."
+  "summary": "Facilitating agile planning, reviews, retrospectives and stand-ups to support collaborative delivery.",
+  "slug": "agile-ceremonies"
 }

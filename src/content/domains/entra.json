@@ -2,5 +2,6 @@
   "id": "entra",
   "name": "Microsoft Entra",
   "description": "Identity, authentication and access management using Microsoft Entra as part of enterprise cloud solutions.",
-  "status": "professional"
+  "status": "professional",
+  "slug": "entra"
 }

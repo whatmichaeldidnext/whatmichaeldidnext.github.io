@@ -1,5 +1,6 @@
 {
   "id": "incident-response-coordination",
   "name": "Incident Response Coordination",
-  "summary": "Coordinating people, suppliers and technical teams during operational or cybersecurity incidents."
+  "summary": "Coordinating people, suppliers and technical teams during operational or cybersecurity incidents.",
+  "slug": "incident-response-coordination"
 }

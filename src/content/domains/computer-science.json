@@ -2,5 +2,6 @@
   "id": "computer-science",
   "name": "Computer Science",
   "description": "Academic study of software engineering, algorithms, data structures, systems design and cybersecurity.",
-  "status": "academic"
+  "status": "academic",
+  "slug": "computer-science"
 }

@@ -1,5 +1,6 @@
 {
   "id": "network-security-appliances",
   "name": "Network Security Appliances",
-  "summary": "Dedicated hardware or virtual platforms providing network protection, traffic inspection and security policy enforcement."
+  "summary": "Dedicated hardware or virtual platforms providing network protection, traffic inspection and security policy enforcement.",
+  "slug": "network-security-appliances"
 }

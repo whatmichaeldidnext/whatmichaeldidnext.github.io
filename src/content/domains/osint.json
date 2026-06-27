@@ -2,5 +2,6 @@
   "id": "osint",
   "name": "Open-Source Intelligence (OSINT)",
   "description": "Investigating publicly available information to understand digital exposure, security risks and interconnected online identities.",
-  "status": "active"
+  "status": "active",
+  "slug": "osint"
 }

@@ -1,5 +1,6 @@
 {
   "id": "java",
   "name": "Java",
-  "summary": "Primary object-oriented programming language used for desktop, web and enterprise application development."
+  "summary": "Primary object-oriented programming language used for desktop, web and enterprise application development.",
+  "slug": "java"
 }

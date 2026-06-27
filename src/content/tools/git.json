@@ -1,5 +1,6 @@
 {
   "id": "git",
   "name": "Git",
-  "summary": "Distributed version control system supporting collaborative software development."
+  "summary": "Distributed version control system supporting collaborative software development.",
+  "slug": "git"
 }

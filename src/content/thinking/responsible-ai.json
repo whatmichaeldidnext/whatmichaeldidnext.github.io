@@ -1,5 +1,6 @@
 {
   "id": "responsible-ai",
   "name": "Responsible AI",
-  "summary": "Applying artificial intelligence in ways that are transparent, ethical, accountable and minimise unintended harm."
+  "summary": "Applying artificial intelligence in ways that are transparent, ethical, accountable and minimise unintended harm.",
+  "slug": "responsible-ai"
 }

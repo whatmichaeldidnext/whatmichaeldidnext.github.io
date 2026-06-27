@@ -1,5 +1,6 @@
 {
   "id": "data-cleansing",
   "name": "Data Cleansing",
-  "summary": "Improving data quality through validation, transformation and reconciliation techniques."
+  "summary": "Improving data quality through validation, transformation and reconciliation techniques.",
+  "slug": "data-cleansing"
 }

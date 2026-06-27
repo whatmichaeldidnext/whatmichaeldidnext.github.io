@@ -1,5 +1,6 @@
 {
   "id": "github",
   "name": "GitHub",
-  "summary": "Hosted Git platform for source control, collaboration and portfolio publication."
+  "summary": "Hosted Git platform for source control, collaboration and portfolio publication.",
+  "slug": "github"
 }

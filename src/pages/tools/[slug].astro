@@ -1,0 +1,74 @@
+---
+import { getCollection } from "astro:content";
+import { BaseLayout, MainLayout } from "../../components";
+
+export async function getStaticPaths() {
+  const tools = await getCollection("tools");
+
+  return tools
+    .filter((tool) => tool.data.slug)
+    .map((tool) => ({
+      params: { slug: tool.data.slug },
+      props: { tool },
+    }));
+}
+
+const { tool } = Astro.props;
+
+const projects = await getCollection("projects");
+
+const relatedProjects = projects.filter((project) =>
+  project.data.tools?.includes(tool.data.id)
+);
+---
+
+<BaseLayout
+  title={`${tool.data.name} | What Michael Did Next`}
+  description={tool.data.summary}
+>
+  <MainLayout>
+    <article class="tool-page">
+      <p class="eyebrow">Tool</p>
+
+      <h1>{tool.data.name}</h1>
+
+      {tool.data.summary && <p class="lead">{tool.data.summary}</p>}
+
+      {tool.data.vendor && (
+        <p class="meta">
+          <strong>Vendor:</strong> {tool.data.vendor}
+        </p>
+      )}
+
+      {tool.data.category && (
+        <p class="meta">
+          <strong>Category:</strong> {tool.data.category}
+        </p>
+      )}
+
+      {tool.data.homepage && (
+        <p class="meta">
+          <a href={tool.data.homepage} target="_blank" rel="noreferrer">
+            Visit homepage →
+          </a>
+        </p>
+      )}
+
+      {relatedProjects.length > 0 && (
+        <section>
+          <h2>Projects using this tool</h2>
+
+          <ul>
+            {relatedProjects.map((project) => (
+              <li>
+                <a href={`/projects/${project.data.slug}/`}>
+                  {project.data.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </article>
+  </MainLayout>
+</BaseLayout>

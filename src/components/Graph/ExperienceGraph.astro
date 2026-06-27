@@ -1,14 +1,25 @@
 ---
-import { loadCollection } from "../../lib/contentLoader";
+import { getPlainCollection } from "../../lib/content.js";
 
-const projects = await loadCollection("projects");
-const skills = await loadCollection("skills");
-const domains = await loadCollection("domains");
-const tools = await loadCollection("tools");
-const technologies = await loadCollection("technologies");
-const thinking = await loadCollection("thinking");
-const artifacts = await loadCollection("artifacts");
-const qualifications = await loadCollection("qualifications");
+const [
+  projects,
+  domains,
+  skills,
+  tools,
+  technologies,
+  thinking,
+  artifacts,
+  qualifications,
+] = await Promise.all([
+  getPlainCollection("projects"),
+  getPlainCollection("domains"),
+  getPlainCollection("skills"),
+  getPlainCollection("tools"),
+  getPlainCollection("technologies"),
+  getPlainCollection("thinking"),
+  getPlainCollection("artifacts"),
+  getPlainCollection("qualifications"),
+]);
 
 const graphData = {
   projects,
@@ -21,7 +32,6 @@ const graphData = {
   qualifications,
 };
 ---
-
 <div class="graph-wrapper">
   <div class="graph-panel-header">
     <div class="graph-controls">
@@ -91,6 +101,8 @@ const graphData = {
     const elements = [];
 
     const addNode = (type, item, labelKey = "name") => {
+      if (!item?.id) return
+
       elements.push({
         data: {
           id: `${type}-${item.id}`,
@@ -108,6 +120,22 @@ const graphData = {
           relationship,
         },
       });
+    };
+
+    const nodeExists = (id) =>
+      elements.some((element) => element.data?.id === id);
+
+    const addSafeEdge = (source, target, relationship = "related-to") => {
+      if (!nodeExists(source) || !nodeExists(target)) {
+        console.warn("Skipping graph edge with missing node", {
+          source,
+          target,
+          relationship,
+        });
+        return;
+      }
+
+      addEdge(source, target, relationship);
     };
 
     graphData.domains.forEach((domain) => addNode("domain", domain));
@@ -132,37 +160,37 @@ const graphData = {
       addNode("project", project, "title");
 
       project.domains?.forEach((domainId) =>
-        addEdge(`project-${project.id}`, `domain-${domainId}`)
+        addSafeEdge(`project-${project.id}`, `domain-${domainId}`)
       );
 
       project.skills?.forEach((skillId) =>
-        addEdge(`project-${project.id}`, `skill-${skillId}`)
+        addSafeEdge(`project-${project.id}`, `skill-${skillId}`)
       );
 
       project.tools?.forEach((toolId) =>
-        addEdge(`project-${project.id}`, `tool-${toolId}`)
+        addSafeEdge(`project-${project.id}`, `tool-${toolId}`)
       );
 
       project.technologies?.forEach((technologyId) =>
-        addEdge(`project-${project.id}`, `technology-${technologyId}`)
+        addSafeEdge(`project-${project.id}`, `technology-${technologyId}`)
       );
 
       project.thinking?.forEach((thinkingId) =>
-        addEdge(`project-${project.id}`, `thinking-${thinkingId}`)
+        addSafeEdge(`project-${project.id}`, `thinking-${thinkingId}`)
       );
 
       project.artifacts?.forEach((artifactId) =>
-        addEdge(`project-${project.id}`, `artifact-${artifactId}`)
+        addSafeEdge(`project-${project.id}`, `artifact-${artifactId}`)
       );
 
       project.qualifications?.forEach((qualificationId) =>
-        addEdge(`project-${project.id}`, `qualification-${qualificationId}`)
+        addSafeEdge(`project-${project.id}`, `qualification-${qualificationId}`)
       );
 
       const parentProjectId = normaliseProjectId(project.parentProject);
 
       if (parentProjectId && projectExists(parentProjectId)) {
-        addEdge(
+        addSafeEdge(
           `project-${project.id}`,
           `project-${parentProjectId}`,
           "part-of"
@@ -720,7 +748,7 @@ const graphData = {
           <h3>Qualifications</h3>
           ${listHtml(relatedQualifications)}
 
-          <a class="panel-link" href="/projects/${project.id}">Open project page →</a>
+          <a class="panel-link" href="/projects/${project.slug}">Open project page →</a>
         `;
 
         openPopup();
@@ -751,7 +779,7 @@ const graphData = {
           <h3>Related Skills</h3>
           ${listHtml(relatedSkills, (item) => `/skills/${item.id}`)}
 
-          <a class="panel-link" href="/domains/${domain.id}">Open domain page →</a>
+          <a class="panel-link" href="/domains/${domain.slug}">Open domain page →</a>
         `;
 
         openPopup();
@@ -782,7 +810,7 @@ const graphData = {
           <h3>Related Domains</h3>
           ${listHtml(relatedDomains, (item) => `/domains/${item.id}`)}
 
-          <a class="panel-link" href="/skills/${skill.id}">Open skill page →</a>
+          <a class="panel-link" href="/skills/${skill.slug}">Open skill page →</a>
         `;
 
         openPopup();

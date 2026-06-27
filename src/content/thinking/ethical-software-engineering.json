@@ -1,5 +1,6 @@
 {
   "id": "ethical-software-engineering",
   "name": "Ethical Software Engineering",
-  "summary": "Designing software with careful consideration of privacy, misuse prevention, transparency and responsible implementation."
+  "summary": "Designing software with careful consideration of privacy, misuse prevention, transparency and responsible implementation.",
+  "slug": "ethical-software-engineering"
 }

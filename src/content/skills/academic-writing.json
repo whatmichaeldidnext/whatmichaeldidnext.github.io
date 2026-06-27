@@ -1,5 +1,6 @@
 {
   "id": "academic-writing",
   "name": "Academic Writing",
-  "summary": "Producing structured research, technical reports and evidence-based academic publications."
+  "summary": "Producing structured research, technical reports and evidence-based academic publications.",
+  "slug": "academic-writing"
 }

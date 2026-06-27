@@ -1,5 +1,6 @@
 {
   "id": "rest",
   "name": "REST APIs",
-  "summary": "Architectural style for building interoperable web services and distributed applications."
+  "summary": "Architectural style for building interoperable web services and distributed applications.",
+  "slug": "rest"
 }

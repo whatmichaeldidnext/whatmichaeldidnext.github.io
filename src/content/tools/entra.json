@@ -1,5 +1,6 @@
 {
   "id": "entra",
   "name": "Microsoft Entra",
-  "summary": "Identity and access management platform for authentication, authorisation and governance."
+  "summary": "Identity and access management platform for authentication, authorisation and governance.",
+  "slug": "entra"
 }

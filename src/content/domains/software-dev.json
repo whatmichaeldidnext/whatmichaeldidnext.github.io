@@ -2,5 +2,6 @@
   "id": "software-dev",
   "name": "Software Development",
   "description": "Designing and building maintainable software with an emphasis on modular architecture, usability and long-term maintainability.",
-  "status": "academic"
+  "status": "academic",
+  "slug": "software-dev"
 }

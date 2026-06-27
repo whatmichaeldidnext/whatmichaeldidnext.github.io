@@ -1,5 +1,6 @@
 {
   "id": "testing-coordination",
   "name": "Testing Coordination",
-  "summary": "Planning and coordinating testing activities to validate solutions before operational deployment."
+  "summary": "Planning and coordinating testing activities to validate solutions before operational deployment.",
+  "slug": "testing-coordination"
 }

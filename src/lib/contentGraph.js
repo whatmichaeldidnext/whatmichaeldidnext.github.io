@@ -1,186 +1,170 @@
-import { getContent } from "./content.js";
+import { getPlainCollection } from "./content.js";
 
-const COLLECTIONS = [
-    "projects",
-    "domains",
-    "skills",
-    "tools",
-    "technologies",
-    "thinking",
-    "qualifications",
-    "artifacts",
-];
-
-const RELATION_FIELDS = {
-    projects: ["domains", "skills", "tools", "technologies", "thinking", "artifacts"],
-    domains: [],
-    skills: [],
-    tools: [],
-    technologies: [],
-    thinking: [],
-    qualifications: [],
-    artifacts: [],
+const graphCollections = {
+    projects: "project",
+    domains: "domain",
+    skills: "skill",
+    tools: "tool",
+    technologies: "technology",
+    thinking: "thinking",
+    artifacts: "artifact",
+    qualifications: "qualification",
 };
 
-let cachedGraph = null;
+export async function buildContentGraph() {
+    const content = {};
 
-export async function getGraph() {
-    if (cachedGraph) return cachedGraph;
+    for (const collectionName of Object.keys(graphCollections)) {
+        content[collectionName] = await getPlainCollection(collectionName);
+    }
 
-    const content = await getContent();
-
-    const nodes = COLLECTIONS.flatMap((collection) =>
-        (content[collection] || []).map((item) => ({
-            id: item.id,
-            type: collection,
-            label: item.title || item.name || item.id,
-            data: item,
-        }))
-    );
-
-    const nodeMap = new Map(
-        nodes.map((node) => [`${node.type}:${node.id}`, node])
-    );
-
+    const nodes = [];
     const edges = [];
 
-    for (const sourceType of COLLECTIONS) {
-        const items = content[sourceType] || [];
-        const fields = RELATION_FIELDS[sourceType] || [];
-
-        for (const item of items) {
-            for (const field of fields) {
-                const targetIds = item[field] || [];
-
-                for (const targetId of targetIds) {
-                    const targetType = field;
-                    const sourceKey = `${sourceType}:${item.id}`;
-                    const targetKey = `${targetType}:${targetId}`;
-
-                    if (!nodeMap.has(targetKey)) continue;
-
-                    edges.push({
-                        source: sourceKey,
-                        target: targetKey,
-                        sourceType,
-                        sourceId: item.id,
-                        targetType,
-                        targetId,
-                        relation: field,
-                    });
-                }
-            }
+    for (const [collectionName, type] of Object.entries(graphCollections)) {
+        for (const item of content[collectionName] ?? []) {
+            nodes.push({
+                id: item.id,
+                slug: item.slug,
+                type,
+                label: item.title || item.name || item.id,
+                item,
+            });
         }
     }
 
-    cachedGraph = createGraphApi({ content, nodes, edges, nodeMap });
+    const addEdge = (sourceType, sourceId, targetType, targetId, relationship) => {
+        if (!sourceId || !targetId) return;
 
-    return cachedGraph;
-}
-
-function createGraphApi({ content, nodes, edges, nodeMap }) {
-    function key(type, id) {
-        return `${type}:${id}`;
-    }
-
-    function getNode(type, id) {
-        return nodeMap.get(key(type, id)) || null;
-    }
-
-    function getNodes(type = null) {
-        return type ? nodes.filter((node) => node.type === type) : nodes;
-    }
-
-    function getEdges(filter = {}) {
-        return edges.filter((edge) => {
-            return Object.entries(filter).every(([field, value]) => {
-                if (value === undefined || value === null) return true;
-                return edge[field] === value;
-            });
+        edges.push({
+            id: `${sourceType}:${sourceId}->${targetType}:${targetId}:${relationship}`,
+            sourceType,
+            sourceId,
+            targetType,
+            targetId,
+            relationship,
         });
-    }
+    };
 
-    function outgoing(type, id) {
-        const sourceKey = key(type, id);
-        return edges
-            .filter((edge) => edge.source === sourceKey)
-            .map((edge) => nodeMap.get(edge.target))
-            .filter(Boolean);
-    }
-
-    function incoming(type, id) {
-        const targetKey = key(type, id);
-        return edges
-            .filter((edge) => edge.target === targetKey)
-            .map((edge) => nodeMap.get(edge.source))
-            .filter(Boolean);
-    }
-
-    function related(type, id, targetType = null) {
-        const connected = [...outgoing(type, id), ...incoming(type, id)];
-
-        const unique = new Map(
-            connected.map((node) => [`${node.type}:${node.id}`, node])
+    for (const project of content.projects ?? []) {
+        project.domains?.forEach((id) =>
+            addEdge("project", project.id, "domain", id, "has-domain")
         );
 
-        const results = [...unique.values()];
+        project.skills?.forEach((id) =>
+            addEdge("project", project.id, "skill", id, "uses-skill")
+        );
 
-        return targetType
-            ? results.filter((node) => node.type === targetType)
-            : results;
+        project.tools?.forEach((id) =>
+            addEdge("project", project.id, "tool", id, "uses-tool")
+        );
+
+        project.technologies?.forEach((id) =>
+            addEdge("project", project.id, "technology", id, "uses-technology")
+        );
+
+        project.thinking?.forEach((id) =>
+            addEdge("project", project.id, "thinking", id, "demonstrates-principle")
+        );
+
+        project.artifacts?.forEach((id) =>
+            addEdge("project", project.id, "artifact", id, "has-evidence")
+        );
+
+        project.qualifications?.forEach((id) =>
+            addEdge("project", project.id, "qualification", id, "supported-by")
+        );
+
+        if (project.parentProject) {
+            addEdge(
+                "project",
+                project.id,
+                "project",
+                project.parentProject.replace(/^project-/, ""),
+                "part-of"
+            );
+        }
+
+        const dependencies = Array.isArray(project.dependsOn)
+            ? project.dependsOn
+            : project.dependsOn
+                ? [project.dependsOn]
+                : [];
+
+        dependencies.forEach((id) =>
+            addEdge(
+                "project",
+                project.id,
+                "project",
+                id.replace(/^project-/, ""),
+                "depends-on"
+            )
+        );
     }
 
-    function relatedData(type, id, targetType = null) {
-        return related(type, id, targetType).map((node) => node.data);
-    }
+    const getNode = (type, id) =>
+        nodes.find((node) => node.type === type && node.id === id) ?? null;
 
-    function find(collection, id) {
-        return content[collection]?.find((item) => item.id === id) || null;
-    }
+    const getItem = (collectionName, id) =>
+        content[collectionName]?.find((item) => item.id === id) ?? null;
 
-    function projectsFor(type, id) {
-        if (type === "projects") return [find("projects", id)].filter(Boolean);
+    const getConnectedNodes = (type, id) => {
+        const connectedIds = edges
+            .filter(
+                (edge) =>
+                    (edge.sourceType === type && edge.sourceId === id) ||
+                    (edge.targetType === type && edge.targetId === id)
+            )
+            .flatMap((edge) => [
+                {type: edge.sourceType, id: edge.sourceId},
+                {type: edge.targetType, id: edge.targetId},
+            ])
+            .filter((node) => !(node.type === type && node.id === id));
 
-        return relatedData(type, id, "projects");
-    }
+        const unique = new Map(
+            connectedIds.map((node) => [`${node.type}:${node.id}`, node])
+        );
 
-    function domainsFor(type, id) {
-        return relatedData(type, id, "domains");
-    }
+        return [...unique.values()]
+            .map((node) => getNode(node.type, node.id))
+            .filter(Boolean);
+    };
 
-    function skillsFor(type, id) {
-        return relatedData(type, id, "skills");
-    }
+    const projectsFor = (collectionName, id) => {
+        const fieldMap = {
+            domains: "domains",
+            skills: "skills",
+            tools: "tools",
+            technologies: "technologies",
+            thinking: "thinking",
+            artifacts: "artifacts",
+            qualifications: "qualifications",
+        };
 
-    function toolsFor(type, id) {
-        return relatedData(type, id, "tools");
-    }
+        const field = fieldMap[collectionName];
 
-    function technologiesFor(type, id) {
-        return relatedData(type, id, "technologies");
-    }
+        if (!field) return [];
 
-    function thinkingFor(type, id) {
-        return relatedData(type, id, "thinking");
-    }
+        return content.projects.filter((project) =>
+            project[field]?.includes(id)
+        );
+
+    };
+    const find = (collectionName, id) =>
+        content[collectionName]?.find((item) => item.id === id) ?? null;
 
     return {
         content,
         nodes,
         edges,
         getNode,
-        getNodes,
-        getEdges,
-        outgoing,
-        incoming,
-        related,
-        relatedData,
-        find,
+        getItem,
+        getConnectedNodes,
         projectsFor,
-        domainsFor,
-        skillsFor,
-        toolsFor,
-        technologiesFor,
-        thinkingFor,
+        find
     };
+}
+
+export async function getGraph() {
+    return buildContentGraph();
 }

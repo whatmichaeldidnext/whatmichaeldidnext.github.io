@@ -2,14 +2,22 @@
 import {
   BaseLayout,
   MainLayout,
-  SectionHeader,
   HeroSection,
   SummarySection,
   CurrentlyBuilding,
   DomainGrid,
   FeaturedProjects,
-  GraphPreview
+  GraphPreview,
+  InsightsPreview
 } from "../components";
+
+import { getCollection } from "astro:content";
+
+const insights = (await getCollection("blog"))
+  .filter((post) => post.data.visibility !== "private")
+  .filter((post) => !post.data.published || new Date(post.data.published) <= new Date())
+  .sort((a, b) => new Date(b.data.published ?? 0).getTime() - new Date(a.data.published ?? 0).getTime())
+  .slice(0, 3);
 ---
 
 <BaseLayout
@@ -18,28 +26,15 @@ import {
 >
   <MainLayout>
     <section class="hero-graph">
-        <HeroSection />
-        <GraphPreview />
+      <HeroSection />
+      <GraphPreview />
     </section>
+
     <SummarySection />
+    <InsightsPreview />
     <CurrentlyBuilding />
     <DomainGrid />
     <FeaturedProjects />
+
   </MainLayout>
 </BaseLayout>
-
-<style>
-  .hero-graph {
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
-    gap: 2rem;
-    align-items: center;
-    padding: 3rem 0;
-  }
-
-  @media (max-width: 900px) {
-    .hero-graph {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>

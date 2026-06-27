@@ -114,5 +114,6 @@
     "ms-teams-calling",
     "network-readiness"
   ],
-  "links": []
+  "links": [],
+  "slug": "aso-datalake"
 }

@@ -2,5 +2,6 @@
   "id": "research",
   "name": "Research",
   "description": "Applying structured investigation, critical analysis and evidence-based reasoning to explore complex technical and organisational challenges.",
-  "status": "active"
+  "status": "active",
+  "slug": "research"
 }

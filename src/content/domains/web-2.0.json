@@ -2,5 +2,6 @@
   "id": "web-2.0",
   "name": "Web 2.0",
   "description": "Research into social platforms, online identity, data brokerage and the interconnected nature of modern web services.",
-  "status": "academic"
+  "status": "academic",
+  "slug": "web-2.0"
 }

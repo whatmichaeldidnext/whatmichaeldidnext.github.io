@@ -2,5 +2,6 @@
   "id": "crm",
   "name": "Customer Relationship Management (CRM)",
   "description": "Implementing and improving CRM platforms and business processes to enhance customer engagement and organisational effectiveness.",
-  "status": "active"
+  "status": "active",
+  "slug": "crm"
 }

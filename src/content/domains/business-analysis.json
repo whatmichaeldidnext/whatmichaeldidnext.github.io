@@ -2,5 +2,6 @@
   "id": "business-analysis",
   "name": "Business Analysis",
   "description": "Understanding business needs, defining requirements and translating them into practical technical and operational solutions.",
-  "status": "active"
+  "status": "active",
+  "slug": "business-analysis"
 }
