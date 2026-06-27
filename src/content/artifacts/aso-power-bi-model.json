@@ -1,0 +1,9 @@
+{
+  "id": "aso-power-bi-model",
+  "name": "ASO Power BI Semantic Model",
+  "type": "architecture",
+  "summary": "Analytical model supporting PSTN inventory cleansing, site matching and migration planning.",
+  "status": "complete",
+  "visibility": "private",
+  "url": null
+}

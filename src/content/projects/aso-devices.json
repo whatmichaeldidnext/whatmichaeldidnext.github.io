@@ -1,0 +1,117 @@
+{
+  "id": "aso-devices",
+  "title": "Enterprise Endpoint Deployment & Fulfilment",
+  "parentProject": "aso-telecoms",
+  "summary": "Designed and delivered a scalable endpoint fulfilment capability supporting the organisation's transition to IP communications, introducing standardised device selection, zero-touch provisioning and operational processes for fixed and mobile endpoints.",
+  "context": "The Analogue Switch-Off programme required communications endpoints to be deployed across a geographically diverse estate with differing operational requirements. Success depended not simply on selecting devices, but on designing an operational model capable of provisioning, deploying and supporting endpoints consistently at enterprise scale.",
+  "challenge": "Develop a repeatable fulfilment capability capable of selecting, procuring, provisioning and deploying communication endpoints while reducing manual effort, maintaining governance and supporting multiple user personas and service requirements.",
+  "approach": "Designed an end-to-end operational framework covering device standards, approval workflows, procurement, asset management, provisioning, logistics and deployment. Worked with suppliers, infrastructure teams and business stakeholders to standardise endpoint configurations and establish a largely zero-touch fulfilment process supporting both fixed and mobile communications.",
+  "role": [
+    "Senior Technical Project Manager",
+    "Project Manager",
+    "Business Analyst",
+    "Technical Coordinator",
+    "Vendor Manager"
+  ],
+  "outcome": "Established a repeatable enterprise deployment capability that standardised endpoint delivery, reduced manual intervention, improved governance and created a scalable foundation for future communications deployments.",
+  "impact": {
+    "whyItMattered": "The endpoint strategy transformed device deployment from individual hardware requests into a repeatable operational capability that supported large-scale communications modernisation while improving user experience and operational efficiency.",
+    "publicValue": [
+      "Supported reliable access to modern communications services",
+      "Improved consistency of user experience across geographically dispersed locations",
+      "Enabled more resilient and sustainable communications infrastructure",
+      "Reduced deployment delays for operational teams"
+    ],
+    "organisationalValue": [
+      "Standardised endpoint selection and lifecycle management",
+      "Reduced administrative overhead through zero-touch provisioning",
+      "Improved governance across procurement and asset management",
+      "Created a scalable fulfilment model supporting future technology programmes"
+    ],
+    "stakeholders": [
+      "Operational teams",
+      "End users",
+      "ICT",
+      "Infrastructure engineers",
+      "Procurement",
+      "Asset Management",
+      "External suppliers"
+    ]
+  },
+  "lessons": "Large-scale endpoint deployment is primarily an operational design challenge rather than a technical one. Standardisation, automation and clearly defined fulfilment processes are essential to delivering consistent user experiences and sustainable service operations.",
+  "status": "in-progress",
+  "featured": true,
+  "year": 2026,
+  "employer": {
+    "id": "the-salvation-army-uk-ireland",
+    "relationship": "ftc employee",
+    "roleTitle": "Senior Technical Project Manager"
+  },
+  "domains": [
+    "telecoms",
+    "ip-comms",
+    "digital-transformation",
+    "project-management",
+    "service-design",
+    "service-transition",
+    "network-infrastructure",
+    "entra",
+    "intune",
+    "vendor-relations"
+  ],
+  "skills": [
+    "programme-management",
+    "project-management",
+    "stakeholder-management",
+    "vendor-management",
+    "business-analysis",
+    "requirements-analysis",
+    "process-design",
+    "service-transition",
+    "technical-documentation",
+    "project-leadership"
+  ],
+  "technologies": [
+    "microsoft-teams",
+    "intune",
+    "entra",
+    "powershell"
+  ],
+  "tools": [
+    "power-bi",
+    "sharepoint",
+    "excel",
+    "ms-project",
+    "powershell",
+    "intune",
+    "entra"
+  ],
+  "thinking": [
+    "systems-thinking",
+    "infrastructure-modernisation",
+    "technical-leadership",
+    "service-design",
+    "automation-first",
+    "operational-excellence",
+    "continuous-improvement"
+  ],
+  "artifacts": [
+    "endpoint-standards",
+    "deployment-framework",
+    "zero-touch-fulfilment-process",
+    "device-catalogue",
+    "deployment-governance",
+    "asset-lifecycle-model",
+    "device-standard-catalogue",
+    "zero-touch-process-map",
+    "training-material"
+  ],
+  "qualifications": [],
+  "relatedProjects": [
+    "ms-teams-calling",
+    "legacy-pstn",
+    "network-readiness",
+    "aso-datalake"
+  ],
+  "links": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "delivery-plan",
+  "name": "Delivery Plan",
+  "type": "plan",
+  "summary": "Detailed implementation plan coordinating technical activities, milestones and resources.",
+  "status": "completed",
+  "visibility": "private",
+  "url": ""
+}

@@ -1,0 +1,9 @@
+{
+  "id": "governance-framework",
+  "name": "Governance Framework",
+  "type": "framework",
+  "summary": "Framework defining governance responsibilities, approvals and decision processes.",
+  "status": "completed",
+  "visibility": "private",
+  "url": ""
+}

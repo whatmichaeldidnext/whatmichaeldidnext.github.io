@@ -1,0 +1,9 @@
+{
+  "id": "security-deployment-governance",
+  "name": "Security Deployment Governance",
+  "type": "governance",
+  "summary": "Governance model supporting controlled implementation of network security improvements.",
+  "status": "completed",
+  "visibility": "private",
+  "url": ""
+}

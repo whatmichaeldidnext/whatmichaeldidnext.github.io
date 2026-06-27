@@ -1,0 +1,9 @@
+{
+  "id": "msc-project-proposal",
+  "name": "MSc Project Proposal",
+  "type": "proposal",
+  "summary": "Initial academic proposal outlining the research question, implementation approach and intended proof of concept.",
+  "status": "complete",
+  "visibility": "private",
+  "url": null
+}

@@ -1,0 +1,124 @@
+{
+  "id": "aso-telecoms",
+  "title": "Analogue Switch-Off Programme",
+  "parentProject": null,
+  "dependsOn": [
+    "aso-datalake",
+    "aso-devices",
+    "ms-teams-calling"
+  ],
+  "summary": "Led the technical delivery of a large-scale communications transformation programme preparing a geographically dispersed estate for the UK's withdrawal of analogue PSTN services through modern IP communications, improved programme intelligence and scalable operational delivery.",
+  "context": "The national withdrawal of analogue PSTN services required organisations to modernise legacy telecommunications infrastructure before fixed regulatory deadlines. Across a diverse estate of more than 1,000 locations, existing telephony services, network readiness, endpoint strategy and operational processes all required assessment, redesign and coordinated delivery while maintaining continuity of business-critical communications.",
+  "challenge": "Develop a scalable transformation programme capable of coordinating multiple technical workstreams, improving programme visibility, reducing uncertainty created by fragmented legacy data and delivering communications modernisation within nationally imposed timescales.",
+  "approach": "Established a data-driven programme delivery model combining programme governance, analytical reporting, infrastructure planning, communications transformation and operational process design. Rather than treating each migration independently, developed reusable frameworks for planning, reporting, endpoint deployment, migration governance and decision support that could be applied consistently across the programme.",
+  "role": [
+    "Senior Technical Project Manager",
+    "Programme Lead",
+    "Business Analyst",
+    "Data Architect",
+    "Technical Architect"
+  ],
+  "outcome": "Established a repeatable programme delivery capability supporting communications modernisation across a complex national estate. Improved programme visibility, strengthened migration planning, increased confidence in delivery decisions and created scalable operational processes supporting future infrastructure transformation.",
+  "impact": {
+    "whyItMattered": "The programme enabled the organisation to respond proactively to a nationally mandated technology change while reducing operational risk, improving programme governance and establishing sustainable communications services for the future.",
+    "publicValue": [
+      "Protected continuity of critical organisational communications",
+      "Supported long-term resilience of communications infrastructure",
+      "Improved readiness for the national withdrawal of analogue telephony",
+      "Reduced risk of service disruption across operational locations"
+    ],
+    "organisationalValue": [
+      "Created a repeatable transformation framework applicable across multiple sites",
+      "Improved programme governance through trusted reporting and planning",
+      "Reduced uncertainty through improved data quality and programme intelligence",
+      "Standardised delivery processes supporting future infrastructure programmes",
+      "Integrated technology, operations and business change into a single delivery model"
+    ],
+    "stakeholders": [
+      "Executive leadership",
+      "Programme Board",
+      "Operational teams",
+      "ICT",
+      "Infrastructure engineers",
+      "Property teams",
+      "Procurement",
+      "External suppliers",
+      "End users"
+    ]
+  },
+  "lessons": "Large-scale transformation programmes succeed by creating organisational capability rather than simply delivering technology. Trusted information, repeatable delivery processes and strong stakeholder engagement provide the foundations upon which successful technical implementation depends.",
+  "status": "in-progress",
+  "featured": true,
+  "year": 2026,
+  "employer": {
+    "id": "the-salvation-army-uk-ireland",
+    "relationship": "ftc employee",
+    "roleTitle": "Senior Technical Project Manager"
+  },
+  "domains": [
+    "digital-transformation",
+    "telecommunications",
+    "programme-management",
+    "data-architecture",
+    "service-design",
+    "infrastructure-modernisation",
+    "network-infrastructure",
+    "entra",
+    "intune",
+    "vendor-relations"
+  ],
+  "skills": [
+    "programme-management",
+    "project-management",
+    "stakeholder-management",
+    "business-analysis",
+    "requirements-analysis",
+    "risk-management",
+    "data-modelling",
+    "technical-leadership",
+    "governance",
+    "service-transition",
+    "strategic-planning"
+  ],
+  "technologies": [
+    "power-bi",
+    "power-query",
+    "microsoft-teams",
+    "intune",
+    "sharepoint",
+    "powershell"
+  ],
+  "tools": [
+    "power-bi",
+    "power-query",
+    "sharepoint",
+    "excel",
+    "ms-project"
+  ],
+  "thinking": [
+    "systems-thinking",
+    "infrastructure-modernisation",
+    "technical-leadership",
+    "enterprise-architecture",
+    "service-design",
+    "data-driven-decision-making",
+    "continuous-improvement",
+    "operational-resilience"
+  ],
+  "artifacts": [
+    "programme-delivery-framework",
+    "programme-governance-model",
+    "programme-dashboard-suite",
+    "aso-delivery-framework",
+    "migration-roadmap",
+    "risk-framework",
+    "communications-strategy"
+  ],
+  "qualifications": [],
+  "relatedProjects": [
+    "aso-datalake",
+    "aso-devices",
+    "ms-teams-calling"
+  ],
+  "links": []
+}

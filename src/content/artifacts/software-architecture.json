@@ -1,0 +1,9 @@
+{
+  "id": "software-architecture",
+  "name": "Software Architecture",
+  "type": "architecture",
+  "summary": "Architecture describing application components, data flow and system interactions.",
+  "status": "completed",
+  "visibility": "public",
+  "url": ""
+}

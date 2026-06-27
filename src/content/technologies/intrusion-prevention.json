@@ -1,0 +1,5 @@
+{
+  "id": "intrusion-prevention",
+  "name": "Intrusion Prevention System (IPS)",
+  "summary": "Technology that identifies and blocks malicious network activity before it impacts services."
+}

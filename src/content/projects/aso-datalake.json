@@ -1,0 +1,117 @@
+{
+  "id": "aso-datalake",
+  "title": "Programme Intelligence & Data Platform",
+  "parentProject": "aso-telecoms",
+  "summary": "Designed and developed a programme-wide analytical data platform that transformed fragmented telecoms information into a trusted decision-support capability, enabling improved migration planning, reporting and operational governance throughout the Analogue Switch-Off programme.",
+  "context": "Critical programme information existed across multiple disconnected spreadsheets, inventories and operational datasets with varying levels of quality and completeness. Without a trusted view of sites, users, devices, telephone numbers and property information, migration planning and programme reporting remained difficult and time-consuming.",
+  "challenge": "Create a maintainable analytical platform capable of consolidating disparate telecoms data sources, improving data quality, supporting manual review where appropriate and establishing a trusted foundation for programme-wide reporting and operational decision making.",
+  "approach": "Designed a dimensional analytical model supported by reusable Power Query transformation functions, standardised data quality rules and structured relationship mapping across telecoms assets, sites, users, devices and property reference data. Developed confidence-based matching logic, review workflows and manual override capability to balance automation with operational assurance while producing reusable reporting across the programme.",
+  "role": [
+    "Senior Technical Project Manager",
+    "Data Architect",
+    "Data Analyst",
+    "Power BI Developer",
+    "Business Analyst"
+  ],
+  "outcome": "Delivered a trusted analytical platform that significantly improved data quality, reporting capability and migration planning. The resulting data model became the foundation for programme dashboards, operational reporting, migration forecasting and evidence-based decision making.",
+  "impact": {
+    "whyItMattered": "The platform transformed disconnected operational data into a trusted programme intelligence capability, enabling better decisions, reducing uncertainty and improving confidence in migration planning across a complex national transformation programme.",
+    "publicValue": [
+      "Supported better planning for the transition away from legacy telephony services",
+      "Improved confidence in programme reporting supporting service continuity",
+      "Reduced operational risk through improved visibility of migration readiness",
+      "Enabled more informed planning for technology modernisation"
+    ],
+    "organisationalValue": [
+      "Established a single trusted source of programme information",
+      "Improved data quality through repeatable validation and cleansing processes",
+      "Reduced manual analysis and duplicated reporting effort",
+      "Created reusable analytical foundations supporting future reporting requirements",
+      "Improved governance through traceable data lineage and review workflows"
+    ],
+    "stakeholders": [
+      "Programme Management",
+      "Operational teams",
+      "ICT",
+      "Data owners",
+      "Business analysts",
+      "Senior leadership"
+    ]
+  },
+  "lessons": "Successful analytics programmes begin with trusted information architecture rather than visualisation. Establishing robust data models, transparent transformation logic and governed review processes created significantly greater long-term value than dashboards alone.",
+  "status": "completed",
+  "featured": true,
+  "year": 2026,
+  "employer": {
+    "id": "the-salvation-army-uk-ireland",
+    "relationship": "ftc employee",
+    "roleTitle": "Senior Technical Project Manager"
+  },
+  "domains": [
+    "data-analytics",
+    "data-architecture",
+    "telecoms",
+    "project-management",
+    "digital-transformation",
+    "network-infrastructure",
+    "entra",
+    "intune",
+    "software-dev",
+    "agile",
+    "web-2.0"
+  ],
+  "skills": [
+    "data-modelling",
+    "data-architecture",
+    "data-analysis",
+    "data-cleansing",
+    "business-analysis",
+    "requirements-analysis",
+    "power-bi",
+    "power-query",
+    "stakeholder-management",
+    "reporting",
+    "information-governance"
+  ],
+  "technologies": [
+    "power-bi",
+    "power-query",
+    "dax",
+    "excel",
+    "sharepoint"
+  ],
+  "tools": [
+    "power-bi",
+    "power-query",
+    "excel",
+    "sharepoint"
+  ],
+  "thinking": [
+    "systems-thinking",
+    "infrastructure-modernisation",
+    "technical-leadership",
+    "information-architecture",
+    "data-driven-decision-making",
+    "continuous-improvement",
+    "operational-assurance"
+  ],
+  "artifacts": [
+    "programme-data-model",
+    "data-quality-framework",
+    "site-matching-engine",
+    "review-workflow",
+    "programme-dashboard-suite",
+    "data-dictionary",
+    "aso-report-suite",
+    "aso-site-matching-framework",
+    "aso-power-bi-model"
+  ],
+  "qualifications": [],
+  "relatedProjects": [
+    "legacy-pstn",
+    "aso-devices",
+    "ms-teams-calling",
+    "network-readiness"
+  ],
+  "links": []
+}

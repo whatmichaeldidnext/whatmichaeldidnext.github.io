@@ -1,0 +1,9 @@
+{
+  "id": "project-plan",
+  "name": "Project Plan",
+  "type": "plan",
+  "summary": "Structured plan describing delivery activities, milestones, resources and dependencies.",
+  "status": "completed",
+  "visibility": "private",
+  "url": ""
+}

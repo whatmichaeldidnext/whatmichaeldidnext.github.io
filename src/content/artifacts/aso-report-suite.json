@@ -1,0 +1,9 @@
+{
+  "id": "aso-report-suite",
+  "name": "ASO Programme Reporting Suite",
+  "type": "dashboard",
+  "summary": "Operational reporting suite supporting programme governance, risk visibility and delivery planning.",
+  "status": "complete",
+  "visibility": "private",
+  "url": null
+}

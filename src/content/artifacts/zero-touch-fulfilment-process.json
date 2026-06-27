@@ -1,0 +1,9 @@
+{
+  "id": "zero-touch-fulfilment-process",
+  "name": "Zero-Touch Fulfilment Process",
+  "type": "process",
+  "summary": "Automated fulfilment process minimising manual intervention during endpoint deployment.",
+  "status": "completed",
+  "visibility": "private",
+  "url": ""
+}

@@ -1,0 +1,5 @@
+{
+  "id": "graph-data-models",
+  "name": "Graph Data Models",
+  "summary": "Data structures that represent information as interconnected entities and relationships, supporting flexible querying and visualisation."
+}

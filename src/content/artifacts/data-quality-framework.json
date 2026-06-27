@@ -1,0 +1,9 @@
+{
+  "id": "data-quality-framework",
+  "name": "Data Quality Framework",
+  "type": "framework",
+  "summary": "Repeatable validation and cleansing processes improving confidence in programme data.",
+  "status": "completed",
+  "visibility": "private",
+  "url": ""
+}

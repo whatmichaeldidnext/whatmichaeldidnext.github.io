@@ -1,0 +1,116 @@
+{
+  "id": "ms-teams-calling",
+  "title": "Microsoft Teams Calling – Enterprise Communications Transformation",
+  "parentProject": "aso-telecoms",
+  "summary": "Led the transition from traditional telephony to Microsoft Teams Calling, enabling a cloud-first communications platform that modernised enterprise voice services, simplified endpoint strategy and supported new ways of working.",
+  "context": "As part of the wider Analogue Switch-Off programme, legacy telephony infrastructure required replacement with a sustainable IP-based communications platform. The project extended beyond technology implementation, requiring organisational change, new operational processes and user adoption across multiple business functions.",
+  "challenge": "Deliver a large-scale migration from legacy telephony to Microsoft Teams Calling while maintaining business continuity, supporting diverse user requirements and coordinating technical, operational and organisational dependencies.",
+  "approach": "Developed the migration strategy, coordinated technical delivery and worked closely with business stakeholders, infrastructure teams and external suppliers throughout the programme. Standardised deployment processes, aligned endpoint strategy with business requirements, supported user adoption through structured communications and training, and ensured legacy telephony dependencies were progressively removed in a controlled manner.",
+  "role": [
+    "Senior Technical Project Manager",
+    "Project Manager",
+    "Business Analyst",
+    "Change Manager",
+    "Vendor Manager"
+  ],
+  "outcome": "Successfully migrated more than 500 users to Microsoft Teams Calling, establishing a modern cloud-based communications platform, reducing dependence on traditional telephony infrastructure and creating a scalable foundation for future communications services.",
+  "impact": {
+    "whyItMattered": "The project transformed enterprise communications by replacing ageing telephony services with an integrated collaboration platform, improving organisational flexibility while supporting long-term infrastructure modernisation.",
+    "publicValue": [
+      "Improved resilience of business-critical communications",
+      "Enabled more flexible and accessible ways of working",
+      "Supported continuity of services through modern communications technology",
+      "Reduced dependence on ageing telephony infrastructure"
+    ],
+    "organisationalValue": [
+      "Reduced operational complexity through platform consolidation",
+      "Simplified endpoint provisioning and lifecycle management",
+      "Reduced long-term infrastructure and maintenance overhead",
+      "Established a scalable communications platform supporting future digital transformation"
+    ],
+    "stakeholders": [
+      "Operational teams",
+      "End users",
+      "ICT",
+      "Infrastructure engineers",
+      "Service Desk",
+      "Senior leadership",
+      "External suppliers"
+    ]
+  },
+  "lessons": "Enterprise communications projects are organisational change programmes rather than technology deployments. Sustainable adoption depends on aligning technology, operational processes, governance and user experience throughout the transformation journey.",
+  "status": "completed",
+  "featured": true,
+  "year": 2026,
+  "domains": [
+    "telecoms",
+    "ip-comms",
+    "digital-transformation",
+    "project-management",
+    "change-management",
+    "service-transition",
+    "network-infrastructure",
+    "entra",
+    "intune",
+    "software-dev",
+    "agile",
+    "web-2.0",
+    "vendor-relations"
+  ],
+  "skills": [
+    "programme-management",
+    "project-management",
+    "stakeholder-management",
+    "change-management",
+    "business-analysis",
+    "requirements-analysis",
+    "vendor-management",
+    "service-transition",
+    "technical-documentation",
+    "project-leadership",
+    "communications-planning"
+  ],
+  "technologies": [
+    "microsoft-teams",
+    "teams-calling",
+    "voip",
+    "sip",
+    "intune",
+    "entra",
+    "powershell"
+  ],
+  "tools": [
+    "sharepoint",
+    "excel",
+    "ms-project",
+    "powershell",
+    "intune",
+    "entra"
+  ],
+  "thinking": [
+    "digital-transformation",
+    "systems-thinking",
+    "evidence-based-engineering",
+    "service-design",
+    "operational-resilience",
+    "change-management",
+    "continuous-improvement"
+  ],
+  "artifacts": [
+    "migration-strategy",
+    "deployment-playbook",
+    "communications-plan",
+    "training-materials",
+    "service-transition-plan",
+    "endpoint-standard",
+    "teams-calling-migration-plan"
+  ],
+  "qualifications": [],
+  "relatedProjects": [
+    "aso-devices",
+    "aso-telecoms",
+    "legacy-pstn",
+    "network-readiness"
+  ],
+  "links": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "risk-register",
+  "name": "Risk Register",
+  "type": "document",
+  "summary": "Managed record of identified risks, mitigations, ownership and status.",
+  "status": "completed",
+  "visibility": "private",
+  "url": ""
+}

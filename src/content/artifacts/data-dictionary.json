@@ -1,0 +1,9 @@
+{
+  "id": "data-dictionary",
+  "name": "Data Dictionary",
+  "type": "dictionary",
+  "summary": "Reference describing datasets, field definitions and business meaning.",
+  "status": "completed",
+  "visibility": "private",
+  "url": ""
+}

@@ -1,0 +1,111 @@
+{
+  "id": "crm-implementation",
+  "title": "CRM Implementation",
+  "summary": "Managed the implementation of a new Customer Relationship Management platform, coordinating business stakeholders, technical teams and suppliers to replace legacy systems and processes within a unified solution.",
+  "context": "The organisation required a modern CRM platform capable of improving customer engagement, consolidating their fragmented processes and providing improved reporting functions across operational teams and the public.",
+  "challenge": "Deliver a CRM implementation balancing technical delivery with organisational and strategic change, ensuring business requirements were captured, data migration risks were managed and users were successfully transitioned onto the new platform.",
+  "approach": "Led project planning, requirements gathering, stakeholder engagement and supplier coordination throughout the project lifecycle. Ultimately shifted a failing inherited projects, into MVP focused delivery sprints by facilitating workshops, managing project governance, coordinating TDD while supported business readiness activities prior to deployment.",
+  "role": [
+    "Project Manager",
+    "Business Analyst",
+    "Stakeholder Manager",
+    "Vendor Manager",
+    "Scrum Leader"
+  ],
+  "outcome": "Successfully delivered multiple workstreams contributing into the wider CRM implementation, providing a modern customer management platform with improved business processes, reporting capability and user adoption.",
+  "impact": {
+    "whyItMattered": "The project supported the modernisation of local government services by reducing reliance on ageing systems and enabling more consistent, maintainable service processes.",
+    "publicValue": [
+      "Improved continuity and sustainability of public-facing services",
+      "Reduced operational risk associated with legacy systems",
+      "Supported more consistent handling of citizen and service-user information",
+      "Improved staff access to consolidated service processes and records"
+    ],
+    "organisationalValue": [
+      "Reduced duplication across legacy systems",
+      "Simplified support and maintenance responsibilities",
+      "Improved governance around system ownership and change control",
+      "Created a stronger foundation for future reporting and service improvement"
+    ],
+    "stakeholders": [
+      "Operational service teams",
+      "ICT",
+      "Information governance",
+      "Service managers",
+      "Suppliers",
+      "Citizens and service users"
+    ]
+  },
+  "lessons": "CRM projects are primarily organisational change initiatives rather than software deployments. Early stakeholder engagement, clear business ownership and structured change management were critical to successful adoption.",
+  "status": "completed",
+  "featured": true,
+  "year": 2022,
+  "employer": {
+    "id": "london-borough-tower-hamlets-local-authority",
+    "relationship": "employee",
+    "roleTitle": "Digital & Transformation Project Manager"
+  },
+  "domains": [
+    "project-management",
+    "agile-delivery",
+    "crm",
+    "business-analysis",
+    "digital-transformation",
+    "change-management",
+    "data-analytics",
+    "data-security",
+    "software-dev",
+    "agile",
+    "web-2.0",
+    "vendor-relations"
+  ],
+  "skills": [
+    "project-management",
+    "test-driven-development",
+    "agile-ceremonies",
+    "stakeholder-management",
+    "requirements-analysis",
+    "business-analysis",
+    "vendor-management",
+    "risk-management",
+    "change-management",
+    "testing-coordination",
+    "web-ui",
+    "web-ux"
+  ],
+  "technologies": [
+    "dynamics-365",
+    "powershell",
+    "sql-database",
+    "condecco",
+    "python"
+  ],
+  "tools": [
+    "ms-project",
+    "excel",
+    "sharepoint",
+    "monday",
+    "jira"
+  ],
+  "thinking": [
+    "customer-centric",
+    "infrastructure-modernisation",
+    "evidence-based-engineering",
+    "technical-leadership",
+    "service-design",
+    "continuous-improvement",
+    "systems-thinking"
+  ],
+  "artifacts": [
+    "project-plan",
+    "requirements-specification",
+    "stakeholder-map",
+    "risk-register",
+    "testing-plan",
+    "training-material"
+  ],
+  "qualifications": [
+    "apm-pmq"
+  ],
+  "links": []
+}

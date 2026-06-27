@@ -1,0 +1,9 @@
+{
+  "id": "deployment-governance",
+  "name": "Deployment Governance Model",
+  "type": "process",
+  "summary": "Governance model supporting consistent endpoint approval, provisioning and deployment.",
+  "status": "complete",
+  "visibility": "private",
+  "url": null
+}

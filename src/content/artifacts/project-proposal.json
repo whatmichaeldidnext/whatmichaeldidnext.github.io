@@ -1,0 +1,9 @@
+{
+  "id": "project-proposal",
+  "name": "Project Proposal",
+  "type": "proposal",
+  "summary": "Formal proposal outlining project objectives, methodology, scope and expected outcomes.",
+  "status": "completed",
+  "visibility": "public",
+  "url": ""
+}

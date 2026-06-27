@@ -1,0 +1,9 @@
+{
+  "id": "service-transition-plan",
+  "name": "Service Transition Plan",
+  "type": "process",
+  "summary": "Transition approach for moving the Teams Calling service into operational support.",
+  "status": "complete",
+  "visibility": "private",
+  "url": null
+}

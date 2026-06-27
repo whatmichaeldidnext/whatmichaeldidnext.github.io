@@ -1,0 +1,9 @@
+{
+  "id": "testing-plan",
+  "name": "Testing Plan",
+  "type": "plan",
+  "summary": "Plan describing testing approach, scope, acceptance criteria and responsibilities.",
+  "status": "completed",
+  "visibility": "private",
+  "url": ""
+}

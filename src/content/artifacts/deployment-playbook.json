@@ -1,0 +1,9 @@
+{
+  "id": "deployment-playbook",
+  "name": "Teams Calling Deployment Playbook",
+  "type": "process",
+  "summary": "Repeatable deployment approach for user migration, readiness checks and operational handover.",
+  "status": "complete",
+  "visibility": "private",
+  "url": null
+}

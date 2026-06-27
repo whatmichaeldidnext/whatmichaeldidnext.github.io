@@ -1,0 +1,9 @@
+{
+  "id": "device-standard-catalogue",
+  "name": "Device Standard Catalogue",
+  "type": "document",
+  "summary": "Standardised endpoint catalogue supporting device selection and deployment governance.",
+  "status": "complete",
+  "visibility": "private",
+  "url": null
+}

@@ -1,0 +1,9 @@
+{
+  "id": "migration-strategy",
+  "name": "Migration Strategy",
+  "type": "strategy",
+  "summary": "Strategy defining phased migration from legacy telephony to Microsoft Teams Calling.",
+  "status": "completed",
+  "visibility": "private",
+  "url": ""
+}

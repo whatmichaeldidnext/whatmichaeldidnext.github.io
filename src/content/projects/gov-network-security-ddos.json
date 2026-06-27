@@ -1,0 +1,116 @@
+{
+  "id": "gov-network-security-ddos",
+  "title": "Government Network Security & DDoS Resilience Programme",
+  "parentProject": null,
+  "summary": "Managed a high-priority consultancy project to support a government body affected by DDoS disruption, coordinating the implementation of new network security hardware and software to strengthen resilience, improve protection and support continuity of public services.",
+  "context": "A government body required urgent improvement to its network security posture following DDoS-related disruption. The project involved implementing new security assets within a sensitive public-sector environment where service availability, governance, supplier coordination and risk management were critical.",
+  "challenge": "Deliver security improvements at pace while maintaining operational stability, coordinating multiple technical and supplier teams, managing public-sector governance requirements and ensuring the organisation could better withstand future network-based attacks.",
+  "approach": "Led project planning, stakeholder coordination, supplier management and delivery governance across the implementation lifecycle. Worked with technical specialists to coordinate deployment of network security hardware and software, manage dependencies, track risks and ensure business stakeholders remained informed throughout a high-priority security response.",
+  "role": [
+    "Project Manager",
+    "Consultancy Project Manager",
+    "Stakeholder Manager",
+    "Vendor Manager",
+    "Delivery Lead"
+  ],
+  "outcome": "Supported the successful implementation of improved network security capability, helping the government body strengthen resilience against DDoS threats, improve operational confidence and reduce exposure to future service disruption.",
+  "impact": {
+    "whyItMattered": "The project supported the resilience of public-sector digital services following a disruptive cyber event, helping protect availability, continuity and trust in essential government operations.",
+    "publicValue": [
+      "Supported continuity of public-facing digital services",
+      "Reduced risk of disruption from future DDoS activity",
+      "Improved resilience of government network infrastructure",
+      "Helped maintain trust in critical public-sector services"
+    ],
+    "organisationalValue": [
+      "Strengthened network security posture",
+      "Improved resilience against denial-of-service threats",
+      "Enhanced operational confidence following a cyber disruption",
+      "Supported structured governance during a high-priority security response",
+      "Improved coordination between internal teams, suppliers and technical specialists"
+    ],
+    "stakeholders": [
+      "Government body",
+      "ICT leadership",
+      "Network security teams",
+      "Infrastructure engineers",
+      "External suppliers",
+      "Service owners",
+      "Public service users"
+    ]
+  },
+  "lessons": "High-priority security projects require disciplined delivery under pressure. Successful outcomes depend on clear governance, rapid coordination, trusted technical expertise and an understanding that cyber resilience is ultimately about protecting service continuity, not simply deploying security tools.",
+  "status": "completed",
+  "featured": true,
+  "year": 2020,
+  "employer": {
+    "id": "bt-group",
+    "relationship": "ftc employee",
+    "roleTitle": "Client Services Project Manager"
+  },
+  "domains": [
+    "cybersecurity",
+    "network-security",
+    "public-sector",
+    "government",
+    "project-management",
+    "digital-resilience",
+    "infrastructure-modernisation",
+    "vendor-relations"
+  ],
+  "skills": [
+    "project-management",
+    "stakeholder-management",
+    "vendor-management",
+    "risk-management",
+    "incident-response-coordination",
+    "technical-coordination",
+    "governance",
+    "service-continuity-planning",
+    "requirements-analysis",
+    "project-reporting",
+    "delivery-leadership"
+  ],
+  "technologies": [
+    "network-security-appliances",
+    "ddos-protection",
+    "firewall",
+    "intrusion-prevention",
+    "network-monitoring"
+  ],
+  "tools": [
+    "ms-project",
+    "excel",
+    "sharepoint",
+    "visio"
+  ],
+  "thinking": [
+    "risk-based-delivery",
+    "operational-resilience",
+    "evidence-based-engineering",
+    "technical-leadership",
+    "security-by-design",
+    "systems-thinking",
+    "public-value",
+    "crisis-delivery",
+    "continuous-improvement"
+  ],
+  "artifacts": [
+    "delivery-plan",
+    "risk-register",
+    "implementation-plan",
+    "stakeholder-reporting",
+    "security-deployment-governance",
+    "service-transition-plan"
+  ],
+  "qualifications": [
+    "prince2-practitioner",
+    "prince2-foundation"
+  ],
+  "relatedProjects": [
+    "msc-data-exposure",
+    "home-lab",
+    "pmo-framework"
+  ],
+  "links": []
+}

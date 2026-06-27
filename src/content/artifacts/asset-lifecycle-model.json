@@ -1,0 +1,9 @@
+{
+  "id": "asset-lifecycle-model",
+  "name": "Asset Lifecycle Model",
+  "type": "model",
+  "summary": "Lifecycle model describing procurement, provisioning, support and retirement of communication assets.",
+  "status": "completed",
+  "visibility": "private",
+  "url": ""
+}

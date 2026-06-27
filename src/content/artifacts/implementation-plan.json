@@ -1,0 +1,9 @@
+{
+  "id": "implementation-plan",
+  "name": "Implementation Plan",
+  "type": "plan",
+  "summary": "Plan governing the controlled deployment of new technology into the operational environment.",
+  "status": "completed",
+  "visibility": "private",
+  "url": ""
+}

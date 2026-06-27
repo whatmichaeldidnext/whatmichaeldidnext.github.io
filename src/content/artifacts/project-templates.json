@@ -1,0 +1,9 @@
+{
+  "id": "project-templates",
+  "name": "Project Templates",
+  "type": "template",
+  "summary": "Reusable documentation templates supporting consistent project delivery.",
+  "status": "completed",
+  "visibility": "private",
+  "url": ""
+}

@@ -1,0 +1,5 @@
+{
+  "id": "intune",
+  "name": "Microsoft Intune",
+  "summary": "Cloud-based endpoint management platform for device configuration, security and application deployment."
+}

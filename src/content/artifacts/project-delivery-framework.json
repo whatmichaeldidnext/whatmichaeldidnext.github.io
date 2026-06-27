@@ -1,0 +1,9 @@
+{
+  "id": "project-delivery-framework",
+  "name": "Project Delivery Framework",
+  "type": "framework",
+  "summary": "Reusable project management framework capturing delivery standards, governance and best practice.",
+  "status": "completed",
+  "visibility": "private",
+  "url": ""
+}

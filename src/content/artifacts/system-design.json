@@ -1,0 +1,9 @@
+{
+  "id": "system-design",
+  "name": "System Design",
+  "type": "architecture",
+  "summary": "Technical system design describing architecture, components and design rationale.",
+  "status": "completed",
+  "visibility": "public",
+  "url": ""
+}

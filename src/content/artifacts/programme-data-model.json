@@ -1,0 +1,9 @@
+{
+  "id": "programme-data-model",
+  "name": "Programme Data Model",
+  "type": "model",
+  "summary": "Dimensional data model supporting trusted reporting, planning and operational decision-making.",
+  "status": "completed",
+  "visibility": "private",
+  "url": ""
+}

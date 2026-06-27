@@ -1,0 +1,131 @@
+{
+  "id": "msc-data-exposure",
+  "title": "Graph-Based Visualisation of Username-Linked Data Exposure",
+  "summary": "Designed and developed an ethically constrained proof-of-concept that explores how publicly available usernames can be used to infer relationships between social media platforms, data brokers and wider online identity through interactive graph visualisation.",
+  "context": "Modern digital identities are distributed across hundreds of online services, many of which expose fragments of publicly accessible information. This research investigates how those fragments can be aggregated to better understand digital exposure while deliberately avoiding deterministic identification or encouraging misuse.",
+  "challenge": "Design a research platform capable of visualising username-linked relationships across online services while balancing technical capability with ethical responsibility, privacy-by-design principles and misuse prevention.",
+  "approach": "Designed a modular Java application with a lightweight web interface, separating platform definitions from application logic to support extensibility. Implemented confidence-based inference rather than deterministic confirmation, applied constrained output techniques to reduce misuse potential and represented inferred relationships using an interactive knowledge graph.",
+  "role": [
+    "Researcher",
+    "Software Engineer",
+    "Solution Architect",
+    "Data Analyst",
+    "Technical Author",
+    "Project Manager"
+  ],
+  "outcome": "Produced a complete MSc dissertation supported by a functional proof-of-concept application, literature review, software architecture, ethical framework and evaluation of graph-based approaches to digital identity visualisation.",
+  "impact": {
+    "whyItMattered": "The project explores how publicly available information can be aggregated to reveal broader patterns of digital exposure, encouraging greater awareness of online privacy while demonstrating how technical solutions can be designed to minimise misuse.",
+    "publicValue": [
+      "Promotes greater understanding of digital identity exposure",
+      "Encourages responsible awareness of online privacy risks",
+      "Demonstrates ethical approaches to OSINT research",
+      "Supports discussion around responsible software engineering and privacy-by-design"
+    ],
+    "organisationalValue": [
+      "Demonstrates the application of secure software engineering principles",
+      "Balances technical capability with governance and ethical considerations",
+      "Illustrates modular software architecture for future extensibility",
+      "Provides a reusable framework for visualising interconnected data relationships"
+    ],
+    "stakeholders": [
+      "Researchers",
+      "Cybersecurity professionals",
+      "Software engineers",
+      "Privacy practitioners",
+      "Students",
+      "Members of the public"
+    ]
+  },
+  "lessons": "Engineering capability should always be accompanied by ethical responsibility. Designing systems that are transparent, privacy-conscious and resistant to misuse is as important as solving the technical problem itself.",
+  "status": "in-progress",
+  "featured": true,
+  "year": 2026,
+  "domains": [
+    "computer-science",
+    "cybersecurity",
+    "software-dev",
+    "research",
+    "data-analytics",
+    "osint",
+    "knowledge-graphs"
+  ],
+  "skills": [
+    "software-architecture",
+    "system-design",
+    "research",
+    "academic-writing",
+    "technical-writing",
+    "requirements-analysis",
+    "data-analysis",
+    "project-management",
+    "web-development",
+    "user-experience-design",
+    "ethical-risk-analysis",
+    "web-ui",
+    "web-ux"
+  ],
+  "technologies": [
+    "java",
+    "javascript",
+    "html",
+    "css",
+    "json",
+    "http",
+    "rest",
+    "python",
+    "graph-data-models"
+  ],
+  "tools": [
+    "intellij",
+    "git",
+    "gitlab",
+    "cytoscape",
+    "github"
+  ],
+  "thinking": [
+    "ethical-software-engineering",
+    "privacy-by-design",
+    "evidence-based-engineering",
+    "osint",
+    "data-visualisation",
+    "knowledge-graphs",
+    "systems-thinking",
+    "human-centred-security",
+    "visual-analytics",
+    "responsible-ai"
+  ],
+  "artifacts": [
+    "msc-dissertation",
+    "proof-of-concept-application",
+    "software-architecture",
+    "research-literature-review",
+    "ethical-framework",
+    "system-design",
+    "project-proposal",
+    "msc-project-proposal",
+    "portfolio-source",
+    "msc-proof-of-concept",
+    "msc-architecture",
+    "msc-literature-review"
+  ],
+  "qualifications": [
+    "msc-computer-science",
+    "ba-english"
+  ],
+  "relatedProjects": [
+    "home-lab",
+    "portfolio-platform",
+    "bug-bounty-learning"
+  ],
+  "links": [
+    {
+      "title": "Dissertation",
+      "url": ""
+    },
+    {
+      "title": "Source Code",
+      "url": ""
+    }
+  ]
+}

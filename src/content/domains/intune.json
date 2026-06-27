@@ -1,0 +1,6 @@
+{
+  "id": "intune",
+  "name": "Microsoft Intune",
+  "description": "Endpoint management, device provisioning and modern workplace administration using Microsoft Intune.",
+  "status": "professional"
+}

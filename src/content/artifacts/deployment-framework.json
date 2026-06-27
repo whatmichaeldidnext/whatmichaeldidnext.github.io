@@ -1,0 +1,9 @@
+{
+  "id": "deployment-framework",
+  "name": "Deployment Framework",
+  "type": "framework",
+  "summary": "End-to-end deployment methodology covering provisioning, logistics and operational handover.",
+  "status": "completed",
+  "visibility": "private",
+  "url": ""
+}

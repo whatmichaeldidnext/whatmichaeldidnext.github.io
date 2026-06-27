@@ -1,0 +1,9 @@
+{
+  "id": "endpoint-standards",
+  "name": "Endpoint Standards",
+  "type": "document",
+  "summary": "Standardised endpoint configurations supporting consistent deployment across the organisation.",
+  "status": "completed",
+  "visibility": "private",
+  "url": ""
+}

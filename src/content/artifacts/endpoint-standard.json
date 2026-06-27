@@ -1,0 +1,9 @@
+{
+  "id": "endpoint-standard",
+  "name": "Endpoint Standard",
+  "type": "document",
+  "summary": "Standard endpoint specification supporting repeatable deployment and support.",
+  "status": "completed",
+  "visibility": "private",
+  "url": ""
+}

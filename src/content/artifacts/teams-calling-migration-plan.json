@@ -1,0 +1,9 @@
+{
+  "id": "teams-calling-migration-plan",
+  "name": "Teams Calling Migration Plan",
+  "type": "process",
+  "summary": "Migration plan supporting the transition from legacy telephony to Microsoft Teams Calling.",
+  "status": "complete",
+  "visibility": "private",
+  "url": null
+}

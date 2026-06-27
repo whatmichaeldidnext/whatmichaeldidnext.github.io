@@ -1,0 +1,9 @@
+{
+  "id": "project-lifecycle-model",
+  "name": "Project Lifecycle Model",
+  "type": "model",
+  "summary": "Lifecycle model describing project phases from initiation through closure.",
+  "status": "completed",
+  "visibility": "private",
+  "url": ""
+}

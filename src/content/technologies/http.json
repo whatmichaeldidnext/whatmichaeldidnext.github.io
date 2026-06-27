@@ -1,0 +1,5 @@
+{
+  "id": "http",
+  "name": "HTTP",
+  "summary": "Core web protocol underpinning modern web services and REST-based applications."
+}

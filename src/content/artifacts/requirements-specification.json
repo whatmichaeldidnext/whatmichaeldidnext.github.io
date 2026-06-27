@@ -1,0 +1,9 @@
+{
+  "id": "requirements-specification",
+  "name": "Requirements Specification",
+  "type": "specification",
+  "summary": "Document capturing business, functional and non-functional requirements.",
+  "status": "completed",
+  "visibility": "private",
+  "url": ""
+}

@@ -1,0 +1,9 @@
+{
+  "id": "device-catalogue",
+  "name": "Device Catalogue",
+  "type": "catalogue",
+  "summary": "Approved device catalogue supporting consistent endpoint selection.",
+  "status": "completed",
+  "visibility": "private",
+  "url": ""
+}

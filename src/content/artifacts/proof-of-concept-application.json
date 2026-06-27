@@ -1,0 +1,9 @@
+{
+  "id": "proof-of-concept-application",
+  "name": "Proof-of-Concept Application",
+  "type": "application",
+  "summary": "Interactive software prototype demonstrating graph-based visualisation of online identity exposure.",
+  "status": "completed",
+  "visibility": "public",
+  "url": ""
+}

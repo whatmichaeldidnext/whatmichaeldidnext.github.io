@@ -1,0 +1,9 @@
+{
+  "id": "ethical-framework",
+  "name": "Ethical Framework",
+  "type": "framework",
+  "summary": "Framework defining ethical constraints, responsible use and misuse prevention principles.",
+  "status": "completed",
+  "visibility": "public",
+  "url": ""
+}

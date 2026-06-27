@@ -1,0 +1,9 @@
+{
+  "id": "knowledge-library",
+  "name": "Knowledge Library",
+  "type": "library",
+  "summary": "Central repository of reusable knowledge, documentation and delivery resources.",
+  "status": "completed",
+  "visibility": "private",
+  "url": ""
+}

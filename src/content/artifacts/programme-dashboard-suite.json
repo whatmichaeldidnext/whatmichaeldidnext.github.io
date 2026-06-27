@@ -1,0 +1,9 @@
+{
+  "id": "programme-dashboard-suite",
+  "name": "Programme Dashboard Suite",
+  "type": "dashboard",
+  "summary": "Interactive dashboards providing programme intelligence, migration reporting and delivery metrics.",
+  "status": "completed",
+  "visibility": "private",
+  "url": ""
+}
