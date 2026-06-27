@@ -1,66 +1,75 @@
 ---
-import MainLayout from "../../layouts/MainLayout.astro";
-import skills from "../../content/skills.json";
-import projects from "../../content/projects.json";
-import domains from "../../content/domains.json";
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+  MainLayout,
+  BaseLayout,
+} from "../../components";
 
-export function getStaticPaths() {
-  return skills.map((skill) => ({
-    params: { id: skill.id },
-    props: { skill },
+import { getGraph } from "../../lib/contentGraph.js";
+
+export async function getStaticPaths() {
+  const graph = await getGraph();
+
+  return graph.getNodes("skills").map((node) => ({
+    params: { id: node.id },
+    props: { skill: node.data },
   }));
 }
 
 const { skill } = Astro.props;
+const graph = await getGraph();
 
-const relatedProjects = projects.filter((project) =>
-  project.skills.includes(skill.id)
-);
-
-const relatedDomainIds = [
-  ...new Set(relatedProjects.flatMap((project) => project.domains)),
-];
-
-const relatedDomains = domains.filter((domain) =>
-  relatedDomainIds.includes(domain.id)
-);
+const relatedProjects = graph.projectsFor("skills", skill.id);
+const relatedDomains = graph.domainsFor("skills", skill.id);
 ---
 
 <BaseLayout title={`${skill.name} | Michael Charles Portfolio`}>
-<MainLayout>
-  <a href="/skills" class="back-link">← Back to Skills</a>
+  <MainLayout>
+    <a href="/skills" class="back-link">← Back to Skills</a>
 
-  <article class="detail-page">
-    <h1>{skill.name}</h1>
+    <article class="detail-page">
+      <h1>{skill.name}</h1>
 
-    <p class="summary">
-      This skill is evidenced through the projects and domains below.
-    </p>
+      <p class="summary">
+        This skill is evidenced through the projects and domains below.
+      </p>
 
-    <section>
-      <h2>Evidence Projects</h2>
-      <ul>
-        {relatedProjects.map((project) => (
-          <li>
-            <a href={`/projects/${project.id}`}>{project.title}</a>
-          </li>
-        ))}
-      </ul>
-    </section>
+      <section>
+        <h2>Evidence Projects</h2>
 
-    <section>
-      <h2>Related Domains</h2>
-      <ul>
-        {relatedDomains.map((domain) => (
-          <li>
-            <a href={`/domains/${domain.id}`}>{domain.name}</a>
-          </li>
-        ))}
-      </ul>
-    </section>
-  </article>
-</MainLayout>
+        {relatedProjects.length > 0 ? (
+          <ul>
+            {relatedProjects.map((project) => (
+              <li>
+                <a href={`/projects/${project.id}`}>
+                  {project.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>No projects currently reference this skill.</p>
+        )}
+      </section>
+
+      <section>
+        <h2>Related Domains</h2>
+
+        {relatedDomains.length > 0 ? (
+          <ul>
+            {relatedDomains.map((domain) => (
+              <li>
+                <a href={`/domains/${domain.id}`}>
+                  {domain.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>No related domains found.</p>
+        )}
+      </section>
+    </article>
+  </MainLayout>
 </BaseLayout>
 
 <style>

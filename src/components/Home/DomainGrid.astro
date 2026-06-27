@@ -1,10 +1,16 @@
 ---
-import SectionHeader from "../Common/SectionHeader.astro";
-import Card from "../Common/Card.astro";
+import {
+  SectionHeader,
+  Card
+} from "../../components";
+import { getGraph } from "../../lib/contentGraph.js";
 
-import domains from "../../content/domains.json";
+const graph = await getGraph();
 
-const featuredDomains = domains.slice(0, 6);
+const domains = graph.content.domains;
+const featuredDomains = domains.filter((domain) =>
+  domain.featured
+  );
 ---
 
 <section class="domains-section">

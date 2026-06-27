@@ -1,86 +1,56 @@
 ---
-import MainLayout from "../../layouts/MainLayout.astro";
-import domains from "../../content/domains.json";
-import projects from "../../content/projects.json";
-import skills from "../../content/skills.json";
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+  MainLayout,
+  BaseLayout,
+} from "../../components";
+import { getGraph } from "../../lib/contentGraph.js";
 
-export function getStaticPaths() {
-  return domains.map((domain) => ({
-    params: { id: domain.id },
-    props: { domain },
+export async function getStaticPaths() {
+  const graph = await getGraph();
+
+  return graph.getNodes("domains").map((node) => ({
+    params: { id: node.id },
+    props: { domain: node.data },
   }));
 }
 
 const { domain } = Astro.props;
+const graph = await getGraph();
 
-const relatedProjects = projects.filter((project) =>
-  project.domains.includes(domain.id)
-);
-
-const relatedSkillIds = [
-  ...new Set(relatedProjects.flatMap((project) => project.skills)),
-];
-
-const relatedSkills = skills.filter((skill) =>
-  relatedSkillIds.includes(skill.id)
-);
+const relatedProjects = graph.projectsFor("domains", domain.id);
+const relatedSkills = graph.skillsFor("domains", domain.id);
 ---
 
 <BaseLayout title={`${domain.name} | Michael Charles Portfolio`}>
-<MainLayout>
-  <a href="/domains" class="back-link">← Back to Domains</a>
+  <MainLayout>
+    <a href="/domains" class="back-link">← Back to Domains</a>
 
-  <article class="detail-page">
-    <h1>{domain.name}</h1>
+    <article class="detail-page">
+      <h1>{domain.name}</h1>
 
-    <p class="summary">{domain.description}</p>
+      <p class="summary">{domain.description}</p>
 
-    <section>
-      <h2>Related Projects</h2>
-      <ul>
-        {relatedProjects.map((project) => (
-          <li>
-            <a href={`/projects/${project.id}`}>{project.title}</a>
-          </li>
-        ))}
-      </ul>
-    </section>
+      <section>
+        <h2>Related Projects</h2>
+        <ul>
+          {relatedProjects.map((project) => (
+            <li>
+              <a href={`/projects/${project.id}`}>{project.title}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
 
-    <section>
-      <h2>Related Skills</h2>
-      <ul>
-        {relatedSkills.map((skill) => (
-          <li>
-            <a href={`/skills/${skill.id}`}>{skill.name}</a>
-          </li>
-        ))}
-      </ul>
-    </section>
-  </article>
-</MainLayout>
+      <section>
+        <h2>Related Skills</h2>
+        <ul>
+          {relatedSkills.map((skill) => (
+            <li>
+              <a href={`/skills/${skill.id}`}>{skill.name}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </article>
+  </MainLayout>
 </BaseLayout>
-
-<style>
-  .back-link {
-    display: inline-block;
-    margin-bottom: 2rem;
-  }
-
-  .detail-page {
-    max-width: 800px;
-  }
-
-  .summary {
-    font-size: 1.2rem;
-    color: #cbd5e1;
-  }
-
-  section {
-    margin-top: 2rem;
-  }
-
-  h1 {
-    color: #bfdbfe;
-  }
-</style>

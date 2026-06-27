@@ -1,20 +1,24 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import MainLayout from "../layouts/MainLayout.astro";
+import {
+  MainLayout,
+  BaseLayout,
+  SectionHeader,
+  Card,
+  Badge
+} from "../components";
+import { getGraph } from "../lib/contentGraph.js";
 
-import SectionHeader from "../components/Common/SectionHeader.astro";
-import Card from "../components/Common/Card.astro";
-import Badge from "../components/Common/Badge.astro";
+const graph = await getGraph();
 
-import projects from "../content/projects.json";
-import domains from "../content/domains.json";
-import skills from "../content/skills.json";
+const projects = graph.content.projects;
+const domains = graph.content.domains;
+const skills = graph.content.skills;
 
 const getDomainName = (id) =>
-  domains.find((domain) => domain.id === id)?.name ?? id;
+  graph.find("domains", id)?.name ?? id;
 
 const getSkillName = (id) =>
-  skills.find((skill) => skill.id === id)?.name ?? id;
+  graph.find("skills", id)?.name ?? id;
 ---
 
 <BaseLayout

@@ -1,17 +1,14 @@
 ---
-import SectionHeader from "../Common/SectionHeader.astro";
-import Card from "../Common/Card.astro";
+import {
+  SectionHeader,
+  Card
+} from "../../components";
+import { getGraph } from "../../lib/contentGraph.js";
 
-import projects from "../../content/projects.json";
+const graph = await getGraph();
 
-const featuredProjectIds = [
-  "aso-datalake",
-  "msc-project",
-  "online-portfolio",
-];
-
-const featuredProjects = projects.filter((project) =>
-  featuredProjectIds.includes(project.id)
+const featuredProjects = graph.content.projects.filter((project) =>
+  project.featured
 );
 ---
 

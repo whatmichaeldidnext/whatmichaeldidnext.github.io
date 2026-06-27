@@ -1,12 +1,14 @@
 ---
-import projects from "../../content/projects.json";
-import domains from "../../content/domains.json";
-import skills from "../../content/skills.json";
-import tools from "../../content/tools.json";
-import technologies from "../../content/technologies.json";
-import thinking from "../../content/thinking.json";
-import artifacts from "../../content/artifacts.json";
-import qualifications from "../../content/qualifications.json";
+import { loadCollection } from "../../lib/contentLoader";
+
+const projects = await loadCollection("projects");
+const skills = await loadCollection("skills");
+const domains = await loadCollection("domains");
+const tools = await loadCollection("tools");
+const technologies = await loadCollection("technologies");
+const thinking = await loadCollection("thinking");
+const artifacts = await loadCollection("artifacts");
+const qualifications = await loadCollection("qualifications");
 
 const graphData = {
   projects,

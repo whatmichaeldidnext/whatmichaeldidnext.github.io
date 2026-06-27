@@ -1,16 +1,20 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import MainLayout from "../layouts/MainLayout.astro";
+import {
+  MainLayout,
+  BaseLayout,
+  SectionHeader,
+  Card,
+  Badge,
+  FeaturedProjects
+} from "../components";
+import { getGraph } from "../lib/contentGraph.js";
 
-import SectionHeader from "../components/Common/SectionHeader.astro";
-import Card from "../components/Common/Card.astro";
-import Badge from "../components/Common/Badge.astro";
+const graph = await getGraph();
 
-import skills from "../content/skills.json";
-import projects from "../content/projects.json";
+const skills = graph.content.skills;
 
 const getProjectsForSkill = (skillId) =>
-  projects.filter(project => project.skills.includes(skillId));
+  graph.projectsFor("skills", skillId);
 ---
 
 <BaseLayout
