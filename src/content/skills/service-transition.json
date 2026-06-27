@@ -1,5 +1,6 @@
 {
   "id": "service-transition",
   "name": "Service Transition",
-  "summary": "Managing the movement of new technology into live operational environments while minimising disruption."
+  "summary": "Managing the movement of new technology into live operational environments while minimising disruption.",
+  "slug": "service-transition"
 }

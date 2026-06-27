@@ -1,5 +1,6 @@
 {
   "id": "sql-database",
   "name": "SQL Database",
-  "summary": "Relational database technology used for storing, querying and managing structured business data."
+  "summary": "Relational database technology used for storing, querying and managing structured business data.",
+  "slug": "sql-database"
 }

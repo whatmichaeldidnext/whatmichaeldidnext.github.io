@@ -2,5 +2,6 @@
   "id": "consultancy",
   "name": "Consultancy",
   "description": "Providing professional advisory, project delivery and technical expertise to help organisations achieve strategic outcomes.",
-  "status": "active"
+  "status": "active",
+  "slug": "consultancy"
 }

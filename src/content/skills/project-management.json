@@ -1,5 +1,6 @@
 {
   "id": "project-management",
   "name": "Project Management",
-  "summary": "Planning, coordinating and delivering technical projects from initiation through to operational handover."
+  "summary": "Planning, coordinating and delivering technical projects from initiation through to operational handover.",
+  "slug": "project-management"
 }

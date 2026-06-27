@@ -1,5 +1,6 @@
 {
   "id": "data-architecture",
   "name": "Data Architecture",
-  "summary": "Designing structured data models, relationships and governance that support trusted reporting and decision-making."
+  "summary": "Designing structured data models, relationships and governance that support trusted reporting and decision-making.",
+  "slug": "data-architecture"
 }

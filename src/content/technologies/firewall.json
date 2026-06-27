@@ -1,5 +1,6 @@
 {
   "id": "firewall",
   "name": "Firewall",
-  "summary": "Security technology that controls and filters network traffic according to defined security policies."
+  "summary": "Security technology that controls and filters network traffic according to defined security policies.",
+  "slug": "firewall"
 }

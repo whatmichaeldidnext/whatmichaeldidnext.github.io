@@ -1,5 +1,6 @@
 {
   "id": "stakeholder-management",
   "name": "Stakeholder Management",
-  "summary": "Building trusted relationships with business, technical and executive stakeholders to support successful delivery."
+  "summary": "Building trusted relationships with business, technical and executive stakeholders to support successful delivery.",
+  "slug": "stakeholder-management"
 }

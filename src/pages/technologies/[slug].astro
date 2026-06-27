@@ -1,0 +1,60 @@
+---
+import { getCollection } from "astro:content";
+import { BaseLayout, MainLayout } from "../../components";
+
+export async function getStaticPaths() {
+  const technologies = await getCollection("technologies");
+
+  return technologies
+    .filter((technology) => technology.data.slug)
+    .map((technology) => ({
+      params: { slug: technology.data.slug },
+      props: { technology },
+    }));
+}
+
+const { technology } = Astro.props;
+
+const projects = await getCollection("projects");
+
+const relatedProjects = projects.filter((project) =>
+  project.data.technologies?.includes(technology.data.id)
+);
+---
+
+<BaseLayout
+  title={`${technology.data.name} | What Michael Did Next`}
+  description={technology.data.summary}
+>
+  <MainLayout>
+    <article class="technology-page">
+      <p class="eyebrow">Technology</p>
+
+      <h1>{technology.data.name}</h1>
+
+      {technology.data.summary && <p class="lead">{technology.data.summary}</p>}
+
+      {technology.data.category && (
+        <p class="meta">
+          <strong>Category:</strong> {technology.data.category}
+        </p>
+      )}
+
+      {relatedProjects.length > 0 && (
+        <section>
+          <h2>Projects using this technology</h2>
+
+          <ul>
+            {relatedProjects.map((project) => (
+              <li>
+                <a href={`/projects/${project.data.slug}/`}>
+                  {project.data.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </article>
+  </MainLayout>
+</BaseLayout>

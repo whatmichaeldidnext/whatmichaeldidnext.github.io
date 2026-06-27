@@ -1,5 +1,6 @@
 {
   "id": "dax",
   "name": "DAX",
-  "summary": "Formula language used to create analytical measures, calculations and business logic within Power BI."
+  "summary": "Formula language used to create analytical measures, calculations and business logic within Power BI.",
+  "slug": "dax"
 }

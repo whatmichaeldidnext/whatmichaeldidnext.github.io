@@ -1,14 +1,25 @@
 ---
-import { loadCollection } from "../../lib/contentLoader";
+import { getPlainCollection } from "../../lib/content.js";
 
-const projects = await loadCollection("projects");
-const skills = await loadCollection("skills");
-const domains = await loadCollection("domains");
-const tools = await loadCollection("tools");
-const technologies = await loadCollection("technologies");
-const thinking = await loadCollection("thinking");
-const artifacts = await loadCollection("artifacts");
-const qualifications = await loadCollection("qualifications");
+const [
+  projects,
+  domains,
+  skills,
+  tools,
+  technologies,
+  thinking,
+  artifacts,
+  qualifications,
+] = await Promise.all([
+  getPlainCollection("projects"),
+  getPlainCollection("domains"),
+  getPlainCollection("skills"),
+  getPlainCollection("tools"),
+  getPlainCollection("technologies"),
+  getPlainCollection("thinking"),
+  getPlainCollection("artifacts"),
+  getPlainCollection("qualifications"),
+]);
 
 const graphData = {
   projects,
@@ -29,19 +40,75 @@ const graphData = {
       <input
         id="graph-search"
         type="search"
-        placeholder="Search projects, domains, skills or tools..."
+        placeholder="Search visible projects, domains, skills or tools..."
       />
     </div>
 
-    <div class="graph-legend" aria-label="Graph legend">
-      <span><i class="legend-dot legend-project"></i>Project</span>
-      <span><i class="legend-dot legend-domain"></i>Domain</span>
-      <span><i class="legend-dot legend-skill"></i>Skill</span>
-      <span><i class="legend-dot legend-tool"></i>Tool</span>
-      <span><i class="legend-dot legend-technology"></i>Technology</span>
-      <span><i class="legend-dot legend-thinking"></i>Thinking</span>
-      <span><i class="legend-dot legend-artifact"></i>Evidence</span>
-      <span><i class="legend-dot legend-qualification"></i>Qualification</span>
+    <div class="graph-legend" aria-label="Graph filters">
+      <button
+        class="legend-filter active"
+        type="button"
+        data-type="project"
+        aria-pressed="true"
+      >
+        <i class="legend-dot legend-project"></i>Project
+      </button>
+      <button
+        class="legend-filter active"
+        type="button"
+        data-type="domain"
+        aria-pressed="true"
+      >
+        <i class="legend-dot legend-domain"></i>Domain
+      </button>
+      <button
+        class="legend-filter"
+        type="button"
+        data-type="skill"
+        aria-pressed="false"
+      >
+        <i class="legend-dot legend-skill"></i>Skill
+      </button>
+      <button
+        class="legend-filter"
+        type="button"
+        data-type="tool"
+        aria-pressed="false"
+      >
+        <i class="legend-dot legend-tool"></i>Tool
+      </button>
+      <button
+        class="legend-filter"
+        type="button"
+        data-type="technology"
+        aria-pressed="false"
+      >
+        <i class="legend-dot legend-technology"></i>Technology
+      </button>
+      <button
+        class="legend-filter"
+        type="button"
+        data-type="thinking"
+        aria-pressed="false"
+      >
+        <i class="legend-dot legend-thinking"></i>Thinking
+      </button>
+      <button
+        class="legend-filter"
+        type="button"
+        data-type="artifact"
+        aria-pressed="false"
+      >
+        <i class="legend-dot legend-artifact"></i>Evidence
+      </button>
+      <button
+        class="legend-filter"
+        type="button"
+        data-type="qualification"
+        aria-pressed="false"
+      >
+        <i class="legend-dot legend-qualification"></i>Qualification
+      </button>
     </div>
   </div>
 
@@ -78,6 +145,7 @@ const graphData = {
   const popup = document.getElementById("graph-popup");
   const popupContent = document.getElementById("graph-popup-content");
   const popupClose = document.getElementById("graph-popup-close");
+  const graphWrapper = graphContainer?.closest(".graph-wrapper");
 
   if (
     graphDataElement &&
@@ -85,16 +153,26 @@ const graphData = {
     searchInput &&
     popup &&
     popupContent &&
-    popupClose
+    popupClose &&
+    graphWrapper
   ) {
     const graphData = JSON.parse(graphDataElement.textContent);
     const elements = [];
+    const nodeIds = new Set();
 
     const addNode = (type, item, labelKey = "name") => {
+      if (!item?.id) return;
+
+      const id = `${type}-${item.id}`;
+
+      if (nodeIds.has(id)) return;
+
+      nodeIds.add(id);
+
       elements.push({
         data: {
-          id: `${type}-${item.id}`,
-          label: item[labelKey],
+          id,
+          label: item[labelKey] ?? item.name ?? item.title ?? item.id,
           type,
         },
       });
@@ -110,6 +188,19 @@ const graphData = {
       });
     };
 
+    const addSafeEdge = (source, target, relationship = "related-to") => {
+      if (!nodeIds.has(source) || !nodeIds.has(target)) {
+        console.warn("Skipping graph edge with missing node", {
+          source,
+          target,
+          relationship,
+        });
+        return;
+      }
+
+      addEdge(source, target, relationship);
+    };
+
     graphData.domains.forEach((domain) => addNode("domain", domain));
     graphData.skills.forEach((skill) => addNode("skill", skill));
     graphData.tools.forEach((tool) => addNode("tool", tool));
@@ -122,47 +213,52 @@ const graphData = {
       addNode("qualification", qualification)
     );
 
-    const projectExists = (projectId) =>
-      graphData.projects.some((project) => project.id === projectId);
-
     const normaliseProjectId = (projectId) =>
       projectId?.replace(/^project-/, "");
+
+    const projectExists = (projectId) =>
+      graphData.projects.some(
+        (project) => project.id === normaliseProjectId(projectId)
+      );
 
     graphData.projects.forEach((project) => {
       addNode("project", project, "title");
 
       project.domains?.forEach((domainId) =>
-        addEdge(`project-${project.id}`, `domain-${domainId}`)
+        addSafeEdge(`project-${project.id}`, `domain-${domainId}`)
       );
 
       project.skills?.forEach((skillId) =>
-        addEdge(`project-${project.id}`, `skill-${skillId}`)
+        addSafeEdge(`project-${project.id}`, `skill-${skillId}`)
       );
 
       project.tools?.forEach((toolId) =>
-        addEdge(`project-${project.id}`, `tool-${toolId}`)
+        addSafeEdge(`project-${project.id}`, `tool-${toolId}`)
       );
 
       project.technologies?.forEach((technologyId) =>
-        addEdge(`project-${project.id}`, `technology-${technologyId}`)
+        addSafeEdge(`project-${project.id}`, `technology-${technologyId}`)
       );
 
       project.thinking?.forEach((thinkingId) =>
-        addEdge(`project-${project.id}`, `thinking-${thinkingId}`)
+        addSafeEdge(`project-${project.id}`, `thinking-${thinkingId}`)
       );
 
       project.artifacts?.forEach((artifactId) =>
-        addEdge(`project-${project.id}`, `artifact-${artifactId}`)
+        addSafeEdge(`project-${project.id}`, `artifact-${artifactId}`)
       );
 
       project.qualifications?.forEach((qualificationId) =>
-        addEdge(`project-${project.id}`, `qualification-${qualificationId}`)
+        addSafeEdge(
+          `project-${project.id}`,
+          `qualification-${qualificationId}`
+        )
       );
 
       const parentProjectId = normaliseProjectId(project.parentProject);
 
       if (parentProjectId && projectExists(parentProjectId)) {
-        addEdge(
+        addSafeEdge(
           `project-${project.id}`,
           `project-${parentProjectId}`,
           "part-of"
@@ -180,7 +276,7 @@ const graphData = {
 
         if (!cleanDependencyId || !projectExists(cleanDependencyId)) return;
 
-        addEdge(
+        addSafeEdge(
           `project-${project.id}`,
           `project-${cleanDependencyId}`,
           "depends-on"
@@ -314,16 +410,16 @@ const graphData = {
           "target-arrow-shape": "triangle",
           "target-arrow-color": "#64748b",
           "curve-style": "bezier",
-          width: 2
-        }
+          width: 2,
+        },
       },
       {
         selector: 'edge[relationship = "part-of"]',
         style: {
           "line-style": "dotted",
           "line-color": "#94a3b8",
-          width: 2
-        }
+          width: 2,
+        },
       },
       {
         selector: ".faded",
@@ -351,13 +447,20 @@ const graphData = {
           "shadow-color": "#38bdf8",
         },
       },
+      {
+        selector: ".type-hidden",
+        style: {
+          opacity: 0,
+          events: "no",
+        },
+      },
     ];
 
     const layoutOptions = {
       name: "fcose",
       animate: true,
       randomize: false,
-      fit: true,
+      fit: false,
       padding: 180,
       quality: "proof",
 
@@ -398,36 +501,27 @@ const graphData = {
       container: graphContainer,
       elements,
       style: graphStyle,
-      layout: layoutOptions,
+      layout: { name: "preset" },
     });
 
-    const typeAnchors = {
-      project: { x: 0.5, y: 0.5 },
-      qualification: { x: 0.5, y: 0.16 },
-      domain: { x: 0.18, y: 0.32 },
-      skill: { x: 0.82, y: 0.32 },
-      artifact: { x: 0.16, y: 0.72 },
-      thinking: { x: 0.38, y: 0.78 },
-      technology: { x: 0.64, y: 0.78 },
-      tool: { x: 0.84, y: 0.7 },
-    };
+    const visibleTypes = new Set(["project", "domain"]);
 
-    const applyPreferredPositions = () => {
-      const width = graphContainer.clientWidth;
-      const height = graphContainer.clientHeight;
+    const getVisibleElements = () =>
+      cy.elements().filter((element) => !element.hasClass("type-hidden"));
+
+    const applyTypeFilters = () => {
+      visibleTypes.add("project");
 
       cy.nodes().forEach((node) => {
-        const type = node.data("type");
-        const anchor = typeAnchors[type];
+        const isVisible = visibleTypes.has(node.data("type"));
+        node.toggleClass("type-hidden", !isVisible);
+      });
 
-        if (!anchor) return;
+      cy.edges().forEach((edge) => {
+        const sourceHidden = edge.source().hasClass("type-hidden");
+        const targetHidden = edge.target().hasClass("type-hidden");
 
-        const jitter = type === "project" ? 500 : 350;
-
-        node.position({
-          x: width * anchor.x + (Math.random() - 0.5) * jitter,
-          y: height * anchor.y + (Math.random() - 0.5) * jitter,
-        });
+        edge.toggleClass("type-hidden", sourceHidden || targetHidden);
       });
     };
 
@@ -439,6 +533,8 @@ const graphData = {
       const centreY = height / 2;
 
       const projects = cy.nodes('[type = "project"]');
+
+      if (projects.length === 0) return;
 
       const radius = Math.max(width, height) * 1.5;
 
@@ -526,56 +622,6 @@ const graphData = {
       });
     };
 
-    const runLayout = () => {
-      positionProjectsOnCircle();
-
-      const layout = cy.layout({
-        ...layoutOptions,
-
-        fixedNodeConstraint: cy
-          .nodes('[type = "project"]')
-          .map((n) => ({
-            nodeId: n.id(),
-            position: n.position(),
-          })),
-      });
-
-      layout.run();
-
-      layout.on("layoutstop", () => {
-        pullSharedNodesTowardProjects();
-      });
-    };
-
-    cy.ready(() => {
-      runLayout();
-      cy.fit(undefined, 250);
-      cy.center();
-    });
-
-    const resizeGraph = () => {
-      cy.resize();
-      cy.fit(undefined, 250);
-    };
-
-    const fitGraph = () => {
-      cy.resize();
-      cy.fit(undefined, 250);
-      cy.center();
-    };
-
-    const graphResizeObserver = new ResizeObserver(() => {
-      resizeGraph();
-    });
-
-    graphResizeObserver.observe(graphContainer);
-
-    window.addEventListener("resize", resizeGraph);
-
-    document.addEventListener("sidebar-toggle", () => {
-      window.setTimeout(fitGraph, 300);
-    });
-
     const updateLabelSizes = () => {
       const zoom = cy.zoom();
 
@@ -599,34 +645,105 @@ const graphData = {
       });
     };
 
+    const frameVisibleGraph = () => {
+      const visibleNodes = cy
+        .nodes()
+        .filter((node) => !node.hasClass("type-hidden"));
+
+      if (visibleNodes.length === 0) return;
+
+      cy.stop();
+      cy.resize();
+      cy.fit(visibleNodes, 40);
+      cy.zoom(cy.zoom() * 1.08);
+      cy.center(visibleNodes);
+      updateLabelSizes();
+    };
+
+    const runLayout = () => {
+      positionProjectsOnCircle();
+
+      const layout = cy.layout({
+        ...layoutOptions,
+
+        fixedNodeConstraint: cy
+          .nodes('[type = "project"]')
+          .map((node) => ({
+            nodeId: node.id(),
+            position: node.position(),
+          })),
+      });
+
+      layout.on("layoutstop", () => {
+        pullSharedNodesTowardProjects();
+
+        window.setTimeout(() => {
+          frameVisibleGraph();
+        }, 550);
+      });
+
+      layout.run();
+    };
+
+    cy.ready(() => {
+      applyTypeFilters();
+      runLayout();
+    });
+
+    const resizeGraph = () => {
+      frameVisibleGraph();
+    };
+
+    const fitGraph = () => {
+      frameVisibleGraph();
+    };
+
+    const graphResizeObserver = new ResizeObserver(() => {
+      resizeGraph();
+    });
+
+    graphResizeObserver.observe(graphContainer);
+
+    window.addEventListener("resize", resizeGraph);
+
+    document.addEventListener("sidebar-toggle", () => {
+      window.setTimeout(fitGraph, 300);
+    });
+
     cy.on("zoom", updateLabelSizes);
     cy.on("layoutstop", updateLabelSizes);
 
     updateLabelSizes();
 
+    const getRouteId = (item) => item?.slug ?? item?.id;
+
     const findProject = (id) =>
-      graphData.projects.find((item) => item.id === id);
+      graphData.projects.find(
+        (item) => item.id === normaliseProjectId(id) || item.slug === id
+      );
 
     const findDomain = (id) =>
-      graphData.domains.find((item) => item.id === id);
+      graphData.domains.find((item) => item.id === id || item.slug === id);
 
     const findSkill = (id) =>
-      graphData.skills.find((item) => item.id === id);
+      graphData.skills.find((item) => item.id === id || item.slug === id);
 
     const findTool = (id) =>
-      graphData.tools.find((item) => item.id === id);
+      graphData.tools.find((item) => item.id === id || item.slug === id);
 
     const findTechnology = (id) =>
-      graphData.technologies.find((item) => item.id === id);
+      graphData.technologies.find((item) => item.id === id || item.slug === id);
 
     const findThinking = (id) =>
-      graphData.thinking.find((item) => item.id === id);
+      graphData.thinking.find((item) => item.id === id || item.slug === id);
 
     const findArtifact = (id) =>
-      graphData.artifacts.find((item) => item.id === id);
+      graphData.artifacts.find((item) => item.id === id || item.slug === id);
 
     const findQualification = (id) =>
-      graphData.qualifications.find((item) => item.id === id);
+      graphData.qualifications.find(
+        (item) => item.id === id || item.slug === id
+      );
 
     const listHtml = (items, getUrl = null) => {
       if (!items || items.length === 0) {
@@ -637,7 +754,7 @@ const graphData = {
         <ul>
           ${items
             .map((item) => {
-              const label = item.name ?? item.title;
+              const label = item.name ?? item.title ?? item.id;
 
               if (getUrl) {
                 return `<li><a href="${getUrl(item)}">${label}</a></li>`;
@@ -659,12 +776,17 @@ const graphData = {
     };
 
     const updatePopup = (node) => {
+      if (!node || node.hasClass("type-hidden")) return;
+
       const type = node.data("type");
       const rawId = node.id();
 
       if (type === "project") {
         const projectId = rawId.replace("project-", "");
         const project = findProject(projectId);
+
+        if (!project) return;
+
         const parentProject = project.parentProject
           ? findProject(project.parentProject)
           : null;
@@ -672,9 +794,12 @@ const graphData = {
         const dependencyProjects =
           project.dependsOn?.map(findProject).filter(Boolean) ?? [];
 
-        const relatedDomains = project.domains?.map(findDomain).filter(Boolean) ?? [];
-        const relatedSkills = project.skills?.map(findSkill).filter(Boolean) ?? [];
-        const relatedTools = project.tools?.map(findTool).filter(Boolean) ?? [];
+        const relatedDomains =
+          project.domains?.map(findDomain).filter(Boolean) ?? [];
+        const relatedSkills =
+          project.skills?.map(findSkill).filter(Boolean) ?? [];
+        const relatedTools =
+          project.tools?.map(findTool).filter(Boolean) ?? [];
         const relatedTechnologies =
           project.technologies?.map(findTechnology).filter(Boolean) ?? [];
         const relatedThinking =
@@ -690,10 +815,10 @@ const graphData = {
           <p>${project.summary ?? "No summary added yet."}</p>
 
           <h3>Domains</h3>
-          ${listHtml(relatedDomains, (item) => `/domains/${item.id}`)}
+          ${listHtml(relatedDomains, (item) => `/domains/${getRouteId(item)}`)}
 
           <h3>Skills</h3>
-          ${listHtml(relatedSkills, (item) => `/skills/${item.id}`)}
+          ${listHtml(relatedSkills, (item) => `/skills/${getRouteId(item)}`)}
 
           <h3>Tools</h3>
           ${listHtml(relatedTools)}
@@ -707,20 +832,28 @@ const graphData = {
           <h3>Evidence</h3>
           ${listHtml(relatedArtifacts)}
 
-          ${parentProject ? `
-            <h3>Part of</h3>
-            ${listHtml([parentProject], (item) => `/projects/${item.id}`)}
-          ` : ""}
+          ${
+            parentProject
+              ? `
+                <h3>Part of</h3>
+                ${listHtml([parentProject], (item) => `/projects/${getRouteId(item)}`)}
+              `
+              : ""
+          }
 
-          ${dependencyProjects.length ? `
-            <h3>Depends on</h3>
-            ${listHtml(dependencyProjects, (item) => `/projects/${item.id}`)}
-          ` : ""}
+          ${
+            dependencyProjects.length
+              ? `
+                <h3>Depends on</h3>
+                ${listHtml(dependencyProjects, (item) => `/projects/${getRouteId(item)}`)}
+              `
+              : ""
+          }
 
           <h3>Qualifications</h3>
           ${listHtml(relatedQualifications)}
 
-          <a class="panel-link" href="/projects/${project.id}">Open project page →</a>
+          <a class="panel-link" href="/projects/${getRouteId(project)}">Open project page →</a>
         `;
 
         openPopup();
@@ -730,12 +863,16 @@ const graphData = {
         const domainId = rawId.replace("domain-", "");
         const domain = findDomain(domainId);
 
+        if (!domain) return;
+
         const relatedProjects = graphData.projects.filter((project) =>
           project.domains?.includes(domain.id)
         );
 
         const relatedSkillIds = [
-          ...new Set(relatedProjects.flatMap((project) => project.skills ?? [])),
+          ...new Set(
+            relatedProjects.flatMap((project) => project.skills ?? [])
+          ),
         ];
 
         const relatedSkills = relatedSkillIds.map(findSkill).filter(Boolean);
@@ -746,12 +883,12 @@ const graphData = {
           <p>${domain.description ?? "No description added yet."}</p>
 
           <h3>Related Projects</h3>
-          ${listHtml(relatedProjects, (item) => `/projects/${item.id}`)}
+          ${listHtml(relatedProjects, (item) => `/projects/${getRouteId(item)}`)}
 
           <h3>Related Skills</h3>
-          ${listHtml(relatedSkills, (item) => `/skills/${item.id}`)}
+          ${listHtml(relatedSkills, (item) => `/skills/${getRouteId(item)}`)}
 
-          <a class="panel-link" href="/domains/${domain.id}">Open domain page →</a>
+          <a class="panel-link" href="/domains/${getRouteId(domain)}">Open domain page →</a>
         `;
 
         openPopup();
@@ -761,12 +898,16 @@ const graphData = {
         const skillId = rawId.replace("skill-", "");
         const skill = findSkill(skillId);
 
+        if (!skill) return;
+
         const relatedProjects = graphData.projects.filter((project) =>
           project.skills?.includes(skill.id)
         );
 
         const relatedDomainIds = [
-          ...new Set(relatedProjects.flatMap((project) => project.domains ?? [])),
+          ...new Set(
+            relatedProjects.flatMap((project) => project.domains ?? [])
+          ),
         ];
 
         const relatedDomains = relatedDomainIds.map(findDomain).filter(Boolean);
@@ -777,12 +918,12 @@ const graphData = {
           <p>${skill.summary ?? "This skill is evidenced through the related projects and domains below."}</p>
 
           <h3>Evidence Projects</h3>
-          ${listHtml(relatedProjects, (item) => `/projects/${item.id}`)}
+          ${listHtml(relatedProjects, (item) => `/projects/${getRouteId(item)}`)}
 
           <h3>Related Domains</h3>
-          ${listHtml(relatedDomains, (item) => `/domains/${item.id}`)}
+          ${listHtml(relatedDomains, (item) => `/domains/${getRouteId(item)}`)}
 
-          <a class="panel-link" href="/skills/${skill.id}">Open skill page →</a>
+          <a class="panel-link" href="/skills/${getRouteId(skill)}">Open skill page →</a>
         `;
 
         openPopup();
@@ -791,6 +932,8 @@ const graphData = {
       if (type === "tool") {
         const toolId = rawId.replace("tool-", "");
         const tool = findTool(toolId);
+
+        if (!tool) return;
 
         const relatedProjects = graphData.projects.filter((project) =>
           project.tools?.includes(tool.id)
@@ -802,7 +945,7 @@ const graphData = {
           <p>${tool.summary ?? "This tool appears in the related project work below."}</p>
 
           <h3>Related Projects</h3>
-          ${listHtml(relatedProjects, (item) => `/projects/${item.id}`)}
+          ${listHtml(relatedProjects, (item) => `/projects/${getRouteId(item)}`)}
         `;
 
         openPopup();
@@ -811,6 +954,8 @@ const graphData = {
       if (type === "technology") {
         const technologyId = rawId.replace("technology-", "");
         const technology = findTechnology(technologyId);
+
+        if (!technology) return;
 
         const relatedProjects = graphData.projects.filter((project) =>
           project.technologies?.includes(technology.id)
@@ -822,7 +967,7 @@ const graphData = {
           <p>${technology.summary ?? "This technology appears in the related project work below."}</p>
 
           <h3>Related Projects</h3>
-          ${listHtml(relatedProjects, (item) => `/projects/${item.id}`)}
+          ${listHtml(relatedProjects, (item) => `/projects/${getRouteId(item)}`)}
         `;
 
         openPopup();
@@ -831,6 +976,8 @@ const graphData = {
       if (type === "thinking") {
         const thinkingId = rawId.replace("thinking-", "");
         const theme = findThinking(thinkingId);
+
+        if (!theme) return;
 
         const relatedProjects = graphData.projects.filter((project) =>
           project.thinking?.includes(theme.id)
@@ -842,7 +989,7 @@ const graphData = {
           <p>${theme.summary ?? "This theme appears across the related project work below."}</p>
 
           <h3>Related Projects</h3>
-          ${listHtml(relatedProjects, (item) => `/projects/${item.id}`)}
+          ${listHtml(relatedProjects, (item) => `/projects/${getRouteId(item)}`)}
         `;
 
         openPopup();
@@ -851,6 +998,8 @@ const graphData = {
       if (type === "artifact") {
         const artifactId = rawId.replace("artifact-", "");
         const artifact = findArtifact(artifactId);
+
+        if (!artifact) return;
 
         const relatedProjects = graphData.projects.filter((project) =>
           project.artifacts?.includes(artifact.id)
@@ -861,7 +1010,11 @@ const graphData = {
             ? "Public"
             : artifact.visibility === "redacted"
               ? "Redacted"
-              : "Private";
+              : artifact.visibility === "restricted"
+                ? "Restricted"
+                : artifact.visibility === "summary"
+                  ? "Summary only"
+                  : "Private";
 
         popupContent.innerHTML = `
           <p class="panel-eyebrow">Evidence</p>
@@ -875,7 +1028,7 @@ const graphData = {
           <p>${visibilityLabel}</p>
 
           <h3>Related Projects</h3>
-          ${listHtml(relatedProjects, (item) => `/projects/${item.id}`)}
+          ${listHtml(relatedProjects, (item) => `/projects/${getRouteId(item)}`)}
 
           ${
             artifact.url
@@ -890,6 +1043,8 @@ const graphData = {
       if (type === "qualification") {
         const qualificationId = rawId.replace("qualification-", "");
         const qualification = findQualification(qualificationId);
+
+        if (!qualification) return;
 
         const relatedProjects = graphData.projects.filter((project) =>
           project.qualifications?.includes(qualification.id)
@@ -913,7 +1068,7 @@ const graphData = {
           }
 
           <h3>Related Projects</h3>
-          ${listHtml(relatedProjects, (item) => `/projects/${item.id}`)}
+          ${listHtml(relatedProjects, (item) => `/projects/${getRouteId(item)}`)}
         `;
 
         openPopup();
@@ -921,25 +1076,32 @@ const graphData = {
     };
 
     const resetGraph = () => {
-      cy.elements().removeClass("faded");
-      cy.elements().removeClass("highlighted");
-      cy.elements().removeClass("search-match");
+      getVisibleElements().removeClass("faded");
+      getVisibleElements().removeClass("highlighted");
+      getVisibleElements().removeClass("search-match");
       closePopup();
     };
 
-    const getMatchingNode = (query) => {
-      return cy.nodes().filter((node) => {
+    const getMatchingNode = (query) =>
+      cy.nodes().filter((node) => {
+        if (node.hasClass("type-hidden")) return false;
+
         const label = node.data("label")?.toLowerCase() ?? "";
         return label.includes(query);
       })[0];
-    };
 
     const highlightNode = (node, isSearch = false) => {
-      cy.elements().removeClass("highlighted");
-      cy.elements().removeClass("search-match");
-      cy.elements().addClass("faded");
+      if (!node || node.hasClass("type-hidden")) return;
 
-      const neighborhood = node.closedNeighborhood();
+      const visibleElements = getVisibleElements();
+
+      visibleElements.removeClass("highlighted");
+      visibleElements.removeClass("search-match");
+      visibleElements.addClass("faded");
+
+      const neighborhood = node
+        .closedNeighborhood()
+        .filter((element) => !element.hasClass("type-hidden"));
 
       neighborhood.removeClass("faded");
       neighborhood.addClass("highlighted");
@@ -955,6 +1117,8 @@ const graphData = {
     };
 
     const centreNode = (node) => {
+      if (!node || node.hasClass("type-hidden")) return;
+
       cy.stop();
 
       cy.animate({
@@ -981,6 +1145,9 @@ const graphData = {
       }
 
       const node = event.target;
+
+      if (node.hasClass("type-hidden")) return;
+
       const currentTime = Date.now();
 
       const isDoubleClick =
@@ -1001,7 +1168,16 @@ const graphData = {
         };
 
         if (routes[type]) {
-          window.location.href = `${routes[type]}${id}`;
+          const finders = {
+            project: findProject,
+            domain: findDomain,
+            skill: findSkill,
+          };
+
+          const item = finders[type]?.(id);
+          const routeId = getRouteId(item) ?? id;
+
+          window.location.href = `${routes[type]}${routeId}`;
           return;
         }
 
@@ -1011,8 +1187,6 @@ const graphData = {
           if (artifact?.visibility === "public" && artifact?.url) {
             window.open(artifact.url, "_blank");
           }
-
-          return;
         }
 
         return;
@@ -1040,14 +1214,16 @@ const graphData = {
       const matchingNode = getMatchingNode(query);
 
       if (!matchingNode) {
-        cy.elements().removeClass("highlighted");
-        cy.elements().removeClass("search-match");
-        cy.elements().addClass("faded");
+        const visibleElements = getVisibleElements();
+
+        visibleElements.removeClass("highlighted");
+        visibleElements.removeClass("search-match");
+        visibleElements.addClass("faded");
 
         popupContent.innerHTML = `
           <p class="panel-eyebrow">Search</p>
-          <h2>No match found</h2>
-          <p>Try searching for a project, domain, skill, or tool.</p>
+          <h2>No visible match found</h2>
+          <p>Try enabling another graph filter, or search for a visible project, domain, skill or tool.</p>
         `;
 
         openPopup();
@@ -1080,6 +1256,40 @@ const graphData = {
       if (event.key === "Escape") {
         closePopup();
       }
+    });
+
+    const legendButtons = graphWrapper.querySelectorAll(".legend-filter");
+
+    legendButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const type = button.dataset.type;
+
+        if (!type) return;
+
+        if (type === "project") {
+          visibleTypes.add("project");
+          button.classList.add("active");
+          button.setAttribute("aria-pressed", "true");
+          return;
+        }
+
+        if (visibleTypes.has(type)) {
+          visibleTypes.delete(type);
+          button.classList.remove("active");
+          button.setAttribute("aria-pressed", "false");
+        } else {
+          visibleTypes.add(type);
+          button.classList.add("active");
+          button.setAttribute("aria-pressed", "true");
+        }
+
+        applyTypeFilters();
+        resetGraph();
+
+        window.setTimeout(() => {
+          frameVisibleGraph();
+        }, 100);
+      });
     });
   }
 </script>
@@ -1134,12 +1344,6 @@ const graphData = {
     letter-spacing: 0.06em;
   }
 
-  .graph-legend span {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-
   .legend-dot {
     width: 0.7rem;
     height: 0.7rem;
@@ -1182,9 +1386,7 @@ const graphData = {
 
   #experience-graph {
     width: 100%;
-    height: calc(100vh - 260px);
-    min-height: 520px;
-    max-height: 760px;
+    height: clamp(360px, 52vh, 560px);
     background: #020617;
     border: 0;
     border-radius: 0;
@@ -1280,18 +1482,65 @@ const graphData = {
     font-style: italic;
   }
 
+  .legend-filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: 1px solid #334155;
+    border-radius: 999px;
+    background: #020617;
+    color: #64748b;
+    padding: 0.4rem 0.65rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+  }
+
+  .legend-filter.active {
+    color: #e5e7eb;
+    border-color: currentColor;
+    background: rgba(15, 23, 42, 0.95);
+  }
+
+  .legend-filter:hover {
+    color: #cbd5e1;
+  }
+
   @media (max-width: 700px) {
+    .graph-wrapper {
+      margin-inline: 0;
+    }
+
+    .graph-panel-header {
+      padding: 0.75rem;
+    }
+
+    .graph-legend {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 0.5rem;
+      padding-bottom: 0.35rem;
+    }
+
+    .legend-filter {
+      flex: 0 0 auto;
+    }
+
     #experience-graph {
-      height: 520px;
+      height: clamp(340px, 48svh, 460px);
+      min-height: 0;
+      max-height: none;
     }
 
     .graph-popup {
       position: fixed;
-      left: 1rem;
-      right: 1rem;
-      bottom: 1rem;
+      left: 0.75rem;
+      right: 0.75rem;
+      bottom: 0.75rem;
       width: auto;
-      max-height: 70vh;
+      max-height: 54svh;
     }
   }
 </style>

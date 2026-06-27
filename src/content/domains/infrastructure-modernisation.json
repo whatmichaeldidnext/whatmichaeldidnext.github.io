@@ -2,5 +2,6 @@
   "id": "infrastructure-modernisation",
   "name": "Infrastructure Modernisation",
   "description": "Replacing and improving legacy infrastructure to increase resilience, maintainability and long-term operational capability.",
-  "status": "active"
+  "status": "active",
+  "slug": "infrastructure-modernisation"
 }

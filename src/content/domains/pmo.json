@@ -2,5 +2,6 @@
   "id": "pmo",
   "name": "Project Management Office (PMO)",
   "description": "Establishing governance, standards and best practices that improve organisational project delivery capability.",
-  "status": "active"
+  "status": "active",
+  "slug": "pmo"
 }

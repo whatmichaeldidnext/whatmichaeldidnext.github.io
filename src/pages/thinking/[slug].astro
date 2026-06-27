@@ -1,0 +1,62 @@
+---
+import { getCollection } from "astro:content";
+import { BaseLayout, MainLayout } from "../../components";
+
+export async function getStaticPaths() {
+  const thinking = await getCollection("thinking");
+
+  return thinking
+    .filter((principle) => principle.data.slug)
+    .map((principle) => ({
+      params: { slug: principle.data.slug },
+      props: { principle },
+    }));
+}
+
+const { principle } = Astro.props;
+
+const projects = await getCollection("projects");
+
+const relatedProjects = projects.filter((project) =>
+  project.data.thinking?.includes(principle.data.id)
+);
+---
+
+<BaseLayout
+  title={`${principle.data.name} | What Michael Did Next`}
+  description={principle.data.summary}
+>
+  <MainLayout>
+    <article class="thinking-page">
+      <p class="eyebrow">Principle</p>
+
+      <h1>{principle.data.name}</h1>
+
+      {principle.data.summary && (
+        <p class="lead">{principle.data.summary}</p>
+      )}
+
+      {principle.data.category && (
+        <p class="meta">
+          <strong>Category:</strong> {principle.data.category}
+        </p>
+      )}
+
+      {relatedProjects.length > 0 && (
+        <section>
+          <h2>Projects demonstrating this principle</h2>
+
+          <ul>
+            {relatedProjects.map((project) => (
+              <li>
+                <a href={`/projects/${project.data.slug}/`}>
+                  {project.data.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </article>
+  </MainLayout>
+</BaseLayout>

@@ -1,5 +1,6 @@
 {
   "id": "operational-resilience",
   "name": "Operational Resilience",
-  "summary": "Designing services and operations that remain effective during disruption and recover quickly from failure."
+  "summary": "Designing services and operations that remain effective during disruption and recover quickly from failure.",
+  "slug": "operational-resilience"
 }

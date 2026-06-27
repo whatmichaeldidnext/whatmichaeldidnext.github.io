@@ -1,5 +1,6 @@
 {
   "id": "infrastructure-modernisation",
   "name": "Infrastructure Modernisation",
-  "summary": "Replacing legacy infrastructure with maintainable, secure and scalable modern technology platforms."
+  "summary": "Replacing legacy infrastructure with maintainable, secure and scalable modern technology platforms.",
+  "slug": "infrastructure-modernisation"
 }

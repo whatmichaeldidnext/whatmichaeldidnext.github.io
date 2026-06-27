@@ -1,5 +1,6 @@
 {
   "id": "risk-based-delivery",
   "name": "Risk-Based Delivery",
-  "summary": "Prioritising delivery decisions by balancing risk, value, urgency and organisational impact."
+  "summary": "Prioritising delivery decisions by balancing risk, value, urgency and organisational impact.",
+  "slug": "risk-based-delivery"
 }

@@ -1,5 +1,6 @@
 {
   "id": "powershell",
   "name": "PowerShell",
-  "summary": "Automation and administration language used to manage Microsoft infrastructure and cloud services."
+  "summary": "Automation and administration language used to manage Microsoft infrastructure and cloud services.",
+  "slug": "powershell"
 }

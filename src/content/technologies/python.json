@@ -1,5 +1,6 @@
 {
   "id": "python",
   "name": "Python",
-  "summary": "General-purpose programming language used for automation, data analysis, research and rapid prototyping."
+  "summary": "General-purpose programming language used for automation, data analysis, research and rapid prototyping.",
+  "slug": "python"
 }

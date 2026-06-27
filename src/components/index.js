@@ -9,6 +9,7 @@ export { default as DomainGrid } from "./Home/DomainGrid.astro";
 export { default as CurrentlyBuilding } from "./Home/CurrentlyBuilding.astro";
 export { default as SummarySection } from "./Home/SummarySection.astro";
 export { default as GraphPreview } from "./Home/GraphPreview.astro";
+export { default as InsightsPreview } from "./Home/InsightsPreview.astro";
 
 // Graph
 export { default as ExperienceGraph } from "./Graph/ExperienceGraph.astro";

@@ -2,5 +2,6 @@
   "id": "organisational-development",
   "name": "Organisational Development",
   "description": "Strengthening organisational capability through improved processes, knowledge sharing, leadership and continuous improvement.",
-  "status": "active"
+  "status": "active",
+  "slug": "organisational-development"
 }

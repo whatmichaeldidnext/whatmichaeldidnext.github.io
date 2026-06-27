@@ -1,5 +1,6 @@
 {
   "id": "human-centred-security",
   "name": "Human-Centred Security",
-  "summary": "Recognising that security solutions must be usable, understandable and aligned with human behaviour to be effective."
+  "summary": "Recognising that security solutions must be usable, understandable and aligned with human behaviour to be effective.",
+  "slug": "human-centred-security"
 }

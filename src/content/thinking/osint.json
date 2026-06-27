@@ -1,5 +1,6 @@
 {
   "id": "osint",
   "name": "OSINT",
-  "summary": "Using publicly available information sources responsibly to understand exposure, identity and security risks."
+  "summary": "Using publicly available information sources responsibly to understand exposure, identity and security risks.",
+  "slug": "osint"
 }

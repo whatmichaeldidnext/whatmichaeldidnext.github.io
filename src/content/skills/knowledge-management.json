@@ -1,5 +1,6 @@
 {
   "id": "knowledge-management",
   "name": "Knowledge Management",
-  "summary": "Capturing, organising and sharing organisational knowledge to improve consistency and continuous learning."
+  "summary": "Capturing, organising and sharing organisational knowledge to improve consistency and continuous learning.",
+  "slug": "knowledge-management"
 }

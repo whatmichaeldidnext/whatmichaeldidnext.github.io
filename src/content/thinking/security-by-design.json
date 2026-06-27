@@ -1,5 +1,6 @@
 {
   "id": "security-by-design",
   "name": "Security by Design",
-  "summary": "Embedding security considerations into systems, architectures and processes from the outset."
+  "summary": "Embedding security considerations into systems, architectures and processes from the outset.",
+  "slug": "security-by-design"
 }

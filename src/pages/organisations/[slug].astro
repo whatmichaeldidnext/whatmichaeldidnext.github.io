@@ -1,0 +1,99 @@
+---
+import { getCollection } from "astro:content";
+import { BaseLayout, MainLayout } from "../../components";
+
+export async function getStaticPaths() {
+  const organisations = await getCollection("organisations");
+
+  return organisations
+    .filter((organisation) => organisation.data.slug)
+    .map((organisation) => ({
+      params: { slug: organisation.data.slug },
+      props: { organisation },
+    }));
+}
+
+const { organisation } = Astro.props;
+
+const projects = await getCollection("projects");
+
+const relatedProjects = projects.filter(
+  (project) => project.data.employer?.id === organisation.data.id
+);
+---
+
+<BaseLayout
+  title={`${organisation.data.name} | What Michael Did Next`}
+  description={organisation.data.summary}
+>
+  <MainLayout>
+    <article class="organisation-page">
+      <p class="eyebrow">Organisation</p>
+
+      <h1>{organisation.data.name}</h1>
+
+      {organisation.data.summary && <p class="lead">{organisation.data.summary}</p>}
+
+      {(organisation.data.relationship || organisation.data.role) && (
+        <section>
+          <h2>Relationship</h2>
+
+          {organisation.data.relationship && (
+            <p><strong>Relationship:</strong> {organisation.data.relationship}</p>
+          )}
+
+          {organisation.data.role && (
+            <p><strong>Role:</strong> {organisation.data.role}</p>
+          )}
+
+          {(organisation.data.from || organisation.data.to) && (
+            <p>
+              <strong>Period:</strong>{" "}
+              {organisation.data.from
+                ? organisation.data.from.toLocaleDateString("en-GB", {
+                    month: "short",
+                    year: "numeric",
+                  })
+                : "Unknown"}
+              {" — "}
+              {organisation.data.to
+                ? organisation.data.to.toLocaleDateString("en-GB", {
+                    month: "short",
+                    year: "numeric",
+                  })
+                : "Present"}
+            </p>
+          )}
+        </section>
+      )}
+
+      {organisation.data.website && (
+        <p class="meta">
+          <a
+            href={organisation.data.website}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit website →
+          </a>
+        </p>
+      )}
+
+      {relatedProjects.length > 0 && (
+        <section>
+          <h2>Projects delivered</h2>
+
+          <ul>
+            {relatedProjects.map((project) => (
+              <li>
+                <a href={`/projects/${project.data.slug}/`}>
+                  {project.data.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </article>
+  </MainLayout>
+</BaseLayout>

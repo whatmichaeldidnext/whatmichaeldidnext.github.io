@@ -1,0 +1,52 @@
+---
+import { getCollection } from "astro:content";
+import { BaseLayout, MainLayout } from "../components";
+
+const posts = (await getCollection("blog"))
+  .filter((post) => post.data.visibility !== "private")
+  .filter((post) => !post.data.published || new Date(post.data.published) <= new Date())
+  .sort((a, b) => new Date(b.data.published ?? 0).getTime() - new Date(a.data.published ?? 0).getTime());
+---
+
+<BaseLayout
+  title="Insights | What Michael Did Next"
+  description="Reflections, technical notes and project insights from Michael Charles."
+>
+  <MainLayout>
+    <section class="page-header">
+      <p class="eyebrow">Insights</p>
+      <h1>Thinking behind the work</h1>
+      <p>
+        Notes on delivery, systems, data, technology and learning — connected back to the projects, skills and tools that shape the portfolio.
+      </p>
+    </section>
+
+    <section class="insights-list">
+      {posts.map((post) => (
+        <article class="insight-card">
+          <p class="insight-meta">
+            {post.data.published
+              ? new Date(post.data.published).toLocaleDateString("en-GB", {
+                  day: "numeric",
+                  month: "short",
+                  year: "numeric"
+                })
+              : "Draft"}
+          </p>
+
+          <h2>
+            <a href={`/insights/${post.slug}/`}>{post.data.title}</a>
+          </h2>
+
+          <p>{post.data.summary}</p>
+
+          {post.data.tags?.length > 0 && (
+            <ul class="tag-list">
+              {post.data.tags.map((tag) => <li>{tag}</li>)}
+            </ul>
+          )}
+        </article>
+      ))}
+    </section>
+  </MainLayout>
+</BaseLayout>

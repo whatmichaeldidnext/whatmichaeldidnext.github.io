@@ -1,5 +1,6 @@
 {
   "id": "condecco",
   "name": "Condeco",
-  "summary": "Workspace and resource management platform supporting desk, meeting room and workplace scheduling."
+  "summary": "Workspace and resource management platform supporting desk, meeting room and workplace scheduling.",
+  "slug": "condecco"
 }

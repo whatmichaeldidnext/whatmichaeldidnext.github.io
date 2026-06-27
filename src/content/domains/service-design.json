@@ -2,5 +2,6 @@
   "id": "service-design",
   "name": "Service Design",
   "description": "Designing sustainable services by aligning technology, people and operational processes around user needs.",
-  "status": "active"
+  "status": "active",
+  "slug": "service-design"
 }

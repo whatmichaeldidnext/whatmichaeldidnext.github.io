@@ -1,5 +1,6 @@
 {
   "id": "technical-documentation",
   "name": "Technical Documentation",
-  "summary": "Producing clear technical documentation, implementation guidance and operational procedures."
+  "summary": "Producing clear technical documentation, implementation guidance and operational procedures.",
+  "slug": "technical-documentation"
 }

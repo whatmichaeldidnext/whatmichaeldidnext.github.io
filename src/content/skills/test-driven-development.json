@@ -1,5 +1,6 @@
 {
   "id": "test-driven-development",
   "name": "Test-Driven Development",
-  "summary": "Applying test-first development practices to improve software quality and maintainability."
+  "summary": "Applying test-first development practices to improve software quality and maintainability.",
+  "slug": "test-driven-development"
 }

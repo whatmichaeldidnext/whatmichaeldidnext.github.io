@@ -1,0 +1,56 @@
+---
+import { getCollection } from "astro:content";
+import { BaseLayout, MainLayout } from "../../components";
+
+export async function getStaticPaths() {
+  const domains = await getCollection("domains");
+
+  return domains
+    .filter((domain) => domain.data.slug)
+    .map((domain) => ({
+      params: { slug: domain.data.slug },
+      props: { domain },
+    }));
+}
+
+const { domain } = Astro.props;
+
+const projects = await getCollection("projects");
+
+const relatedProjects = projects.filter((project) =>
+  project.data.domains?.includes(domain.data.id)
+);
+---
+
+<BaseLayout
+  title={`${domain.data.name} | What Michael Did Next`}
+  description={domain.data.description}
+>
+  <MainLayout>
+    <article class="domain-page">
+      <p class="eyebrow">Domain</p>
+
+      <h1>{domain.data.name}</h1>
+
+      {domain.data.description && (
+        <p class="lead">{domain.data.description}</p>
+      )}
+
+      {relatedProjects.length > 0 && (
+        <section>
+          <h2>Related projects</h2>
+
+          <ul>
+            {relatedProjects.map((project) => (
+              <li>
+                <a href={`/projects/${project.data.slug}/`}>
+                  {project.data.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </article>
+  </MainLayout>
+</BaseLayout>

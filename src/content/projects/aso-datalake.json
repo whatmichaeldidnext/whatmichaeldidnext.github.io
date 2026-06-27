@@ -41,7 +41,8 @@
   "lessons": "Successful analytics programmes begin with trusted information architecture rather than visualisation. Establishing robust data models, transparent transformation logic and governed review processes created significantly greater long-term value than dashboards alone.",
   "status": "completed",
   "featured": true,
-  "year": 2026,
+  "from": "01/12/2023",
+  "to": null,
   "employer": {
     "id": "the-salvation-army-uk-ireland",
     "relationship": "ftc employee",
@@ -113,5 +114,6 @@
     "ms-teams-calling",
     "network-readiness"
   ],
-  "links": []
+  "links": [],
+  "slug": "aso-datalake"
 }

@@ -1,5 +1,6 @@
 {
   "id": "operational-excellence",
   "name": "Operational Excellence",
-  "summary": "Designing solutions that are maintainable, repeatable, scalable and straightforward to operate."
+  "summary": "Designing solutions that are maintainable, repeatable, scalable and straightforward to operate.",
+  "slug": "operational-excellence"
 }

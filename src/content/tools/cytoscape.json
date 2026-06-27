@@ -1,5 +1,6 @@
 {
   "id": "cytoscape",
   "name": "Cytoscape.js",
-  "summary": "JavaScript graph visualisation library used to create interactive knowledge graphs."
+  "summary": "JavaScript graph visualisation library used to create interactive knowledge graphs.",
+  "slug": "cytoscape"
 }

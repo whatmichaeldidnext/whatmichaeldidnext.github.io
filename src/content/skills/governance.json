@@ -1,5 +1,6 @@
 {
   "id": "governance",
   "name": "Governance",
-  "summary": "Establishing decision-making structures, controls and accountability to support successful project and programme delivery."
+  "summary": "Establishing decision-making structures, controls and accountability to support successful project and programme delivery.",
+  "slug": "governance"
 }

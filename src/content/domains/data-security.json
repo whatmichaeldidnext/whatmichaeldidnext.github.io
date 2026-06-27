@@ -2,5 +2,6 @@
   "id": "data-security",
   "name": "Data Security",
   "description": "Understanding digital identity, privacy, data exposure and responsible approaches to information security.",
-  "status": "academic"
+  "status": "academic",
+  "slug": "data-security"
 }

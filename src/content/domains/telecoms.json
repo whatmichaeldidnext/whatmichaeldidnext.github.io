@@ -2,5 +2,6 @@
   "id": "telecoms",
   "name": "Telecommunications",
   "description": "Designing, modernising and transitioning enterprise communications platforms including PSTN, VoIP and unified communications.",
-  "status": "professional"
+  "status": "professional",
+  "slug": "telecoms"
 }

@@ -1,5 +1,6 @@
 {
   "id": "voip",
   "name": "Voice over IP (VoIP)",
-  "summary": "Technology for delivering voice communications across IP networks."
+  "summary": "Technology for delivering voice communications across IP networks.",
+  "slug": "voip"
 }

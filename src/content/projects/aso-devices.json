@@ -113,5 +113,6 @@
     "network-readiness",
     "aso-datalake"
   ],
-  "links": []
+  "links": [],
+  "slug": "aso-devices"
 }

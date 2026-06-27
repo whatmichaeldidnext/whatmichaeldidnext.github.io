@@ -1,5 +1,6 @@
 {
   "id": "power-bi",
   "name": "Microsoft Power BI",
-  "summary": "Business intelligence platform used for semantic modelling, analytics and executive reporting."
+  "summary": "Business intelligence platform used for semantic modelling, analytics and executive reporting.",
+  "slug": "power-bi"
 }

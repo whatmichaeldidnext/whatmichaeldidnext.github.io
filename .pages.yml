@@ -1,0 +1,905 @@
+media:
+  input: public/uploads
+  output: /uploads
+
+content:
+  - name: projects
+    label: Projects
+    type: collection
+    path: src/content/projects
+    filename: "{fields.id}.json"
+    format: json
+    fields:
+      - name: id
+        label: ID
+        type: string
+        required: true
+
+      - name: title
+        label: Title
+        type: string
+        required: true
+
+      - name: slug
+        label: Slug
+        type: string
+        required: false
+
+      - name: parentProject
+        label: Parent Project ID
+        type: string
+
+      - name: compStatus
+        label: Completion Status
+        type: select
+        options:
+          values:
+            - Completed
+            - In Progress
+            - In Planning
+            - Not Started
+
+      - name: summary
+        label: Summary
+        type: text
+
+      - name: context
+        label: Context
+        type: text
+
+      - name: challenge
+        label: Challenge
+        type: text
+
+      - name: approach
+        label: Approach
+        type: text
+
+      - name: role
+        label: Roles
+        type: string
+        list: true
+
+      - name: outcome
+        label: Outcome
+        type: text
+
+      - name: impact
+        label: Impact
+        type: object
+        fields:
+          - name: whyItMattered
+            label: Why it mattered
+            type: text
+          - name: publicValue
+            label: Public value
+            type: string
+            list: true
+          - name: organisationalValue
+            label: Organisational value
+            type: string
+            list: true
+          - name: stakeholders
+            label: Stakeholders
+            type: string
+            list: true
+
+      - name: lessons
+        label: Lessons
+        type: text
+
+      - name: status
+        label: Status
+        type: select
+        options:
+          values:
+            - planned
+            - active
+            - completed
+            - archived
+
+      - name: featured
+        label: Featured
+        type: boolean
+
+      - name: from
+        label: From
+        type: date
+
+      - name: to
+        label: To
+        type: date
+
+      - name: employer
+        label: Employer
+        type: object
+        fields:
+          - name: id
+            label: Employer ID
+            type: string
+          - name: relationship
+            label: Relationship
+            type: string
+          - name: roleTitle
+            label: Role Title
+            type: string
+
+      - name: domains
+        label: Domains
+        type: string
+        list: true
+
+      - name: skills
+        label: Skills
+        type: string
+        list: true
+
+      - name: technologies
+        label: Technologies
+        type: string
+        list: true
+
+      - name: tools
+        label: Tools
+        type: string
+        list: true
+
+      - name: thinking
+        label: Thinking / Themes
+        type: string
+        list: true
+
+      - name: artifacts
+        label: Artifacts
+        type: string
+        list: true
+
+      - name: qualifications
+        label: Qualifications
+        type: string
+        list: true
+
+      - name: relatedProjects
+        label: Related Projects
+        type: string
+        list: true
+
+      - name: links
+        label: Links
+        type: object
+        list: true
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: url
+            label: URL
+            type: string
+          - name: type
+            label: Link Type
+            type: string
+
+  - name: artifacts
+    label: Artifacts
+    type: collection
+    path: src/content/artifacts
+    filename: "{fields.id}.json"
+    format: json
+
+    fields:
+
+      - name: id
+        label: ID
+        type: string
+        required: true
+
+      - name: name
+        label: Name
+        type: string
+        required: true
+
+      - name: slug
+        label: Slug
+        type: string
+        required: false
+
+      - name: type
+        label: Type
+        type: select
+        options:
+          values:
+            - architecture
+            - dashboard
+            - data-model
+            - dataset
+            - process
+            - framework
+            - documentation
+            - presentation
+            - report
+            - code
+            - repository
+            - api
+            - automation
+            - image
+            - video
+            - certificate
+            - publication
+            - other
+
+      - name: summary
+        label: Summary
+        type: text
+
+      - name: description
+        label: Description
+        type: text
+
+      - name: availability
+        label: Availability
+        type: select
+        options:
+          values:
+            - draft
+            - active
+            - complete
+            - archived
+
+      - name: visibility
+        label: Visibility
+        type: select
+        options:
+          values:
+            - public
+            - private
+            - restricted
+
+      - name: featured
+        label: Featured
+        type: boolean
+
+      - name: created
+        label: Created
+        type: date
+
+      - name: updated
+        label: Updated
+        type: date
+
+      - name: source
+        label: Source
+        type: object
+        fields:
+          - name: type
+            label: Source Type
+            type: select
+            options:
+              values:
+                - github
+                - pdf
+                - image
+                - website
+                - document
+                - sharepoint
+                - local
+          - name: location
+            label: Location
+            type: string
+
+      - name: technologies
+        label: Technologies
+        type: string
+        list: true
+
+      - name: skills
+        label: Skills
+        type: string
+        list: true
+
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+
+  - name: domains
+    label: Domains
+    type: collection
+    path: src/content/domains
+    filename: "{fields.id}.json"
+    format: json
+    fields:
+      - name: id
+        label: ID
+        type: string
+        required: true
+
+      - name: name
+        label: Name
+        type: string
+        required: true
+
+      - name: slug
+        label: Slug
+        type: string
+        required: false
+
+      - name: description
+        label: Description
+        type: text
+
+      - name: discipline
+        label: Discipline
+        type: select
+        options:
+          values:
+            - technology
+            - delivery
+            - governance
+            - people
+            - business
+            - research
+            - creative
+            - personal
+
+      - name: category
+        label: Category
+        type: select
+        options:
+          values:
+            - technical
+            - methodology
+            - leadership
+            - professional
+            - academic
+            - emerging
+            - operational
+            - strategic
+
+      - name: featured
+        label: Featured
+        type: boolean
+
+      - name: visibility
+        label: Visibility
+        type: select
+        options:
+          values:
+            - public
+            - private
+            - restricted
+
+      - name: relatedDomains
+        label: Related Domains
+        type: string
+        list: true
+
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+
+  - name: qualifications
+    label: Qualifications
+    type: collection
+    path: src/content/qualifications
+    filename: "{fields.id}.json"
+    format: json
+    fields:
+      - name: id
+        label: ID
+        type: string
+        required: true
+
+      - name: name
+        label: Name
+        type: string
+        required: true
+
+      - name: slug
+        label: Slug
+        type: string
+        required: false
+
+      - name: summary
+        label: Summary
+        type: text
+
+      - name: awardingBody
+        label: Awarding Body
+        type: string
+
+      - name: level
+        label: Level
+        type: string
+
+      - name: awarded
+        label: Awarded
+        type: number
+
+      - name: expires
+        label: Expires
+        type: date
+
+      - name: current
+        label: Current
+        type: boolean
+
+      - name: credentialId
+        label: Credential ID
+        type: string
+
+      - name: verificationUrl
+        label: Verification URL
+        type: string
+
+      - name: featured
+        label: Featured
+        type: boolean
+
+      - name: visibility
+        label: Visibility
+        type: select
+        options:
+          values:
+            - public
+            - private
+            - restricted
+
+      - name: relatedSkills
+        label: Related Skills
+        type: string
+        list: true
+
+      - name: relatedDomains
+        label: Related Domains
+        type: string
+        list: true
+
+  - name: skills
+    label: Skills
+    type: collection
+    path: src/content/skills
+    filename: "{fields.id}.json"
+    format: json
+    fields:
+      - name: id
+        label: ID
+        type: string
+        required: true
+
+      - name: name
+        label: Name
+        type: string
+        required: true
+
+      - name: summary
+        label: Summary
+        type: text
+
+      - name: category
+        label: Category
+        type: select
+        options:
+          values:
+            - technical
+            - analytical
+            - delivery
+            - leadership
+            - communication
+            - research
+            - business
+            - governance
+            - personal
+
+      - name: featured
+        label: Featured
+        type: boolean
+
+      - name: visibility
+        label: Visibility
+        type: select
+        options:
+          values:
+            - public
+            - private
+            - restricted
+
+      - name: relatedSkills
+        label: Related Skills
+        type: string
+        list: true
+
+      - name: relatedDomains
+        label: Related Domains
+        type: string
+        list: true
+
+      - name: technologies
+        label: Related Technologies
+        type: string
+        list: true
+
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+
+  - name: technologies
+    label: Technologies
+    type: collection
+    path: src/content/technologies
+    filename: "{fields.id}.json"
+    format: json
+    fields:
+      - name: id
+        label: ID
+        type: string
+        required: true
+
+      - name: name
+        label: Name
+        type: string
+        required: true
+
+      - name: slug
+        label: Slug
+        type: string
+        required: false
+
+      - name: summary
+        label: Summary
+        type: text
+
+      - name: category
+        label: Category
+        type: select
+        options:
+          values:
+            - language
+            - framework
+            - library
+            - platform
+            - database
+            - cloud
+            - security
+            - analytics
+            - infrastructure
+            - tool
+            - standard
+            - other
+
+      - name: featured
+        label: Featured
+        type: boolean
+
+      - name: visibility
+        label: Visibility
+        type: select
+        options:
+          values:
+            - public
+            - private
+            - restricted
+
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+
+  - name: thinking
+    label: Thinking
+    type: collection
+    path: src/content/thinking
+    filename: "{fields.id}.json"
+    format: json
+    fields:
+      - name: id
+        label: ID
+        type: string
+        required: true
+
+      - name: name
+        label: Name
+        type: string
+        required: true
+
+      - name: summary
+        label: Summary
+        type: text
+
+      - name: category
+        label: Category
+        type: select
+        options:
+          values:
+            - mindset
+            - principle
+            - methodology
+            - philosophy
+            - strategy
+            - design
+            - leadership
+
+      - name: featured
+        label: Featured
+        type: boolean
+
+      - name: visibility
+        label: Visibility
+        type: select
+        options:
+          values:
+            - public
+            - private
+            - restricted
+
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+
+  - name: tools
+    label: Tools
+    type: collection
+    path: src/content/tools
+    filename: "{fields.id}.json"
+    format: json
+    fields:
+      - name: id
+        label: ID
+        type: string
+        required: true
+
+      - name: name
+        label: Name
+        type: string
+        required: true
+
+      - name: slug
+        label: Slug
+        type: string
+        required: false
+
+      - name: summary
+        label: Summary
+        type: text
+
+      - name: vendor
+        label: Vendor
+        type: string
+
+      - name: category
+        label: Category
+        type: select
+        options:
+          values:
+            - analytics
+            - collaboration
+            - database
+            - design
+            - development
+            - identity
+            - infrastructure
+            - networking
+            - productivity
+            - project-management
+            - reporting
+            - security
+            - testing
+            - virtualization
+            - other
+
+      - name: featured
+        label: Featured
+        type: boolean
+
+      - name: visibility
+        label: Visibility
+        type: select
+        options:
+          values:
+            - public
+            - private
+            - restricted
+
+      - name: homepage
+        label: Homepage
+        type: string
+
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+
+  - name: organisations
+    label: Organisations
+    type: collection
+    path: src/content/organisations
+    filename: "{fields.id}.json"
+    format: json
+
+    fields:
+      - name: id
+        label: ID
+        type: string
+        required: true
+
+      - name: name
+        label: Name
+        type: string
+        required: true
+
+      - name: summary
+        label: Summary
+        type: text
+
+      - name: category
+        label: Category
+        type: select
+        options:
+          values:
+            - employer
+            - client
+            - university
+            - charity
+            - commercial
+            - government
+            - non-profit
+            - professional-body
+            - vendor
+            - open-source
+            - community
+            - other
+
+      - name: website
+        label: Website
+        type: string
+
+      - name: logo
+        label: Logo
+        type: string
+
+      - name: location
+        label: Headquarters / Location
+        type: string
+
+      - name: from
+        label: Relationship From
+        type: date
+
+      - name: to
+        label: Relationship To
+        type: date
+
+      - name: relationship
+        label: Relationship
+        type: select
+        options:
+          values:
+            - employee
+            - contractor
+            - consultant
+            - volunteer
+            - student
+            - customer
+            - supplier
+            - partner
+            - member
+
+      - name: role
+        label: Role / Position
+        type: string
+
+      - name: featured
+        label: Featured
+        type: boolean
+
+      - name: visibility
+        label: Visibility
+        type: select
+        options:
+          values:
+            - public
+            - private
+            - restricted
+
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+
+  - name: blog
+    label: Blog
+    type: collection
+    path: src/content/blog
+    filename: "{fields.slug}.md"
+    format: yaml-frontmatter
+
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+
+      - name: slug
+        label: Slug
+        type: string
+        required: true
+
+      - name: summary
+        label: Summary
+        type: text
+
+      - name: published
+        label: Published
+        type: date
+
+      - name: updated
+        label: Last Updated
+        type: date
+
+      - name: featured
+        label: Featured
+        type: boolean
+
+      - name: visibility
+        label: Visibility
+        type: select
+        options:
+          values:
+            - public
+            - private
+            - restricted
+
+      - name: category
+        label: Category
+        type: select
+        options:
+          values:
+            - case-study
+            - learning
+            - technical-note
+            - project-update
+            - architecture
+            - opinion
+            - research
+            - announcement
+
+      - name: relatedProjects
+        label: Related Projects
+        type: string
+        list: true
+
+      - name: relatedDomains
+        label: Related Domains
+        type: string
+        list: true
+
+      - name: relatedSkills
+        label: Related Skills
+        type: string
+        list: true
+
+      - name: relatedTechnologies
+        label: Related Technologies
+        type: string
+        list: true
+
+      - name: relatedTools
+        label: Related Tools
+        type: string
+        list: true
+
+      - name: relatedEvidence
+        label: Related Evidence
+        type: string
+        list: true
+
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+
+      - name: body
+        label: Content
+        type: rich-text

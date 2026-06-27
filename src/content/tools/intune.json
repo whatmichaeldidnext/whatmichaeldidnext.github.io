@@ -1,5 +1,6 @@
 {
   "id": "intune",
   "name": "Microsoft Intune",
-  "summary": "Endpoint management platform used for provisioning, configuration and policy management."
+  "summary": "Endpoint management platform used for provisioning, configuration and policy management.",
+  "slug": "intune"
 }

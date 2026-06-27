@@ -112,5 +112,6 @@
     "legacy-pstn",
     "network-readiness"
   ],
-  "links": []
+  "links": [],
+  "slug": "ms-teams-calling"
 }
