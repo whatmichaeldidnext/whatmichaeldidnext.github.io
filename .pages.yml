@@ -14,21 +14,152 @@ content:
         label: ID
         type: string
         required: true
+
       - name: title
         label: Title
         type: string
         required: true
+
+      - name: parentProject
+        label: Parent Project ID
+        type: string
+
       - name: summary
         label: Summary
         type: text
+
+      - name: context
+        label: Context
+        type: text
+
+      - name: challenge
+        label: Challenge
+        type: text
+
+      - name: approach
+        label: Approach
+        type: text
+
+      - name: role
+        label: Roles
+        type: string
+        list: true
+
+      - name: outcome
+        label: Outcome
+        type: text
+
+      - name: impact
+        label: Impact
+        type: object
+        fields:
+          - name: whyItMattered
+            label: Why it mattered
+            type: text
+          - name: publicValue
+            label: Public value
+            type: string
+            list: true
+          - name: organisationalValue
+            label: Organisational value
+            type: string
+            list: true
+          - name: stakeholders
+            label: Stakeholders
+            type: string
+            list: true
+
+      - name: lessons
+        label: Lessons
+        type: text
+
       - name: status
         label: Status
         type: select
         options:
           values:
-            - draft
-            - published
+            - planned
+            - active
+            - completed
             - archived
+
       - name: featured
         label: Featured
         type: boolean
+
+      - name: from
+        label: From
+        type: date
+
+      - name: to
+        label: To
+        type: date
+
+      - name: employer
+        label: Employer
+        type: object
+        fields:
+          - name: id
+            label: Employer ID
+            type: string
+          - name: relationship
+            label: Relationship
+            type: string
+          - name: roleTitle
+            label: Role Title
+            type: string
+
+      - name: domains
+        label: Domains
+        type: string
+        list: true
+
+      - name: skills
+        label: Skills
+        type: string
+        list: true
+
+      - name: technologies
+        label: Technologies
+        type: string
+        list: true
+
+      - name: tools
+        label: Tools
+        type: string
+        list: true
+
+      - name: thinking
+        label: Thinking / Themes
+        type: string
+        list: true
+
+      - name: artifacts
+        label: Artifacts
+        type: string
+        list: true
+
+      - name: qualifications
+        label: Qualifications
+        type: string
+        list: true
+
+      - name: relatedProjects
+        label: Related Projects
+        type: string
+        list: true
+
+      - name: links
+        label: Links
+        type: object
+        list: true
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: url
+            label: URL
+            type: string
+          - name: type
+            label: Link Type
+            type: string
