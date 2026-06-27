@@ -1,25 +1,17 @@
 ---
 title: Hello, World!
 slug: hello-world
-summary: A brief introduction to the new Insights section and the thinking behind this portfolio.
+summary: A brief introduction to the new Insights section and the thinking
+  behind this portfolio.
 published: 2026-06-27
-featured: false
+updated: 2026-06-27
+featured: true
 visibility: public
-
 category: announcement
-
-relatedProjects: []
-relatedDomains: []
-relatedSkills: []
-relatedTechnologies: []
-relatedTools: []
-relatedEvidence: []
-
 tags:
   - portfolio
   - insights
 ---
-
 # Hello, World!
 
 Welcome to the new **Insights** section.
