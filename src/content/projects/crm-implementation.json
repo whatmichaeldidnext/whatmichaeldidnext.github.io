@@ -1,6 +1,7 @@
 {
   "id": "crm-implementation",
   "title": "CRM Implementation",
+  "slug": "crm-implementation",
   "summary": "Managed the implementation of a new Customer Relationship Management platform, coordinating business stakeholders, technical teams and suppliers to replace legacy systems and processes within a unified solution.",
   "context": "The organisation required a modern CRM platform capable of improving customer engagement, consolidating their fragmented processes and providing improved reporting functions across operational teams and the public.",
   "challenge": "Deliver a CRM implementation balancing technical delivery with organisational and strategic change, ensuring business requirements were captured, data migration risks were managed and users were successfully transitioned onto the new platform.",
@@ -39,7 +40,8 @@
   "lessons": "CRM projects are primarily organisational change initiatives rather than software deployments. Early stakeholder engagement, clear business ownership and structured change management were critical to successful adoption.",
   "status": "completed",
   "featured": true,
-  "year": 2022,
+  "from": "2026-06-27",
+  "to": "2026-06-27",
   "employer": {
     "id": "london-borough-tower-hamlets-local-authority",
     "relationship": "employee",
@@ -47,7 +49,6 @@
   },
   "domains": [
     "project-management",
-    "agile-delivery",
     "crm",
     "business-analysis",
     "digital-transformation",
@@ -106,7 +107,5 @@
   ],
   "qualifications": [
     "apm-pmq"
-  ],
-  "links": [],
-  "slug": "crm-implementation"
+  ]
 }
