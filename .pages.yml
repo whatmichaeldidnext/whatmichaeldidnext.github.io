@@ -20,7 +20,7 @@ content:
         type: string
         required: true
 
-      - name: x`
+      - name: slug
         label: Slug
         type: string
         required: false
