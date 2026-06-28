@@ -1,14 +1,33 @@
 {
   "id": "msc-computer-science",
-  "name": "MSc Computer Science",
-  "institution": "Birkbeck, University of London",
+  "name": "Computer Science",
+  "slug": "msc-comp-sci",
   "summary": "Postgraduate study focusing on software engineering, computer science fundamentals, cybersecurity and modern software development practices.",
-  "focus": [
-    "Cyber Security",
-    "Software Development"
+  "awardingBody": "Birkbeck College, University of London",
+  "level": "Masters Degree (Sciences)",
+  "awarded": 1,
+  "expires": "2026-06-28",
+  "current": false,
+  "featured": false,
+  "visibility": "public",
+  "relatedSkills": [
+    "system-design",
+    "technical-documentation",
+    "technical-writing",
+    "process-design",
+    "requirements-analysis",
+    "academic-writing",
+    "data-analysis",
+    "data-architecture",
+    "data-cleansing",
+    "data-modelling"
   ],
-  "type": "Masters degree",
-  "classification": "(pending)",
-  "awarded": "Oct 2026",
-  "status": "in-progress"
+  "relatedDomains": [
+    "computer-science",
+    "cybersecurity",
+    "network-security",
+    "research",
+    "software-dev",
+    "service-design"
+  ]
 }
