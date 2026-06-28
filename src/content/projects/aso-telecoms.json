@@ -1,12 +1,7 @@
 {
   "id": "aso-telecoms",
   "title": "Analogue Switch-Off Programme",
-  "parentProject": null,
-  "dependsOn": [
-    "aso-datalake",
-    "aso-devices",
-    "ms-teams-calling"
-  ],
+  "slug": "aso-telecoms",
   "summary": "Led the technical delivery of a large-scale communications transformation programme preparing a geographically dispersed estate for the UK's withdrawal of analogue PSTN services through modern IP communications, improved programme intelligence and scalable operational delivery.",
   "context": "The national withdrawal of analogue PSTN services required organisations to modernise legacy telecommunications infrastructure before fixed regulatory deadlines. Across a diverse estate of more than 1,000 locations, existing telephony services, network readiness, endpoint strategy and operational processes all required assessment, redesign and coordinated delivery while maintaining continuity of business-critical communications.",
   "challenge": "Develop a scalable transformation programme capable of coordinating multiple technical workstreams, improving programme visibility, reducing uncertainty created by fragmented legacy data and delivering communications modernisation within nationally imposed timescales.",
@@ -47,9 +42,10 @@
     ]
   },
   "lessons": "Large-scale transformation programmes succeed by creating organisational capability rather than simply delivering technology. Trusted information, repeatable delivery processes and strong stakeholder engagement provide the foundations upon which successful technical implementation depends.",
-  "status": "in-progress",
+  "status": "active",
   "featured": true,
-  "year": 2026,
+  "from": "2026-06-28",
+  "to": "2026-06-28",
   "employer": {
     "id": "the-salvation-army-uk-ireland",
     "relationship": "ftc employee",
@@ -69,7 +65,6 @@
   ],
   "skills": [
     "programme-management",
-    "project-management",
     "stakeholder-management",
     "business-analysis",
     "requirements-analysis",
@@ -114,12 +109,9 @@
     "risk-framework",
     "communications-strategy"
   ],
-  "qualifications": [],
   "relatedProjects": [
     "aso-datalake",
     "aso-devices",
     "ms-teams-calling"
-  ],
-  "links": [],
-  "slug": "aso-telecoms"
+  ]
 }
