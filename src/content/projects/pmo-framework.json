@@ -1,7 +1,8 @@
 {
   "id": "pmo-framework",
   "title": "Project Management Office (PMO) Capability Framework",
-  "parentProject": null,
+  "slug": "pmo-framework",
+  "compStatus": "Completed",
   "summary": "Led an internal transformation initiative to establish a Project Management Office (PMO) capability within a growing consultancy, developing a standardised project delivery framework that captured organisational knowledge and promoted consistent delivery practices across the business.",
   "context": "As the consultancy expanded, project managers had developed individual approaches to project delivery based on extensive personal experience. While this provided flexibility, it also created inconsistencies in governance, documentation and customer delivery. The organisation recognised the need to consolidate best practice into a repeatable delivery framework without losing the practical expertise of experienced consultants.",
   "challenge": "Design a practical PMO framework capable of standardising project delivery while remaining lightweight, adaptable and valuable to experienced project managers. The solution needed to encourage adoption through collaboration rather than enforcement.",
@@ -41,7 +42,8 @@
   "lessons": "Effective project management frameworks are built collaboratively rather than imposed. Capturing practical experience from delivery teams produced a framework that reflected how successful projects were actually delivered, encouraging adoption through ownership rather than compliance.",
   "status": "completed",
   "featured": true,
-  "year": 2023,
+  "from": "2022-11-01",
+  "to": "2023-12-01",
   "employer": {
     "id": "daintta",
     "relationship": "employee",
@@ -67,7 +69,6 @@
     "change-management",
     "technical-documentation"
   ],
-  "technologies": [],
   "tools": [
     "sharepoint",
     "excel",
@@ -91,9 +92,5 @@
     "best-practice-guide",
     "knowledge-library",
     "training-material"
-  ],
-  "qualifications": [],
-  "relatedProjects": [],
-  "links": [],
-  "slug": "pmo-framework"
+  ]
 }
