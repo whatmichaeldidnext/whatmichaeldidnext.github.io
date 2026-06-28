@@ -2,6 +2,8 @@
   "id": "prince2-foundation",
   "name": "PRINCE2® Foundation",
   "summary": "Foundation-level certification in the PRINCE2 project management methodology, covering the principles, practices and terminology of structured project delivery.",
-  "awarded": 2018,
-  "status": "active"
+  "awarded": "July 2018",
+  "current": true,
+  "featured": false,
+  "visibility": "public"
 }
