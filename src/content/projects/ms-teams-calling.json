@@ -1,7 +1,9 @@
 {
   "id": "ms-teams-calling",
   "title": "Microsoft Teams Calling – Enterprise Communications Transformation",
+  "slug": "ms-teams-calling",
   "parentProject": "aso-telecoms",
+  "compStatus": "Completed",
   "summary": "Led the transition from traditional telephony to Microsoft Teams Calling, enabling a cloud-first communications platform that modernised enterprise voice services, simplified endpoint strategy and supported new ways of working.",
   "context": "As part of the wider Analogue Switch-Off programme, legacy telephony infrastructure required replacement with a sustainable IP-based communications platform. The project extended beyond technology implementation, requiring organisational change, new operational processes and user adoption across multiple business functions.",
   "challenge": "Deliver a large-scale migration from legacy telephony to Microsoft Teams Calling while maintaining business continuity, supporting diverse user requirements and coordinating technical, operational and organisational dependencies.",
@@ -41,7 +43,13 @@
   "lessons": "Enterprise communications projects are organisational change programmes rather than technology deployments. Sustainable adoption depends on aligning technology, operational processes, governance and user experience throughout the transformation journey.",
   "status": "completed",
   "featured": true,
-  "year": 2026,
+  "from": "2023-12-01",
+  "to": "2024-05-01",
+  "employer": {
+    "id": "the-salvation-army-uk-ireland",
+    "relationship": "ftc employee",
+    "roleTitle": "Senior Technical Project manager"
+  },
   "domains": [
     "telecoms",
     "ip-comms",
@@ -105,13 +113,10 @@
     "endpoint-standard",
     "teams-calling-migration-plan"
   ],
-  "qualifications": [],
   "relatedProjects": [
     "aso-devices",
     "aso-telecoms",
     "legacy-pstn",
     "network-readiness"
-  ],
-  "links": [],
-  "slug": "ms-teams-calling"
+  ]
 }
