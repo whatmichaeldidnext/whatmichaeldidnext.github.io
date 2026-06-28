@@ -1,7 +1,8 @@
 {
   "id": "gov-network-security-ddos",
   "title": "Government Network Security & DDoS Resilience Programme",
-  "parentProject": null,
+  "slug": "gov-network-security-ddos",
+  "compStatus": "Completed",
   "summary": "Managed a high-priority consultancy project to support a government body affected by DDoS disruption, coordinating the implementation of new network security hardware and software to strengthen resilience, improve protection and support continuity of public services.",
   "context": "A government body required urgent improvement to its network security posture following DDoS-related disruption. The project involved implementing new security assets within a sensitive public-sector environment where service availability, governance, supplier coordination and risk management were critical.",
   "challenge": "Deliver security improvements at pace while maintaining operational stability, coordinating multiple technical and supplier teams, managing public-sector governance requirements and ensuring the organisation could better withstand future network-based attacks.",
@@ -42,7 +43,8 @@
   "lessons": "High-priority security projects require disciplined delivery under pressure. Successful outcomes depend on clear governance, rapid coordination, trusted technical expertise and an understanding that cyber resilience is ultimately about protecting service continuity, not simply deploying security tools.",
   "status": "completed",
   "featured": true,
-  "year": 2020,
+  "from": "2021-03-15",
+  "to": "2021-05-10",
   "employer": {
     "id": "bt-group",
     "relationship": "ftc employee",
@@ -111,7 +113,5 @@
     "msc-data-exposure",
     "home-lab",
     "pmo-framework"
-  ],
-  "links": [],
-  "slug": "gov-network-security-ddos"
+  ]
 }
