@@ -1,7 +1,10 @@
 {
   "id": "ip-comms",
-  "name": "IP Communications",
+  "name": "IP Comms",
+  "slug": "ip-comms",
   "description": "Migration from legacy telephony to cloud-first IP communications including Microsoft Teams Calling and endpoint strategy.",
-  "status": "professional",
-  "slug": "ip-comms"
+  "discipline": "technology",
+  "category": "operational",
+  "featured": false,
+  "visibility": "public"
 }
