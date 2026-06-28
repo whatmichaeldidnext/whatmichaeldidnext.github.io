@@ -2,6 +2,8 @@
   "id": "prince2-practitioner",
   "name": "PRINCE2® Practitioner",
   "summary": "Practitioner-level certification demonstrating the application of the PRINCE2 methodology to real-world project environments and governance.",
-  "awarded": 2018,
-  "status": "active"
+  "awarded": "July 2018",
+  "current": true,
+  "featured": false,
+  "visibility": "public"
 }
