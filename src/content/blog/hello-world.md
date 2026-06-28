@@ -5,8 +5,8 @@ summary: A brief introduction to the new Insights section and the thinking
   behind this portfolio.
 published: 2026-06-27
 updated: 2026-06-27
-featured: true
-visibility: public
+featured: false
+visibility: restricted
 category: announcement
 tags:
   - portfolio
