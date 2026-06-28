@@ -1,15 +1,15 @@
 {
   "id": "ba-english",
   "name": "BA (Hons) English",
-  "institution": "Goldsmiths, University of London",
   "summary": "Undergraduate degree focused on critical analysis, research, communication and academic writing, graduating with Upper Second-Class Honours (2:1).",
-  "focus": [
-    "Computational Sociolinguistics",
-    "English Literature",
-    "Language as Data"
-  ],
-  "type": "Bachelors degree",
-  "classification": "2:1",
-  "awarded": "June 2017",
-  "status": "completed"
+  "awardingBody": "Goldsmiths College, University of London",
+  "level": "Bachelors Degree",
+  "awarded": 1,
+  "current": true,
+  "featured": false,
+  "visibility": "public",
+  "relatedDomains": [
+    "academic-writing",
+    "reporting"
+  ]
 }
