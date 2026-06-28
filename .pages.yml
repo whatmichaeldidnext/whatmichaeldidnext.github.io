@@ -414,7 +414,7 @@ content:
 
       - name: awarded
         label: Awarded
-        type: number
+        type: string
 
       - name: expires
         label: Expires
