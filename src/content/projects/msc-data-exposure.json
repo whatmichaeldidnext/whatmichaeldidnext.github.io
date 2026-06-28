@@ -1,6 +1,8 @@
 {
   "id": "msc-data-exposure",
   "title": "Graph-Based Visualisation of Username-Linked Data Exposure",
+  "slug": "msc-data-exposure",
+  "compStatus": "In Progress",
   "summary": "Designed and developed an ethically constrained proof-of-concept that explores how publicly available usernames can be used to infer relationships between social media platforms, data brokers and wider online identity through interactive graph visualisation.",
   "context": "Modern digital identities are distributed across hundreds of online services, many of which expose fragments of publicly accessible information. This research investigates how those fragments can be aggregated to better understand digital exposure while deliberately avoiding deterministic identification or encouraging misuse.",
   "challenge": "Design a research platform capable of visualising username-linked relationships across online services while balancing technical capability with ethical responsibility, privacy-by-design principles and misuse prevention.",
@@ -38,9 +40,10 @@
     ]
   },
   "lessons": "Engineering capability should always be accompanied by ethical responsibility. Designing systems that are transparent, privacy-conscious and resistant to misuse is as important as solving the technical problem itself.",
-  "status": "in-progress",
+  "status": "active",
   "featured": true,
-  "year": 2026,
+  "from": "2026-04-28",
+  "to": "2026-09-28",
   "domains": [
     "computer-science",
     "cybersecurity",
@@ -117,16 +120,5 @@
     "home-lab",
     "portfolio-platform",
     "bug-bounty-learning"
-  ],
-  "links": [
-    {
-      "title": "Dissertation",
-      "url": ""
-    },
-    {
-      "title": "Source Code",
-      "url": ""
-    }
-  ],
-  "slug": "msc-data-exposure"
+  ]
 }
