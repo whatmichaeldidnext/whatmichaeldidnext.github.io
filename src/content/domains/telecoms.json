@@ -1,7 +1,12 @@
 {
   "id": "telecoms",
   "name": "Telecommunications",
+  "slug": "telecoms",
   "description": "Designing, modernising and transitioning enterprise communications platforms including PSTN, VoIP and unified communications.",
-  "status": "professional",
-  "slug": "telecoms"
+  "discipline": "technology",
+  "category": "operational",
+  "featured": false,
+  "relatedDomains": [
+    "ip-comms"
+  ]
 }
