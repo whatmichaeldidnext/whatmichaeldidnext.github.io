@@ -1,7 +1,9 @@
 {
   "id": "aso-datalake",
   "title": "Programme Intelligence & Data Platform",
+  "slug": "aso-datalake",
   "parentProject": "aso-telecoms",
+  "compStatus": "Completed",
   "summary": "Designed and developed a programme-wide analytical data platform that transformed fragmented telecoms information into a trusted decision-support capability, enabling improved migration planning, reporting and operational governance throughout the Analogue Switch-Off programme.",
   "context": "Critical programme information existed across multiple disconnected spreadsheets, inventories and operational datasets with varying levels of quality and completeness. Without a trusted view of sites, users, devices, telephone numbers and property information, migration planning and programme reporting remained difficult and time-consuming.",
   "challenge": "Create a maintainable analytical platform capable of consolidating disparate telecoms data sources, improving data quality, supporting manual review where appropriate and establishing a trusted foundation for programme-wide reporting and operational decision making.",
@@ -41,8 +43,8 @@
   "lessons": "Successful analytics programmes begin with trusted information architecture rather than visualisation. Establishing robust data models, transparent transformation logic and governed review processes created significantly greater long-term value than dashboards alone.",
   "status": "completed",
   "featured": true,
-  "from": "01/12/2023",
-  "to": null,
+  "from": "2023-12-01",
+  "to": "2024-09-28",
   "employer": {
     "id": "the-salvation-army-uk-ireland",
     "relationship": "ftc employee",
@@ -107,13 +109,10 @@
     "aso-site-matching-framework",
     "aso-power-bi-model"
   ],
-  "qualifications": [],
   "relatedProjects": [
     "legacy-pstn",
     "aso-devices",
     "ms-teams-calling",
     "network-readiness"
-  ],
-  "links": [],
-  "slug": "aso-datalake"
+  ]
 }
