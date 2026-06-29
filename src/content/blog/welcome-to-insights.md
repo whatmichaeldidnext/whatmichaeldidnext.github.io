@@ -1,30 +1,19 @@
 ---
 title: Welcome to Insights
 slug: welcome-to-insights
-
-summary: Why this section exists, what you'll find here, and how it complements the interactive portfolio.
-
+summary: Why this section exists, what you'll find here, and how it complements
+  the interactive portfolio.
 published: 2026-06-27
-
+updated: 2026-06-29
 featured: false
-visibility: public
-
+visibility: private
 category: announcement
-
-relatedProjects: []
-relatedDomains: []
-relatedSkills: []
-relatedTechnologies: []
-relatedTools: []
-relatedEvidence: []
-
 tags:
   - portfolio
   - introduction
   - engineering
   - learning
 ---
-
 # Welcome to Insights
 
 Welcome!
