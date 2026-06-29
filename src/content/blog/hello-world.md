@@ -6,7 +6,7 @@ summary: A brief introduction to the new Insights section and the thinking
 published: 2026-06-27
 updated: 2026-06-27
 featured: false
-visibility: restricted
+visibility: private
 category: announcement
 tags:
   - portfolio
