@@ -1,0 +1,140 @@
+{
+  "id": "online-portfolio",
+  "title": "Explorable Professional Profile / Online Portfolio",
+  "slug": "online-portfolio",
+  "parentProject": "",
+  "compStatus": "In Progress",
+  "summary": "A portfolio-first professional profile designed to present experience as an explorable network of projects, domains, skills, themes and evidence, rather than as a static CV. The project brings together career history, technical work, academic development, cybersecurity interests and project delivery experience into an interactive, structured and evidence-led online presence.",
+  "context": "The portfolio was created to move beyond a traditional chronological CV and provide a richer way for users to understand professional capability. The aim is to show how different areas of experience connect across telecoms, project delivery, cybersecurity, data analysis, software development, architecture, product ownership, business analysis and academic research. The site is structured around reusable JSON records that can be edited through Pages CMS and rendered into interactive views, including project pages, thematic sections, timelines and graph-based exploration.",
+  "challenge": "The core challenge was to design a portfolio that could communicate breadth without becoming fragmented or confusing. A conventional CV format was too linear to show how skills, employers, projects, education, technologies and ways of thinking overlap. The site therefore needed a data model that could support multiple relationships between records, allow content to be maintained cleanly, and provide enough structure for future features such as filtering, timeline views, graph visualisation and AI-assisted conversational exploration.",
+  "approach": "The approach was to treat the portfolio as a structured knowledge base. Content is modelled as JSON collections for projects, employers, skills, domains, technologies, tools, qualifications, artifacts and thinking themes. Each project can connect to multiple domains, skills, tools, technologies, related projects and themes, allowing the portfolio to behave as an explorable professional graph. The homepage is designed to introduce the profile through key themes, featured projects and timeline-based context, while deeper pages provide evidence-led case studies. Pages CMS is used to make the content maintainable without editing raw files every time.",
+  "role": [
+    "Product Owner",
+    "Information Architect",
+    "Content Designer",
+    "Frontend Developer",
+    "Data Modeller",
+    "UX Designer",
+    "Technical Writer"
+  ],
+  "outcome": "The project has established a structured content model and CMS-editable foundation for a portfolio that can grow over time. It supports project case studies, employer relationships, timeline data, reusable categories and multi-domain tagging. The design creates a basis for future interactive features such as graph exploration, tailored CV generation, conversational querying and evidence-based navigation through professional experience.",
+  "impact": {
+    "whyItMattered": "The project matters because it reframes professional experience as a connected body of evidence rather than a list of job titles. It makes it easier for visitors to understand not only what work was completed, but how different capabilities combine across real projects, technical problems, organisational settings and learning experiences.",
+    "publicValue": [
+      "Provides a clearer and more transparent professional profile for recruiters, collaborators and stakeholders",
+      "Demonstrates evidence of practical delivery, technical learning and reflective thinking",
+      "Makes professional experience easier to explore through themes, projects and relationships",
+      "Creates a reusable model for presenting complex career histories in a more accessible way"
+    ],
+    "organisationalValue": [
+      "Shows how project delivery, technical analysis and strategic thinking connect across different roles",
+      "Supports clearer communication of capability to hiring managers and professional contacts",
+      "Provides a structured evidence base for future CVs, applications and interviews",
+      "Demonstrates the ability to design maintainable information systems and user-centred digital experiences"
+    ],
+    "stakeholders": [
+      "Recruiters",
+      "Hiring managers",
+      "Professional contacts",
+      "Academic supervisors",
+      "Project stakeholders",
+      "Portfolio visitors",
+      "The site owner"
+    ]
+  },
+  "lessons": "A strong portfolio needs an underlying information architecture as much as visual design. Modelling content as connected records makes the site more flexible, but it also requires careful naming, consistent IDs, controlled vocabularies and a clear distinction between primary categories and related themes. The project also highlighted the value of designing for future extension: timeline views, graph navigation, tailored CV generation and AI-assisted exploration are easier to add when the content model is clean from the beginning.",
+  "status": "active",
+  "featured": true,
+  "from": "2026-06-01",
+  "to": null,
+  "employer": {
+    "id": "personal",
+    "relationship": "Personal project",
+    "roleTitle": "Portfolio Owner / Designer / Developer"
+  },
+  "domains": [
+    "Professional Portfolio",
+    "Information Architecture",
+    "Web Development",
+    "Data Modelling",
+    "UX Design",
+    "Project Delivery",
+    "Product Ownership",
+    "Cybersecurity",
+    "Software Development",
+    "Academic Research"
+  ],
+  "skills": [
+    "Content modelling",
+    "Information architecture",
+    "JSON schema design",
+    "Frontend development",
+    "User experience design",
+    "Technical writing",
+    "Project storytelling",
+    "Evidence-based case study writing",
+    "Stakeholder communication",
+    "Systems thinking",
+    "Data-driven design",
+    "Portfolio strategy"
+  ],
+  "technologies": [
+    "JSON",
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Static site generation",
+    "Content collections"
+  ],
+  "tools": [
+    "Pages CMS",
+    "Git",
+    "GitHub",
+    "VS Code",
+    "Browser developer tools"
+  ],
+  "thinking": [
+    "systems-thinking",
+    "evidence-based-profile",
+    "portfolio-first-cv-second",
+    "graph-driven-design",
+    "content-as-data",
+    "explorable-professional-profile",
+    "user-centred-communication"
+  ],
+  "artifacts": [
+    "portfolio-content-model",
+    "projects-collection-schema",
+    "thinking-collection-schema",
+    "homepage-timeline",
+    "experience-graph",
+    "project-case-study-template",
+    "portfolio-navigation-model"
+  ],
+  "qualifications": [
+    "msc-computer-science"
+  ],
+  "relatedProjects": [
+    "username-exposure-graph",
+    "analogue-switch-off",
+    "teams-calling-migration",
+    "home-server-security-model"
+  ],
+  "links": [
+    {
+      "label": "Portfolio homepage",
+      "url": "/",
+      "type": "internal"
+    },
+    {
+      "label": "Projects",
+      "url": "/projects",
+      "type": "internal"
+    },
+    {
+      "label": "Thinking",
+      "url": "/thinking",
+      "type": "internal"
+    }
+  ]
+}
