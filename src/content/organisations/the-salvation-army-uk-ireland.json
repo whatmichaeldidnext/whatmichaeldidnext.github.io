@@ -1,9 +1,11 @@
 {
   "id": "the-salvation-army-uk-ireland",
   "name": "The Salvation Army: UK & Ireland Territory",
+  "summary": "The Salvation Army is an international Christian church and charity, founded in London in 1865. Its work focuses on meeting human need without discrimination, with support spanning homelessness, poverty, debt advice, modern slavery, community welfare and international development. In the UK and Ireland, it operates through a network of churches and community centres, combining faith-based mission with practical frontline social support.",
   "category": "employer",
   "location": "London, UK",
   "from": "2023-12-01",
+  "to": "2026-07-05",
   "relationship": "contractor",
   "role": "Senior Technical Project Manager",
   "featured": false,
