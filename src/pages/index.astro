@@ -38,3 +38,20 @@ const insights = (await getCollection("blog"))
 
   </MainLayout>
 </BaseLayout>
+
+<style>
+  .hero-graph {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: stretch;
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  @media (max-width: 900px) {
+    .hero-graph {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>

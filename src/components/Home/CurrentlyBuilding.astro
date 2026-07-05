@@ -142,6 +142,19 @@ import {
         grid-template-columns:1fr;
     }
 
+.focus-panel,
+.build-card,
+.build-header {
+  min-width: 0;
+}
+
+@media (max-width: 550px) {
+  .build-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 }
 
 </style>

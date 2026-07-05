@@ -47,3 +47,89 @@ const insights = (await getCollection("blog"))
     <a href="/insights/">View all insights →</a>
   </p>
 </section>
+
+<style>
+  .insights-preview {
+    padding: 3rem 0;
+    border-top: 1px solid #334155;
+  }
+
+  .section-heading {
+    max-width: 760px;
+    margin-bottom: 2rem;
+  }
+
+  .eyebrow {
+    margin: 0 0 0.5rem;
+    color: #93c5fd;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .section-heading h2 {
+    margin: 0;
+    color: #f8fafc;
+  }
+
+  .section-heading p {
+    color: #cbd5e1;
+    line-height: 1.6;
+  }
+
+  .insights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .insight-card {
+    min-width: 0;
+    padding: 1.25rem;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .insight-meta {
+    margin: 0 0 0.75rem;
+    color: #94a3b8;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+  }
+
+  .insight-card h3 {
+    margin: 0;
+  }
+
+  .insight-card a {
+    color: #e5e7eb;
+    text-decoration: none;
+  }
+
+  .insight-card a:hover {
+    color: #93c5fd;
+  }
+
+  .insight-card p {
+    color: #cbd5e1;
+    line-height: 1.6;
+  }
+
+  .view-all {
+    margin-top: 1.5rem;
+  }
+
+  .view-all a {
+    color: #93c5fd;
+    text-decoration: none;
+  }
+
+  @media (max-width: 900px) {
+    .insights-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
