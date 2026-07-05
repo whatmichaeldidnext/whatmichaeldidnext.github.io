@@ -2,5 +2,10 @@
   "id": "automation-first",
   "name": "Automation First",
   "summary": "Reducing manual effort through automation wherever practical to improve consistency, scalability and reliability.",
-  "slug": "automation-first"
+  "category": [
+    "methodology",
+    "strategy"
+  ],
+  "featured": false,
+  "visibility": "public"
 }
