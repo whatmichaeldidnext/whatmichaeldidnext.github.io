@@ -4,10 +4,8 @@ import { z } from "astro/zod";
 
 const baseEntity = z.object({
 	id: z.string(),
-	slug: z.string(),
 	name: z.string().optional(),
 	title: z.string().optional(),
-	summary: z.string().optional(),
 	description: z.string().optional(),
 	category: z.string().optional(),
 	featured: z.boolean().optional().default(false),
