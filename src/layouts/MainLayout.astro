@@ -1,89 +1,93 @@
 ---
+const { wide = false } = Astro.props;
 ---
-    <div class="site-shell" id="site-shell">
-      <button
-        id="sidebar-toggle"
-        class="sidebar-toggle"
-        type="button"
-        aria-label="Toggle navigation"
-        aria-expanded="true"
-      >
-        ☰
-      </button>
 
-      <aside class="sidebar" id="sidebar">
-        <div class="sidebar-inner">
-          <div class="brand">
-            <a href="/" class="site-title">Michael Charles</a>
+<div class="site-shell" id="site-shell">
+  <button
+    id="sidebar-toggle"
+    class="sidebar-toggle"
+    type="button"
+    aria-label="Toggle navigation"
+    aria-expanded="true"
+  >
+    ☰
+  </button>
 
-            <p class="site-subtitle">Explorable Professional Profile</p>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner">
+      <div class="brand">
+        <a href="/" class="site-title">Michael Charles</a>
 
-            <p class="site-tagline">
-              PROJECT MANAGEMENT<br />
-              DATA ANALYTICS<br />
-              CYBERSECURITY<br />
-              SOFTWARE DEVELOPMENT<br />
-              BEER BREWING NERD <br />
-              FACTORIO MASTER
-            </p>
-          </div>
+        <p class="site-subtitle">Explorable Professional Profile</p>
 
-          <nav>
-            <a href="/">Home</a>
-            <a href="/graph">Graph</a>
-            <a href="/projects">Projects</a>
-            <a href="/domains">Domains</a>
-            <a href="/skills">Skills</a>
-            <a href="/insights">Insights</a>
-            <a href="/contact">Contact</a>
-          </nav>
+        <p class="site-tagline">
+          PROJECT MANAGEMENT<br />
+          DATA ANALYTICS<br />
+          CYBERSECURITY<br />
+          SOFTWARE DEVELOPMENT<br />
+          BEER BREWING NERD<br />
+          FACTORIO MASTER
+        </p>
+      </div>
 
-          <div class="sidebar-footer">
-            <p>Built in a week, fuelled by Hyperfocus</p>
-            <p>© {new Date().getFullYear()}</p>
-          </div>
-        </div>
-      </aside>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/graph">Graph</a>
+        <a href="/projects">Projects</a>
+        <a href="/domains">Domains</a>
+        <a href="/skills">Skills</a>
+        <a href="/insights">Insights</a>
+        <a href="/contact">Contact</a>
+      </nav>
 
-      <div class="page-column">
-        <main>
-          <slot />
-        </main>
-
-        <footer>
-          <p>© {new Date().getFullYear()} Michael Charles</p>
-        </footer>
+      <div class="sidebar-footer">
+        <p>Built in a week, fuelled by Hyperfocus</p>
+        <p>© {new Date().getFullYear()}</p>
       </div>
     </div>
+  </aside>
 
-    <script>
-      const toggleButton = document.getElementById("sidebar-toggle");
-      const siteShell = document.getElementById("site-shell");
+  <div class="page-column">
+    <main class:list={["content-frame", { "content-frame-wide": wide }]}>
+      <slot />
+    </main>
 
-      const storageKey = "portfolio-sidebar-collapsed";
+    <footer>
+      <p>© {new Date().getFullYear()} Michael Charles</p>
+    </footer>
+  </div>
+</div>
 
-      const applySidebarState = (collapsed) => {
-        if (!siteShell || !toggleButton) return;
+<script>
+  const toggleButton = document.getElementById("sidebar-toggle");
+  const siteShell = document.getElementById("site-shell");
+  const storageKey = "portfolio-sidebar-collapsed";
+  const mobileQuery = window.matchMedia("(max-width: 900px)");
 
-        siteShell.classList.toggle("sidebar-collapsed", collapsed);
-        toggleButton.setAttribute("aria-expanded", String(!collapsed));
-      };
+  const applySidebarState = (collapsed) => {
+    if (!siteShell || !toggleButton) return;
 
-      const savedState = localStorage.getItem(storageKey);
+    siteShell.classList.toggle("sidebar-collapsed", collapsed);
+    toggleButton.setAttribute("aria-expanded", String(!collapsed));
+  };
 
-      if (savedState === "true") {
-        applySidebarState(true);
-      }
+  const savedState = localStorage.getItem(storageKey);
 
-      toggleButton?.addEventListener("click", () => {
-        if (!siteShell) return;
+  if (savedState === null) {
+    applySidebarState(mobileQuery.matches);
+  } else {
+    applySidebarState(savedState === "true");
+  }
 
-        const collapsed = !siteShell.classList.contains("sidebar-collapsed");
+  toggleButton?.addEventListener("click", () => {
+    if (!siteShell) return;
 
-        applySidebarState(collapsed);
-        localStorage.setItem(storageKey, String(collapsed));
-      });
-    </script>
+    const collapsed = !siteShell.classList.contains("sidebar-collapsed");
+
+    applySidebarState(collapsed);
+    localStorage.setItem(storageKey, String(collapsed));
+  });
+</script>
 
 <style>
   .site-shell {
@@ -103,10 +107,10 @@
   }
 
   .sidebar {
-    position: sticky;
-    top: 0;
+    position: relative;
+
     height: 100vh;
-    overflow: hidden;
+    overflow: visible;
 
     border-right: 1px solid var(--border);
     background: rgba(2, 6, 23, 0.94);
@@ -124,7 +128,7 @@
   }
 
   .sidebar-inner {
-    height: 100%;
+    min-height: 100%;
     padding: 2rem 1.5rem;
 
     display: flex;
@@ -148,8 +152,8 @@
   }
 
   .site-title:hover {
-    text-decoration: none;
     color: var(--accent);
+    text-decoration: none;
   }
 
   .site-subtitle {
@@ -209,25 +213,31 @@
 
   .page-column {
     min-width: 0;
+    width: 100%;
   }
 
-  main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 3rem 2rem 5rem;
+  .content-frame,
+  footer {
+    width: min(100%,1420px);
+    margin-inline: auto;
+  }
+
+  .content-frame {
+    padding: clamp(2rem, 3vw, 3rem) clamp(1rem, 3vw, 2.5rem) 5rem;
+  }
+
+  .content-frame-wide {
+    width: min(100%, 1600px);
   }
 
   footer {
-    max-width: 1200px;
-    margin: 0 auto;
-
     display: flex;
     justify-content: space-between;
     gap: 1rem;
     flex-wrap: wrap;
 
     border-top: 1px solid var(--border);
-    padding: 1.5rem 2rem;
+    padding: 1.5rem clamp(1rem, 3vw, 2.5rem);
   }
 
   footer p {
@@ -288,33 +298,44 @@
       grid-template-columns: minmax(0, 1fr);
     }
 
+    .site-shell.sidebar-collapsed {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
     .sidebar {
       position: fixed;
       z-index: 150;
+
       width: var(--sidebar-width);
+      height: 100dvh;
+
       left: 0;
       top: 0;
+
+      overflow-y: auto;
     }
 
     .site-shell.sidebar-collapsed .sidebar {
+      opacity: 0;
       transform: translateX(-100%);
+      pointer-events: none;
     }
 
     .site-shell:not(.sidebar-collapsed) .sidebar {
-      transform: translateX(0);
       opacity: 1;
+      transform: translateX(0);
       pointer-events: auto;
     }
 
     .sidebar-toggle {
-      left: calc(var(--sidebar-width) - (var(--toggle-size) / 2));
-    }
-
-    .site-shell.sidebar-collapsed .sidebar-toggle {
       left: 1rem;
     }
 
-    main {
+    .site-shell:not(.sidebar-collapsed) .sidebar-toggle {
+      left: calc(var(--sidebar-width) - (var(--toggle-size) / 2));
+    }
+
+    .content-frame {
       padding: 5rem 1rem 4rem;
     }
 
