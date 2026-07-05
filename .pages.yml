@@ -345,6 +345,7 @@ content:
         label: Category
         type: select
         options:
+          multiple: true
           values:
             - technical
             - methodology
@@ -480,6 +481,7 @@ content:
         label: Category
         type: select
         options:
+          multiple: true
           values:
             - technical
             - analytical
@@ -611,6 +613,7 @@ content:
         label: Category
         type: select
         options:
+          multiple: true
           values:
             - mindset
             - principle
@@ -672,6 +675,7 @@ content:
         label: Category
         type: select
         options:
+          multiple: true
           values:
             - analytics
             - collaboration
@@ -855,6 +859,7 @@ content:
         label: Category
         type: select
         options:
+          multiple: true
           values:
             - case-study
             - learning
