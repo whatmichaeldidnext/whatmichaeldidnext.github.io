@@ -7,5 +7,6 @@
     "strategy",
     "mindset"
   ],
-  "featured": false
+  "featured": false,
+  "visibility": "public"
 }
