@@ -35,7 +35,7 @@ const posts = (await getCollection("blog"))
           </p>
 
           <h2>
-            <a href={`/insights/${post.data.slug}/`}>{post.data.title}</a>
+            <a href={`/insights/${post.id}/`}>{post.data.title}</a>
           </h2>
 
           <p>{post.data.summary}</p>
