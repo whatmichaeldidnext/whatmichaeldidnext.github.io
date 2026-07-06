@@ -1,8 +1,7 @@
 {
   "id": "online-portfolio",
-  "title": "Explorable Professional Profile / Online Portfolio",
+  "title": "Explorable Online Portfolio",
   "slug": "online-portfolio",
-  "parentProject": "",
   "compStatus": "In Progress",
   "summary": "A portfolio-first professional profile designed to present experience as an explorable network of projects, domains, skills, themes and evidence, rather than as a static CV. The project brings together career history, technical work, academic development, cybersecurity interests and project delivery experience into an interactive, structured and evidence-led online presence.",
   "context": "The portfolio was created to move beyond a traditional chronological CV and provide a richer way for users to understand professional capability. The aim is to show how different areas of experience connect across telecoms, project delivery, cybersecurity, data analysis, software development, architecture, product ownership, business analysis and academic research. The site is structured around reusable JSON records that can be edited through Pages CMS and rendered into interactive views, including project pages, thematic sections, timelines and graph-based exploration.",
@@ -38,15 +37,14 @@
       "Professional contacts",
       "Academic supervisors",
       "Project stakeholders",
-      "Portfolio visitors",
-      "The site owner"
+      "Portfolio visitors"
     ]
   },
   "lessons": "A strong portfolio needs an underlying information architecture as much as visual design. Modelling content as connected records makes the site more flexible, but it also requires careful naming, consistent IDs, controlled vocabularies and a clear distinction between primary categories and related themes. The project also highlighted the value of designing for future extension: timeline views, graph navigation, tailored CV generation and AI-assisted exploration are easier to add when the content model is clean from the beginning.",
   "status": "active",
   "featured": true,
   "from": "2026-06-01",
-  "to": null,
+  "to": "2026-07-06",
   "employer": {
     "id": "personal",
     "relationship": "Personal project",
@@ -116,8 +114,6 @@
   ],
   "relatedProjects": [
     "username-exposure-graph",
-    "analogue-switch-off",
-    "teams-calling-migration",
     "home-server-security-model"
   ],
   "links": [
