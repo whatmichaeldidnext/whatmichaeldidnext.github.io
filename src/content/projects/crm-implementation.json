@@ -80,16 +80,15 @@
     "powershell",
     "sql-database",
     "condecco",
-    "python"
+    "python",
+    "granicus"
   ],
   "tools": [
     "ms-project",
     "excel",
     "sharepoint",
     "monday",
-    "jira",
-    "granicus",
-    "condecco"
+    "jira"
   ],
   "thinking": [
     "customer-centric",
