@@ -1,7 +1,28 @@
 {
   "id": "crm",
   "name": "Customer Relationship Management (CRM)",
+  "slug": "crm",
   "description": "Implementing and improving CRM platforms and business processes to enhance customer engagement and organisational effectiveness.",
-  "status": "active",
-  "slug": "crm"
+  "discipline": "technology",
+  "category": [
+    "technical",
+    "operational",
+    "strategic"
+  ],
+  "featured": false,
+  "visibility": "public",
+  "relatedDomains": [
+    "software-dev",
+    "digital-transformation",
+    "cybersecurity",
+    "network-security",
+    "data-analytics",
+    "data-architecture",
+    "data-security",
+    "digital-resilience",
+    "organisational-development",
+    "service-transition",
+    "public-sector",
+    "vendor-relations"
+  ]
 }
