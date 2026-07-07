@@ -1,7 +1,17 @@
 {
   "id": "business-analysis",
   "name": "Business Analysis",
+  "slug": "business-analysis",
   "description": "Understanding business needs, defining requirements and translating them into practical technical and operational solutions.",
-  "status": "active",
-  "slug": "business-analysis"
+  "discipline": "business",
+  "category": [
+    "operational",
+    "strategic",
+    "methodology"
+  ],
+  "featured": false,
+  "relatedDomains": [
+    "programme-management",
+    "project-management"
+  ]
 }
