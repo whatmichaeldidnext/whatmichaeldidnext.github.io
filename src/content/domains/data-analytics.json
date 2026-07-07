@@ -1,7 +1,23 @@
 {
   "id": "data-analytics",
   "name": "Data Analytics",
+  "slug": "data-analytics",
   "description": "Using structured data modelling and analytical techniques to improve programme delivery, reporting and operational decision-making.",
-  "status": "professional",
-  "slug": "data-analytics"
+  "discipline": "technology",
+  "category": [
+    "technical",
+    "academic",
+    "strategic",
+    "operational",
+    "professional"
+  ],
+  "featured": false,
+  "visibility": "public",
+  "relatedDomains": [
+    "business-analysis",
+    "crm",
+    "data-architecture",
+    "data-security",
+    "knowledge-graphs"
+  ]
 }
