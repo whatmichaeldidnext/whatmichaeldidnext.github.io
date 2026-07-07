@@ -1,7 +1,28 @@
 {
   "id": "entra",
   "name": "Microsoft Entra",
+  "slug": "entra",
   "description": "Identity, authentication and access management using Microsoft Entra as part of enterprise cloud solutions.",
-  "status": "professional",
-  "slug": "entra"
+  "discipline": "technology",
+  "category": [
+    "technical",
+    "professional",
+    "methodology",
+    "operational"
+  ],
+  "featured": false,
+  "visibility": "public",
+  "relatedDomains": [
+    "intune",
+    "cybersecurity",
+    "digital-transformation",
+    "data-architecture",
+    "data-analytics",
+    "digital-resilience",
+    "data-security",
+    "network-security",
+    "government",
+    "consultancy",
+    "public-sector"
+  ]
 }
