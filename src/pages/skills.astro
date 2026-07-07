@@ -40,7 +40,7 @@ const getProjectsForSkill = (skillId) =>
 
       return (
 
-        <Card href={`/skills/${skill.slug}`}>
+        <Card href={`/skills/${skill.slug ?? skill.id}`}>
 
           <h2>{skill.name}</h2>
 

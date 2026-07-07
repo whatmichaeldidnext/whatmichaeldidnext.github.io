@@ -42,7 +42,7 @@ const getProjectsForDomain = (domainId) =>
 
       return (
 
-        <Card href={`/domains/${domain.slug}`}>
+        <Card href={`/domains/${domain.slug ?? domain.id}`}>
 
           <h2>{domain.name}</h2>
 

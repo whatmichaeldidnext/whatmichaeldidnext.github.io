@@ -6,9 +6,9 @@ export async function getStaticPaths() {
   const domains = await getCollection("domains");
 
   return domains
-    .filter((domain) => domain.data.slug)
     .map((domain) => ({
-      params: { slug: domain.data.slug },
+      params: { slug: domain.data.slug ?? domain.data.id,
+      },
       props: { domain },
     }));
 }

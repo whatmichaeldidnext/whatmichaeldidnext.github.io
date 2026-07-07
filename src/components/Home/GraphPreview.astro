@@ -1,174 +1,108 @@
 ---
-import {
-  Button
-} from "../../components";
 ---
 
 <aside class="graph-preview-card">
-    <div class="mini-graph" aria-hidden="true">
-      <svg class="mini-graph-lines" viewBox="0 0 400 260">
-        <line x1="200" y1="120" x2="80" y2="70" />
-        <line x1="200" y1="120" x2="320" y2="70" />
-        <line x1="200" y1="120" x2="110" y2="200" />
-        <line x1="200" y1="120" x2="310" y2="200" />
-      </svg>
+  <svg
+    class="mini-graph"
+    viewBox="0 0 420 280"
+    role="img"
+    aria-label="Preview of connected portfolio graph"
+  >
+    <g class="graph-lines">
+      <line x1="210" y1="130" x2="90" y2="65" />
+      <line x1="210" y1="130" x2="330" y2="65" />
+      <line x1="210" y1="130" x2="105" y2="215" />
+    </g>
 
-      <span class="preview-node preview-project">Project</span>
-      <span class="preview-node preview-domain">Domain</span>
-      <span class="preview-node preview-skill">Skill</span>
-      <span class="preview-node preview-tool">
-        <span>Tool</span>
-      </span>
-    </div>
+    <g class="node domain">
+      <circle cx="90" cy="65" r="36" />
+      <text x="90" y="70">Domain</text>
+    </g>
+
+    <g class="node skill">
+      <circle cx="330" cy="65" r="36" />
+      <text x="330" y="70">Skill</text>
+    </g>
+
+    <g class="node project">
+      <rect x="160" y="100" width="100" height="60" rx="12" />
+      <text x="210" y="135">Project</text>
+    </g>
+
+    <g class="node tool" transform="translate(105 215)">
+      <rect x="-28" y="-28" width="56" height="56" transform="rotate(45)" />
+      <text x="0" y="5">Tool</text>
+    </g>
+  </svg>
 
   <p>
     Explore how projects, domains, skills and tools connect through an
     interactive graph-driven view.
-
   </p>
-
 </aside>
 
 <style>
-.graph-preview-card {
-position: relative;
-overflow: hidden;
-border: 1px solid #334155;
-border-radius: 18px;
-background: #020617;
-padding: 1.5rem;
-}
-
-.mini-graph {
-position: relative;
-height: 260px;
-margin-bottom: 1.5rem;
-}
-
-.mini-graph svg {
-position: absolute;
-inset: 0;
-width: 100%;
-height: 100%;
-}
-
-.mini-graph line {
-stroke: #334155;
-stroke-width: 2;
-}
-
-.mini-graph-lines {
-position: absolute;
-inset: 0;
-z-index: 1;
-width: 100%;
-height: 100%;
-pointer-events: none;
-}
-
-.mini-graph-lines line {
-stroke: #334155;
-stroke-width: 2;
-}
-
-.preview-node {
-position: absolute;
-z-index: 5;
-display: flex;
-align-items: center;
-justify-content: center;
-box-sizing: border-box;
-background: #0f172a;
-color: #e5e7eb;
-font-size: 0.75rem;
-font-weight: 700;
-border: 2px solid;
-}
-
-.preview-project {
-left: 50%;
-top: 45%;
-width: 100px;
-height: 64px;
-transform: translate(-50%, -50%);
-border-color: #60a5fa;
-border-radius: 14px;
-}
-
-.preview-domain {
-left: 8%;
-top: 16%;
-width: 76px;
-height: 76px;
-border-color: #a78bfa;
-border-radius: 999px;
-}
-
-.preview-skill {
-right: 8%;
-top: 16%;
-width: 76px;
-height: 76px;
-border-color: #34d399;
-border-radius: 999px;
-}
-
-.preview-tool {
-left: 14%;
-bottom: 8%;
-width: 74px;
-height: 74px;
-border: none;
-background: transparent;
-}
-
-.preview-tool::before {
-content: "";
-position: absolute;
-inset: 8px;
-z-index: 1;
-border: 2px solid #fbbf24;
-background: #0f172a;
-transform: rotate(45deg);
-}
-
-.preview-tool span {
-position: relative;
-z-index: 2;
-display: block;
-line-height: 1;
-}
-
-.graph-preview-card {
-position: relative;
-overflow: hidden;
-border: 1px solid #334155;
-border-radius: 18px;
-background: #020617;
-padding: 1.5rem;
-
-height: 100%;
-min-width: 0;
-
-display: flex;
-flex-direction: column;
-}
-
-.eyebrow {
-color: #93c5fd;
-text-transform: uppercase;
-letter-spacing: 0.08em;
-font-size: 0.8rem;
-font-weight: 700;
-}
-
-  h2 {
-    color: #f8fafc;
-    margin: 0.4rem 0;
+  .graph-preview-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #334155;
+    border-radius: 18px;
+    background: #020617;
+    padding: 1.5rem;
+    height: 100%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
-  p {
+  .mini-graph {
+    width: 100%;
+    max-width: 460px;
+    aspect-ratio: 3 / 2;
+    margin: 0 auto 1.5rem;
+    display: block;
+  }
+
+  .graph-lines line {
+    stroke: #334155;
+    stroke-width: 2;
+  }
+
+  .node circle,
+  .node rect {
+    fill: #0f172a;
+    stroke-width: 2.5;
+  }
+
+  .node text {
+    fill: #e5e7eb;
+    font-size: 13px;
+    font-weight: 700;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    pointer-events: none;
+  }
+
+  .project rect {
+    stroke: #60a5fa;
+  }
+
+  .domain circle {
+    stroke: #a78bfa;
+  }
+
+  .skill circle {
+    stroke: #34d399;
+  }
+
+  .tool rect {
+    stroke: #fbbf24;
+  }
+
+  .graph-preview-card p {
     color: #cbd5e1;
     line-height: 1.6;
+    margin: 0;
   }
 </style>

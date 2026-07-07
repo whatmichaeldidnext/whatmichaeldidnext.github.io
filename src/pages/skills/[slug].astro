@@ -6,9 +6,9 @@ export async function getStaticPaths() {
   const skills = await getCollection("skills");
 
   return skills
-    .filter((skill) => skill.data.slug)
     .map((skill) => ({
-      params: { slug: skill.data.slug },
+      params: { slug: skill.data.slug ?? skill.data.id,
+      },
       props: { skill },
     }));
 }

@@ -71,6 +71,7 @@ const optionalString = z.preprocess(
 
 const baseEntity = z.object({
 	id: z.string(),
+	slug: optionalString,
 	name: optionalString,
 	title: optionalString,
 	description: optionalString,
