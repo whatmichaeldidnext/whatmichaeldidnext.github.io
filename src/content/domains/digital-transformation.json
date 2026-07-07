@@ -1,7 +1,23 @@
 {
   "id": "digital-transformation",
   "name": "Digital Transformation",
+  "slug": "digital-transformation",
   "description": "Modernising organisations through technology, process improvement and organisational change to deliver sustainable business capability.",
-  "status": "active",
-  "slug": "digital-transformation"
+  "discipline": "business",
+  "category": [
+    "technical",
+    "leadership",
+    "professional",
+    "methodology",
+    "strategic"
+  ],
+  "featured": false,
+  "visibility": "public",
+  "relatedDomains": [
+    "business-analysis",
+    "research",
+    "data-architecture",
+    "data-security",
+    "digital-resilience"
+  ]
 }
