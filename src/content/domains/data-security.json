@@ -1,7 +1,23 @@
 {
   "id": "data-security",
   "name": "Data Security",
+  "slug": "data-security",
   "description": "Understanding digital identity, privacy, data exposure and responsible approaches to information security.",
-  "status": "academic",
-  "slug": "data-security"
+  "discipline": "technology",
+  "category": [
+    "strategic",
+    "operational",
+    "academic",
+    "professional",
+    "technical"
+  ],
+  "featured": false,
+  "visibility": "public",
+  "relatedDomains": [
+    "osint",
+    "crm",
+    "data-architecture",
+    "cybersecurity",
+    "data-analytics"
+  ]
 }
