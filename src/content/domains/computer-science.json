@@ -1,7 +1,26 @@
 {
   "id": "computer-science",
   "name": "Computer Science",
+  "slug": "computer-science",
   "description": "Academic study of software engineering, algorithms, data structures, systems design and cybersecurity.",
-  "status": "academic",
-  "slug": "computer-science"
+  "discipline": "personal",
+  "category": [
+    "technical",
+    "academic",
+    "emerging",
+    "strategic"
+  ],
+  "featured": false,
+  "visibility": "public",
+  "relatedDomains": [
+    "osint",
+    "data-security",
+    "cybersecurity",
+    "network-security",
+    "software-dev",
+    "research",
+    "data-analytics",
+    "data-architecture",
+    "network-infrastructure"
+  ]
 }
