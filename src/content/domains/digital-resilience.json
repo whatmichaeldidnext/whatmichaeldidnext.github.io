@@ -1,7 +1,22 @@
 {
   "id": "digital-resilience",
   "name": "Digital Resilience",
+  "slug": "digital-resilience",
   "description": "Designing technology, services and operations that remain secure, available and effective during disruption or cyber incidents.",
-  "status": "active",
-  "slug": "digital-resilience"
+  "discipline": "business",
+  "category": [
+    "technical",
+    "professional",
+    "operational",
+    "strategic"
+  ],
+  "featured": false,
+  "visibility": "public",
+  "relatedDomains": [
+    "digital-transformation",
+    "infrastructure-modernisation",
+    "network-infrastructure",
+    "data-architecture",
+    "cybersecurity"
+  ]
 }
