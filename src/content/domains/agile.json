@@ -1,7 +1,23 @@
 {
   "id": "agile",
   "name": "Agile Delivery",
+  "slug": "agile",
   "description": "Applying iterative delivery principles, stakeholder collaboration and adaptive planning within technical projects.",
-  "status": "professional",
-  "slug": "agile"
+  "discipline": "delivery",
+  "category": [
+    "methodology",
+    "leadership",
+    "operational",
+    "strategic"
+  ],
+  "featured": false,
+  "visibility": "public",
+  "relatedDomains": [
+    "programme-management",
+    "digital-transformation",
+    "business-transformation",
+    "project-management",
+    "software-dev",
+    "service-transition"
+  ]
 }
