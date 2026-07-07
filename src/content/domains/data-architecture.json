@@ -1,7 +1,22 @@
 {
   "id": "data-architecture",
   "name": "Data Architecture",
+  "slug": "data-architecture",
   "description": "Designing and governing data structures, relationships and information models that support reliable decision-making.",
-  "status": "active",
-  "slug": "data-architecture"
+  "discipline": "technology",
+  "category": [
+    "technical",
+    "strategic",
+    "operational",
+    "professional"
+  ],
+  "featured": false,
+  "visibility": "public",
+  "relatedDomains": [
+    "data-security",
+    "data-analytics",
+    "crm",
+    "cybersecurity",
+    "osint"
+  ]
 }
