@@ -1,7 +1,18 @@
 {
   "id": "business-transformation",
   "name": "Business Transformation",
+  "slug": "business-transformation",
   "description": "Improving organisational capability through strategic change to processes, technology and operating models.",
-  "status": "active",
-  "slug": "business-transformation"
+  "discipline": "business",
+  "category": [
+    "methodology",
+    "strategic",
+    "operational"
+  ],
+  "featured": false,
+  "visibility": "public",
+  "relatedDomains": [
+    "programme-management",
+    "project-management"
+  ]
 }
