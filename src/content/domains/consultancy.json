@@ -1,7 +1,23 @@
 {
   "id": "consultancy",
   "name": "Consultancy",
+  "slug": "consultancy",
   "description": "Providing professional advisory, project delivery and technical expertise to help organisations achieve strategic outcomes.",
-  "status": "active",
-  "slug": "consultancy"
+  "discipline": "business",
+  "category": [
+    "professional",
+    "operational",
+    "technical",
+    "strategic",
+    "leadership"
+  ],
+  "featured": false,
+  "visibility": "public",
+  "relatedDomains": [
+    "programme-management",
+    "project-management",
+    "business-transformation",
+    "cybersecurity",
+    "software-dev"
+  ]
 }
