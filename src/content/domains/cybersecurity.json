@@ -1,7 +1,22 @@
 {
   "id": "cybersecurity",
   "name": "Cybersecurity",
+  "slug": "cybersecurity",
   "description": "Security-focused analysis, research and system design across software, data and infrastructure contexts.",
-  "status": "academic",
-  "slug": "cybersecurity"
+  "discipline": "technology",
+  "category": [
+    "technical",
+    "methodology",
+    "emerging",
+    "academic"
+  ],
+  "featured": false,
+  "visibility": "public",
+  "relatedDomains": [
+    "data-security",
+    "network-security",
+    "network-infrastructure",
+    "data-architecture",
+    "osint"
+  ]
 }
