@@ -51,45 +51,43 @@
     "roleTitle": "Portfolio Owner / Designer / Developer"
   },
   "domains": [
-    "Professional Portfolio",
-    "Information Architecture",
-    "Web Development",
-    "Data Modelling",
-    "UX Design",
-    "Project Delivery",
-    "Product Ownership",
-    "Cybersecurity",
-    "Software Development",
-    "Academic Research"
+    "information-architecture",
+    "web-dev",
+    "data-architecture",
+    "knowledge-graphs",
+    "project-management",
+    "product-ownership",
+    "cybersec",
+    "software-dev",
+    "research",
+    "web-2.0",
+    "osint"
   ],
   "skills": [
-    "Content modelling",
-    "Information architecture",
-    "JSON schema design",
-    "Frontend development",
-    "User experience design",
-    "Technical writing",
-    "Project storytelling",
-    "Evidence-based case study writing",
-    "Stakeholder communication",
-    "Systems thinking",
-    "Data-driven design",
-    "Portfolio strategy"
+    "technical-writing",
+    "system-design",
+    "system-thinking",
+    "content-modelling",
+    "information-architecture",
+    "json-schema",
+    "frontend-dev",
+    "web-ux",
+    "project-storytelling",
+    "ddd"
   ],
   "technologies": [
-    "JSON",
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "Static site generation",
-    "Content collections"
+    "json",
+    "html",
+    "css",
+    "javascript",
+    "cms"
   ],
   "tools": [
-    "Pages CMS",
-    "Git",
-    "GitHub",
-    "VS Code",
-    "Browser developer tools"
+    "pages-cms",
+    "git",
+    "github",
+    "vs-code",
+    "cloudflare"
   ],
   "thinking": [
     "systems-thinking",
