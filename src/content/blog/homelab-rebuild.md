@@ -41,7 +41,7 @@ tags:
   - docker
   - learning
 ---
-**The Home Lab Rebuild Cycle**
+### The Home Lab Rebuild Cycle
 
 Lab-nerds will recognise there’s a point in every homelab project where everything is working *just well enough* that the sensible nerd would leave it be.  
 Obviously, that’s the point I decide a rebuild is required.  
@@ -53,7 +53,7 @@ Usually, it’s that I have learned something new and *suddenly* the current set
 A better way to structure Docker Compose files. Or, a cleaner way to separate services. Or, a more sensible storage layout. Or, a reverse proxy that looks less like dark magic. Or, a better backup strategy. Or, a more elegant way of doing the thing I already did (clumsily) three weeks ago.  
 And just like that, my perfectly functioning system becomes “the legacy build”.
 
-**It starts so innocently**
+### It starts so innocently
 
 My homelab began with a simple idea.
 
@@ -65,7 +65,7 @@ Before long, my original “small server” has become an ecosystem of services,
 
 
 
-**The dangerous arrogance of ‘understanding’**
+### The dangerous arrogance of ‘understanding’
 
 The most dangerous moment in any home lab is when I catch myself pretending to be Neo:
 
@@ -81,7 +81,7 @@ My biggest problem is that discovery fosters hindsight and hindsight births diss
 I’m no longer happy that the service ‘just works’; I want it to work properly. I want it to be cleaner, more secure, easier to recover, easier to expand, and less dependent on me remembering why I did something weird six months ago. I want bells… I want whistles!  
 I rebuild.
 
-**Pretending the rebuild is not failure**
+### Pretending the rebuild is not failure
 
 I’m always tempted to view a rebuild as wasted effort. If I’m rebuilding, did I did it wrong the first time? Will this be wrong, again?  
 Probably, yes.  
@@ -97,7 +97,7 @@ The fifth version teaches documentation, usually because I have long forgotten w
 Each rebuild will leave something behind: a better mental model, a cleaner config., a clearer sense of possible exposures, or at least a new note that says, ‘Don’t do this thing again.’  
 And that’s progress.
 
-**The gaps between ‘working’ and ‘well designed’**
+### The gap between ‘working’ and ‘well designed’
 
 Among lessons in homelabbing, I’ve learnt there’s a difference between something working and something being well designed.  
 A container which runs. A service that responds. A dashboard that loads. A tunnel that connects. A file share which mounts.  
@@ -107,9 +107,7 @@ What happens if a disk fails? Where are my backups? Can I restore them? Which se
 These aren’t abstract questions when the system contains your media library, family photos, DNS filtering, personal documents, or whatever experimental service seemed interesting that week. If I screw this up, I’d have a very, *very* unhappy spouse…  
 My homelab teaches me through consequences. Usually they’re pretty insignificant consequences, thankfully. But consequences all the same.
 
-
-
-**The joy of patterns**
+### The joy of patterns
 
 The fun part (for me, at least) is that each rebuild comes from discovering a better pattern. At first, I might run a service baremetal. Then Docker stares at me. Then Docker Compose becomes the obvious step. Then I’ll separate related services into stacks and consider if these stacks should live on one VM, several VMs, or somewhere else entirely.
 
@@ -121,9 +119,7 @@ What can I do before I’ve bought the network ~~toys~~ hardware to do VLANs ‘
 
 Each new idea changes the shape of the lab. And because it is a lab, that is the point.
 
- 
-
-**Now I am become Sisyphus?**
+### Now I am become Sisyphus?
 
 So, the obvious question is why bother?  
 Why spend time rebuilding something that already worked? Why keep changing the structure? Why run services at home when hosted options exist? Why create a small pile of infrastructure problems that nobody technically asked me to solve?
@@ -134,9 +130,7 @@ My homelab isn’t just a collection of convenient services. It’s a media serv
 
 But mostly, it is a place to learn.
 
-
-
-**Current =/= Final**
+### Current =/= Final
 
 I have accepted that my homelab will never be finished.  
 There’s alway a cleaner layout, better backups, a more secure remote access model, or a new feature that makes me question life choices.  
