@@ -51,7 +51,7 @@ I don’t have any migration plans, or real necessity.
 Usually, it’s that I have learned something new and *suddenly* the current setup feels personally offensive.
 
 A better way to structure Docker Compose files. Or, a cleaner way to separate services. Or, a more sensible storage layout. Or, a reverse proxy that looks less like dark magic. Or, a better backup strategy. Or, a more elegant way of doing the thing I already did (clumsily) three weeks ago.  
-And just like that, my perfectly functioning system becomes “the legacy build”.
+And just like that, my perfectly functioning system becomes 'the legacy build'.
 
 ### It starts so innocently
 
